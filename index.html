@@ -547,6 +547,61 @@ section { padding-block: var(--paso); }
   letter-spacing: -0.01em; color: var(--tinta);
 }
 
+/* ── Precios ──────────────────────────────────────────────────────────
+   La base va aparte y primero: es el suelo del que parte todo, y mezclarla
+   con las licencias haría pensar que es una opción más. */
+.pr-base {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 24px;
+  border: 1px solid var(--regla);
+  background: var(--hoja);
+  padding: 26px 28px;
+}
+.pr-base-txt { flex: 1 1 340px; }
+.pr-base-txt h3 { margin: 10px 0 8px; }
+.pr-base-txt p { color: var(--tinta-2); font-size: 14.5px; max-width: 52ch; }
+.pr-base-cifra { display: flex; align-items: baseline; gap: 8px; }
+.pr-base-cifra b {
+  font-family: Archivo, sans-serif; font-weight: 700;
+  font-size: clamp(38px, 5vw, 54px); letter-spacing: -.04em; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.pr-base-cifra span { font-size: 13px; color: var(--tinta-3); }
+
+.pr-rejilla {
+  display: grid; gap: 1px; margin-top: 22px;
+  background: var(--regla-fina); border: 1px solid var(--regla-fina);
+}
+@media (min-width: 700px)  { .pr-rejilla { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1020px) { .pr-rejilla { grid-template-columns: repeat(3, 1fr); } }
+
+.pr-lic { background: var(--hoja); padding: 22px 20px 24px; display: grid; align-content: start; gap: 2px; }
+.pr-lic.destacada { background: var(--hoja-2); box-shadow: inset 2px 0 0 var(--sello); }
+.pr-precio {
+  font-family: Archivo, sans-serif; font-weight: 700;
+  font-size: 34px; letter-spacing: -.04em; line-height: 1.1;
+  font-variant-numeric: tabular-nums; margin-top: 8px;
+}
+.pr-mes { font-size: 11.5px; color: var(--tinta-3); }
+.pr-lic p { margin-top: 12px; font-size: 13.5px; line-height: 1.55; color: var(--tinta-2); }
+
+/* El ejemplo con el total ya sumado. Una tabla de precios sin un total obliga
+   a hacer la cuenta a mano, y ahí es donde se abandona. */
+.pr-ejemplo {
+  margin-top: 30px; padding: 26px 28px;
+  border: 1px solid var(--regla); background: var(--hoja);
+}
+.pr-ejemplo h3 { margin: 10px 0 18px; }
+.pr-tabla { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.pr-tabla td { padding: 10px 0; border-bottom: 1px solid var(--regla-fina); }
+.pr-uds { text-align: right; color: var(--tinta-3); font-size: 13px; white-space: nowrap; padding-inline: 16px !important; }
+.pr-imp { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pr-tabla tfoot td {
+  border-bottom: 0; border-top: 2px solid var(--tinta);
+  padding-top: 14px; font-weight: 600; font-size: 16px;
+}
+.pr-tabla tfoot .pr-imp { font-family: Archivo, sans-serif; font-size: 20px; letter-spacing: -.02em; }
+.pr-nota { margin-top: 16px; font-size: 13px; color: var(--tinta-2); }
+
 /* ── Cierre ───────────────────────────────────────────────────────── */
 .cierre h2 { max-width: 17ch; }
 .cierre p { max-width: 54ch; margin-top: 18px; color: var(--tinta-2); font-size: 17px; }
@@ -605,6 +660,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       <a href="#cadena">Cómo funciona</a>
       <a href="#integracion">Integración</a>
       <a href="#implantacion">Implantación</a>
+      <a href="#precios">Precios</a>
       <a href="#contacto">Contacto</a>
       <span class="indicador" id="indicador" aria-hidden="true"></span>
     </nav>
@@ -852,6 +908,98 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   </div>
 </section>
 
+<!-- ══ PRECIOS ══════════════════════════════════════════════════════ -->
+<section class="linea" id="precios">
+  <div class="env">
+    <div class="cabecera-seccion rev">
+      <span class="campo">Precios</span>
+      <div>
+        <h2>Se paga por quien lo usa, no por lo que hay dentro.</h2>
+        <p>Una base fija y una licencia por persona según lo que necesite tocar.
+           El material, la flota y los proyectos no cuentan: podéis meter todo el
+           inventario que tengáis.</p>
+      </div>
+    </div>
+
+    <!-- La base, aparte y primero: es el suelo del que parte todo. -->
+    <div class="pr-base rev">
+      <div class="pr-base-txt">
+        <span class="campo">Base</span>
+        <h3>El sistema completo</h3>
+        <p>Las siete áreas, la integración con Microsoft 365, copias de seguridad
+           y actualizaciones. Sin límite de material ni de proyectos.</p>
+      </div>
+      <div class="pr-base-cifra">
+        <b>200 €</b><span>al mes</span>
+      </div>
+    </div>
+
+    <div class="cabecera-seccion rev" style="margin-top:52px">
+      <span class="campo">Licencias</span>
+      <div>
+        <h2 style="font-size:clamp(21px,2.4vw,30px)">Una por persona, según su trabajo</h2>
+        <p>Cada una da acceso solo a lo suyo. Quien lleva la flota no ve los
+           presupuestos, y quien hace presupuestos no toca el parque informático.</p>
+      </div>
+    </div>
+
+    <div class="pr-rejilla rev">
+      <div class="pr-lic destacada">
+        <span class="campo">Superusuario</span>
+        <b class="pr-precio">210 €</b>
+        <span class="pr-mes">por persona / mes</span>
+        <p>Acceso a todo, sin restricciones. Es quien administra: da de alta a los
+           demás, define permisos y toca los ajustes del sistema.</p>
+      </div>
+      <div class="pr-lic">
+        <span class="campo">Inventario</span>
+        <b class="pr-precio">50 €</b>
+        <span class="pr-mes">por persona / mes</span>
+        <p>Material, categorías, salidas y entradas, etiquetas QR.</p>
+      </div>
+      <div class="pr-lic">
+        <span class="campo">Administración</span>
+        <b class="pr-precio">65 €</b>
+        <span class="pr-mes">por persona / mes</span>
+        <p>Presupuestos, facturas, proyectos y economía.</p>
+      </div>
+      <div class="pr-lic">
+        <span class="campo">Flota</span>
+        <b class="pr-precio">70 €</b>
+        <span class="pr-mes">por persona / mes</span>
+        <p>Vehículos, ITV y seguros, calendario de ocupación y órdenes de taller.</p>
+      </div>
+      <div class="pr-lic">
+        <span class="campo">IT</span>
+        <b class="pr-precio">100 €</b>
+        <span class="pr-mes">por persona / mes</span>
+        <p>Parque de dispositivos, líneas de telefonía y Microsoft 365.</p>
+      </div>
+    </div>
+
+    <!-- Un ejemplo con números reales: una tabla de precios sin un total
+         calculado obliga a hacer la cuenta a mano, y ahí es donde se abandona. -->
+    <div class="pr-ejemplo rev">
+      <span class="campo">Un ejemplo</span>
+      <h3>Una productora de tamaño medio</h3>
+      <table class="pr-tabla">
+        <tbody>
+          <tr><td>Base</td><td class="pr-uds">—</td><td class="pr-imp dato">200 €</td></tr>
+          <tr><td>Superusuario</td><td class="pr-uds dato">× 1</td><td class="pr-imp dato">210 €</td></tr>
+          <tr><td>Inventario</td><td class="pr-uds dato">× 3</td><td class="pr-imp dato">150 €</td></tr>
+          <tr><td>Administración</td><td class="pr-uds dato">× 2</td><td class="pr-imp dato">130 €</td></tr>
+          <tr><td>Flota</td><td class="pr-uds dato">× 1</td><td class="pr-imp dato">70 €</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Total</td><td class="pr-uds dato">7 personas</td><td class="pr-imp dato">760 € / mes</td></tr>
+        </tfoot>
+      </table>
+      <p class="pr-nota">Sin permanencia. Las licencias se suben y se bajan cada mes:
+         un rodaje grande entra y sale sin renegociar nada.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ══ CONTACTO ═════════════════════════════════════════════════════ -->
 <section class="linea cierre" id="contacto">
   <div class="env rev">
@@ -881,6 +1029,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <h4>Producto</h4>
         <ul>
           <li><a href="#areas">Siete áreas</a></li>
+          <li><a href="#precios">Precios</a></li>
           <li><a href="#cadena">Cómo funciona</a></li>
           <li><a href="#integracion">Microsoft 365</a></li>
         </ul>

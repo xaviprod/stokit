@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Stokit — sistema de gestión para productoras audiovisuales: material, flota, proyectos y presupuestos en un solo sitio.">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+</head>
+<body>
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   Stokit · presentación de producto
+
+   Documento de producción, no folleto: reglas a sangre, etiquetas en
+   versalita monoespaciada, cifras tabulares, esquinas rectas.
+   El rojo se usa como SELLO — para marcar, nunca para rellenar.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --papel:      #eef0f4;
+  --hoja:       #ffffff;
+  --hoja-2:     #f6f7fa;
+  --tinta:      #14161f;
+  --tinta-2:    #4e5566;
+  --tinta-3:    #767d8d;
+  --regla:      #c6ccd7;
+  --regla-fina: #e0e4ea;
+  --sello:      #c8102e;
+  --sobre-sello:#ffffff;
+  --sello-piel: #fbe9ec;
+  --dorado:     #8a6410;
+  --dorado-piel:#f7efdc;
+  --velo:       rgba(255,255,255,.82);
+  /* Retícula de fondo: papel milimetrado. Muy tenue de base, viva cerca
+     del cursor. En claro tiene que ser más contenida que en oscuro. */
+  --tramaC:     rgba(20,22,31,.055);
+  --tramaViva:  rgba(20,22,31,.16);
+  --halo:       rgba(200,16,46,.10);
+
+  --ancho: 1160px;
+  --paso: clamp(64px, 8vw, 128px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papel:      #0b0b0d;
+    --hoja:       #131418;
+    --hoja-2:     #191b21;
+    --tinta:      #eaecf2;
+    --tinta-2:    #a6adbc;
+    --tinta-3:    #838a9a;
+    --regla:      #2b303b;
+    --regla-fina: #22262e;
+    --sello:      #ff4d5f;
+    --sobre-sello:#14161f;
+    --sello-piel: #2a1419;
+    --dorado:     #d9a441;
+    --dorado-piel:#241c0e;
+    --velo:       rgba(11,11,13,.82);
+    --tramaC:     rgba(255,255,255,.045);
+    --tramaViva:  rgba(255,255,255,.15);
+    --halo:       rgba(255,77,95,.13);
+  }
+}
+:root[data-theme="dark"] {
+  --papel:      #0b0b0d;
+  --hoja:       #131418;
+  --hoja-2:     #191b21;
+  --tinta:      #eaecf2;
+  --tinta-2:    #a6adbc;
+  --tinta-3:    #838a9a;
+  --regla:      #2b303b;
+  --regla-fina: #22262e;
+  --sello:      #ff4d5f;
+  --sobre-sello:#14161f;
+  --sello-piel: #2a1419;
+  --dorado:     #d9a441;
+  --dorado-piel:#241c0e;
+  --velo:       rgba(11,11,13,.82);
+  --tramaC:     rgba(255,255,255,.045);
+  --tramaViva:  rgba(255,255,255,.15);
+  --halo:       rgba(255,77,95,.13);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══ FONDO INTERACTIVO ═══════════════════════════════════════════════
+   Papel milimetrado a página completa: casi invisible de base, y vivo
+   alrededor del cursor. No es un adorno traído de fuera — es el material
+   sobre el que se dibuja todo lo demás de esta página.
+
+   Tres capas fijas:
+     · la trama tenue, siempre puesta, que deriva despacio con el scroll
+     · la misma trama más marcada, RECORTADA por un círculo en el cursor
+     · un halo rojo suave, también en el cursor
+
+   Va con `position: fixed` y `z-index: 0`, y el contenido en 1: así queda
+   por encima del fondo del body y por debajo de todo lo legible.
+   ═══════════════════════════════════════════════════════════════════ */
+.fondo { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.fondo > div { position: absolute; inset: -60px; }
+
+.trama {
+  background-image:
+    linear-gradient(to right,  var(--tramaC) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--tramaC) 1px, transparent 1px);
+  background-size: 58px 58px;
+  transform: translate3d(0, var(--deriva, 0px), 0);
+}
+/* La capa viva: misma retícula, más contraste, enseñada solo en un
+   círculo alrededor del puntero. La máscara es lo que la hace seguir. */
+.trama-viva {
+  background-image:
+    linear-gradient(to right,  var(--tramaViva) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--tramaViva) 1px, transparent 1px);
+  background-size: 58px 58px;
+  transform: translate3d(0, var(--deriva, 0px), 0);
+  -webkit-mask-image: radial-gradient(circle 300px at var(--mx, 50%) var(--my, 40%), #000 0%, rgba(0,0,0,.45) 45%, transparent 72%);
+          mask-image: radial-gradient(circle 300px at var(--mx, 50%) var(--my, 40%), #000 0%, rgba(0,0,0,.45) 45%, transparent 72%);
+}
+.halo {
+  background-image: radial-gradient(circle 380px at var(--mx, 50%) var(--my, 40%), var(--halo) 0%, transparent 70%);
+}
+/* El contenido, por encima del fondo. */
+.barra, .portada, section, footer { position: relative; z-index: 1; }
+
+/* ── La lente ─────────────────────────────────────────────────────────
+   Un cristal que desenfoca LO QUE TIENE DETRÁS, no una copia del texto.
+   Duplicar el titular para desenfocar la copia habría sido más fácil,
+   pero el duplicado se descuadra en cuanto el texto cambia de línea.
+   Con `backdrop-filter` no hay copia: es el mismo texto, visto a través.
+
+   Va en z-index 5: por encima de la portada (1) y por debajo de la
+   cabecera (50), para no emborronar el menú al pasar por arriba. */
+.lente {
+  position: fixed; inset: 0; z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .28s ease;
+  -webkit-backdrop-filter: blur(2.55px) saturate(114%);
+          backdrop-filter: blur(2.55px) saturate(114%);
+  /* La máscara no llega a opaca (0,5): así el desenfoque entra a medias
+     y queda un roce, no un cristal esmerilado. */
+  -webkit-mask-image: radial-gradient(circle 155px at var(--mx, 50%) var(--my, 40%),
+    rgba(0,0,0,.58) 0%, rgba(0,0,0,.32) 46%, transparent 72%);
+          mask-image: radial-gradient(circle 155px at var(--mx, 50%) var(--my, 40%),
+    rgba(0,0,0,.58) 0%, rgba(0,0,0,.32) 46%, transparent 72%);
+}
+.lente.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .lente { display: none; } }
+
+.env { max-width: var(--ancho); margin-inline: auto; padding-inline: 26px; }
+
+h1, h2, h3 {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  text-wrap: balance;
+  margin: 0;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+}
+/* Peso 500 y no 800: el aire de la portada viene de aligerar el titular
+   y darle tamaño, que es lo que separa una página de producto de un
+   folleto. Los títulos de sección sí siguen pesados. */
+h1 { font-weight: 500; font-size: clamp(44px, 7.4vw, 92px); letter-spacing: -0.045em; line-height: .98; }
+h2 { font-weight: 700; font-size: clamp(28px, 3.5vw, 44px); }
+h3 { font-weight: 600; font-size: 18px; letter-spacing: -0.015em; line-height: 1.28; }
+p  { margin: 0; }
+
+.campo {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--tinta-3);
+}
+.dato { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--sello); outline-offset: 3px;
+}
+
+/* ── Marca ────────────────────────────────────────────────────────── */
+.logo { display: block; color: currentColor; }
+.logo path { fill: currentColor; }
+
+.marca { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--tinta); }
+/* El logo va limpio, sin caja: es la marca oficial y se sostiene sola.
+   Lo único que hace al pasar por encima es tomar el rojo. */
+.marca .logo { width: 22px; height: 22px; transition: color .2s ease; }
+.marca:hover .logo { color: var(--sello); }
+.marca b {
+  font-family: Archivo, sans-serif; font-weight: 800;
+  font-size: 17.5px; letter-spacing: -0.035em; white-space: nowrap;
+}
+
+/* ── Cabecera ─────────────────────────────────────────────────────── */
+.barra {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--velo);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, background .2s ease;
+}
+.barra.pegada { border-bottom-color: var(--regla); }
+.barra .env { display: flex; align-items: center; gap: 22px; height: 68px; transition: height .2s ease; }
+.barra.pegada .env { height: 58px; }
+
+nav.menu { position: relative; display: flex; align-items: center; gap: 2px; margin-inline-start: auto; }
+nav.menu a {
+  position: relative; z-index: 1;
+  padding: 9px 14px;
+  font-size: 13.5px; font-weight: 500;
+  color: var(--tinta-2); text-decoration: none;
+  transition: color .18s ease;
+}
+nav.menu a:hover { color: var(--tinta); }
+/* El apartado en el que estás, marcado mientras bajas. */
+nav.menu a.aqui { color: var(--tinta); font-weight: 600; }
+
+/* Una sola barra que se desliza al apartado activo, en vez de un fondo
+   por botón: el movimiento une los apartados en lugar de trocearlos.
+   Nace sin transición para no venir volando desde la izquierda al cargar. */
+.indicador {
+  position: absolute; bottom: 2px; left: 0; height: 2px;
+  width: var(--ind-w, 0px);
+  transform: translateX(var(--ind-x, 0px));
+  background: var(--sello);
+  opacity: 0;
+}
+.indicador.listo { opacity: 1; transition: transform .32s cubic-bezier(.2,.9,.3,1), width .32s cubic-bezier(.2,.9,.3,1), opacity .2s ease; }
+.barra .entrar { margin-inline-start: 8px; }
+.barra .cta { margin-inline-start: 6px; }
+@media (max-width: 980px) {
+  nav.menu { display: none; }
+  .barra .entrar { margin-inline-start: auto; }
+}
+/* En pantalla pequeña sobra pedir demo dos veces: la sección de contacto
+   está a un scroll, pero entrar a tu cuenta no tiene otra puerta. */
+@media (max-width: 620px) { .barra .cta { display: none; } }
+
+/* Progreso de lectura: una regla roja que avanza con la página */
+.progreso {
+  position: absolute; left: 0; bottom: -1px; height: 2px;
+  background: var(--sello);
+  width: var(--avance, 0%);
+  transition: width .08s linear;
+}
+
+/* ── Botones ──────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  height: 42px; padding: 0 20px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.11em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap;
+  border: 1px solid var(--tinta);
+  background: var(--tinta); color: var(--papel);
+  transition: background .17s, color .17s, border-color .17s;
+}
+.btn:hover { background: var(--sello); border-color: var(--sello); color: var(--sobre-sello); }
+.btn.hueco { background: transparent; color: var(--tinta); border-color: var(--regla); }
+.btn.hueco:hover { background: var(--tinta); color: var(--papel); border-color: var(--tinta); }
+
+/* ── Revelado al entrar en pantalla ───────────────────────────────── */
+.rev { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1); }
+.rev.visto { opacity: 1; transform: none; }
+.rev.d1 { transition-delay: .07s } .rev.d2 { transition-delay: .14s }
+.rev.d3 { transition-delay: .21s } .rev.d4 { transition-delay: .28s }
+
+/* ── Portada ──────────────────────────────────────────────────────── */
+.portada { padding-block: clamp(90px, 12vw, 168px) 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+.punto { width: 7px; height: 7px; background: var(--sello); }
+.portada h1 { max-width: 15ch; }
+.tesis {
+  max-width: 54ch; margin-top: 30px;
+  font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; color: var(--tinta-2);
+}
+.tesis strong { color: var(--tinta); font-weight: 600; }
+.acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 38px; }
+
+/* ── Fragmento de producto ────────────────────────────────────────── */
+.muestra {
+  margin: clamp(52px, 6vw, 84px) 0 0;
+  border: 1px solid var(--regla);
+  background: var(--hoja);
+}
+.muestra-cab {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 16px; border-bottom: 1px solid var(--regla-fina); background: var(--hoja-2);
+}
+.muestra-cab .campo { margin-inline-end: auto; }
+.semaforo { display: flex; gap: 5px; }
+.semaforo i { width: 8px; height: 8px; background: var(--regla); }
+.tabla-wrap { overflow-x: auto; }
+table.gear { width: 100%; min-width: 660px; border-collapse: collapse; font-size: 13.5px; }
+table.gear th {
+  text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--regla-fina);
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--tinta-3); white-space: nowrap;
+}
+table.gear td { padding: 13px 16px; border-bottom: 1px solid var(--regla-fina); }
+table.gear tr:last-child td { border-bottom: 0; }
+table.gear .cod { font-family: "IBM Plex Mono", monospace; color: var(--tinta-3); font-size: 12.5px; }
+table.gear .nom { font-weight: 500; }
+table.gear .sub { display: block; font-size: 12px; color: var(--tinta-3); }
+.pill {
+  display: inline-block; padding: 3px 9px;
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .06em; white-space: nowrap;
+  background: var(--hoja-2); color: var(--tinta-2); border: 1px solid var(--regla-fina);
+}
+.pill.fuera { background: var(--sello-piel);  color: var(--sello);  border-color: transparent; }
+.pill.aviso { background: var(--dorado-piel); color: var(--dorado); border-color: transparent; }
+
+/* ── Secciones ────────────────────────────────────────────────────── */
+section { padding-block: var(--paso); }
+.linea { border-top: 1px solid var(--regla); }
+
+.cabecera-seccion {
+  display: grid; grid-template-columns: 172px minmax(0, 1fr);
+  gap: 30px; align-items: start; margin-bottom: 48px;
+}
+.cabecera-seccion .campo { padding-top: 10px; }
+.cabecera-seccion p { max-width: 58ch; margin-top: 15px; color: var(--tinta-2); font-size: 16.5px; }
+
+.modulos { border-top: 1px solid var(--regla); }
+.modulo {
+  display: grid; grid-template-columns: 172px minmax(0, 1fr);
+  gap: 30px; padding-block: 28px;
+  border-bottom: 1px solid var(--regla-fina); align-items: start;
+}
+.modulo .campo { padding-top: 4px; }
+.modulo p { color: var(--tinta-2); margin-top: 9px; max-width: 60ch; font-size: 15.5px; line-height: 1.62; }
+.modulo .detalle {
+  margin-top: 13px; padding-inline-start: 14px;
+  border-inline-start: 2px solid var(--sello);
+  font-family: "IBM Plex Mono", monospace; font-size: 12.5px;
+  color: var(--tinta-2); line-height: 1.6;
+}
+@media (max-width: 760px) {
+  .cabecera-seccion, .modulo { grid-template-columns: 1fr; gap: 12px; }
+  .cabecera-seccion .campo, .modulo .campo { padding-top: 0; }
+}
+
+/* ═══ LA CADENA · el momento de scroll ════════════════════════════════
+   La sección se ancla en pantalla y los cuatro eslabones se encienden
+   uno a uno según se baja. No es decoración: la cadena ES el argumento
+   —una cámara cruza cuatro secciones— y aquí se recorre en vez de
+   leerse. Con `prefers-reduced-motion` sale entera y quieta.
+   ══════════════════════════════════════════════════════════════════ */
+/* 200vh y no 340: con el tramo largo había que scrollear tres pantallas
+   para ver cuatro tarjetas. El recorrido útil es solo la diferencia con
+   el alto de ventana, así que 200vh da una pantalla de margen — justo lo
+   necesario para que se lea el avance sin que se haga pesado. */
+.pista { position: relative; height: 200vh; }
+.pin {
+  position: sticky; top: 0;
+  height: 100vh; min-height: 560px;
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden;
+}
+.pin-cab { margin-bottom: clamp(26px, 4vh, 48px); }
+.pin-cab h2 { max-width: 20ch; }
+.pin-cab p { margin-top: 14px; max-width: 54ch; color: var(--tinta-2); }
+
+/* ── La vía ───────────────────────────────────────────────────────
+   La cadena se recorre: un nodo viaja de eslabón a eslabón y cada uno
+   se engancha a su paso. Antes esto era un rectángulo rojo creciendo —
+   la idea estaba bien, la ejecución era tosca.
+
+   Cuatro piezas: el raíl de fondo, el trazo rojo que lo va cubriendo,
+   los hitos donde está cada eslabón, y el nodo que viaja por encima.
+   ═══════════════════════════════════════════════════════════════════ */
+.via { position: relative; height: 34px; margin-bottom: 0; }
+.via-rail {
+  position: absolute; inset-inline: 0; top: 22px; height: 1px;
+  background: var(--regla);
+}
+.via-trazo {
+  position: absolute; left: 0; top: 22px; height: 1px;
+  width: var(--via, 0%);
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--sello) 45%, transparent) 0%,
+    var(--sello) 70%, var(--sello) 100%);
+  transition: width .12s linear;
+}
+/* Los hitos: dónde cae cada eslabón. Apagados son una marca gris; al
+   pasar el nodo se rellenan. */
+.via-hito {
+  position: absolute; top: 18px; left: var(--x);
+  width: 9px; height: 9px; margin-inline-start: -4.5px;
+  border: 1px solid var(--regla); background: var(--hoja);
+  transition: background .3s ease, border-color .3s ease, transform .3s cubic-bezier(.2,1.4,.4,1);
+}
+.via-hito.pasado { background: var(--sello); border-color: var(--sello); transform: scale(1.25); }
+
+/* El nodo que viaja. La etiqueta que lleva encima dice qué está
+   recorriendo el sistema: no es un punto abstracto, es la cámara. */
+.via-nodo {
+  position: absolute; top: 14px; left: var(--via-nodo, 12.5%);
+  margin-inline-start: -8.5px;
+  width: 17px; height: 17px;
+  background: var(--sello);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sello) 22%, transparent);
+  transition: left .12s linear, box-shadow .3s ease;
+}
+.via-nodo::after {
+  content: 'ARRI Alexa 35';
+  position: absolute; left: 50%; bottom: calc(100% + 9px);
+  transform: translateX(-50%);
+  padding: 3px 8px; white-space: nowrap;
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  background: var(--sello); color: var(--sobre-sello);
+}
+
+.pin > .env { position: relative; z-index: 1; }
+
+/* Por debajo de 900px las tarjetas se apilan en una columna, así que
+   los hitos al 12,5 / 37,5 / 62,5 / 87,5% ya no señalan a nada y el nodo
+   viajaría por encima de la primera. Se quedan el raíl y el trazo, que
+   siguen diciendo cuánto llevas; el enganche pasa a la izquierda. */
+@media (max-width: 899px) {
+  .via { height: 18px; }
+  .via-rail, .via-trazo { top: 8px; }
+  .via-hito, .via-nodo { display: none; }
+  .eslabon::before { left: 0; margin-inline-start: 0; width: 2px; height: 0; }
+  .eslabon.on::before { height: 100%; }
+  .eslabon::after { display: none; }
+}
+
+.eslabones { display: grid; gap: 1px; background: var(--regla-fina); border: 1px solid var(--regla-fina); border-top: 0; }
+@media (min-width: 900px) { .eslabones { grid-template-columns: repeat(4, 1fr); } }
+
+.eslabon {
+  position: relative; background: var(--hoja);
+  padding: 30px 22px 30px;
+  display: grid; gap: 9px; align-content: start;
+  overflow: hidden;
+}
+/* El enganche: baja desde la vía hasta la tarjeta cuando el nodo pasa.
+   Es lo que hace que se lea como una cadena y no como cuatro cajas. */
+.eslabon::before {
+  content: ''; position: absolute; top: 0; left: 50%;
+  width: 1px; height: 0; margin-inline-start: -.5px;
+  background: var(--sello);
+  transition: height .42s cubic-bezier(.16,.8,.3,1);
+}
+.eslabon.on::before { height: 22px; }
+/* Y una regla roja que barre el borde superior de izquierda a derecha. */
+.eslabon::after {
+  content: ''; position: absolute; top: 0; left: 0; height: 2px;
+  width: 0; background: var(--sello);
+  transition: width .5s cubic-bezier(.16,.8,.3,1);
+}
+.eslabon.on::after { width: 100%; }
+
+/* Las tres partes entran escalonadas: etiqueta, título y texto. Todo a
+   la vez es un parpadeo; escalonado se lee como que algo llega. */
+.eslabon .campo,
+.eslabon b,
+.eslabon span {
+  opacity: .28;
+  transform: translateY(7px);
+  transition: opacity .45s ease, transform .45s cubic-bezier(.16,.8,.3,1), color .45s ease;
+}
+.eslabon.on .campo { opacity: 1; transform: none; color: var(--sello); transition-delay: .06s; }
+.eslabon.on b     { opacity: 1; transform: none; transition-delay: .13s; }
+.eslabon.on span  { opacity: 1; transform: none; transition-delay: .2s; }
+
+.eslabon .campo { color: var(--tinta-3); }
+.eslabon b {
+  font-family: Archivo, sans-serif; font-weight: 700;
+  font-size: clamp(19px, 2vw, 25px); letter-spacing: -0.03em; line-height: 1.1;
+}
+.eslabon span { font-size: 14px; color: var(--tinta-2); line-height: 1.5; }
+
+.remate {
+  margin-top: clamp(22px, 3.5vh, 40px);
+  font-family: Archivo, sans-serif; font-weight: 600;
+  font-size: clamp(17px, 2vw, 23px); letter-spacing: -0.02em;
+  color: var(--tinta-3);
+  transition: color .5s ease;
+}
+.remate.on { color: var(--tinta); }
+.remate em { font-style: normal; color: var(--sello); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pista { height: auto; }
+  .pin { position: static; height: auto; min-height: 0; display: block; padding-block: 0; }
+  .eslabon .campo, .eslabon b, .eslabon span { opacity: 1; transform: none; }
+  .eslabon.on .campo { color: var(--sello); }
+  .via { display: none; }
+  .remate { color: var(--tinta); }
+  .rev { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  * { animation: none !important; }
+}
+
+/* La cadena vive en una banda a sangre, de borde a borde: separa el
+   momento de scroll del resto del documento y le da escenario propio. */
+#cadena { background: var(--hoja); border-block: 1px solid var(--regla); }
+
+/* ── Rejillas ─────────────────────────────────────────────────────── */
+.rejilla { display: grid; gap: 1px; background: var(--regla-fina); border: 1px solid var(--regla-fina); }
+@media (min-width: 760px) { .rejilla.dos { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 620px) { .rejilla.cuatro { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .rejilla.cuatro { grid-template-columns: repeat(4, 1fr); } }
+.celda { background: var(--hoja); padding: 24px 22px; }
+.celda h3 { margin-bottom: 8px; }
+.celda p { color: var(--tinta-2); font-size: 14.5px; line-height: 1.55; }
+.celda b.cifra {
+  display: block; font-family: Archivo, sans-serif; font-weight: 700;
+  font-size: 40px; letter-spacing: -0.045em; line-height: 1;
+  font-variant-numeric: tabular-nums; margin-bottom: 8px;
+}
+
+.nota {
+  margin-top: 30px; padding: 20px 22px;
+  background: var(--hoja); border: 1px solid var(--regla-fina);
+  border-inline-start: 3px solid var(--sello);
+  font-size: 14.5px; color: var(--tinta-2); max-width: 72ch; line-height: 1.6;
+}
+.nota strong { color: var(--tinta); font-weight: 600; }
+
+/* El correo, escrito a la vista y no solo dentro del enlace: así se puede
+   copiar, y se ve de un vistazo si hay que cambiarlo. */
+.correo {
+  margin-top: 20px;
+  font-size: clamp(19px, 2.4vw, 27px); font-weight: 500;
+  letter-spacing: -0.01em; color: var(--tinta);
+}
+
+/* ── Cierre ───────────────────────────────────────────────────────── */
+.cierre h2 { max-width: 17ch; }
+.cierre p { max-width: 54ch; margin-top: 18px; color: var(--tinta-2); font-size: 17px; }
+
+/* ── Pie ──────────────────────────────────────────────────────────── */
+footer { border-top: 1px solid var(--regla); background: var(--hoja); }
+.pie-rejilla {
+  display: grid; gap: 40px 30px;
+  padding-block: clamp(44px, 6vw, 68px);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 780px) { .pie-rejilla { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
+.pie-marca .logo { width: 34px; height: 34px; margin-bottom: 16px; }
+.pie-marca b {
+  display: block; font-family: Archivo, sans-serif; font-weight: 800;
+  font-size: 20px; letter-spacing: -0.035em; margin-bottom: 8px;
+}
+.pie-marca p { color: var(--tinta-2); font-size: 14px; max-width: 34ch; line-height: 1.55; }
+.pie-col h4 {
+  margin: 0 0 14px;
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--tinta-3);
+}
+.pie-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.pie-col a { color: var(--tinta-2); text-decoration: none; font-size: 14.5px; transition: color .16s; }
+.pie-col a:hover { color: var(--sello); }
+.pie-baja {
+  border-top: 1px solid var(--regla-fina);
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  padding-block: 20px;
+}
+.pie-baja .campo:first-child { margin-inline-end: auto; }
+.hecho-en { display: inline-flex; align-items: center; gap: 8px; }
+.hecho-en .bandera { flex: 0 0 auto; opacity: .9; }
+</style>
+
+<div class="fondo" aria-hidden="true">
+  <div class="trama"></div>
+  <div class="trama-viva" id="tramaViva"></div>
+  <div class="halo" id="halo"></div>
+</div>
+<div class="lente" id="lente" aria-hidden="true"></div>
+
+<!-- ══ CABECERA ═════════════════════════════════════════════════════ -->
+<header class="barra" id="barra">
+  <div class="env">
+    <a class="marca" href="#inicio" aria-label="Stokit, inicio">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/>
+        <path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/>
+      </svg>
+      <b>Stokit</b>
+    </a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="#areas">Áreas</a>
+      <a href="#cadena">Cómo funciona</a>
+      <a href="#integracion">Integración</a>
+      <a href="#implantacion">Implantación</a>
+      <a href="#contacto">Contacto</a>
+      <span class="indicador" id="indicador" aria-hidden="true"></span>
+    </nav>
+    <a class="btn hueco entrar" href="http://localhost:3000" rel="noopener">Iniciar sesión</a>
+    <a class="btn cta" href="#contacto">Pedir demo</a>
+  </div>
+  <div class="progreso" id="progreso" aria-hidden="true"></div>
+</header>
+
+<!-- ══ PORTADA ══════════════════════════════════════════════════════ -->
+<div class="env portada" id="inicio" data-lente>
+  <span class="eyebrow campo rev"><i class="punto"></i> Sistema de gestión para productoras</span>
+  <h1 class="rev d1">Material, flota y presupuestos en un solo sistema.</h1>
+  <p class="tesis rev d2">
+    Sustituye las hojas de cálculo con las que hoy se gestiona una productora.
+    Las cuatro áreas <strong>comparten los mismos datos</strong>, así que una consulta
+    las atraviesa sin buscar en dos sitios.
+  </p>
+  <div class="acciones rev d3">
+    <a class="btn" href="#contacto">Pedir demo</a>
+    <a class="btn hueco" href="#areas">Ver qué cubre</a>
+  </div>
+
+  <figure class="muestra rev d4">
+    <div class="muestra-cab">
+      <span class="campo">Inventario · material fuera de casa</span>
+      <span class="semaforo" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+    <div class="tabla-wrap">
+      <table class="gear">
+        <thead>
+          <tr><th scope="col">Cód.</th><th scope="col">Material</th><th scope="col">Rodaje</th><th scope="col">Salió en</th><th scope="col">Estado</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cod">CAM-014</td>
+            <td class="nom">ARRI Alexa 35<span class="sub">Cámara / Cuerpos</span></td>
+            <td class="dato">Spot Meridiano</td><td class="dato">V-04 · Furgoneta</td>
+            <td><span class="pill fuera">Fuera · vuelve 04/09</span></td>
+          </tr>
+          <tr>
+            <td class="cod">LUZ-072</td>
+            <td class="nom">Kit HMI 2.5 kW<span class="sub">Luces / Descarga</span></td>
+            <td class="dato">Spot Meridiano</td><td class="dato">C-01 · Camión 7,5 t</td>
+            <td><span class="pill fuera">Fuera · vuelve 04/09</span></td>
+          </tr>
+          <tr>
+            <td class="cod">V-07</td>
+            <td class="nom">Furgoneta 9 plazas<span class="sub">Flota / Furgonetas</span></td>
+            <td class="dato">—</td><td class="dato">—</td>
+            <td><span class="pill aviso">ITV en 6 días</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+</div>
+
+<!-- ══ ÁREAS ════════════════════════════════════════════════════════ -->
+<section class="linea" id="areas" style="border-top:0">
+  <div class="env">
+    <div class="cabecera-seccion rev">
+      <span class="campo">Qué cubre</span>
+      <div>
+        <h2>Siete áreas, un sistema.</h2>
+        <p>Cada área funciona por sí sola y comparte datos con el resto.</p>
+      </div>
+    </div>
+
+    <div class="modulos">
+      <div class="modulo rev">
+        <span class="campo">Inventario</span>
+        <div>
+          <h3>Todo el material, y dónde está</h3>
+          <p>Ficha por artículo con categoría, estado y ubicación. Registro de salidas y entradas con revisión fotográfica.</p>
+          <p class="detalle">Etiquetas QR imprimibles que abren la ficha desde el propio material.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">Flota</span>
+        <div>
+          <h3>Vehículos con la documentación al día</h3>
+          <p>Control de ITV y seguro, calendario de ocupación por vehículo, kilometraje y órdenes de taller con su coste.</p>
+          <p class="detalle">Los avisos de vencimiento se emiten con antelación configurable.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">Proyectos</span>
+        <div>
+          <h3>Qué lleva cada rodaje</h3>
+          <p>Fechas, equipo asignado y material reservado. Subproyectos por departamento: cámara, luces, grip.</p>
+          <p class="detalle">Cada subproyecto genera un presupuesto independiente.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">Presupuestos</span>
+        <div>
+          <h3>Del borrador a la factura</h3>
+          <p>Se compone desde el catálogo de precios y se convierte en factura sin reescribirlo. Plantillas configurables y exportación a PDF.</p>
+          <p class="detalle">La factura incorpora datos fiscales y numeración propia.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">Economía</span>
+        <div>
+          <h3>Lo firme y lo que está en el aire</h3>
+          <p>Embudo comercial por estado, movimiento mensual, ingreso por proyecto y gasto de flota descontado.</p>
+          <p class="detalle">Facturado, aceptado, enviado y borrador se contabilizan por separado.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">Personal</span>
+        <div>
+          <h3>Quién tiene qué</h3>
+          <p>Ficha por persona con departamento, contacto y el material y los dispositivos que tiene asignados.</p>
+          <p class="detalle">Cada asignación queda registrada con fecha, para altas y bajas.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">Tecnología</span>
+        <div>
+          <h3>Parque informático y líneas</h3>
+          <p>Ordenadores y móviles con número de serie y garantía, líneas de telefonía con su tarifa y routers portátiles asignados a rodaje.</p>
+          <p class="detalle">Incluye sincronización con Microsoft 365.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LA CADENA · scroll ═══════════════════════════════════════════ -->
+<section class="linea" id="cadena" style="padding-block:0">
+  <div class="pista" id="pista">
+    <div class="pin">
+      <div class="env" style="width:100%">
+        <div class="pin-cab">
+          <span class="campo">Cómo funciona</span>
+          <h2 style="margin-top:14px">Una cámara no es una fila. Es una cadena.</h2>
+          <p>Una consulta recorre las cuatro áreas sin salir del sistema.</p>
+        </div>
+
+        <div class="via" id="via" aria-hidden="true">
+          <div class="via-rail"></div>
+          <div class="via-trazo" id="viaTrazo"></div>
+          <span class="via-hito" style="--x:12.5%"></span>
+          <span class="via-hito" style="--x:37.5%"></span>
+          <span class="via-hito" style="--x:62.5%"></span>
+          <span class="via-hito" style="--x:87.5%"></span>
+          <div class="via-nodo" id="viaNodo"></div>
+        </div>
+        <div class="eslabones" id="eslabones">
+          <div class="eslabon">
+            <span class="campo">01 · Material</span>
+            <b>ARRI Alexa 35</b>
+            <span>Salida registrada el 28 de agosto, con revisión fotográfica.</span>
+          </div>
+          <div class="eslabon">
+            <span class="campo">02 · Flota</span>
+            <b>V-04 · Furgoneta</b>
+            <span>Vehículo asignado y bloqueado en el calendario esos días.</span>
+          </div>
+          <div class="eslabon">
+            <span class="campo">03 · Proyecto</span>
+            <b>Spot Meridiano</b>
+            <span>Rodaje de destino, con sus fechas y su equipo.</span>
+          </div>
+          <div class="eslabon">
+            <span class="campo">04 · Presupuesto</span>
+            <b>Línea facturada</b>
+            <span>Facturado al precio del catálogo vigente en esa fecha.</span>
+          </div>
+        </div>
+
+        <p class="remate" id="remate">Un archivador guarda. <em>Un sistema responde.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INTEGRACIÓN ══════════════════════════════════════════════════ -->
+<section class="linea" id="integracion">
+  <div class="env">
+    <div class="cabecera-seccion rev">
+      <span class="campo">Integración</span>
+      <div>
+        <h2>Conectado al directorio de la empresa.</h2>
+        <p>Las altas y bajas de personal se hacen una sola vez: Stokit escribe directamente en Microsoft 365.</p>
+      </div>
+    </div>
+    <div class="rejilla dos rev">
+      <div class="celda">
+        <h3>Directorio sincronizado</h3>
+        <p>Cruza las cuentas del tenant con las fichas de personal por correo y distingue personas de buzones compartidos y licencias. La importación siempre se confirma a mano.</p>
+      </div>
+      <div class="celda">
+        <h3>Alta de usuario</h3>
+        <p>Crea la cuenta y asigna licencia mostrando las plazas disponibles antes de consumirlas. La contraseña se muestra una sola vez y no se almacena.</p>
+      </div>
+      <div class="celda">
+        <h3>Buzones</h3>
+        <p>Respuestas automáticas y reenvío de correo sin entrar en la consola de Microsoft.</p>
+      </div>
+      <div class="celda">
+        <h3>Grupos</h3>
+        <p>Gestión de miembros por grupo. Los grupos de pertenencia dinámica se identifican y quedan protegidos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IMPLANTACIÓN ═════════════════════════════════════════════════ -->
+<section class="linea" id="implantacion">
+  <div class="env">
+    <div class="cabecera-seccion rev">
+      <span class="campo">Implantación</span>
+      <div>
+        <h2>Se monta sobre lo que ya tenéis.</h2>
+        <p>No hay que empezar de cero ni parar la producción para ponerlo en marcha.</p>
+      </div>
+    </div>
+
+    <div class="rejilla dos rev">
+      <div class="celda">
+        <h3>Migración desde hojas de cálculo</h3>
+        <p>El catálogo, el inventario y la flota se importan desde los ficheros que ya se usan. La correspondencia de columnas se revisa antes de escribir nada.</p>
+      </div>
+      <div class="celda">
+        <h3>Permisos por área</h3>
+        <p>Nueve áreas por cuatro niveles de acceso, con plantillas de rol predefinidas. Cada perfil ve solo lo suyo.</p>
+      </div>
+      <div class="celda">
+        <h3>Sin infraestructura</h3>
+        <p>Cinco dependencias. Funciona en un servidor propio o en la red local, sin coste recurrente de plataforma ni servicios de terceros.</p>
+      </div>
+      <div class="celda">
+        <h3>Escrito en español</h3>
+        <p>La interfaz está redactada en el idioma en el que se trabaja, no traducida. Modo claro y oscuro con el mismo cuidado en ambos.</p>
+      </div>
+    </div>
+
+    <p class="nota rev">
+      <strong>El histórico no se pierde:</strong> lo importado conserva sus códigos y sus fechas,
+      así que las búsquedas por código antiguo siguen encontrando el material.
+    </p>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ═════════════════════════════════════════════════════ -->
+<section class="linea cierre" id="contacto">
+  <div class="env rev">
+    <span class="campo">Contacto</span>
+    <h2 style="margin-top:16px">Cuarenta minutos y lo ves con material real.</h2>
+    <p>Una sesión de demostración para valorar si encaja con vuestra forma de trabajar. Sin compromiso y sin instalación previa.</p>
+    <p class="correo dato">hola@stockit.es</p>
+    <div class="acciones">
+      <a class="btn" href="mailto:hola@stockit.es?subject=Stokit%20%C2%B7%20demo">Escribir un correo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PIE ══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="env">
+    <div class="pie-rejilla">
+      <div class="pie-marca">
+        <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/>
+          <path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/>
+        </svg>
+        <b>Stokit</b>
+        <p>Sistema de gestión para productoras audiovisuales. Material, flota, proyectos y presupuestos en un solo sitio.</p>
+      </div>
+      <div class="pie-col">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="#areas">Siete áreas</a></li>
+          <li><a href="#cadena">Cómo funciona</a></li>
+          <li><a href="#integracion">Microsoft 365</a></li>
+        </ul>
+      </div>
+      <div class="pie-col">
+        <h4>Implantación</h4>
+        <ul>
+          <li><a href="#implantacion">Migración</a></li>
+          <li><a href="#implantacion">Permisos</a></li>
+          <li><a href="#implantacion">Requisitos</a></li>
+        </ul>
+      </div>
+      <div class="pie-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#contacto">Pedir una demo</a></li>
+          <li><a href="mailto:hola@stockit.es">Escribir un correo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-baja">
+      <span class="campo">Stokit</span>
+      <span class="campo hecho-en">
+        <svg viewBox="0 0 24 16" width="17" height="11" aria-hidden="true" class="bandera">
+          <rect width="24" height="16" fill="#c8102e"/>
+          <rect y="4" width="24" height="8" fill="#f1bf00"/>
+        </svg>
+        Designed and Assembled in Spain
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Revelado al entrar en pantalla ──────────────────────────────
+     IntersectionObserver y no un listener de scroll: el navegador
+     avisa cuando toca en vez de preguntarle en cada fotograma. */
+  var revs = document.querySelectorAll('.rev');
+  if (quieto || !('IntersectionObserver' in window)) {
+    revs.forEach(function (n) { n.classList.add('visto'); });
+  } else {
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('visto');
+        obs.unobserve(e.target);        // una vez visto, se deja en paz
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    revs.forEach(function (n) { obs.observe(n); });
+  }
+
+  /* ── El fondo sigue al cursor ─────────────────────────────────────
+     El ratón NO escribe estilos: solo apunta una variable. Quien pinta
+     es el fotograma, una vez. Mover el ratón dispara decenas de eventos
+     por segundo y escribir en cada uno provoca recálculos en cadena.
+
+     Y persigue con retraso (interpolación): si fuera clavado al puntero
+     parecería un cursor gigante, no una luz con peso. */
+  var raton  = { x: 0.5, y: 0.38, hay: false };
+  var suave  = { x: 0.5, y: 0.38 };
+  var tramaViva = document.getElementById('tramaViva');
+  var halo      = document.getElementById('halo');
+  var lente     = document.getElementById('lente');
+  var zonaLente = document.querySelector('[data-lente]');
+  var fondoVivo = !quieto && tramaViva && halo && window.matchMedia('(hover: hover)').matches;
+
+  if (fondoVivo) {
+    window.addEventListener('pointermove', function (e) {
+      raton.x = e.clientX / window.innerWidth;
+      raton.y = e.clientY / window.innerHeight;
+      raton.hay = true;
+    }, { passive: true });
+
+    /* La lente solo se enciende sobre los textos de la portada. El
+       rectángulo se guarda en caché: medirlo en cada movimiento del
+       ratón obliga al navegador a recalcular la maqueta constantemente. */
+    var cajaLente = null;
+    function medirZona() {
+      cajaLente = zonaLente
+        ? { t: zonaLente.getBoundingClientRect().top + window.scrollY,
+            b: zonaLente.getBoundingClientRect().bottom + window.scrollY }
+        : null;
+    }
+    medirZona();
+    window.addEventListener('resize', medirZona);
+
+    window.addEventListener('pointermove', function (e) {
+      if (!lente || !cajaLente) return;
+      var y = e.clientY + window.scrollY;
+      lente.classList.toggle('on', y >= cajaLente.t && y <= cajaLente.b);
+    }, { passive: true });
+    /* Al salir de la ventana no debe quedarse el cristal colgado. */
+    document.addEventListener('mouseleave', function () {
+      if (lente) lente.classList.remove('on');
+    });
+
+    (function bucle() {
+      suave.x += (raton.x - suave.x) * 0.075;
+      suave.y += (raton.y - suave.y) * 0.075;
+      var mx = (suave.x * 100).toFixed(2) + '%';
+      var my = (suave.y * 100).toFixed(2) + '%';
+      tramaViva.style.setProperty('--mx', mx);
+      tramaViva.style.setProperty('--my', my);
+      halo.style.setProperty('--mx', mx);
+      halo.style.setProperty('--my', my);
+      /* La lente usa la posición SIN suavizar: un cristal que se arrastra
+         detrás del puntero se nota falso, mientras que la luz del fondo
+         gana precisamente con ese retraso. */
+      if (lente) {
+        lente.style.setProperty('--mx', (raton.x * 100).toFixed(2) + '%');
+        lente.style.setProperty('--my', (raton.y * 100).toFixed(2) + '%');
+      }
+      requestAnimationFrame(bucle);
+    })();
+  }
+
+  /* ── Menú: apartado activo e indicador deslizante ────────────────
+     La barra se coloca midiendo el enlace, no con posiciones fijas: los
+     apartados tienen anchos distintos y en otro idioma cambiarían. */
+  var enlaces   = Array.prototype.slice.call(document.querySelectorAll('nav.menu a'));
+  var indicador = document.getElementById('indicador');
+  var activo    = null;
+
+  function moverIndicador(a) {
+    if (!indicador || !a) return;
+    indicador.style.setProperty('--ind-w', a.offsetWidth + 'px');
+    indicador.style.setProperty('--ind-x', a.offsetLeft + 'px');
+    /* La transición se enciende DESPUÉS de la primera colocación, o la
+       barra entra volando desde la izquierda al cargar la página. */
+    requestAnimationFrame(function () { indicador.classList.add('listo'); });
+  }
+
+  /* Al pasar por encima enseña dónde iría; al salir vuelve al activo. */
+  enlaces.forEach(function (a) {
+    a.addEventListener('mouseenter', function () { moverIndicador(a); });
+  });
+  var menu = document.querySelector('nav.menu');
+  if (menu) menu.addEventListener('mouseleave', function () { moverIndicador(activo); });
+
+  /* Qué sección se está mirando. Se toma la última cuyo comienzo ya ha
+     pasado por debajo de la cabecera: es lo que uno diría que "está
+     viendo", y no falla con secciones de alturas muy distintas. */
+  var destinos = enlaces.map(function (a) {
+    return { a: a, sec: document.querySelector(a.getAttribute('href')) };
+  }).filter(function (d) { return d.sec; });
+
+  function marcarSeccion() {
+    var linea = window.scrollY + 120;
+    var cual = null;
+    destinos.forEach(function (d) {
+      if (d.sec.getBoundingClientRect().top + window.scrollY <= linea) cual = d.a;
+    });
+    if (cual === activo) return;
+    enlaces.forEach(function (a) { a.classList.remove('aqui'); });
+    activo = cual;
+    if (activo) {
+      activo.classList.add('aqui');
+      moverIndicador(activo);
+    } else if (indicador) {
+      indicador.classList.remove('listo');
+      indicador.style.setProperty('--ind-w', '0px');
+    }
+  }
+
+  var barra    = document.getElementById('barra');
+  var progreso = document.getElementById('progreso');
+  var pista    = document.getElementById('pista');
+  var raiel    = document.getElementById('raiel');
+  var remate   = document.getElementById('remate');
+  var viaTrazo = document.getElementById('viaTrazo');
+  var viaNodo  = document.getElementById('viaNodo');
+  var hitos    = document.querySelectorAll('.via-hito');
+  var eslabones = document.querySelectorAll('#eslabones .eslabon');
+
+  if (quieto) {
+    eslabones.forEach(function (e) { e.classList.add('on'); });
+    hitos.forEach(function (h) { h.classList.add('pasado'); });
+    if (remate) remate.classList.add('on');
+    return;
+  }
+
+  /* Todo el trabajo de scroll en UN solo fotograma: leer posiciones y
+     escribirlas mezcladas provoca recálculos de maqueta en cadena. */
+  var pendiente = false;
+  function alHacerScroll() {
+    if (pendiente) return;
+    pendiente = true;
+    requestAnimationFrame(function () {
+      pendiente = false;
+
+      var y = window.scrollY || window.pageYOffset;
+
+      if (barra) barra.classList.toggle('pegada', y > 12);
+      marcarSeccion();
+
+      /* La retícula deriva a un tercio de la velocidad de la página: da
+         profundidad sin marear. El módulo la mantiene alineada con su
+         propio paso de 58px, así que el desplazamiento no se acumula. */
+      if (fondoVivo) {
+        document.querySelectorAll('.trama, .trama-viva').forEach(function (n) {
+          n.style.setProperty('--deriva', (-(y * 0.34) % 58).toFixed(1) + 'px');
+        });
+      }
+
+      if (progreso) {
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        progreso.style.setProperty('--avance', (total > 0 ? (y / total) * 100 : 0).toFixed(2) + '%');
+      }
+
+      if (pista && eslabones.length) {
+        var caja = pista.getBoundingClientRect();
+        /* Cuánto se ha recorrido del tramo anclado, de 0 a 1. El alto
+           visible se descuenta: la parte final ya no ancla nada. */
+        var recorrido = caja.height - window.innerHeight;
+        var avance = recorrido > 0 ? (-caja.top) / recorrido : 0;
+        avance = Math.max(0, Math.min(1, avance));
+
+        /* El primer 88% del tramo mueve el nodo; el resto queda para
+           leer el remate sin que salte justo al final. */
+        var p = Math.min(1, avance / 0.88);
+
+        /* El nodo NO recorre de 0 a 100: va del centro del primer eslabón
+           al centro del cuarto (12,5% → 87,5%). Así al llegar a la sección
+           ya está posado sobre el primero —cuatro tarjetas apagadas
+           parecen un fallo de carga— y al terminar queda sobre el último,
+           no colgando en el borde. */
+        var n = eslabones.length;
+        var mitad = 100 / (n * 2);                   // 12,5 con cuatro
+        var nodo = mitad + p * (100 - mitad * 2);    // 12,5 → 87,5
+
+        if (viaNodo)  viaNodo.style.setProperty('--via-nodo', nodo.toFixed(2) + '%');
+        if (viaTrazo) viaTrazo.style.setProperty('--via', nodo.toFixed(2) + '%');
+
+        /* Un eslabón se enciende cuando el nodo LLEGA a él, no antes: es
+           lo que hace que parezca que el nodo lo engancha al pasar. */
+        eslabones.forEach(function (e, i) {
+          var suPunto = mitad + i * (100 / n);
+          e.classList.toggle('on', nodo >= suPunto - 0.4);
+        });
+        hitos.forEach(function (h, i) {
+          h.classList.toggle('pasado', nodo >= mitad + i * (100 / n) - 0.4);
+        });
+
+        if (remate) remate.classList.toggle('on', p > 0.92);
+      }
+    });
+  }
+
+  window.addEventListener('scroll', alHacerScroll, { passive: true });
+  window.addEventListener('resize', alHacerScroll);
+  alHacerScroll();
+})();
+</script>
+
+</body>
+</html>

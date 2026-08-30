@@ -136,6 +136,29 @@ body {
 .halo {
   background-image: radial-gradient(circle 380px at var(--mx, 50%) var(--my, 40%), var(--halo) 0%, transparent 70%);
 }
+
+/* ── Casillas marcadas ──────────────────────────────────────────────────
+   Cada tanto se rellena una celda de la retícula, como quien va marcando
+   casillas en un inventario. Deriva con el scroll igual que la retícula:
+   si no, se despegaría de ella y se vería que es otra capa. */
+.casillas { transform: translate3d(0, var(--deriva, 0px), 0); }
+/* Se llama casilla y no marca porque `.marca` ya es el logotipo de arriba:
+   dos clases con el mismo nombre y una pisa a la otra. */
+.casilla {
+  position: absolute; width: 58px; height: 58px;
+  background: var(--sello);
+  opacity: 0;
+  /* Entra rápido y se va despacio: marcar es un gesto, borrarse no. */
+  animation: marcar 3.4s cubic-bezier(.16,.8,.3,1) forwards;
+}
+@keyframes marcar {
+  0%   { opacity: 0;   transform: scale(.82); }
+  14%  { opacity: .17; transform: scale(1); }
+  45%  { opacity: .17; transform: scale(1); }
+  100% { opacity: 0;   transform: scale(1); }
+}
+/* Quien pide menos movimiento no ve ninguna. */
+@media (prefers-reduced-motion: reduce) { .casillas { display: none; } }
 /* El contenido, por encima del fondo. */
 .barra, .portada, section, footer { position: relative; z-index: 1; }
 
@@ -642,6 +665,8 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   <div class="trama"></div>
   <div class="trama-viva" id="tramaViva"></div>
   <div class="halo" id="halo"></div>
+  <!-- Casillas que se marcan solas. Ver el guion del final. -->
+  <div class="casillas" id="casillas"></div>
 </div>
 <div class="lente" id="lente" aria-hidden="true"></div>
 
@@ -1006,9 +1031,9 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     <span class="campo">Contacto</span>
     <h2 style="margin-top:16px">Cuarenta minutos y lo ves con material real.</h2>
     <p>Una sesión de demostración para valorar si encaja con vuestra forma de trabajar. Sin compromiso y sin instalación previa.</p>
-    <p class="correo dato">hola@stokit.es</p>
+    <p class="correo dato">info@stokit.es</p>
     <div class="acciones">
-      <a class="btn" href="mailto:hola@stokit.es?subject=Stokit%20%C2%B7%20demo">Escribir un correo</a>
+      <a class="btn" href="mailto:info@stokit.es?subject=Stokit%20%C2%B7%20demo">Escribir un correo</a>
     </div>
   </div>
 </section>
@@ -1046,7 +1071,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <h4>Contacto</h4>
         <ul>
           <li><a href="#contacto">Pedir una demo</a></li>
-          <li><a href="mailto:hola@stokit.es">Escribir un correo</a></li>
+          <li><a href="mailto:info@stokit.es">Escribir un correo</a></li>
         </ul>
       </div>
     </div>
@@ -1233,7 +1258,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
          profundidad sin marear. El módulo la mantiene alineada con su
          propio paso de 58px, así que el desplazamiento no se acumula. */
       if (fondoVivo) {
-        document.querySelectorAll('.trama, .trama-viva').forEach(function (n) {
+        document.querySelectorAll('.trama, .trama-viva, .casillas').forEach(function (n) {
           n.style.setProperty('--deriva', (-(y * 0.34) % 58).toFixed(1) + 'px');
         });
       }
@@ -1286,6 +1311,68 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   window.addEventListener('resize', alHacerScroll);
   alHacerScroll();
 })();
+
+  /* ── Casillas que se marcan solas ────────────────────────────────────
+     Cada tanto se rellena una celda de la retícula en rojo y se apaga. Es
+     la imagen de alguien haciendo inventario: marcar, marcar, marcar.
+
+     Detalles que importan para que no cante:
+     · Las celdas van sobre la misma cuadrícula de 58px y el mismo origen
+       desplazado -60px que usan las capas del fondo. Un píxel de desajuste
+       y se ve que es otra cosa pegada encima.
+     · No se marca donde está el puntero: ahí ya hay retícula viva y halo,
+       y dos efectos en el mismo sitio se estorban.
+     · El nodo se borra al acabar. Dejarlos serían miles de divs invisibles
+       después de un rato leyendo.
+     · Con la pestaña de fondo se para: animar lo que nadie mira solo gasta
+       batería. */
+  (function () {
+    var capa = document.getElementById('casillas');
+    if (!capa) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var PASO = 58, DESPLAZ = 60;   // el inset:-60px de .fondo > div
+    var temporizador = null;
+
+    function marcarUna() {
+      var cols  = Math.floor((window.innerWidth  + DESPLAZ * 2) / PASO);
+      var filas = Math.floor((window.innerHeight + DESPLAZ * 2) / PASO);
+      if (cols < 2 || filas < 2) return;
+
+      var col  = Math.floor(Math.random() * cols);
+      var fila = Math.floor(Math.random() * filas);
+
+      /* Lejos del puntero, donde ya hay efecto. */
+      if (typeof raton !== 'undefined' && raton && raton.hay) {
+        var px = (raton.x * window.innerWidth  + DESPLAZ) / PASO;
+        var py = (raton.y * window.innerHeight + DESPLAZ) / PASO;
+        if (Math.abs(col - px) < 3 && Math.abs(fila - py) < 3) return;
+      }
+
+      var d = document.createElement('div');
+      d.className = 'casilla';
+      d.style.left = (col * PASO) + 'px';
+      d.style.top  = (fila * PASO) + 'px';
+      capa.appendChild(d);
+      d.addEventListener('animationend', function () { d.remove(); });
+    }
+
+    function siguiente() {
+      /* Irregular a propósito: a intervalo fijo parece un reloj, y lo que
+         se quiere parecer es una persona marcando. */
+      temporizador = setTimeout(function () {
+        if (!document.hidden) marcarUna();
+        siguiente();
+      }, 1400 + Math.random() * 3200);
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden && temporizador) { clearTimeout(temporizador); temporizador = null; }
+      else if (!document.hidden && !temporizador) siguiente();
+    });
+
+    siguiente();
+  })();
 </script>
 
 </body>

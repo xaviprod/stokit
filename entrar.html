@@ -147,17 +147,13 @@
 <main>
   <div class="caja">
     <span class="campo">Acceso</span>
-    <h1>Entra en tu Stokit</h1>
-    <p class="sub">
-      Cada productora tiene su propia dirección y sus propios datos.
-      Dinos cuál es la tuya y te llevamos.
-    </p>
+    <h1>Entrar</h1>
 
     <form id="form" novalidate>
-      <label class="campo" for="quien">Tu empresa o tu correo de trabajo</label>
-      <input class="entrada" id="quien" name="quien" type="text"
-             placeholder="tuproductora · o · tu@tuproductora.es"
-             autocomplete="username" autocapitalize="none" autocorrect="off"
+      <label class="campo" for="quien">Correo de trabajo</label>
+      <input class="entrada" id="quien" name="quien" type="email"
+             placeholder="nombre@tuproductora.es"
+             autocomplete="email" autocapitalize="none" autocorrect="off"
              spellcheck="false" required>
       <button class="btn" type="submit">Continuar</button>
       <!-- `aria-live` para que quien use lector de pantalla se entere del
@@ -166,9 +162,7 @@
     </form>
 
     <p class="nota">
-      La contraseña se escribe ya dentro de tu Stokit, nunca aquí.
-      ¿No sabes cuál es tu dirección? Pregunta a quien lleve la cuenta en tu
-      productora, o escríbenos a <a href="mailto:hola@stokit.es">hola@stokit.es</a>.
+      ¿Problemas para entrar? <a href="mailto:info@stokit.es">info@stokit.es</a>
     </p>
   </div>
 </main>

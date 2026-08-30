@@ -155,6 +155,29 @@ body {
   animation: marcar 3.4s cubic-bezier(.16,.8,.3,1) forwards;
 }
 .casilla.doble { width: 116px; height: 116px; }
+
+/* ── Figuras ────────────────────────────────────────────────────────────
+   Además de casillas sueltas, cada tanto un grupo dibuja algo: una fila que
+   cruza, una columna, una diagonal, un anillo o un bloque.
+
+   Van con su propia animación, no con la de las sueltas. Una casilla suelta
+   dura 3,4 s porque tiene que dar tiempo a verla aparecer; en una figura de
+   veinte celdas encadenadas, esa duración hace que la primera siga encendida
+   cuando llega la última y el trazo se convierte en una mancha. Corta y más
+   marcada, se lee el recorrido.
+
+   El retardo es lo que convierte una lista de casillas en un movimiento: se
+   encienden por olas. Todas a la vez sería un parpadeo, y un parpadeo se lee
+   como un fallo de pintado. */
+.casilla.fig {
+  animation: marcar-fig 1.5s cubic-bezier(.22,.9,.28,1) forwards;
+}
+@keyframes marcar-fig {
+  0%   { opacity: 0;   transform: scale(.7); }
+  18%  { opacity: .34; transform: scale(1); }
+  42%  { opacity: .34; transform: scale(1); }
+  100% { opacity: 0;   transform: scale(1); }
+}
 @keyframes marcar {
   0%   { opacity: 0;   transform: scale(.82); }
   14%  { opacity: .26; transform: scale(1); }
@@ -574,7 +597,10 @@ section { padding-block: var(--paso); }
   letter-spacing: -0.01em; color: var(--tinta);
 }
 
-/* ── Precios ──────────────────────────────────────────────────────────
+/* ── Licencias ────────────────────────────────────────────────────────
+   Aquí vivían también los estilos de la tabla de precios y de la cifra grande.
+   Se han ido con las cifras: CSS que no pinta nada es una trampa para el que
+   venga después a buscar de dónde sale un número que ya no existe.
    La base va aparte y primero: es el suelo del que parte todo, y mezclarla
    con las licencias haría pensar que es una opción más. */
 .pr-base {
@@ -586,13 +612,6 @@ section { padding-block: var(--paso); }
 .pr-base-txt { flex: 1 1 340px; }
 .pr-base-txt h3 { margin: 10px 0 8px; }
 .pr-base-txt p { color: var(--tinta-2); font-size: 14.5px; max-width: 52ch; }
-.pr-base-cifra { display: flex; align-items: baseline; gap: 8px; }
-.pr-base-cifra b {
-  font-family: Archivo, sans-serif; font-weight: 700;
-  font-size: clamp(38px, 5vw, 54px); letter-spacing: -.04em; line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.pr-base-cifra span { font-size: 13px; color: var(--tinta-3); }
 
 .pr-rejilla {
   display: grid; gap: 1px; margin-top: 22px;
@@ -603,30 +622,13 @@ section { padding-block: var(--paso); }
 
 .pr-lic { background: var(--hoja); padding: 22px 20px 24px; display: grid; align-content: start; gap: 2px; }
 .pr-lic.destacada { background: var(--hoja-2); box-shadow: inset 2px 0 0 var(--sello); }
-.pr-precio {
-  font-family: Archivo, sans-serif; font-weight: 700;
-  font-size: 34px; letter-spacing: -.04em; line-height: 1.1;
-  font-variant-numeric: tabular-nums; margin-top: 8px;
-}
-.pr-mes { font-size: 11.5px; color: var(--tinta-3); }
 .pr-lic p { margin-top: 12px; font-size: 13.5px; line-height: 1.55; color: var(--tinta-2); }
 
-/* El ejemplo con el total ya sumado. Una tabla de precios sin un total obliga
-   a hacer la cuenta a mano, y ahí es donde se abandona. */
 .pr-ejemplo {
   margin-top: 30px; padding: 26px 28px;
   border: 1px solid var(--regla); background: var(--hoja);
 }
 .pr-ejemplo h3 { margin: 10px 0 18px; }
-.pr-tabla { width: 100%; border-collapse: collapse; font-size: 14.5px; }
-.pr-tabla td { padding: 10px 0; border-bottom: 1px solid var(--regla-fina); }
-.pr-uds { text-align: right; color: var(--tinta-3); font-size: 13px; white-space: nowrap; padding-inline: 16px !important; }
-.pr-imp { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.pr-tabla tfoot td {
-  border-bottom: 0; border-top: 2px solid var(--tinta);
-  padding-top: 14px; font-weight: 600; font-size: 16px;
-}
-.pr-tabla tfoot .pr-imp { font-family: Archivo, sans-serif; font-size: 20px; letter-spacing: -.02em; }
 .pr-nota { margin-top: 16px; font-size: 13px; color: var(--tinta-2); }
 
 /* ── Cierre ───────────────────────────────────────────────────────── */
@@ -689,7 +691,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       <a href="#cadena">Cómo funciona</a>
       <a href="#integracion">Integración</a>
       <a href="#implantacion">Implantación</a>
-      <a href="#precios">Precios</a>
+      <a href="#licencias">Licencias</a>
       <a href="#contacto">Contacto</a>
       <span class="indicador" id="indicador" aria-hidden="true"></span>
     </nav>
@@ -938,19 +940,28 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 </section>
 
 <!-- ══ PRECIOS ══════════════════════════════════════════════════════ -->
-<section class="linea" id="precios">
+<!-- ══ LICENCIAS ═══════════════════════════════════════════════════
+     Aquí había una tabla de precios completa: base, cinco licencias con su
+     importe y un ejemplo con el total sumado. Fuera las cifras.
+
+     Un precio en la web es una respuesta antes de conocer la pregunta: una
+     productora de cinco personas y una de cincuenta no compran lo mismo, y el
+     número suelto o asusta o se queda corto sin que nadie haya podido explicar
+     nada. Lo que sí queda es CÓMO se cobra —por persona y según lo que toca—,
+     que es lo que de verdad se quiere entender antes de preguntar.
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="linea" id="licencias">
   <div class="env">
     <div class="cabecera-seccion rev">
-      <span class="campo">Precios</span>
+      <span class="campo">Licencias</span>
       <div>
         <h2>Se paga por quien lo usa, no por lo que hay dentro.</h2>
         <p>Una base fija y una licencia por persona según lo que necesite tocar.
            El material, la flota y los proyectos no cuentan: podéis meter todo el
-           inventario que tengáis.</p>
+           inventario que tengáis, y meter más no cuesta más.</p>
       </div>
     </div>
 
-    <!-- La base, aparte y primero: es el suelo del que parte todo. -->
     <div class="pr-base rev">
       <div class="pr-base-txt">
         <span class="campo">Base</span>
@@ -958,15 +969,12 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <p>Las siete áreas, la integración con Microsoft 365, copias de seguridad
            y actualizaciones. Sin límite de material ni de proyectos.</p>
       </div>
-      <div class="pr-base-cifra">
-        <b>90 €</b><span>al mes</span>
-      </div>
     </div>
 
     <div class="cabecera-seccion rev" style="margin-top:52px">
-      <span class="campo">Licencias</span>
+      <span class="campo">Por persona</span>
       <div>
-        <h2 style="font-size:clamp(21px,2.4vw,30px)">Una por persona, según su trabajo</h2>
+        <h2 style="font-size:clamp(21px,2.4vw,30px)">Una licencia por persona, según su trabajo</h2>
         <p>Cada una da acceso solo a lo suyo. Quien lleva la flota no ve los
            presupuestos, y quien hace presupuestos no toca el parque informático.</p>
       </div>
@@ -975,56 +983,36 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     <div class="pr-rejilla rev">
       <div class="pr-lic destacada">
         <span class="campo">Superusuario</span>
-        <b class="pr-precio">95 €</b>
-        <span class="pr-mes">por persona / mes</span>
         <p>Acceso a todo, sin restricciones. Es quien administra: da de alta a los
            demás, define permisos y toca los ajustes del sistema.</p>
       </div>
       <div class="pr-lic">
         <span class="campo">Inventario</span>
-        <b class="pr-precio">25 €</b>
-        <span class="pr-mes">por persona / mes</span>
         <p>Material, categorías, salidas y entradas, etiquetas QR.</p>
       </div>
       <div class="pr-lic">
         <span class="campo">Administración</span>
-        <b class="pr-precio">30 €</b>
-        <span class="pr-mes">por persona / mes</span>
         <p>Presupuestos, facturas, proyectos y economía.</p>
       </div>
       <div class="pr-lic">
         <span class="campo">Flota</span>
-        <b class="pr-precio">35 €</b>
-        <span class="pr-mes">por persona / mes</span>
         <p>Vehículos, ITV y seguros, calendario de ocupación y órdenes de taller.</p>
       </div>
       <div class="pr-lic">
         <span class="campo">IT</span>
-        <b class="pr-precio">45 €</b>
-        <span class="pr-mes">por persona / mes</span>
         <p>Parque de dispositivos, líneas de telefonía y Microsoft 365.</p>
       </div>
     </div>
 
-    <!-- Un ejemplo con números reales: una tabla de precios sin un total
-         calculado obliga a hacer la cuenta a mano, y ahí es donde se abandona. -->
     <div class="pr-ejemplo rev">
-      <span class="campo">Un ejemplo</span>
-      <h3>Una productora de tamaño medio</h3>
-      <table class="pr-tabla">
-        <tbody>
-          <tr><td>Base</td><td class="pr-uds">—</td><td class="pr-imp dato">90 €</td></tr>
-          <tr><td>Superusuario</td><td class="pr-uds dato">× 1</td><td class="pr-imp dato">95 €</td></tr>
-          <tr><td>Inventario</td><td class="pr-uds dato">× 3</td><td class="pr-imp dato">75 €</td></tr>
-          <tr><td>Administración</td><td class="pr-uds dato">× 2</td><td class="pr-imp dato">60 €</td></tr>
-          <tr><td>Flota</td><td class="pr-uds dato">× 1</td><td class="pr-imp dato">35 €</td></tr>
-        </tbody>
-        <tfoot>
-          <tr><td>Total</td><td class="pr-uds dato">7 personas</td><td class="pr-imp dato">355 € / mes</td></tr>
-        </tfoot>
-      </table>
-      <p class="pr-nota">Sin permanencia. Las licencias se suben y se bajan cada mes:
-         un rodaje grande entra y sale sin renegociar nada.</p>
+      <span class="campo">El presupuesto</span>
+      <h3>Se hace a medida, y se hace rápido</h3>
+      <p class="pr-nota">Contadnos cuántos sois y quién toca qué, y os pasamos el
+         número. Sin permanencia: las licencias se suben y se bajan cada mes, así
+         que un rodaje grande entra y sale sin renegociar nada.</p>
+      <div class="acciones" style="margin-top:18px">
+        <a class="btn" href="mailto:info@stokit.es?subject=Stokit%20%C2%B7%20presupuesto">Pedir presupuesto</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1058,7 +1046,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <h4>Producto</h4>
         <ul>
           <li><a href="#areas">Siete áreas</a></li>
-          <li><a href="#precios">Precios</a></li>
+          <li><a href="#licencias">Licencias</a></li>
           <li><a href="#cadena">Cómo funciona</a></li>
           <li><a href="#integracion">Microsoft 365</a></li>
         </ul>
@@ -1363,11 +1351,90 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       d.addEventListener('animationend', function () { d.remove(); });
     }
 
+    /* ── Figuras ──────────────────────────────────────────────────────
+       Cada tanto, en vez de una casilla suelta, se dibuja una figura: un
+       grupo de celdas que se encienden encadenadas.
+
+       Por qué figuras y no más casillas sueltas: sueltas y al azar, marcar
+       más solo hace más ruido. Lo que hace que el fondo parezca vivo es que
+       de vez en cuando pase ALGO que se pueda seguir con la vista de
+       principio a fin. Con ver una es suficiente; por eso son raras.
+
+       Se dibujan en coordenadas de celda y se convierten a píxeles al
+       final, con el mismo PASO y el mismo desplazamiento que la retícula.
+       Un píxel de desajuste y se ve que es otra cosa pegada encima. */
+    var FIGURAS = [
+      /* Una fila que cruza la pantalla. */
+      function (cols, filas, az) {
+        var f = az(filas), dir = az(2) ? 1 : -1, out = [], k;
+        for (k = 0; k < cols; k++) out.push([dir > 0 ? k : cols - 1 - k, f, k * 55]);
+        return out;
+      },
+      /* Una columna. */
+      function (cols, filas, az) {
+        var c = az(cols), dir = az(2) ? 1 : -1, out = [], k;
+        for (k = 0; k < filas; k++) out.push([c, dir > 0 ? k : filas - 1 - k, k * 65]);
+        return out;
+      },
+      /* Una diagonal: las celdas donde columna + fila valen lo mismo. */
+      function (cols, filas, az) {
+        var base = az(cols + filas), out = [], c, f;
+        for (c = 0; c < cols; c++) {
+          f = base - c;
+          if (f >= 0 && f < filas) out.push([c, f, c * 70]);
+        }
+        return out;
+      },
+      /* Un anillo cuadrado que se abre desde una celda. */
+      function (cols, filas, az) {
+        var cc = az(cols), cf = az(filas), out = [], c, f, d;
+        for (c = 0; c < cols; c++) for (f = 0; f < filas; f++) {
+          d = Math.max(Math.abs(c - cc), Math.abs(f - cf));
+          if (d >= 1 && d <= 3) out.push([c, f, d * 170]);
+        }
+        return out;
+      },
+      /* Un bloque que se rellena de una esquina a la otra. */
+      function (cols, filas, az) {
+        var lado = 2 + az(2);
+        var cc = az(Math.max(1, cols - lado)), cf = az(Math.max(1, filas - lado));
+        var out = [], c, f;
+        for (c = cc; c < cc + lado; c++) for (f = cf; f < cf + lado; f++) {
+          out.push([c, f, ((c - cc) + (f - cf)) * 95]);
+        }
+        return out;
+      }
+    ];
+
+    function dibujarFigura() {
+      var cols  = Math.floor((window.innerWidth  + DESPLAZ * 2) / PASO);
+      var filas = Math.floor((window.innerHeight + DESPLAZ * 2) / PASO);
+      if (cols < 4 || filas < 4) return;
+
+      var az = function (n) { return Math.floor(Math.random() * n); };
+      var celdas = FIGURAS[az(FIGURAS.length)](cols, filas, az);
+      /* Una figura muy larga en pantallas anchas se hace pesada: se recorta. */
+      if (celdas.length > 26) celdas = celdas.slice(0, 26);
+
+      celdas.forEach(function (cel) {
+        var d = document.createElement('div');
+        d.className = 'casilla fig';
+        d.style.left = (cel[0] * PASO) + 'px';
+        d.style.top  = (cel[1] * PASO) + 'px';
+        d.style.animationDelay = cel[2] + 'ms';
+        capa.appendChild(d);
+        d.addEventListener('animationend', function () { d.remove(); });
+      });
+    }
+
+    /* Una de cada cinco veces sale figura en vez de casilla suelta. */
     function siguiente() {
       /* Irregular a propósito: a intervalo fijo parece un reloj, y lo que
          se quiere parecer es una persona marcando. */
       temporizador = setTimeout(function () {
-        if (!document.hidden) marcarUna();
+        if (!document.hidden) {
+          if (Math.random() < 0.2) dibujarFigura(); else marcarUna();
+        }
         siguiente();
       }, 900 + Math.random() * 2400);
     }

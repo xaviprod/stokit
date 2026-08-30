@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Entra en tu Stokit. Cada productora tiene su propia dirección.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Entrar · Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<style>
+  /* Mismas variables que la portada: esta página es la misma casa. */
+  :root {
+    --papel:#eef0f4; --hoja:#fff; --hoja-2:#f6f7fa;
+    --tinta:#14161f; --tinta-2:#4e5566; --tinta-3:#767d8d;
+    --regla:#c6ccd7; --regla-fina:#e0e4ea;
+    --sello:#c8102e; --sobre-sello:#fff; --sello-piel:#fbe9ec;
+    --trama: rgba(20,22,31,.055);
+  }
+  :root:not([data-theme="light"]) {
+    --papel:#0b0b0d; --hoja:#131418; --hoja-2:#191b21;
+    --tinta:#eaecf2; --tinta-2:#a6adbc; --tinta-3:#838a9a;
+    --regla:#2b303b; --regla-fina:#22262e;
+    --sello:#ff4d5f; --sobre-sello:#14161f; --sello-piel:#2a1419;
+    --trama: rgba(255,255,255,.045);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --papel:#eef0f4; --hoja:#fff; --hoja-2:#f6f7fa;
+      --tinta:#14161f; --tinta-2:#4e5566; --tinta-3:#767d8d;
+      --regla:#c6ccd7; --regla-fina:#e0e4ea;
+      --sello:#c8102e; --sobre-sello:#fff; --sello-piel:#fbe9ec;
+      --trama: rgba(20,22,31,.055);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    color: var(--tinta);
+    background: var(--papel);
+    /* El mismo papel milimetrado de la portada, quieto: aquí no hay lente
+       porque no hay nada que explorar, solo un campo que rellenar. */
+    background-image:
+      linear-gradient(var(--trama) 1px, transparent 1px),
+      linear-gradient(90deg, var(--trama) 1px, transparent 1px);
+    background-size: 34px 34px;
+    display: flex; flex-direction: column;
+  }
+  a { color: inherit; }
+
+  .barra {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px clamp(20px, 5vw, 56px);
+  }
+  .marca { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--tinta); }
+  .marca b { font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+  .logo { width: 22px; height: 22px; display: block; }
+  .logo path { fill: currentColor; }
+  .volver {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; font-weight: 600;
+    letter-spacing: .11em; text-transform: uppercase; color: var(--tinta-3);
+    text-decoration: none;
+  }
+  .volver:hover { color: var(--tinta); }
+
+  main {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 20px clamp(20px, 5vw, 56px) 64px;
+  }
+  .caja { width: 100%; max-width: 460px; }
+
+  .campo {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px; font-weight: 600;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--tinta-3);
+  }
+  /* La etiqueta del campo NO usa el gris de las volanditas de la portada:
+     ahí es decoración, aquí dice qué hay que escribir. Medido, aquel gris
+     daba 3,6:1 a 10,5 px, por debajo de lo legible. */
+  label.campo { color: var(--tinta-2); font-size: 11px; }
+  h1 {
+    font-family: Archivo, sans-serif; font-weight: 700;
+    font-size: clamp(30px, 4.6vw, 42px); letter-spacing: -0.03em;
+    line-height: 1.08; margin: 14px 0 12px;
+  }
+  .sub { color: var(--tinta-2); font-size: 15.5px; line-height: 1.55; margin: 0 0 30px; }
+
+  label { display: block; margin-bottom: 9px; }
+  .entrada {
+    width: 100%; height: 54px; padding: 0 16px;
+    font-family: "IBM Plex Sans", sans-serif; font-size: 16px;
+    color: var(--tinta); background: var(--hoja);
+    border: 1px solid var(--regla); border-radius: 0;
+    transition: border-color .16s;
+  }
+  .entrada::placeholder { color: var(--tinta-3); }
+  .entrada:focus { outline: none; border-color: var(--tinta); }
+  .entrada[aria-invalid="true"] { border-color: var(--sello); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    width: 100%; height: 50px; margin-top: 14px; padding: 0 20px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; font-weight: 600;
+    letter-spacing: .11em; text-transform: uppercase;
+    border: 1px solid var(--tinta); background: var(--tinta); color: var(--papel);
+    cursor: pointer; transition: background .17s, color .17s, border-color .17s;
+  }
+  .btn:hover { background: var(--sello); border-color: var(--sello); color: var(--sobre-sello); }
+
+  /* El aviso ocupa sitio siempre, aunque esté vacío: si apareciera de la nada
+     empujaría el botón justo cuando vas a pulsarlo. */
+  .aviso {
+    min-height: 40px; margin-top: 14px;
+    font-size: 13.5px; line-height: 1.45; color: var(--tinta-2);
+  }
+  .aviso.mal { color: var(--sello); }
+  .aviso .destino {
+    font-family: "IBM Plex Mono", monospace; font-size: 13px;
+    background: var(--hoja-2); border: 1px solid var(--regla-fina);
+    padding: 1px 6px;
+  }
+
+  .nota {
+    margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--regla-fina);
+    font-size: 13.5px; line-height: 1.6; color: var(--tinta-2);
+  }
+  .nota a { color: var(--tinta); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="/" aria-label="Stokit, inicio">
+    <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/>
+      <path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/>
+    </svg>
+    <b>Stokit</b>
+  </a>
+  <a class="volver" href="/">← Volver</a>
+</header>
+
+<main>
+  <div class="caja">
+    <span class="campo">Acceso</span>
+    <h1>Entra en tu Stokit</h1>
+    <p class="sub">
+      Cada productora tiene su propia dirección y sus propios datos.
+      Dinos cuál es la tuya y te llevamos.
+    </p>
+
+    <form id="form" novalidate>
+      <label class="campo" for="quien">Tu empresa o tu correo de trabajo</label>
+      <input class="entrada" id="quien" name="quien" type="text"
+             placeholder="tuproductora · o · tu@tuproductora.es"
+             autocomplete="username" autocapitalize="none" autocorrect="off"
+             spellcheck="false" required>
+      <button class="btn" type="submit">Continuar</button>
+      <!-- `aria-live` para que quien use lector de pantalla se entere del
+           aviso sin tener que ir a buscarlo. -->
+      <p class="aviso" id="aviso" aria-live="polite"></p>
+    </form>
+
+    <p class="nota">
+      La contraseña se escribe ya dentro de tu Stokit, nunca aquí.
+      ¿No sabes cuál es tu dirección? Pregunta a quien lleve la cuenta en tu
+      productora, o escríbenos a <a href="mailto:hola@stokit.es">hola@stokit.es</a>.
+    </p>
+  </div>
+</main>
+
+<script>
+(function () {
+  var form  = document.getElementById('form');
+  var campo = document.getElementById('quien');
+  var aviso = document.getElementById('aviso');
+
+  /* Dominios de correo que no dicen nada de dónde trabaja nadie. Si alguien
+     escribe su gmail, lo que necesitamos es el nombre de la empresa. */
+  var GENERICOS = ['gmail.com','googlemail.com','hotmail.com','outlook.com','outlook.es',
+                   'live.com','msn.com','yahoo.com','yahoo.es','icloud.com','me.com',
+                   'protonmail.com','proton.me','aol.com','gmx.com','telefonica.net'];
+
+  /* De lo que escriba el usuario a un subdominio.
+
+     La regla es una convención, no una lista: se coge lo que hay tras la
+     arroba y se le quita la extensión. miproductora.es → miproductora.
+
+     A propósito NO hay aquí ninguna lista de clientes ni consulta de correos.
+     Una lista sería pública —basta con ver el código de la página— y una
+     consulta del tipo "¿existe este correo?" dejaría que cualquiera probara
+     direcciones para averiguar en qué productora trabaja alguien. Si la
+     convención falla para algún cliente, se le añade abajo como excepción. */
+  var EXCEPCIONES = {
+    // 'pgarcia.com': 'garcia'
+  };
+
+  function aSubdominio(entrada) {
+    var t = String(entrada || '').trim().toLowerCase();
+    if (!t) return { error: 'Escribe tu empresa o tu correo de trabajo.' };
+
+    /* Si han pegado la dirección entera, se le saca el subdominio. */
+    t = t.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+    var m = /^([a-z0-9-]+)\.stokit\.es$/.exec(t);
+    if (m) return { sub: m[1] };
+
+    if (t.indexOf('@') !== -1) {
+      var partes = t.split('@');
+      var dominio = partes[partes.length - 1];
+      if (!dominio || dominio.indexOf('.') === -1) {
+        return { error: 'Ese correo no parece completo.' };
+      }
+      if (EXCEPCIONES[dominio]) return { sub: EXCEPCIONES[dominio] };
+      if (GENERICOS.indexOf(dominio) !== -1) {
+        return { error: 'Con un correo personal no sabemos de qué productora eres. Escribe el nombre de tu empresa.' };
+      }
+      /* De todo el dominio nos quedamos con la etiqueta de la EMPRESA, que es
+         la que va justo antes de la extensión. Coger la primera fallaba con
+         los correos que llevan subdominio: sub.miproductora.com daba "sub". */
+      var trozos = dominio.split('.');
+      /* Extensiones de dos trozos. Sin esto, miproductora.com.es daría "com". */
+      var COMPUESTAS = ['com.es','com.mx','com.ar','co.uk','org.uk','com.br','com.co','com.pe'];
+      var ultimasDos = trozos.slice(-2).join('.');
+      var quitar = COMPUESTAS.indexOf(ultimasDos) !== -1 ? 2 : 1;
+      var empresa = trozos[trozos.length - 1 - quitar];
+      if (!empresa) return { error: 'Ese correo no parece completo.' };
+      t = empresa;
+    }
+
+    /* Lo que queda tiene que valer como subdominio. */
+    t = t.replace(/\s+/g, '');
+    if (!/^[a-z][a-z0-9-]{1,40}$/.test(t)) {
+      return { error: 'Solo letras, números y guiones. Por ejemplo: tuproductora' };
+    }
+    return { sub: t };
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var r = aSubdominio(campo.value);
+
+    if (r.error) {
+      campo.setAttribute('aria-invalid', 'true');
+      aviso.className = 'aviso mal';
+      aviso.textContent = r.error;
+      campo.focus();
+      return;
+    }
+
+    campo.removeAttribute('aria-invalid');
+    var destino = 'https://' + r.sub + '.stokit.es/';
+    aviso.className = 'aviso';
+    /* Se enseña a dónde va antes de ir. Si se ha equivocado de empresa, lo ve
+       aquí en vez de descubrirlo en una pantalla de login ajena. */
+    aviso.innerHTML = 'Llevándote a <span class="destino">' + r.sub + '.stokit.es</span>…';
+    window.location.href = destino;
+  });
+
+  /* Al escribir se limpia el error: mantenerlo mientras corrige es regañar dos
+     veces por lo mismo. */
+  campo.addEventListener('input', function () {
+    if (campo.getAttribute('aria-invalid')) {
+      campo.removeAttribute('aria-invalid');
+      aviso.className = 'aviso';
+      aviso.textContent = '';
+    }
+  });
+
+  campo.focus();
+})();
+</script>
+</body>
+</html>

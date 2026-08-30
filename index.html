@@ -145,16 +145,20 @@ body {
 /* Se llama casilla y no marca porque `.marca` ya es el logotipo de arriba:
    dos clases con el mismo nombre y una pisa a la otra. */
 .casilla {
-  position: absolute; width: 58px; height: 58px;
+  position: absolute;
+  /* Una celda de la retícula. Las hay de dos por dos, que se leen como un
+     bloque marcado entero y rompen la monotonía de todas iguales. */
+  width: 58px; height: 58px;
   background: var(--sello);
   opacity: 0;
   /* Entra rápido y se va despacio: marcar es un gesto, borrarse no. */
   animation: marcar 3.4s cubic-bezier(.16,.8,.3,1) forwards;
 }
+.casilla.doble { width: 116px; height: 116px; }
 @keyframes marcar {
   0%   { opacity: 0;   transform: scale(.82); }
-  14%  { opacity: .17; transform: scale(1); }
-  45%  { opacity: .17; transform: scale(1); }
+  14%  { opacity: .26; transform: scale(1); }
+  48%  { opacity: .26; transform: scale(1); }
   100% { opacity: 0;   transform: scale(1); }
 }
 /* Quien pide menos movimiento no ve ninguna. */
@@ -1350,7 +1354,9 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       }
 
       var d = document.createElement('div');
-      d.className = 'casilla';
+      /* Una de cada cuatro ocupa dos por dos celdas. */
+      var doble = Math.random() < 0.25;
+      d.className = doble ? 'casilla doble' : 'casilla';
       d.style.left = (col * PASO) + 'px';
       d.style.top  = (fila * PASO) + 'px';
       capa.appendChild(d);
@@ -1363,7 +1369,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       temporizador = setTimeout(function () {
         if (!document.hidden) marcarUna();
         siguiente();
-      }, 1400 + Math.random() * 3200);
+      }, 900 + Math.random() * 2400);
     }
 
     document.addEventListener('visibilitychange', function () {

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Empleados, Crew y permisos en Stokit: quién entra, qué puede hacer cada uno, las capacidades, y tu propio perfil.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<title>Personas · Manuales de Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="index.html"><b>Stokit</b><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="index.html">Todos los manuales</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <nav class="indice">
+    <p class="indice-tit">07 · Personas</p>
+    <ol>
+      <li><a href="#empleados">Empleados</a></li>
+      <li><a href="#crew">Crew</a></li>
+      <li><a href="#permisos">Los permisos</a></li>
+      <li><a href="#capacidades">Las capacidades</a></li>
+      <li><a href="#copiar">Copiar permisos</a></li>
+      <li><a href="#contrasena">Contraseñas</a></li>
+      <li><a href="#quitar">Quitar el acceso</a></li>
+      <li><a href="#mi-perfil">Mi Perfil</a></li>
+    </ol>
+    <p class="indice-tit">Siguiente</p>
+    <ol><li><a href="sistema.html">08 · Ajustes y pantallas</a></li></ol>
+  </nav>
+
+  <main class="texto">
+    <h1>Personas</h1>
+    <p class="entradilla">
+      <strong>Empleados</strong> y <strong>Crew</strong> no son lo mismo, y confundirlos
+      es la duda más habitual de esta parte. Empleados es la plantilla de la
+      empresa. Crew es quién puede entrar en Stokit.
+    </p>
+
+    <h2 id="empleados">Empleados</h2>
+    <p>
+      <strong>Personal → Empleados.</strong> La plantilla: contacto, departamento,
+      cargo y el material que tiene asignado. Aquí está todo el mundo, entre o no
+      en la aplicación — el conductor que solo lleva un camión también es un
+      empleado.
+    </p>
+    <p>
+      <strong>+ Nuevo empleado</strong> da de alta a uno a mano, pero lo normal es
+      traerlos de <a href="tecnologia.html#m365">Microsoft 365</a>, que ya tiene sus
+      nombres, correos y departamentos.
+    </p>
+    <p>
+      Al abrir una ficha se ve lo que esa persona tiene en las manos: sus
+      <a href="tecnologia.html#it-stock">dispositivos</a>, sus
+      <a href="tecnologia.html#telefonia">líneas</a> y el material asignado. Es la
+      pantalla de «se va Fulano, ¿qué hay que recuperar?».
+    </p>
+
+    <h2 id="crew">Crew</h2>
+    <p>
+      <strong>Personal → Crew.</strong> Quién entra a la aplicación y qué puede hacer
+      dentro. Es su propia área de permisos —<strong>Sistema</strong>— y hace falta
+      nivel total para tocar aquí.
+    </p>
+    <ol class="pasos">
+      <li><strong>+ Añadir a alguien.</strong></li>
+      <li>Nombre, usuario y contraseña. El usuario es lo que escribirá al entrar.</li>
+      <li>Reparte los permisos por área (abajo).</li>
+      <li>Marca las capacidades que necesite.</li>
+      <li><strong>Guardar.</strong> Ya puede entrar.</li>
+    </ol>
+
+    <h2 id="permisos">Los permisos</h2>
+    <p>
+      Nueve áreas, y en cada una uno de cuatro niveles. El nivel
+      <strong>ninguno</strong> hace que esa parte <strong>no aparezca</strong> en la
+      barra lateral de esa persona: no es que esté y dé error, es que no está.
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Área</th><th>Qué abarca</th></tr></thead>
+        <tbody>
+          <tr><td>Proyectos</td><td>Fichas de proyecto, subproyectos, contactos y flota asignada.</td></tr>
+          <tr><td>Presupuestos</td><td>Presupuestos, catálogo de tarifas y plantilla del PDF.</td></tr>
+          <tr><td>Economía</td><td>Facturación, márgenes y cifras del negocio.</td></tr>
+          <tr><td>Flota</td><td>Vehículos, calendario de flota y tareas.</td></tr>
+          <tr><td>Salidas y revisiones</td><td>Las revisiones con fotos.</td></tr>
+          <tr><td>Material</td><td>Inventario y fichas QR.</td></tr>
+          <tr><td>Tecnología</td><td>IT Stock, telefonía, MiFi y Microsoft 365.</td></tr>
+          <tr><td>Personal</td><td>Empleados.</td></tr>
+          <tr><td>Sistema</td><td>Crew y el registro de actividad.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Nivel</th><th>Qué permite</th></tr></thead>
+        <tbody>
+          <tr><td>Ninguno</td><td>No aparece.</td></tr>
+          <tr><td>Lectura</td><td>Mirar.</td></tr>
+          <tr><td>Edición</td><td>Crear y cambiar.</td></tr>
+          <tr><td>Total</td><td>Además, borrar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="truco">
+      <span class="truco-tit">Un reparto que funciona</span>
+      <p>
+        A quien lleva la flota: <strong>Flota</strong> y <strong>Salidas y
+        revisiones</strong> en total, <strong>Proyectos</strong> en lectura para saber a
+        qué rodaje va cada coche, y nada más. No necesita ver márgenes ni tocar
+        cuentas de Microsoft.
+      </p>
+    </div>
+
+    <h2 id="capacidades">Las capacidades</h2>
+    <p>
+      Cinco permisos que van aparte del nivel, porque cruzan áreas:
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Capacidad</th><th>Sin ella</th></tr></thead>
+        <tbody>
+          <tr><td>Ver precios</td><td>Los importes salen ocultos en todas las pantallas.</td></tr>
+          <tr><td>Importar</td><td>No hay botón de importar Excel.</td></tr>
+          <tr><td>Exportar</td><td>No hay botón de exportar ni de PDF.</td></tr>
+          <tr><td>Enviar</td><td>No puede mandar presupuestos ni facturas.</td></tr>
+          <tr><td>Contabilizar</td><td>No puede sumar días de alquiler al inventario.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nota">
+      <span class="nota-tit">Sobre «exportar», con honestidad</span>
+      <p>
+        Los PDF se generan <strong>en el navegador</strong>, con datos que esa persona ya
+        ha podido leer en pantalla. Así que quitar <em>exportar</em> es una
+        restricción de interfaz —quita el botón—, no una barrera de seguridad. Si
+        alguien no debe ver unos datos, lo que hay que quitarle es el acceso al
+        área, no el botón de exportar.
+      </p>
+      <p>
+        <em>Importar</em> sí se valida en el servidor, así que ahí la restricción es
+        real.
+      </p>
+    </div>
+
+    <h2 id="copiar">Copiar permisos</h2>
+    <p>
+      <strong>Copiar permisos de otra persona</strong>, dentro de la ficha. Para dar de
+      alta al segundo conductor con lo mismo que el primero, en vez de repasar
+      nueve áreas a mano y equivocarse en una.
+    </p>
+
+    <h2 id="contrasena">Contraseñas</h2>
+    <p>
+      <strong>Cambiar contraseña</strong> en la ficha de la persona. No hay
+      recuperación automática por correo: si alguien la pierde, se le pone una nueva
+      desde aquí.
+    </p>
+    <p>
+      Cada uno puede cambiar la suya en <a href="#mi-perfil">Mi Perfil</a> sin pasar
+      por Crew.
+    </p>
+
+    <h2 id="quitar">Quitar el acceso</h2>
+    <p>
+      Dos formas, y no dan lo mismo:
+    </p>
+    <ul>
+      <li><strong>Desactivar</strong> — no puede entrar, pero su rastro sigue en el
+        registro de actividad y en los documentos que creó. Es lo que se hace cuando
+        alguien se va.</li>
+      <li><strong>Quitar</strong> — lo borra de Crew. Requiere nivel total en Sistema.</li>
+    </ul>
+    <p>
+      Quitar a alguien de Crew <strong>no lo quita de Empleados</strong>: deja de entrar
+      en la aplicación, pero sigue en la plantilla con su material asignado, que es
+      justo lo que hace falta para recuperarlo.
+    </p>
+
+    <h2 id="mi-perfil">Mi Perfil</h2>
+    <p>
+      Pulsando tu nombre, abajo en la barra lateral. Es tu página: la foto, tu
+      cargo, tus datos de contacto y una cuenta de lo que llevas encima.
+    </p>
+    <ul>
+      <li><strong>Tus dispositivos</strong> — lo que tienes asignado de IT Stock.</li>
+      <li><strong>Tu material</strong> — lo que tienes del inventario.</li>
+      <li><strong>Tus rodajes</strong> — en qué proyectos apareces.</li>
+      <li><strong>Tus permisos</strong> — qué puedes hacer, para no tener que preguntarlo.</li>
+    </ul>
+    <p>
+      Desde aquí se cambia la foto, se corrigen el teléfono y la bio, y se cambia la
+      contraseña.
+    </p>
+
+    <a class="siguiente" href="sistema.html">
+      <span class="siguiente-et">Siguiente</span>
+      <span class="siguiente-nom">08 · Ajustes y pantallas</span>
+    </a>
+
+    <div class="pie">
+      <span>Stokit · manuales</span>
+      <a href="index.html">Todos los manuales</a>
+    </div>
+  </main>
+</div>
+
+<script src="manual.js"></script>
+</body>
+</html>

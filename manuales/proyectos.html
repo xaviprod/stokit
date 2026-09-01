@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="El proyecto en Stokit: ficha, subproyectos, contactos de producción, equipo de rodaje, material y flota asignada.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<title>Proyectos · Manuales de Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="index.html"><b>Stokit</b><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="index.html">Todos los manuales</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <nav class="indice">
+    <p class="indice-tit">02 · Proyectos</p>
+    <ol>
+      <li><a href="#lista">La lista</a></li>
+      <li><a href="#crear">Crear un proyecto</a></li>
+      <li><a href="#ficha">La ficha</a></li>
+      <li><a href="#roles">Los tres roles de producción</a></li>
+      <li><a href="#subproyectos">Subproyectos</a></li>
+      <li><a href="#contactos">Contactos</a></li>
+      <li><a href="#material">Material del proyecto</a></li>
+      <li><a href="#equipo">Equipo de rodaje</a></li>
+      <li><a href="#flota">La flota del proyecto</a></li>
+      <li><a href="#calendario">El calendario de proyectos</a></li>
+      <li><a href="#borrar">Borrar un proyecto</a></li>
+    </ol>
+    <p class="indice-tit">Siguiente</p>
+    <ol><li><a href="presupuestos.html">03 · Presupuestos</a></li></ol>
+  </nav>
+
+  <main class="texto">
+    <h1>Proyectos</h1>
+    <p class="entradilla">
+      El proyecto es el rodaje, y de él cuelga todo lo demás: el material que
+      lleva, los coches, la gente y el dinero. Si algo no aparece donde esperas,
+      casi siempre es que está colgado de otro proyecto.
+    </p>
+
+    <h2 id="lista">La lista</h2>
+    <p>
+      <strong>Producción → Proyectos.</strong> Tres pestañas arriba:
+    </p>
+    <ul>
+      <li><strong>General</strong> — los que están en marcha, con el calendario de los
+        próximos tres meses plegado arriba y las últimas fichas abajo.</li>
+      <li><strong>Proyectos Anteriores</strong> — los finalizados.</li>
+      <li><strong>Calendario</strong> — la vista de barras completa.</li>
+    </ul>
+    <p>
+      Los filtros de arriba cruzan año, estado y un tercer criterio que es el que
+      de verdad se usa: <strong>con o sin flota asignada</strong>, con equipo, o con
+      presupuestos. Sirve para la pregunta «¿a qué rodaje le falta todavía
+      ponerle coches?».
+    </p>
+
+    <h2 id="crear">Crear un proyecto</h2>
+    <ol class="pasos">
+      <li><strong>+ Nuevo proyecto</strong>, arriba a la derecha.</li>
+      <li>Nombre y cliente. El nombre es lo que verá todo el mundo en el calendario
+        y en los documentos.</li>
+      <li>Fechas de inicio y fin previsto. <em>Ponlas aunque sean aproximadas</em>: sin
+        fechas el proyecto no se puede situar en ningún calendario y desaparece de
+        media aplicación.</li>
+      <li>Estado: activo, pendiente o finalizado.</li>
+      <li>Guardar. Ya puedes abrirlo y colgarle cosas.</li>
+    </ol>
+
+    <h2 id="ficha">La ficha</h2>
+    <p>
+      Al abrir un proyecto se abre su ficha en una pestaña propia. Arriba, la franja
+      de cifras contesta a lo que se pregunta al entrar: <strong>presupuestado</strong>,
+      <strong>aceptado</strong>, cuántos presupuestos, cuántos subproyectos y cuántos
+      vehículos, con la barra de progreso de las fechas debajo.
+    </p>
+    <p>Y cuatro pestañas:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Pestaña</th><th>Qué hay</th></tr></thead>
+        <tbody>
+          <tr><td>General</td><td>Los datos del proyecto, los contactos y los subproyectos.</td></tr>
+          <tr><td>Equipment</td><td>El material planificado para el rodaje.</td></tr>
+          <tr><td>Finanzas</td><td>Los presupuestos y facturas de este proyecto.</td></tr>
+          <tr><td>Flota</td><td>Los vehículos asignados y sus días.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="truco">
+      <span class="truco-tit">Material y dinero son dos cosas</span>
+      <p>
+        <strong>Equipment</strong> es lo que el rodaje va a llevar.
+        <strong>Finanzas</strong> es lo que se cobra por ello. Se decide primero el
+        material y el dinero sale de ahí — por eso están separadas y no revueltas.
+      </p>
+    </div>
+
+    <h2 id="roles">Los tres roles de producción</h2>
+    <p>
+      En los datos del proyecto se apuntan tres personas: <strong>Line
+      Producer</strong>, <strong>Production Manager</strong> y <strong>Production
+      Coordinator</strong>. No es decoración: son los destinatarios que la
+      aplicación te ofrece por defecto al
+      <a href="presupuestos.html#enviar">enviar un presupuesto o una factura</a>.
+    </p>
+    <p>
+      Rellena también su correo. Sin correo, el nombre aparece en la lista de envío
+      pero desactivado, con un «sin correo en la ficha».
+    </p>
+
+    <h2 id="subproyectos">Subproyectos</h2>
+    <p>
+      Un subproyecto es <strong>una parte del rodaje con sus propios
+      presupuestos</strong>: Cámara, Iluminación, Segunda unidad, Rodaje Madrid. Se
+      administran en la pestaña <strong>General</strong> de la ficha, abajo.
+    </p>
+    <ol class="pasos">
+      <li><strong>+ Nuevo</strong> para crear uno a mano, que es el caso normal.</li>
+      <li>O <strong>Desde el árbol de material</strong>, que crea de golpe uno por cada
+        rama del material — el atajo para el reparto típico por departamentos.</li>
+    </ol>
+    <p>
+      Una vez creados, <strong>se salta entre ellos con el selector de arriba</strong>,
+      al lado del nombre del proyecto. Eso cambia el contexto de toda la ficha: el
+      material y el dinero que ves pasan a ser los de ese subproyecto.
+    </p>
+    <div class="nota">
+      <span class="nota-tit">Los presupuestos sueltos</span>
+      <p>
+        Un presupuesto puede colgar del proyecto sin estar en ningún subproyecto.
+        Esos salen agrupados como <strong>Sin subproyecto</strong>, y cuentan igual en
+        el total.
+      </p>
+    </div>
+
+    <h2 id="contactos">Contactos</h2>
+    <p>
+      La agenda del rodaje: nombre, rol, correo y teléfono, con el correo y el
+      teléfono pulsables. Se edita con <strong>Editar</strong> en la cabecera del
+      bloque, y no se guarda nada hasta que confirmas — si cancelas, el proyecto se
+      queda como estaba.
+    </p>
+
+    <h2 id="material">Material del proyecto</h2>
+    <p>
+      Pestaña <strong>Equipment</strong>. Aquí se planifica lo que lleva el rodaje,
+      sacándolo del <a href="material.html#inventario">inventario</a> de la casa o
+      del catálogo de tarifas.
+    </p>
+    <p>
+      Cada línea lleva cantidad, días y el subproyecto al que pertenece. De ahí sale
+      luego el presupuesto, con los <strong>grupos y el subproyecto</strong>
+      reflejados en el documento, para que el cliente pueda distinguir qué es cada
+      cosa.
+    </p>
+
+    <h2 id="equipo">Equipo de rodaje</h2>
+    <p>
+      Quién va en cada vehículo. Se monta desde <strong>Flota → Vehículos →
+      Equipo de Rodaje</strong>, que enseña la matriz de <strong>vehículos ×
+      puestos</strong> por proyecto: cada columna un rodaje, cada fila un puesto, y
+      dentro los nombres.
+    </p>
+    <p>
+      Es la pantalla que se pone en la <a href="sistema.html#pantalla">pantalla de la
+      oficina</a>, porque es lo que más se consulta de pie y sin teclado.
+    </p>
+
+    <h2 id="flota">La flota del proyecto</h2>
+    <p>
+      Pestaña <strong>Flota</strong> de la ficha. Los vehículos del rodaje, agrupados
+      por categoría —<strong>Camión Pesado, Camión Ligero, Vitos, Coches</strong>— y
+      cada uno con su logo de marca, su matrícula, el conductor, los días que tiene
+      en el calendario y el total.
+    </p>
+    <p>
+      Los días se leen en tramos: <code>25 ago–3 sep</code>. Si hay huecos se ven
+      (<code>12–13 sep, 18 sep</code>), porque no es lo mismo tener el camión el
+      rodaje entero que dos días y volver el 18.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Dónde se asignan los vehículos de verdad</span>
+      <p>
+        <strong>En el <a href="flota.html#calendario">calendario de flota</a>, no
+        aquí.</strong> Al dar un vehículo a un proyecto en el calendario, aparece solo
+        en esta pestaña con sus días. Al revés no: añadir un vehículo aquí a mano
+        <em>no le crea días</em> — inventar fechas de reserva podría pisar el rodaje de
+        otro, y esa no es una decisión que deba tomar el programa.
+      </p>
+      <p>
+        Por eso un vehículo puede salir aquí marcado como <strong>«sin días en el
+        calendario»</strong>: está en la flota del proyecto pero no aparece en ninguna
+        planificación. El aviso de abajo te dice cuántos están así y te lleva al
+        calendario a ponerles fechas.
+      </p>
+    </div>
+
+    <h2 id="calendario">El calendario de proyectos</h2>
+    <p>
+      Pestaña <strong>Calendario</strong> de la lista, o el bloque plegado de arriba en
+      General. Una barra por proyecto sobre una escala de meses, con la línea de
+      hoy marcada.
+    </p>
+    <ul>
+      <li>El ancho de la barra es la <strong>duración</strong> del rodaje.</li>
+      <li>Los que empiezan o acaban fuera del rango que estás mirando llevan el borde
+        punteado, para que se vea que continúan.</li>
+      <li><strong>Doble clic</strong> sobre una barra abre la ficha.</li>
+      <li>Los proyectos <strong>sin fechas no se pueden situar</strong> y salen contados
+        aparte en el pie.</li>
+    </ul>
+    <p>
+      Arriba se elige el rango: 1 mes, 3 meses, 6 meses o el año.
+    </p>
+
+    <h2 id="borrar">Borrar un proyecto</h2>
+    <p>
+      Requiere nivel <strong>total</strong> en Proyectos, y la aplicación te para
+      antes si del proyecto cuelga algo: te dice cuántos presupuestos, días de
+      flota, revisiones, subproyectos, contactos y líneas de material se van a ver
+      afectados, y hay que confirmar a conciencia.
+    </p>
+    <p>
+      Lo que cuelga <strong>no se borra: se descuelga</strong>. Los presupuestos se
+      quedan sin proyecto en vez de desaparecer — una factura emitida no se puede
+      esfumar porque alguien borre un rodaje.
+    </p>
+
+    <a class="siguiente" href="presupuestos.html">
+      <span class="siguiente-et">Siguiente</span>
+      <span class="siguiente-nom">03 · Presupuestos y dinero</span>
+    </a>
+
+    <div class="pie">
+      <span>Stokit · manuales</span>
+      <a href="index.html">Todos los manuales</a>
+    </div>
+  </main>
+</div>
+
+<script src="manual.js"></script>
+</body>
+</html>

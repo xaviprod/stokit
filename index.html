@@ -692,6 +692,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       <a href="#integracion">Integración</a>
       <a href="#implantacion">Implantación</a>
       <a href="#licencias">Licencias</a>
+      <a href="/manuales/">Manuales</a>
       <a href="#contacto">Contacto</a>
       <span class="indicador" id="indicador" aria-hidden="true"></span>
     </nav>
@@ -1049,6 +1050,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
           <li><a href="#licencias">Licencias</a></li>
           <li><a href="#cadena">Cómo funciona</a></li>
           <li><a href="#integracion">Microsoft 365</a></li>
+          <li><a href="/manuales/">Manuales</a></li>
         </ul>
       </div>
       <div class="pie-col">
@@ -1193,7 +1195,20 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   /* Qué sección se está mirando. Se toma la última cuyo comienzo ya ha
      pasado por debajo de la cabecera: es lo que uno diría que "está
      viendo", y no falla con secciones de alturas muy distintas. */
-  var destinos = enlaces.map(function (a) {
+  /* SOLO los enlaces que apuntan a un apartado de ESTA página.
+
+     Antes se hacía `querySelector(href)` con todos, y en cuanto el menú tuvo un
+     enlace que no era un ancla —«Manuales», que va a /manuales/— eso lanzaba un
+     SyntaxError: "/manuales/" no es un selector válido. Y al ser la primera
+     línea de este bloque, la excepción se llevaba por delante TODO el script de
+     la página: el indicador del menú, la barra de progreso y las animaciones.
+
+     Una página que se rompe entera por añadir un enlace al menú es una página
+     demasiado frágil. Se filtra por el «#» antes de preguntar. */
+  var destinos = enlaces.filter(function (a) {
+    var h = a.getAttribute('href') || '';
+    return h.charAt(0) === '#' && h.length > 1;
+  }).map(function (a) {
     return { a: a, sec: document.querySelector(a.getAttribute('href')) };
   }).filter(function (d) { return d.sec; });
 

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="El dashboard, los ajustes de la casa, la numeración de documentos, las pantallas de pared y el registro de actividad de Stokit.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<title>Ajustes y pantallas · Manuales de Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="index.html"><b>Stokit</b><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="index.html">Todos los manuales</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <nav class="indice">
+    <p class="indice-tit">08 · Ajustes y pantallas</p>
+    <ol>
+      <li><a href="#dashboard">El Dashboard</a></li>
+      <li><a href="#ajustes">Ajustes</a></li>
+      <li><a href="#empresa">Datos de la empresa</a></li>
+      <li><a href="#numeracion">Numeración</a></li>
+      <li><a href="#pantalla">Pantalla de oficina</a></li>
+      <li><a href="#qr-ajuste">Etiquetas con QR</a></li>
+      <li><a href="#actividad">Registro de actividad</a></li>
+      <li><a href="#guardado">Cuando algo no se guarda</a></li>
+    </ol>
+    <p class="indice-tit">Volver</p>
+    <ol><li><a href="index.html">Todos los manuales</a></li></ol>
+  </nav>
+
+  <main class="texto">
+    <h1>Ajustes y pantallas</h1>
+    <p class="entradilla">
+      Lo que se toca una vez y afecta a todos: cómo salen los documentos, cómo se
+      numeran, qué se ve en las teles de la oficina y dónde mirar cuando algo no
+      cuadra.
+    </p>
+
+    <h2 id="dashboard">El Dashboard</h2>
+    <p>
+      La primera pantalla al entrar. Bloques que contestan a «¿cómo va hoy?»: las
+      cifras del día, el gantt de los rodajes, las alertas, la flota en proyectos,
+      la agenda, la telefonía y el material más usado.
+    </p>
+    <p>
+      Cada bloque respeta tus permisos: si no tienes acceso a Economía, sus cifras
+      no aparecen. Un bloque vacío no significa que no haya datos — puede que no
+      sean para ti.
+    </p>
+
+    <h2 id="ajustes">Ajustes</h2>
+    <p>
+      <strong>Sistema → Ajustes.</strong> Requiere nivel <strong>total</strong> en
+      Sistema: lo que se cambia aquí afecta a todo el mundo. Un menú a la izquierda
+      y una cosa cada vez, en cuatro grupos:
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Grupo</th><th>Qué hay</th></tr></thead>
+        <tbody>
+          <tr><td>Empresa</td><td>Datos de la empresa.</td></tr>
+          <tr><td>Documentos</td><td>Plantillas de presupuesto y de factura, formato de la hoja, fondo del documento.</td></tr>
+          <tr><td>Presupuestos y facturas</td><td>Valores por defecto, facturación, numeración.</td></tr>
+          <tr><td>Otros</td><td>Pantalla de oficina, etiquetas con QR.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nota">
+      <span class="nota-tit">Aquí no se guarda al tocar</span>
+      <p>
+        Cambiar el prefijo de las facturas o la plantilla por defecto afecta a todos
+        los documentos que se emitan después, así que los cambios se acumulan y se
+        aplican al pulsar <strong>Guardar</strong>. Escribir a medias en una casilla no
+        puede quedar guardado.
+      </p>
+    </div>
+
+    <h2 id="empresa">Datos de la empresa</h2>
+    <p>
+      Nombre, NIF/CIF, domicilio fiscal, teléfono, correo y web. Salen en la
+      cabecera de todos los documentos.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">El CIF y el domicilio no son opcionales</span>
+      <p>
+        Una factura sin ellos <strong>no es válida</strong>, y el documento los marca en
+        rojo. Lo mismo con el IBAN y la forma de pago, en Facturación: sin ellos la
+        factura no dice cómo hay que cobrarla, que es la mitad de para qué se emite.
+      </p>
+    </div>
+
+    <h2 id="numeracion">Numeración</h2>
+    <p>
+      Los números se forman como <code>PREFIJO-AÑO-000</code>. Se elige el prefijo de
+      los presupuestos y el de las facturas, y debajo se ve cómo quedaría el
+      siguiente.
+    </p>
+    <p>
+      <strong>Cambiar un prefijo no renumera lo ya emitido</strong>: solo afecta a lo
+      que se cree a partir de ahora. Los documentos viejos conservan su número, que
+      es lo que hay que hacer con un número de factura.
+    </p>
+
+    <h2 id="pantalla">Pantalla de oficina</h2>
+    <p>
+      Pantallas de pared, sin teclado y sin sesión: se pega la dirección una vez en
+      el reproductor y se olvida. Se refrescan solas cada minuto y no hay nada que
+      pulsar.
+    </p>
+    <p><strong>Son dos</strong>, una por tele, porque quien mira busca una cosa concreta
+      y con todo rotando hay que esperar a que le toque:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Pantalla</th><th>Qué enseña</th></tr></thead>
+        <tbody>
+          <tr><td>Producción</td><td>El cuadro de <a href="proyectos.html#equipo">equipo de rodaje</a> del proyecto en marcha, y nada más.</td></tr>
+          <tr><td>Operación</td><td>Va pasando por el pulso del día, los vehículos que salen, los papeles de flota que caducan y lo que está en taller.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ol class="pasos">
+      <li><strong>Ajustes → Pantalla de oficina → Ver la dirección.</strong></li>
+      <li>Copia la dirección de la pantalla que quieras.</li>
+      <li>Pégala en el reproductor de la tele. Ya está.</li>
+    </ol>
+    <p>
+      El <strong>aspecto</strong> se elige aquí —oscuro o en blanco— y se aplica en la
+      tele al minuto siguiente, sin tocarla. El oscuro marca menos el panel de una
+      tele encendida meses; el blanco se lee mejor en una oficina con mucha luz.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Qué NO enseña, y no es un descuido</span>
+      <p>
+        <strong>Ni dinero, ni la cartera de lo que viene, ni teléfonos, ni correos.</strong>
+        Esa pantalla la ve quien entre por la puerta. Los rodajes que aún no han
+        empezado salen como un número, sin nombres.
+      </p>
+      <p>
+        La dirección lleva una clave. Si alguna vez se filtra, se genera otra desde
+        la misma pantalla de Ajustes y la anterior deja de servir.
+      </p>
+    </div>
+
+    <h2 id="qr-ajuste">Etiquetas con QR</h2>
+    <p>
+      Aquí se decide a dónde apunta el QR de las
+      <a href="tecnologia.html#qr-publico">etiquetas de dispositivo</a>. En blanco la
+      sirve Stokit, que es lo que funciona sin depender de nadie. Si algún día hay
+      una sección de información en la web de la casa, se pone su dirección y las
+      etiquetas nuevas apuntan allí.
+    </p>
+
+    <h2 id="actividad">Registro de actividad</h2>
+    <p>
+      <strong>Sistema → Actividad.</strong> Quién ha hecho qué y cuándo, en toda la
+      aplicación. Filtros por área, por persona, por acción y por fecha.
+    </p>
+    <p>
+      Es la pantalla del «¿quién ha borrado esto?». Y la respuesta que más veces da
+      es la útil: <strong>nadie</strong>. Si algo falta y aquí no hay ningún apunte de
+      borrado, no lo borró una persona — y eso cambia por completo dónde hay que
+      buscar.
+    </p>
+
+    <h2 id="guardado">Cuando algo no se guarda</h2>
+    <p>
+      Stokit trabaja con los datos <strong>en memoria</strong> y escribe en la base justo
+      detrás. Es lo que hace que todo vaya instantáneo. A cambio, hay dos cosas que
+      conviene saber:
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">La banda roja de arriba</span>
+      <p>
+        Si aparece <strong>«No se está guardando en la base de datos»</strong>, es de
+        verdad: lo que escribas se puede perder. Avisa a quien lleve el sistema.
+        Cuando se arregla, sale una banda verde — y entonces conviene repasar lo
+        último que escribiste.
+      </p>
+    </div>
+    <div class="nota">
+      <span class="nota-tit">Dos ventanas de la aplicación abiertas</span>
+      <p>
+        Si por lo que sea hay dos servidores en marcha con los mismos datos, el
+        segundo <strong>funciona sin guardar</strong> a propósito, para no pisarle el
+        trabajo al primero, y su banda lo dice: «hay otro servidor en marcha, cierra
+        el otro». No es un fallo, es la protección haciendo su trabajo.
+      </p>
+      <p>
+        Ojo: esto habla de <em>servidores</em>, no de pestañas del navegador. Tener la
+        aplicación abierta en el móvil y en el ordenador a la vez es normal y no
+        pasa nada.
+      </p>
+    </div>
+
+    <a class="siguiente" href="index.html">
+      <span class="siguiente-et">Volver</span>
+      <span class="siguiente-nom">Todos los manuales</span>
+    </a>
+
+    <div class="pie">
+      <span>Stokit · manuales</span>
+      <a href="index.html">Todos los manuales</a>
+    </div>
+  </main>
+</div>
+
+<script src="manual.js"></script>
+</body>
+</html>

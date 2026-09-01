@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Presupuestos y facturas en Stokit: montarlos, enviarlos, convertirlos en factura, contabilizarlos, y qué enseña Economía.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<title>Presupuestos y dinero · Manuales de Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="index.html"><b>Stokit</b><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="index.html">Todos los manuales</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <nav class="indice">
+    <p class="indice-tit">03 · Presupuestos y dinero</p>
+    <ol>
+      <li><a href="#lista">La lista</a></li>
+      <li><a href="#crear">Montar un presupuesto</a></li>
+      <li><a href="#catalogo">El catálogo de tarifas</a></li>
+      <li><a href="#documento">Ver el documento</a></li>
+      <li><a href="#enviar">Enviar</a></li>
+      <li><a href="#estados">Los estados</a></li>
+      <li><a href="#factura">Pasar a factura</a></li>
+      <li><a href="#contabilizar">Contabilizar</a></li>
+      <li><a href="#anular">Anular</a></li>
+      <li><a href="#plantillas">Plantillas y PDF</a></li>
+      <li><a href="#economia">Economía</a></li>
+    </ol>
+    <p class="indice-tit">Siguiente</p>
+    <ol><li><a href="flota.html">04 · Flota</a></li></ol>
+  </nav>
+
+  <main class="texto">
+    <h1>Presupuestos y dinero</h1>
+    <p class="entradilla">
+      Un presupuesto y una factura son <strong>el mismo documento en dos
+      momentos</strong> de su vida. Entender eso ahorra la mitad de las dudas de
+      esta pantalla.
+    </p>
+
+    <h2 id="lista">La lista</h2>
+    <p>
+      <strong>Producción → Presupuestos.</strong> Arriba, tres botones:
+      <strong>+ Nuevo</strong>, <strong>Catálogo</strong> y
+      <strong>Ajustes PDF</strong>. Y una tira de filtros por estado: Todos,
+      Borrador, Enviado, Aceptado, Rechazado y <strong>Anulados</strong>.
+    </p>
+    <div class="nota">
+      <span class="nota-tit">Los anulados no salen por defecto</span>
+      <p>
+        A propósito: así ninguna pantalla que sume importes tiene que acordarse de
+        descontarlos. Están en su propio filtro, y allí se ven marcados.
+      </p>
+    </div>
+
+    <h2 id="crear">Montar un presupuesto</h2>
+    <p>
+      Se puede empezar de dos sitios, y no da lo mismo:
+    </p>
+    <ul>
+      <li><strong>Desde la ficha del proyecto</strong> (botón <strong>+
+        Presupuesto</strong>): nace ya colgado de ese proyecto y de su
+        subproyecto. Es lo recomendable.</li>
+      <li><strong>Desde Presupuestos → + Nuevo</strong>: nace suelto y hay que
+        elegirle el proyecto en el selector.</li>
+    </ul>
+    <ol class="pasos">
+      <li><strong>El cliente</strong> es lo único obligatorio para poder guardar.</li>
+      <li>Comprueba el <strong>proyecto</strong> y, si lo hay, el
+        <strong>subproyecto</strong>. El vínculo va por proyecto y no por el nombre
+        escrito: así no se rompe si algún día se renombra el rodaje.</li>
+      <li>Añade líneas. <strong>Añadir</strong> abre el catálogo y el inventario;
+        <strong>+ Línea libre</strong> es para lo que no está en ninguna lista.</li>
+      <li><strong>+ Sección</strong> agrupa líneas bajo un título. En el documento
+        salen agrupadas por sección y por subproyecto, con subtotales — el cliente
+        tiene que poder distinguir qué es cada cosa.</li>
+      <li><strong>Fechas y notas</strong>: fecha del documento, validez y el texto
+        que quieras que salga al pie.</li>
+      <li><strong>Guardar</strong>. Le pone número y la pestaña pasa a llamarse como
+        el documento.</li>
+    </ol>
+    <div class="truco">
+      <span class="truco-tit">El IVA y la validez vienen de Ajustes</span>
+      <p>
+        Un presupuesto nuevo nace con el IVA y los días de validez que haya en
+        <a href="sistema.html#ajustes">Ajustes → Valores por defecto</a>. Cámbialos
+        ahí una vez en lugar de en cada documento.
+      </p>
+    </div>
+
+    <h2 id="catalogo">El catálogo de tarifas</h2>
+    <p>
+      Botón <strong>Catálogo</strong>. Es tu lista de precios: concepto, unidad
+      (día, hora, unidad, sesión, proyecto, minuto) y precio. Lo que metas aquí
+      aparece al añadir líneas a cualquier presupuesto.
+    </p>
+    <p>
+      Es distinto del <a href="material.html#inventario">inventario</a>: el
+      inventario es material físico que tienes y se puede alquilar; el catálogo son
+      conceptos que facturas, tengan o no un objeto detrás.
+    </p>
+
+    <h2 id="documento">Ver el documento</h2>
+    <p>
+      Abrir un presupuesto de la lista enseña <strong>el documento tal como lo va a
+      recibir el cliente</strong>, con la hoja a escala y el fondo de marca puesto.
+      Desde ahí: <strong>Editar</strong> para volver al montador y
+      <strong>Exportar PDF</strong> para imprimir o guardar.
+    </p>
+    <p>
+      Si el documento ya se ha enviado, debajo sale <strong>a quién y cuándo</strong>.
+    </p>
+
+    <h2 id="enviar">Enviar</h2>
+    <p>
+      El botón de enviar necesita la capacidad <em>enviar</em>. Al pulsarlo, la
+      aplicación te ofrece <strong>solo tres destinatarios</strong>: el
+      <a href="proyectos.html#roles">Line Producer, el Production Manager y el
+      Production Coordinator</a> del proyecto.
+    </p>
+    <p>
+      Eso es deliberado: si la lista fuera todo el mundo, estaría reventada de
+      correos y elegir sería un riesgo. Para cualquier otro destinatario está
+      <strong>«Alguien más…»</strong>, que abre el resto con un buscador.
+    </p>
+    <div class="nota">
+      <span class="nota-tit">Un nombre en gris</span>
+      <p>
+        Significa <strong>«sin correo en la ficha»</strong>. El rol está puesto en el
+        proyecto pero le falta la dirección: se rellena en
+        <a href="proyectos.html#roles">los datos del proyecto</a>.
+      </p>
+    </div>
+    <p>
+      Al enviar, el documento pasa a <strong>Enviado</strong> y queda apuntado el
+      destinatario y la hora, que es lo que se consulta tres semanas después
+      cuando nadie se acuerda de a quién se le mandó.
+    </p>
+
+    <h2 id="estados">Los estados</h2>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Estado</th><th>Qué significa</th></tr></thead>
+        <tbody>
+          <tr><td>Borrador</td><td>Se está montando. No ha salido de casa.</td></tr>
+          <tr><td>Enviado</td><td>Está en manos del cliente.</td></tr>
+          <tr><td>Aceptado</td><td>Dijo sí. Ya se puede contabilizar y pasar a factura.</td></tr>
+          <tr><td>Rechazado</td><td>Dijo no. Se queda como histórico.</td></tr>
+          <tr><td>Anulado</td><td>Retirado. No suma en ninguna cifra.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="factura">Pasar a factura</h2>
+    <p>
+      No se crea un documento nuevo ni se copia nada: <strong>el mismo documento
+      cambia de naturaleza</strong>. Lo que ya se acordó con el cliente —líneas,
+      importes, descuentos— es exactamente lo que se factura, y duplicarlo abriría
+      la puerta a que las dos copias dejaran de coincidir.
+    </p>
+    <p>
+      Se conserva el número de presupuesto del que salió, porque es la primera
+      pregunta que hace cualquiera al mirar una factura. La numeración cambia al
+      prefijo de facturas que tengas en
+      <a href="sistema.html#numeracion">Ajustes → Numeración</a>.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Una factura necesita CIF y domicilio</span>
+      <p>
+        Sin el NIF y el domicilio fiscal de tu empresa, una factura <strong>no es
+        válida</strong>, y el documento los marca en rojo. Se rellenan una vez en
+        <a href="sistema.html#ajustes">Presupuestos → Ajustes PDF → Datos de la
+        empresa</a>. Lo mismo con el IBAN y la forma de pago: sin ellos la factura
+        no dice cómo cobrarla.
+      </p>
+    </div>
+
+    <h2 id="contabilizar">Contabilizar</h2>
+    <p>
+      Contabilizar un documento <strong>suma los días de alquiler a cada ítem del
+      inventario</strong> que aparezca en él. Es lo que hace que un foco sepa
+      cuántos días ha trabajado y cuántas veces ha salido.
+    </p>
+    <ul>
+      <li>Necesita nivel <strong>total</strong> en Presupuestos y la capacidad
+        <em>contabilizar</em>.</li>
+      <li>Un <strong>presupuesto</strong> tiene que estar <strong>aceptado</strong>.
+        Una <strong>factura</strong> se puede contabilizar siempre: emitirla ya es el
+        compromiso.</li>
+      <li><strong>Solo una vez.</strong> Un documento ya contabilizado se rechaza, para
+        que los días no se cuenten dos veces.</li>
+    </ul>
+
+    <h2 id="anular">Anular</h2>
+    <p>
+      Los presupuestos y las facturas <strong>no se borran: se anulan</strong>. El
+      documento se queda en la base y desaparece de las listas y de las sumas, pero
+      su número no se reutiliza. Un documento emitido que se esfuma sin rastro es
+      un agujero en la contabilidad.
+    </p>
+
+    <h2 id="plantillas">Plantillas y PDF</h2>
+    <p>
+      Botón <strong>Ajustes PDF</strong>, o
+      <a href="sistema.html#ajustes">Ajustes → Documentos</a>. Cuatro plantillas
+      —<strong>Sobria, Clásico, Moderno, Cine</strong>— y el diseño de cada una se
+      puede editar por bloques con <strong>Editar diseño</strong>.
+    </p>
+    <ul>
+      <li>El diseño del <strong>presupuesto</strong> y el de la <strong>factura</strong>
+        se editan aparte: una factura lleva datos fiscales y vencimiento que un
+        presupuesto no necesita.</li>
+      <li><strong>Fondo del documento</strong>: la imagen a página completa detrás de
+        todo. Acepta PDF —se convierte aquí mismo tomando la primera página— o
+        PNG/JPG.</li>
+      <li><strong>Formato de la hoja</strong>: A4 es lo normal. A3 solo si necesitas el
+        doble de superficie para un fondo a página completa.</li>
+    </ul>
+
+    <h2 id="economia">Economía</h2>
+    <p>
+      <strong>Producción → Economía.</strong> Los números del negocio, con dos
+      filtros arriba: <strong>año</strong> y <strong>proyecto</strong>. Cinco bloques:
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Bloque</th><th>Qué contesta</th></tr></thead>
+        <tbody>
+          <tr><td>Embudo comercial</td><td>Cuánto hay en borrador, cuánto enviado, cuánto aceptado y cuánto rechazado.</td></tr>
+          <tr><td>El gráfico</td><td>Cómo ha ido mes a mes.</td></tr>
+          <tr><td>Por proyecto</td><td>Qué ha dejado cada rodaje.</td></tr>
+          <tr><td>Gasto de taller</td><td>Lo que se ha ido en reparaciones de flota.</td></tr>
+          <tr><td>Por categoría</td><td>De qué tipo de material sale el dinero. Sin IVA y con el descuento global ya aplicado.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nota">
+      <span class="nota-tit">Quién puede entrar aquí</span>
+      <p>
+        Economía es su propia área de permisos, separada de Presupuestos. Se puede
+        dar acceso a los presupuestos sin dar acceso a los márgenes del negocio, y
+        es lo normal.
+      </p>
+    </div>
+
+    <a class="siguiente" href="flota.html">
+      <span class="siguiente-et">Siguiente</span>
+      <span class="siguiente-nom">04 · Flota</span>
+    </a>
+
+    <div class="pie">
+      <span>Stokit · manuales</span>
+      <a href="index.html">Todos los manuales</a>
+    </div>
+  </main>
+</div>
+
+<script src="manual.js"></script>
+</body>
+</html>

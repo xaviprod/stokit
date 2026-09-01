@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="La flota en Stokit: vehículos, ITV y seguro, el calendario de ocupación, salidas y revisiones con fotos, tareas y órdenes de taller.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<title>Flota · Manuales de Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="index.html"><b>Stokit</b><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="index.html">Todos los manuales</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <nav class="indice">
+    <p class="indice-tit">04 · Flota</p>
+    <ol>
+      <li><a href="#vehiculos">Los vehículos</a></li>
+      <li><a href="#categorias">Las categorías</a></li>
+      <li><a href="#ficha">La ficha de un vehículo</a></li>
+      <li><a href="#itv">ITV y seguro</a></li>
+      <li><a href="#documentos">Documentos y fotos</a></li>
+      <li><a href="#calendario">El calendario</a></li>
+      <li><a href="#salidas">Salidas y revisiones</a></li>
+      <li><a href="#tareas">Tareas / ITV</a></li>
+      <li><a href="#taller">Mantenimiento</a></li>
+      <li><a href="#borrar">Dar de baja un vehículo</a></li>
+    </ol>
+    <p class="indice-tit">Siguiente</p>
+    <ol><li><a href="material.html">05 · Material</a></li></ol>
+  </nav>
+
+  <main class="texto">
+    <h1>Flota</h1>
+    <p class="entradilla">
+      Cinco pantallas que hablan de lo mismo desde ángulos distintos: qué
+      vehículos hay, qué papeles tienen, quién los lleva cada día, en qué estado
+      van y vuelven, y qué les falta por hacer.
+    </p>
+
+    <h2 id="vehiculos">Los vehículos</h2>
+    <p>
+      <strong>Flota → Vehículos.</strong> Arriba, una barra con las categorías y el
+      buscador; debajo, la tabla. Dos botones que no son la tabla:
+    </p>
+    <ul>
+      <li><strong>Equipo de Rodaje</strong> — la matriz de quién va en cada vehículo,
+        por proyecto. Es la vista que se pone en la
+        <a href="sistema.html#pantalla">pantalla de la oficina</a>.</li>
+      <li><strong>Apuntar ITV</strong> — atajo para citar una ITV sin abrir la ficha.</li>
+    </ul>
+    <p>
+      Los chips de aviso que salen arriba —papeles a punto de caducar— son enlaces:
+      pulsándolos se filtra la tabla a los vehículos afectados.
+    </p>
+
+    <h2 id="categorias">Las categorías</h2>
+    <p>
+      Un vehículo no se clasifica a mano: la categoría se deduce de su tipo y su
+      modelo, en un solo sitio, para que la misma furgoneta no se llame de dos
+      maneras según dónde la mires.
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Categoría</th><th>Qué entra</th></tr></thead>
+        <tbody>
+          <tr><td>Camión Pesado</td><td>Todo lo de tipo camión.</td></tr>
+          <tr><td>Vitos</td><td>Las furgonetas cuyo modelo dice «Vito».</td></tr>
+          <tr><td>Camión Ligero</td><td>El resto de las furgonetas.</td></tr>
+          <tr><td>Coches</td><td>Turismos de la casa.</td></tr>
+          <tr><td>Coches Privados</td><td>Turismos marcados como privados. No son flota de producción y no se puede contar con ellos para un rodaje.</td></tr>
+          <tr><td>Otros</td><td>Lo que no cae en ninguna — el quad, por ejemplo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Estas mismas categorías son las que agrupan
+      <a href="proyectos.html#flota">la flota dentro de un proyecto</a>.
+    </p>
+
+    <h2 id="ficha">La ficha de un vehículo</h2>
+    <p>
+      Doble clic en una fila, o <strong>Abrir</strong>. Tres pestañas:
+      <strong>Información</strong>, <strong>Documentos / Fotos</strong> e
+      <strong>Historial servicio</strong>. Y arriba, <strong>En reparación</strong>
+      para marcarlo parado sin tener que abrir una orden de taller.
+    </p>
+    <p>
+      En Información van la matrícula, la marca y el modelo —de ahí sale el logo que
+      ves en las listas—, el tipo, los kilómetros y las fechas de los papeles.
+    </p>
+
+    <h2 id="itv">ITV y seguro</h2>
+    <p>
+      La ITV se lleva en dos pasos, porque son dos cosas distintas: primero se
+      <strong>cita</strong> y después se apunta el <strong>resultado</strong>.
+    </p>
+    <ol class="pasos">
+      <li><strong>Apuntar ITV</strong>: fecha, hora y estación. El vehículo queda con
+        cita puesta y sale en los avisos.</li>
+      <li>Cuando vuelve, se apunta el resultado: <strong>APTO</strong> —con la fecha
+        hasta la que vale— o <strong>NO APTO</strong>.</li>
+      <li>El resultado <strong>se escribe solo en el historial de servicio</strong>, con
+        la fecha de la cita, los kilómetros y la estación. No hay que apuntarlo dos
+        veces.</li>
+    </ol>
+    <p>
+      Además de la ITV, la ficha lleva el <strong>seguro</strong> y la
+      <strong>tarjeta de transporte</strong>. Las tres fechas alimentan los avisos de
+      la pantalla de <a href="#taller">Mantenimiento</a> y de la
+      <a href="sistema.html#pantalla">pantalla de oficina</a>.
+    </p>
+
+    <h2 id="documentos">Documentos y fotos</h2>
+    <p>
+      <strong>+ Subir documento</strong>: el permiso de circulación, la ficha técnica,
+      la póliza, el parte de un golpe. Se pueden previsualizar y descargar desde la
+      misma ficha.
+    </p>
+    <p>
+      El <strong>Historial servicio</strong> es la vida del vehículo:
+      <strong>+ Añadir entrada</strong> con fecha, tipo, descripción, kilómetros,
+      coste y taller. Las ITV entran aquí solas.
+    </p>
+
+    <h2 id="calendario">El calendario</h2>
+    <p>
+      <strong>Flota → Calendario de Flota.</strong> Una fila por vehículo, una columna
+      por día. <strong>Aquí es donde se decide de verdad quién tiene cada coche.</strong>
+    </p>
+    <ol class="pasos">
+      <li>Busca el vehículo en su fila.</li>
+      <li>Pulsa —o arrastra, para varios días— sobre los días que quieras.</li>
+      <li>Elige el <strong>proyecto</strong> y, si lo sabes, el
+        <strong>conductor</strong>.</li>
+      <li>Se guarda al momento. No hay botón.</li>
+    </ol>
+    <p>
+      Para sacar un vehículo de circulación sin proyecto, se marca como
+      <strong>ITV</strong> o <strong>Mantenimiento</strong>: ocupa el día igual y se
+      ve distinto.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Esto se refleja en cuatro sitios a la vez</span>
+      <p>
+        Al dar un vehículo a un proyecto aquí, aparece automáticamente en
+        <a href="proyectos.html#flota">la flota de ese proyecto</a> con sus días, en
+        las <a href="#salidas">salidas</a>, en las revisiones y en la pantalla de la
+        oficina. Y si le quitas los días, se retira de la flota del proyecto solo.
+      </p>
+      <p>
+        Al revés no funciona: un vehículo añadido a mano en la ficha del proyecto
+        <em>no genera días</em> aquí. El calendario manda.
+      </p>
+    </div>
+
+    <h2 id="salidas">Salidas y revisiones</h2>
+    <p>
+      <strong>Flota → Salidas y revisiones.</strong> La revisión es la
+      <strong>foto del estado</strong> de un vehículo al salir y al volver. Sirve para
+      reclamar un daño con pruebas, así que se hace en serio.
+    </p>
+    <p>Cada revisión pide siete fotos:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Hueco</th><th>Cómo</th></tr></thead>
+        <tbody>
+          <tr><td>Frontal</td><td>De frente, que entre toda la parte delantera.</td></tr>
+          <tr><td>Lateral izquierdo</td><td>Desde unos pasos atrás, de rueda a rueda.</td></tr>
+          <tr><td>Trasera</td><td>Portón cerrado, matrícula visible.</td></tr>
+          <tr><td>Lateral derecho</td><td>Desde unos pasos atrás, de rueda a rueda.</td></tr>
+          <tr><td>Interior / cabina</td><td>Asientos y salpicadero.</td></tr>
+          <tr><td>Cuentakilómetros</td><td>Con el contacto dado, que se lean los números.</td></tr>
+          <tr><td>Combustible</td><td>La aguja o la pantalla del depósito.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Y aparte los <strong>daños</strong>, que no tienen hueco fijo: pueden ser varios
+      o ninguno, hasta doce. Una revisión a la que le falte alguna de las siete sale
+      como <strong>sin terminar</strong>, y los filtros de arriba permiten ver solo
+      esas.
+    </p>
+    <div class="truco">
+      <span class="truco-tit">Se hace con el móvil, en el patio</span>
+      <p>
+        Es la pantalla más pensada para el teléfono de toda la aplicación: cada hueco
+        dice qué foto quiere y cómo hacerla. Si el vehículo tiene proyecto y
+        conductor ese día en el calendario, vienen ya puestos.
+      </p>
+    </div>
+
+    <h2 id="tareas">Tareas / ITV</h2>
+    <p>
+      <strong>Flota → Tareas / ITV.</strong> Listas de cosas por hacer en los
+      vehículos, organizadas por proyecto. Tres columnas: los proyectos, sus listas,
+      y el detalle de la lista elegida.
+    </p>
+    <ol class="pasos">
+      <li>Elige un proyecto a la izquierda, o <strong>Todas las listas</strong>.</li>
+      <li><strong>+ Nueva Lista</strong> para crear una.</li>
+      <li>Dentro, se añaden tareas y se marcan hechas. La barra de progreso va sola.</li>
+    </ol>
+    <p>
+      En pantalla estrecha las tres columnas se apilan y el detalle pasa abajo, a
+      todo el ancho.
+    </p>
+
+    <h2 id="taller">Mantenimiento</h2>
+    <p>
+      El acceso directo de arriba en la barra lateral, fuera de los grupos, porque
+      se mira a diario. Reúne tres cosas: las <strong>órdenes de taller</strong>, los
+      <strong>vencimientos</strong> que se acercan y los <strong>activos
+      parados</strong>.
+    </p>
+    <p><strong>+ Nueva orden</strong> abre una. Cada orden lleva:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Campo</th><th>Valores</th></tr></thead>
+        <tbody>
+          <tr><td>Estado</td><td>Abierta · En taller · Esperando pieza · Cerrada</td></tr>
+          <tr><td>Tipo</td><td>Avería · Preventivo · ITV · Neumáticos · Siniestro · Mejora</td></tr>
+          <tr><td>Prioridad</td><td>Baja · Normal · Alta · Crítica</td></tr>
+          <tr><td>Sobre</td><td>Un vehículo, un ítem de inventario o un dispositivo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Lo que se gasta en las órdenes es lo que sale en
+      <a href="presupuestos.html#economia">Economía → Gasto de taller</a>.
+    </p>
+
+    <h2 id="borrar">Dar de baja un vehículo</h2>
+    <p>
+      Requiere nivel <strong>total</strong> en Flota. Si el vehículo está en algún
+      proyecto en curso o tiene días futuros en el calendario, la aplicación
+      <strong>no lo borra sin más</strong>: te lo dice y te da dos salidas.
+    </p>
+    <ul>
+      <li><strong>Poner un sustituto</strong>: los días del calendario y las líneas de
+        flota <strong>pasan al vehículo sustituto</strong>, conservando el conductor.
+        Es lo que quieres el 90 % de las veces.</li>
+      <li><strong>Confirmar a conciencia</strong> escribiendo la palabra
+        <code>BORRAR</code>.</li>
+    </ul>
+    <p>
+      Al borrar se limpian sus días de calendario, sus asignaciones a proyectos y
+      los ítems de inventario que colgaban de él. <strong>Las revisiones no se
+      tocan</strong>: son pruebas de estado y siguen valiendo aunque el vehículo se
+      haya vendido — se te dice cuántas quedan.
+    </p>
+
+    <a class="siguiente" href="material.html">
+      <span class="siguiente-et">Siguiente</span>
+      <span class="siguiente-nom">05 · Material</span>
+    </a>
+
+    <div class="pie">
+      <span>Stokit · manuales</span>
+      <a href="index.html">Todos los manuales</a>
+    </div>
+  </main>
+</div>
+
+<script src="manual.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Manuales de Stokit: cómo funciona cada parte de la aplicación, explicada por pantallas y con lo que suele liar.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<title>Manuales · Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="../index.html"><b>Stokit</b><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="../index.html">La web</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <!-- La portada no lleva índice lateral: el índice ES la portada. -->
+  <main class="texto" style="grid-column: 1 / -1; max-width: 1000px; margin: 0 auto;">
+
+    <h1>Manuales</h1>
+    <p class="entradilla">
+      Cómo funciona cada parte de Stokit, pantalla por pantalla. Escrito para
+      consultar con prisa: busca lo que quieras hacer y ve directo.
+    </p>
+
+    <div class="buscador">
+      <label for="q" class="ojo-tit" style="color:var(--tinta-3)">Buscar</label>
+      <input id="q" type="search" autocomplete="off"
+             placeholder="Qué quieres hacer: «asignar un coche», «enviar un presupuesto», «dar de alta un portátil»…">
+      <div id="resultados"></div>
+    </div>
+
+    <h2 id="por-donde" style="margin-top:44px">Por dónde empezar</h2>
+    <p>
+      Si es tu primer día, lee <a href="empezar.html">Empezar</a> de arriba abajo:
+      son cinco minutos y explica lo que no se ve — cómo entrar, cómo se mueve la
+      aplicación, y por qué tú ves unas cosas y tu compañero otras.
+    </p>
+    <p>
+      Si ya la usas y solo quieres resolver algo concreto, usa el buscador de
+      arriba o entra por el bloque que corresponda.
+    </p>
+
+    <h2 id="secciones">Los manuales</h2>
+
+    <div class="rejilla">
+      <a class="ficha" href="empezar.html">
+        <div class="ficha-num">01</div>
+        <div class="ficha-tit">Empezar</div>
+        <div class="ficha-sub">Entrar, moverse, las pestañas, el buscador y por qué cada
+          persona ve cosas distintas.</div>
+        <div class="ficha-que">Entrar · Pestañas · Buscar · Permisos</div>
+      </a>
+
+      <a class="ficha" href="proyectos.html">
+        <div class="ficha-num">02</div>
+        <div class="ficha-tit">Proyectos</div>
+        <div class="ficha-sub">El rodaje y todo lo que cuelga de él: subproyectos,
+          contactos, material, equipo y flota.</div>
+        <div class="ficha-que">Proyectos · Subproyectos · Equipo · Flota</div>
+      </a>
+
+      <a class="ficha" href="presupuestos.html">
+        <div class="ficha-num">03</div>
+        <div class="ficha-tit">Presupuestos y dinero</div>
+        <div class="ficha-sub">Montar un presupuesto, enviarlo, convertirlo en factura y
+          ver qué ha dejado.</div>
+        <div class="ficha-que">Presupuestos · Facturas · Catálogo · Economía</div>
+      </a>
+
+      <a class="ficha" href="flota.html">
+        <div class="ficha-num">04</div>
+        <div class="ficha-tit">Flota</div>
+        <div class="ficha-sub">Los vehículos, su papeleo, quién los lleva cada día y lo
+          que tienen pendiente.</div>
+        <div class="ficha-que">Vehículos · Calendario · ITV · Taller</div>
+      </a>
+
+      <a class="ficha" href="material.html">
+        <div class="ficha-num">05</div>
+        <div class="ficha-tit">Material</div>
+        <div class="ficha-sub">El inventario de la casa, sus categorías, y las etiquetas
+          para identificarlo.</div>
+        <div class="ficha-que">Inventario · Categorías · Fichas QR</div>
+      </a>
+
+      <a class="ficha" href="tecnologia.html">
+        <div class="ficha-num">06</div>
+        <div class="ficha-tit">Tecnología</div>
+        <div class="ficha-sub">Ordenadores y móviles de la empresa, las cuentas de
+          Microsoft 365, las líneas y los MiFi.</div>
+        <div class="ficha-que">IT Stock · Microsoft 365 · Telefonía · MiFi</div>
+      </a>
+
+      <a class="ficha" href="personas.html">
+        <div class="ficha-num">07</div>
+        <div class="ficha-tit">Personas</div>
+        <div class="ficha-sub">La plantilla, quién entra a la aplicación, qué puede hacer
+          cada uno, y tu propio perfil.</div>
+        <div class="ficha-que">Empleados · Crew · Permisos · Mi Perfil</div>
+      </a>
+
+      <a class="ficha" href="sistema.html">
+        <div class="ficha-num">08</div>
+        <div class="ficha-tit">Ajustes y pantallas</div>
+        <div class="ficha-sub">El panel de inicio, los ajustes de la casa, las pantallas
+          de pared y el registro de lo que pasa.</div>
+        <div class="ficha-que">Dashboard · Ajustes · Pantalla de oficina · Actividad</div>
+      </a>
+    </div>
+
+    <h2 id="lo-mas">Lo que más se pregunta</h2>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Quiero…</th><th>Está en</th></tr></thead>
+        <tbody>
+          <tr><td>Dar un coche a un rodaje</td>
+              <td><a href="flota.html#calendario">Flota · El calendario</a></td></tr>
+          <tr><td>Que ese coche salga en el proyecto</td>
+              <td><a href="proyectos.html#flota">Proyectos · La flota del proyecto</a></td></tr>
+          <tr><td>Hacer un presupuesto</td>
+              <td><a href="presupuestos.html#crear">Presupuestos · Montar uno</a></td></tr>
+          <tr><td>Mandárselo al cliente</td>
+              <td><a href="presupuestos.html#enviar">Presupuestos · Enviar</a></td></tr>
+          <tr><td>Convertirlo en factura</td>
+              <td><a href="presupuestos.html#factura">Presupuestos · Pasar a factura</a></td></tr>
+          <tr><td>Apuntar la ITV de un vehículo</td>
+              <td><a href="flota.html#itv">Flota · ITV y seguro</a></td></tr>
+          <tr><td>Saber quién tiene un portátil</td>
+              <td><a href="tecnologia.html#it-stock">Tecnología · IT Stock</a></td></tr>
+          <tr><td>Imprimir etiquetas con QR</td>
+              <td><a href="material.html#fichas-qr">Material · Fichas QR</a></td></tr>
+          <tr><td>Dar acceso a alguien nuevo</td>
+              <td><a href="personas.html#crew">Personas · Crew</a></td></tr>
+          <tr><td>Cambiar quién ve los precios</td>
+              <td><a href="personas.html#capacidades">Personas · Capacidades</a></td></tr>
+          <tr><td>Poner la pantalla de la oficina</td>
+              <td><a href="sistema.html#pantalla">Ajustes · Pantalla de oficina</a></td></tr>
+          <tr><td>Saber quién ha borrado algo</td>
+              <td><a href="sistema.html#actividad">Ajustes · Registro de actividad</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota">
+      <span class="nota-tit">Si algo no cuadra con lo que ves</span>
+      <p>
+        La aplicación se toca a menudo y este manual va detrás. Si una pantalla no
+        se parece a lo que aquí se cuenta, gana la pantalla: dilo y se corrige el
+        manual.
+      </p>
+    </div>
+
+    <div class="pie">
+      <span>Stokit · manuales</span>
+      <a href="../index.html">Volver a la web</a>
+      <a href="empezar.html">Empezar</a>
+    </div>
+
+  </main>
+</div>
+
+<script src="buscar.js"></script>
+<script src="manual.js"></script>
+</body>
+</html>

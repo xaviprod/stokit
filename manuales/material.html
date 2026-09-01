@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="El inventario de material en Stokit: categorías, alta de ítems, importar desde Excel y las etiquetas con QR.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<title>Material · Manuales de Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="index.html"><b>Stokit</b><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="index.html">Todos los manuales</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <nav class="indice">
+    <p class="indice-tit">05 · Material</p>
+    <ol>
+      <li><a href="#inventario">El inventario</a></li>
+      <li><a href="#ficha">La ficha de un ítem</a></li>
+      <li><a href="#categorias">Las categorías</a></li>
+      <li><a href="#lotes">Cambiar muchos a la vez</a></li>
+      <li><a href="#importar">Importar desde Excel</a></li>
+      <li><a href="#alquilado">Días alquilados</a></li>
+      <li><a href="#fichas-qr">Fichas QR</a></li>
+      <li><a href="#imprimir">Imprimir las etiquetas</a></li>
+    </ol>
+    <p class="indice-tit">Siguiente</p>
+    <ol><li><a href="tecnologia.html">06 · Tecnología</a></li></ol>
+  </nav>
+
+  <main class="texto">
+    <h1>Material</h1>
+    <p class="entradilla">
+      Todo lo que la casa tiene y puede salir a un rodaje: cámara, luces, grip,
+      cable. Ochocientas fichas largas, así que casi todo aquí es cuestión de
+      encontrar rápido.
+    </p>
+
+    <h2 id="inventario">El inventario</h2>
+    <p>
+      <strong>Material → Inventario.</strong> Arriba, las categorías como chips con su
+      cuenta —Todo, Camera, Lights, Grip, Facilities, Vehicles, IT, Offices &amp;
+      Rooms— y el buscador. Debajo, la tabla, con dos vistas:
+      <strong>Lista</strong> y <strong>Cuadrícula</strong>.
+    </p>
+    <p>Cada fila trae lo que se pregunta de un ítem:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Columna</th><th>Qué es</th></tr></thead>
+        <tbody>
+          <tr><td>Código</td><td>El identificador interno. Es lo que se busca cuando alguien llama desde el almacén.</td></tr>
+          <tr><td>Nombre</td><td>Cómo se llama de verdad, tal cual está en el listado.</td></tr>
+          <tr><td>Categoría</td><td>La rama del árbol a la que pertenece.</td></tr>
+          <tr><td>Uds.</td><td>Cuántas unidades hay.</td></tr>
+          <tr><td>€/día</td><td>La tarifa. Solo la ves si tienes la capacidad <em>ver precios</em>.</td></tr>
+          <tr><td>Alquilado</td><td>Veces que ha salido y días acumulados.</td></tr>
+          <tr><td>Estado</td><td>Disponible · En uso · Mantenimiento · Baja</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="ficha">La ficha de un ítem</h2>
+    <p>
+      <strong>Ficha</strong> en la fila, o doble clic. Dentro: los datos, las fotos, y
+      el historial de por qué rodajes ha pasado. <strong>+ Añadir ítem</strong>, arriba,
+      da de alta uno nuevo.
+    </p>
+    <p>
+      Lo único imprescindible es el <strong>nombre</strong>. Todo lo demás se puede
+      dejar en blanco y rellenar después, que es como se trabaja de verdad cuando
+      llega material nuevo a las cuatro de la tarde.
+    </p>
+
+    <h2 id="categorias">Las categorías</h2>
+    <p>
+      Botón <strong>Categorías</strong>. Es un <strong>árbol</strong>, no una lista:
+      Camera → Ópticas → Zooms. Se crean con <strong>+ Categoría raíz</strong> y
+      colgando hijas de cualquier rama.
+    </p>
+    <p>
+      El árbol es el que da la estructura a los presupuestos: los grupos que se ven
+      en un documento salen de aquí. Y también es lo que permite crear los
+      <a href="proyectos.html#subproyectos">subproyectos de golpe</a> desde el árbol
+      de material.
+    </p>
+    <div class="nota">
+      <span class="nota-tit">Al borrar una categoría</span>
+      <p>
+        El material que colgaba de ella <strong>no se borra</strong>: se queda sin
+        categoría y sale en «Todo». Nunca se pierde un ítem por reorganizar el
+        árbol.
+      </p>
+    </div>
+
+    <h2 id="lotes">Cambiar muchos a la vez</h2>
+    <p>
+      Las casillas de la izquierda de la tabla seleccionan filas, y entonces
+      aparecen las acciones en lote:
+    </p>
+    <ul>
+      <li><strong>Cambiar categoría</strong> — mover un grupo entero de rama.</li>
+      <li><strong>Cambiar prefijo</strong> — renumerar los códigos de golpe.</li>
+      <li><strong>Eliminar</strong> — requiere nivel total en Material.</li>
+      <li><strong>Deseleccionar todo</strong> — para salir de la selección.</li>
+    </ul>
+    <div class="truco">
+      <span class="truco-tit">Para ordenar un lote nuevo</span>
+      <p>
+        Filtra por «Todo», busca el nombre del proveedor o del modelo, selecciona lo
+        que salga y cámbiale la categoría de una vez. Es mucho más rápido que abrir
+        cuarenta fichas.
+      </p>
+    </div>
+
+    <h2 id="importar">Importar desde Excel</h2>
+    <p>
+      <strong>Importar Excel</strong> necesita la capacidad <em>importar</em>, que se
+      valida en el servidor.
+    </p>
+    <ol class="pasos">
+      <li><strong>Descargar plantilla</strong>, para tener las columnas que espera.</li>
+      <li>Rellenarla sin cambiar las cabeceras.</li>
+      <li><strong>Importar Excel</strong> y elegir el archivo.</li>
+      <li>Se enseña <strong>qué va a entrar antes de meterlo</strong>: cuántas filas
+        nuevas, cuántas se actualizan y cuáles tienen algo raro. Ahí se puede
+        cancelar.</li>
+    </ol>
+    <p>
+      <strong>Exportar Excel</strong> saca lo que estés viendo, con los filtros
+      aplicados. Necesita la capacidad <em>exportar</em>.
+    </p>
+
+    <h2 id="alquilado">Días alquilados</h2>
+    <p>
+      La columna <strong>Alquilado</strong> no se rellena a mano: sube cuando se
+      <a href="presupuestos.html#contabilizar">contabiliza</a> un presupuesto
+      aceptado o una factura que incluya ese ítem.
+    </p>
+    <p>
+      Por eso contabilizar importa: es lo que convierte los documentos en
+      información sobre qué material trabaja y cuál está cogiendo polvo.
+    </p>
+
+    <h2 id="fichas-qr">Fichas QR</h2>
+    <p>
+      <strong>Material → Fichas QR.</strong> Etiquetas imprimibles para pegar en la
+      caja, en el flight o en el propio aparato. Cinco plantillas:
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Plantilla</th><th>Para</th><th>El QR lleva a</th></tr></thead>
+        <tbody>
+          <tr><td>Etiqueta de inventario</td><td>La caja o el flight.</td><td>La ficha en la aplicación.</td></tr>
+          <tr><td>Ficha de vehículo</td><td>La guantera o la carpeta de flota.</td><td>La ficha del vehículo.</td></tr>
+          <tr><td>Etiqueta de dispositivo IT</td><td>Portátiles, móviles, monitores.</td><td><a href="tecnologia.html#qr-publico">Una página pública</a> que se abre sin entrar.</td></tr>
+          <tr><td>Ficha de proyecto</td><td>La carpeta de producción.</td><td>La ficha del proyecto.</td></tr>
+          <tr><td>Etiqueta de línea telefónica</td><td>El terminal.</td><td>Nada: marca el número al escanearlo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="imprimir">Imprimir las etiquetas</h2>
+    <ol class="pasos">
+      <li>Elige la <strong>plantilla</strong> (paso 1).</li>
+      <li>Elige <strong>qué imprimir</strong> (paso 2). Se busca por código, nombre y
+        —en dispositivos— por la <strong>persona</strong>: escribe «Paul» y salen sus
+        equipos. Lo elegido se va acumulando en el panel de la derecha.</li>
+      <li>Elige el <strong>formato de la hoja</strong> (paso 3): etiqueta pequeña (3 por
+        fila), ficha media (2 por fila) o ficha grande (1 por fila); el tamaño del
+        QR; si quieres las líneas de corte y el nombre de la empresa.</li>
+      <li><strong>Imprimir / Guardar PDF</strong>.</li>
+    </ol>
+    <div class="nota">
+      <span class="nota-tit">Todas salen del mismo tamaño</span>
+      <p>
+        En papel las etiquetas tienen altura fija para poder recortarlas rectas, y
+        el texto se ajusta solo: si un nombre es largo baja de cuerpo y usa más
+        líneas, en vez de cortarse con puntos suspensivos. Un número de serie a
+        medias no sirve para nada.
+      </p>
+    </div>
+    <p>
+      La vista previa de la derecha es <strong>lo que va a salir por la impresora</strong>,
+      con la misma hoja de estilos. Si algo se ve raro ahí, se verá raro en papel.
+    </p>
+
+    <a class="siguiente" href="tecnologia.html">
+      <span class="siguiente-et">Siguiente</span>
+      <span class="siguiente-nom">06 · Tecnología</span>
+    </a>
+
+    <div class="pie">
+      <span>Stokit · manuales</span>
+      <a href="index.html">Todos los manuales</a>
+    </div>
+  </main>
+</div>
+
+<script src="manual.js"></script>
+</body>
+</html>

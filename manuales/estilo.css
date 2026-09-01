@@ -1,0 +1,396 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Stokit · manuales
+
+   Misma casa que la página de presentación: documento de producción y no
+   folleto — reglas a sangre, etiquetas en versalita monoespaciada, cifras
+   tabulares, esquinas rectas, y el rojo como SELLO para marcar, nunca para
+   rellenar.
+
+   Lo que cambia respecto a la presentación es el trabajo que hace la página.
+   Allí se viene a mirar; aquí se viene a BUSCAR ALGO CONCRETO, normalmente con
+   prisa y a veces desde el móvil, en medio de un rodaje. De ahí las tres
+   decisiones que manda todo lo demás:
+
+     · Columna de lectura estrecha (68 caracteres) y letra de 17px. Un manual
+       que cansa no se lee: se pregunta al de al lado.
+     · Índice lateral siempre visible con la sección actual marcada, para saber
+       dónde estás sin volver arriba.
+     · Cada apartado tiene su propio enlace. La aplicación enlaza AQUÍ, al
+       apartado exacto, y hace falta que esa dirección no cambie.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --papel:      #eef0f4;
+  --hoja:       #ffffff;
+  --hoja-2:     #f6f7fa;
+  --tinta:      #14161f;
+  --tinta-2:    #4e5566;
+  --tinta-3:    #767d8d;
+  --regla:      #c6ccd7;
+  --regla-fina: #e0e4ea;
+  --sello:      #c8102e;
+  --sobre-sello:#ffffff;
+  --sello-piel: #fbe9ec;
+  --dorado:     #8a6410;
+  --dorado-piel:#f7efdc;
+  --trama:      rgba(20,22,31,.05);
+  --ancho-texto: 68ch;
+}
+
+/* Tres estados, no dos: claro, oscuro y "lo que diga el sistema". El tercero es
+   el de partida, así que el bloque de abajo lleva `:not([data-tema="claro"])`
+   para que una elección explícita gane sobre el ajuste del sistema. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --papel:      #0b0b0d;
+    --hoja:       #131418;
+    --hoja-2:     #191b21;
+    --tinta:      #eaecf2;
+    --tinta-2:    #a6adbc;
+    --tinta-3:    #838a9a;
+    --regla:      #2b303b;
+    --regla-fina: #22262e;
+    --sello:      #ff4d5f;
+    --sobre-sello:#14161f;
+    --sello-piel: #2a1419;
+    --dorado:     #d9a441;
+    --dorado-piel:#241c0e;
+    --trama:      rgba(255,255,255,.042);
+  }
+}
+:root[data-tema="oscuro"] {
+  --papel:      #0b0b0d;
+  --hoja:       #131418;
+  --hoja-2:     #191b21;
+  --tinta:      #eaecf2;
+  --tinta-2:    #a6adbc;
+  --tinta-3:    #838a9a;
+  --regla:      #2b303b;
+  --regla-fina: #22262e;
+  --sello:      #ff4d5f;
+  --sobre-sello:#14161f;
+  --sello-piel: #2a1419;
+  --dorado:     #d9a441;
+  --dorado-piel:#241c0e;
+  --trama:      rgba(255,255,255,.042);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* Al saltar a un apartado por su enlace, el título tiene que quedar DEBAJO de
+     la barra de arriba y no tapado por ella. */
+  scroll-padding-top: 84px;
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  /* Papel milimetrado, muy tenue: el mismo material de la presentación, pero
+     sin la parte viva que sigue al cursor. Aquí se viene a leer. */
+  background-image:
+    linear-gradient(to right, var(--trama) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--trama) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+/* ── La barra de arriba ──────────────────────────────────────────────────── */
+.barra {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 18px;
+  padding: 14px 22px;
+  background: color-mix(in srgb, var(--papel) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--regla);
+}
+.marca {
+  display: flex; align-items: baseline; gap: 9px;
+  font-family: Archivo, sans-serif; text-decoration: none; color: var(--tinta);
+}
+.marca b { font-weight: 800; font-size: 19px; letter-spacing: -0.035em; }
+.marca span {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--tinta-3);
+}
+.barra-der { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.barra a.volver {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--tinta-2); text-decoration: none;
+  border: 1px solid var(--regla); padding: 7px 12px;
+}
+.barra a.volver:hover { color: var(--tinta); border-color: var(--tinta-3); }
+
+/* El interruptor de tema. Un botón y no un desplegable: son dos estados y el
+   tercero —"lo que diga el sistema"— es el de partida y no hace falta nombrarlo
+   hasta que alguien elige. */
+.tema {
+  width: 34px; height: 34px; display: grid; place-items: center;
+  background: none; border: 1px solid var(--regla); color: var(--tinta-2);
+  cursor: pointer; padding: 0;
+}
+.tema:hover { color: var(--tinta); border-color: var(--tinta-3); }
+.tema svg { width: 16px; height: 16px; }
+
+/* ── El armazón: índice a la izquierda, texto a la derecha ───────────────── */
+.marco {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.indice {
+  position: sticky; top: 84px;
+  max-height: calc(100vh - 100px); overflow-y: auto;
+  padding: 30px 22px 40px;
+  border-right: 1px solid var(--regla-fina);
+}
+.indice-tit {
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.19em; text-transform: uppercase; color: var(--tinta-3);
+  margin: 0 0 12px;
+}
+.indice ol { list-style: none; margin: 0 0 22px; padding: 0; }
+.indice li { margin: 0; }
+.indice a {
+  display: block; padding: 5px 0 5px 11px;
+  font-size: 14.5px; line-height: 1.35;
+  color: var(--tinta-2); text-decoration: none;
+  border-left: 2px solid var(--regla-fina);
+}
+.indice a:hover { color: var(--tinta); border-left-color: var(--tinta-3); }
+/* El apartado en el que estás. Sin transición: la marca tiene que ir con el
+   scroll y no un instante por detrás. */
+.indice a.aqui { color: var(--tinta); font-weight: 600; border-left-color: var(--sello); }
+
+.texto { padding: 34px 30px 90px; min-width: 0; }
+.texto > * { max-width: var(--ancho-texto); }
+
+/* ── Tipografía ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: Archivo, ui-sans-serif, system-ui, sans-serif;
+  color: var(--tinta);
+  text-wrap: balance;
+  margin: 0;
+}
+h1 { font-weight: 500; font-size: clamp(32px, 4.6vw, 46px); letter-spacing: -0.04em; line-height: 1.04; }
+h2 {
+  font-weight: 600; font-size: 25px; letter-spacing: -0.022em; line-height: 1.18;
+  margin: 54px 0 14px; padding-top: 22px;
+  border-top: 1px solid var(--regla);
+  /* A sangre: la regla cruza toda la columna, como en un documento impreso. */
+  max-width: none;
+}
+h2 + p, h2 + .nota, h2 + ul, h2 + ol { margin-top: 0; }
+h3 { font-weight: 600; font-size: 17.5px; letter-spacing: -0.012em; margin: 30px 0 8px; }
+h4 {
+  font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--tinta-3);
+  margin: 26px 0 7px;
+}
+
+.entradilla {
+  font-size: 19.5px; line-height: 1.5; color: var(--tinta-2);
+  margin: 16px 0 6px; max-width: 62ch;
+}
+
+p { margin: 0 0 15px; }
+a { color: var(--tinta); text-decoration: underline; text-underline-offset: 2px;
+    text-decoration-color: var(--regla); text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: var(--sello); }
+
+strong { font-weight: 600; }
+em { font-style: normal; font-weight: 600; color: var(--sello); }
+
+ul, ol { margin: 0 0 16px; padding-left: 22px; }
+li { margin: 0 0 7px; }
+li > ul, li > ol { margin-top: 7px; }
+
+/* Los pasos numerados, que es como se explica una tarea. La cifra en
+   monoespaciada y tabular para que las decenas no descoloquen el texto. */
+ol.pasos { list-style: none; padding: 0; counter-reset: paso; }
+ol.pasos > li {
+  position: relative; padding-left: 38px; margin-bottom: 13px;
+  counter-increment: paso;
+}
+ol.pasos > li::before {
+  content: counter(paso);
+  position: absolute; left: 0; top: 1px;
+  width: 25px; height: 25px; display: grid; place-items: center;
+  font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta-2); border: 1px solid var(--regla);
+  background: var(--hoja);
+}
+
+code, kbd {
+  font-family: "IBM Plex Mono", monospace; font-size: 0.88em;
+  background: var(--hoja-2); border: 1px solid var(--regla-fina);
+  padding: 1px 5px;
+}
+kbd { font-weight: 600; }
+
+/* ── Avisos ─────────────────────────────────────────────────────────────── */
+.nota, .ojo, .truco {
+  margin: 20px 0; padding: 15px 17px;
+  background: var(--hoja); border-left: 3px solid var(--regla);
+  font-size: 16px;
+}
+.nota > :last-child, .ojo > :last-child, .truco > :last-child { margin-bottom: 0; }
+.ojo { border-left-color: var(--sello); background: var(--sello-piel); }
+.truco { border-left-color: var(--dorado); background: var(--dorado-piel); }
+.nota-tit, .ojo-tit, .truco-tit {
+  display: block;
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 6px; color: var(--tinta-3);
+}
+.ojo .ojo-tit { color: var(--sello); }
+.truco .truco-tit { color: var(--dorado); }
+
+/* ── Tablas ─────────────────────────────────────────────────────────────── */
+.tabla-caja { max-width: none; overflow-x: auto; margin: 20px 0; }
+table {
+  border-collapse: collapse; width: 100%; min-width: 420px;
+  font-size: 15.5px;
+}
+th, td {
+  text-align: left; padding: 9px 13px 9px 0;
+  border-bottom: 1px solid var(--regla-fina);
+  vertical-align: top;
+}
+th {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--tinta-3);
+  border-bottom: 1px solid var(--regla);
+  white-space: nowrap;
+}
+td:first-child { font-weight: 600; white-space: nowrap; padding-right: 22px; }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ── El índice de la portada ─────────────────────────────────────────────── */
+.rejilla {
+  display: grid; gap: 1px; max-width: none;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  background: var(--regla-fina);
+  border: 1px solid var(--regla-fina);
+  margin: 28px 0 10px;
+}
+.ficha {
+  display: block; padding: 21px 20px 23px;
+  background: var(--hoja); text-decoration: none; color: var(--tinta);
+}
+.ficha:hover { background: var(--hoja-2); }
+.ficha-num {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.15em; color: var(--sello);
+}
+.ficha-tit {
+  font-family: Archivo, sans-serif; font-weight: 600; font-size: 19px;
+  letter-spacing: -0.02em; margin: 7px 0 6px;
+}
+.ficha-sub { font-size: 14.5px; line-height: 1.45; color: var(--tinta-2); }
+.ficha-que {
+  margin-top: 11px; font-size: 13px; color: var(--tinta-3);
+  font-family: "IBM Plex Mono", monospace; letter-spacing: .02em;
+}
+
+/* ── El buscador ────────────────────────────────────────────────────────── */
+.buscador { max-width: none; margin: 26px 0 8px; position: relative; }
+.buscador input {
+  width: 100%; max-width: 620px;
+  padding: 13px 15px; font: inherit; font-size: 16.5px;
+  background: var(--hoja); color: var(--tinta);
+  border: 1px solid var(--regla); border-radius: 0;
+}
+.buscador input:focus { outline: 2px solid var(--sello); outline-offset: -1px; border-color: var(--sello); }
+.buscador input::placeholder { color: var(--tinta-3); }
+#resultados { max-width: 620px; margin-top: 10px; }
+#resultados a {
+  display: block; padding: 11px 13px; margin-bottom: 1px;
+  background: var(--hoja); border: 1px solid var(--regla-fina);
+  text-decoration: none;
+}
+#resultados a:hover { border-color: var(--tinta-3); }
+#resultados .r-donde {
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--sello);
+}
+#resultados .r-tit { font-weight: 600; margin-top: 3px; }
+#resultados .r-txt { font-size: 14.5px; color: var(--tinta-2); margin-top: 2px; }
+#resultados .r-nada { padding: 12px 0; color: var(--tinta-3); font-size: 15px; }
+
+/* ── Pie ────────────────────────────────────────────────────────────────── */
+.pie {
+  max-width: none; margin-top: 56px; padding-top: 20px;
+  border-top: 1px solid var(--regla);
+  font-size: 14.5px; color: var(--tinta-3);
+  display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline;
+}
+.pie a { color: var(--tinta-2); }
+
+/* Enlace al apartado siguiente: un manual se lee en orden la primera vez. */
+.siguiente {
+  display: flex; align-items: baseline; gap: 12px; max-width: none;
+  margin-top: 46px; padding: 17px 19px;
+  background: var(--hoja); border: 1px solid var(--regla);
+  text-decoration: none;
+}
+.siguiente:hover { border-color: var(--sello); }
+.siguiente-et {
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--tinta-3);
+}
+.siguiente-nom {
+  font-family: Archivo, sans-serif; font-weight: 600; font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+/* ── Enlace propio de cada apartado ─────────────────────────────────────── */
+/* Aparece al pasar por encima del título. La aplicación enlaza a estos
+   anclajes, así que tener a mano el enlace exacto no es un adorno. */
+.ancla {
+  margin-left: 9px; font-size: 0.62em; font-weight: 500;
+  color: var(--tinta-3); text-decoration: none; opacity: 0;
+  font-family: "IBM Plex Mono", monospace;
+}
+h2:hover .ancla, h3:hover .ancla, .ancla:focus { opacity: 1; }
+
+/* ── En estrecho ────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .marco { grid-template-columns: minmax(0, 1fr); }
+  /* El índice pasa arriba y deja de estar pegado: en un móvil, una columna
+     lateral fija se come media pantalla. */
+  .indice {
+    position: static; max-height: none; border-right: 0;
+    border-bottom: 1px solid var(--regla-fina);
+    padding: 20px 22px 12px;
+  }
+  .indice ol { margin-bottom: 8px; display: flex; flex-wrap: wrap; gap: 0 4px; }
+  .indice a { border-left: 0; border-bottom: 2px solid var(--regla-fina); padding: 5px 9px; }
+  .indice a.aqui { border-bottom-color: var(--sello); }
+  .texto { padding: 26px 22px 70px; }
+  body { font-size: 16.5px; }
+}
+
+/* ── Al imprimir ────────────────────────────────────────────────────────── */
+/* Alguien va a querer el manual en papel para dejarlo en la oficina. */
+@media print {
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .barra, .indice, .buscador, .siguiente, .tema { display: none; }
+  .marco { display: block; max-width: none; }
+  .texto { padding: 0; }
+  .texto > * { max-width: none; }
+  h2 { break-after: avoid; page-break-after: avoid; }
+  .nota, .ojo, .truco { border: 1px solid #999; background: #fff; break-inside: avoid; }
+  a { text-decoration: none; color: #000; }
+}

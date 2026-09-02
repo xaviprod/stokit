@@ -758,7 +758,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Personas",
   "titulo": "Quitar el acceso",
-  "texto": "Dos formas, y no dan lo mismo:",
+  "texto": "Se desactiva . No hay botón de borrar, y es a propósito: quien ha creado un presupuesto o firmado una revisión tiene que seguir apareciendo…",
   "url": "personas.html#quitar",
   "claves": [
    "desactivar",

@@ -207,8 +207,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Proyectos",
+  "titulo": "Finalizar un proyecto",
+  "texto": "Es lo que se hace el 99 % de las veces. En la tarjeta de un proyecto activo, en la lista, hay un botón Finalizar : el rodaje pasa a la…",
+  "url": "proyectos.html#finalizar",
+  "claves": []
+ },
+ {
+  "donde": "Proyectos",
   "titulo": "Borrar un proyecto",
-  "texto": "Requiere nivel total en Proyectos, y la aplicación te para antes si del proyecto cuelga algo: te dice cuántos presupuestos, días de flota,…",
+  "texto": "Eliminar , en la cabecera de la ficha, al lado de Editar. Solo aparece con nivel total en Proyectos, y no mientras estás editando.",
   "url": "proyectos.html#borrar",
   "claves": []
  },

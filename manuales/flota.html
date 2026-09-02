@@ -30,7 +30,11 @@
       <li><a href="#ficha">La ficha de un vehículo</a></li>
       <li><a href="#itv">ITV y seguro</a></li>
       <li><a href="#documentos">Documentos y fotos</a></li>
-      <li><a href="#calendario">El calendario</a></li>
+      <li><a href="#calendario">El calendario compartido</a></li>
+      <li><a href="#calendario-colores">Reservar: los colores</a></li>
+      <li><a href="#calendario-bloqueos">ITV y mantenimiento</a></li>
+      <li><a href="#calendario-pantalla">A pantalla completa</a></li>
+      <li><a href="#calendario-quien">Quién puede entrar</a></li>
       <li><a href="#salidas">Salidas y revisiones</a></li>
       <li><a href="#tareas">Tareas / ITV</a></li>
       <li><a href="#taller">Mantenimiento</a></li>
@@ -133,23 +137,174 @@
       coste y taller. Las ITV entran aquí solas.
     </p>
 
-    <h2 id="calendario">El calendario</h2>
+    <h2 id="calendario">El calendario compartido</h2>
     <p>
-      <strong>Flota → Calendario de Flota.</strong> Una fila por vehículo, una columna
-      por día. <strong>Aquí es donde se decide de verdad quién tiene cada coche.</strong>
+      <strong>Flota → Calendario de Flota.</strong> Una fila por vehículo, una
+      columna por día. <strong>Aquí es donde se decide de verdad quién tiene
+      cada coche.</strong>
+    </p>
+    <p>
+      Esta pantalla sustituye al Excel <em>DISTRIBUTION LISTS</em> que producción
+      y flota se pasaban por correo, y funciona igual que él a propósito: los
+      mismos colores, la misma rejilla y la misma leyenda arriba. Lo que cambia
+      es que aquí no hay copias: producción y flota están mirando el mismo sitio
+      al mismo tiempo, y lo que pinta uno lo ve el otro al instante.
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead>
+          <tr><th>Quién</th><th>Qué hace aquí</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Producción</strong></td>
+            <td>Reserva vehículos para sus rodajes y pone el conductor.</td>
+          </tr>
+          <tr>
+            <td><strong>Flota</strong></td>
+            <td>Reserva igual y, además, bloquea días por <strong>ITV</strong> o
+                <strong>mantenimiento</strong>, que es lo que dice a producción
+                si puede contar con ese coche o no.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Arriba, sobre la rejilla, va la <strong>banda del mes</strong>. La ventana
+      abarca cuatro meses seguidos, así que sin ella los números de los días
+      («29, 30, 31, 1, 2…») no dirían de qué mes son. Las flechas
+      <strong>‹ ›</strong> mueven la ventana y <strong>Hoy</strong> vuelve al día
+      de hoy.
+    </p>
+
+    <h2 id="calendario-colores">Reservar: los colores</h2>
+    <p>
+      Debajo del título está la <strong>leyenda de proyectos</strong>: un bloque
+      de color por cada rodaje activo, con su nombre escrito encima. Ese bloque
+      es <em>exactamente</em> lo que verás dentro de la rejilla, así que no hay
+      que traducir nada: el color del bloque es el color de la barra.
     </p>
     <ol class="pasos">
-      <li>Busca el vehículo en su fila.</li>
-      <li>Pulsa —o arrastra, para varios días— sobre los días que quieras.</li>
-      <li>Elige el <strong>proyecto</strong> y, si lo sabes, el
-        <strong>conductor</strong>.</li>
-      <li>Se guarda al momento. No hay botón.</li>
+      <li>Pulsa el <strong>bloque del proyecto</strong>. Se le pone un aro
+        alrededor y debajo aparece la palabra <strong>Pintando</strong>: ese es
+        el pincel que tienes cogido.</li>
+      <li>Pulsa —o <strong>arrastra</strong>, para varios días seguidos— sobre
+        los días de la fila de ese vehículo.</li>
+      <li>Dentro de la barra, pulsa <strong>+ conductor</strong> para poner
+        quién lo lleva.</li>
+      <li>Se guarda al momento. No hay botón de guardar.</li>
     </ol>
     <p>
-      Para sacar un vehículo de circulación sin proyecto, se marca como
-      <strong>ITV</strong> o <strong>Mantenimiento</strong>: ocupa el día igual y se
-      ve distinto.
+      Con un pincel cogido, el cursor cambia y las casillas vacías se tiñen de
+      ese color al pasar por encima: <strong>se ve lo que va a pasar antes de
+      pulsar</strong>. Para soltar el pincel, vuelve a pulsar el mismo bloque.
+      Y para quitar reservas, coge el <strong>Borrador</strong> y arrastra por
+      encima.
     </p>
+    <div class="nota">
+      <span class="nota-tit">Los proyectos terminados no salen en la leyenda</span>
+      <p>
+        La leyenda solo lista los rodajes <strong>activos</strong>. Si un
+        proyecto que buscas no aparece, es que está marcado como finalizado en
+        <a href="proyectos.html">Proyectos</a>. Los días que ya tenía pintados
+        siguen viéndose en la rejilla.
+      </p>
+    </div>
+    <div class="nota">
+      <span class="nota-tit">Barras grises que dicen «Sin proyecto»</span>
+      <p>
+        Es un día reservado al que le falta el rodaje: normalmente porque se
+        puso un conductor antes de tener proyecto. Ocupa el vehículo igual, así
+        que conviene arreglarlo — coge el bloque del proyecto que sea y vuelve a
+        pintar esos días encima. El <strong>General de Flota</strong> las cuenta
+        en la cifra «Reservas sin proyecto».
+      </p>
+    </div>
+
+    <h2 id="calendario-bloqueos">ITV y mantenimiento</h2>
+    <p>
+      Un vehículo puede estar ocupado sin ir a ningún rodaje. Esos días se
+      marcan con los botones <strong>ITV</strong> y
+      <strong>Mantenimiento</strong> de la leyenda, y se pintan de forma
+      distinta a propósito: <strong>rayado de peligro y una chapa con
+      icono</strong>, no una barra plana de color. Un rodaje dice «este coche
+      sale»; una chapa dice «este coche no sale». No se pueden confundir.
+    </p>
+    <p>
+      La ITV aparece en la rejilla de dos maneras, y <strong>las dos se ven
+      igual</strong>:
+    </p>
+    <ul>
+      <li><strong>Sola</strong>, en la fecha que tenga puesta el vehículo en
+        <a href="#itv">su ficha</a>. No hay que marcar nada.</li>
+      <li><strong>A mano</strong>, con el botón ITV, cuando el coche está fuera
+        varios días por la revisión.</li>
+    </ul>
+    <p>
+      Además, el nombre del vehículo lleva un aviso <strong>ITV + fecha</strong>
+      en su propia fila cuando esa ITV cae dentro de la ventana que estás
+      mirando: así se sabe de qué vehículo es sin cruzar la vista por toda la
+      rejilla.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Bloquear es cosa de flota</span>
+      <p>
+        Los botones de ITV y Mantenimiento <strong>solo aparecen a quien tiene
+        permiso de flota</strong>. Producción reserva coches; decidir que un
+        coche no puede salir lo decide flota. Y no es solo que el botón se
+        esconda: si alguien lo intenta por otro camino, el servidor lo rechaza.
+      </p>
+    </div>
+
+    <h2 id="calendario-pantalla">A pantalla completa</h2>
+    <p>
+      El calendario tiene su propia dirección:
+      <strong>palmapictures.stokit.es/calendario</strong>. Se abre sin barra
+      lateral y sin pestañas, con toda la ventana para la rejilla — como el
+      Excel, que era un fichero y nada más.
+    </p>
+    <p>
+      Es la <strong>misma</strong> pantalla, no una copia: lo que se pinta ahí
+      aparece en el resto de Stokit al momento, y al revés. Es el enlace que
+      conviene pasar a producción, y se puede dejar fijado en el navegador.
+      Arriba queda una tira con el mes, tu nombre, <strong>Stokit
+      completo</strong> —solo si tienes más secciones— y <strong>Salir</strong>.
+    </p>
+
+    <h2 id="calendario-quien">Quién puede entrar</h2>
+    <p>
+      El calendario compartido tiene <strong>permiso propio</strong>, separado
+      del resto de Flota. Eso permite dar a alguien de producción el calendario
+      <em>y nada más</em>: ni fichas de vehículo, ni Tareas / ITV, ni
+      presupuestos.
+    </p>
+    <p>
+      En <a href="sistema.html">Sistema → Crew</a>, al crear o editar a esa
+      persona, elige la plantilla <strong>«Producción · solo calendario»</strong>.
+      Con ella, en su menú solo existe el calendario, y al entrar aterriza
+      directamente en él. Si además le pasas el enlace
+      <strong>/calendario</strong>, no verá otra cosa en su vida.
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead>
+          <tr><th>Área</th><th>Qué abre</th><th>Quién la lleva</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Calendario compartido</strong></td>
+            <td>Solo el calendario. Reservar y quitar reservas.</td>
+            <td>Producción y flota</td>
+          </tr>
+          <tr>
+            <td><strong>Flota</strong></td>
+            <td>Vehículos, Tareas / ITV y el calendario. Además, bloquear por
+                ITV o mantenimiento.</td>
+            <td>Flota</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="ojo">
       <span class="ojo-tit">Esto se refleja en cuatro sitios a la vez</span>
       <p>

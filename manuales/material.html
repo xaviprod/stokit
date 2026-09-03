@@ -128,13 +128,36 @@
       valida en el servidor.
     </p>
     <ol class="pasos">
-      <li><strong>Descargar plantilla</strong>, para tener las columnas que espera.</li>
-      <li>Rellenarla sin cambiar las cabeceras.</li>
+      <li><strong>Descargar plantilla</strong>, para tener las columnas que espera:
+        nombre, código, categoría, cantidad, precio por día, número de serie,
+        ubicación, departamento y notas. Solo el nombre es obligatorio.</li>
+      <li>Rellenarla sin cambiar las cabeceras. Se lee la <strong>primera
+        hoja</strong> del archivo.</li>
       <li><strong>Importar Excel</strong> y elegir el archivo.</li>
-      <li>Se enseña <strong>qué va a entrar antes de meterlo</strong>: cuántas filas
-        nuevas, cuántas se actualizan y cuáles tienen algo raro. Ahí se puede
-        cancelar.</li>
+      <li>Se enseña <strong>qué va a pasar antes de tocar nada</strong>: cuántos
+        artículos entran, cuántos se omiten y por qué (sin nombre, o ya existe uno
+        con el mismo código y nombre), cuántos traen notas y —lo más importante—
+        <strong>la lista de categorías que se van a crear</strong>, en árbol. Ahí
+        se puede cancelar sin que haya entrado nada.</li>
     </ol>
+    <div class="ojo">
+      <span class="ojo-tit">Las categorías se crean solas, con sus subcategorías</span>
+      <p>
+        En la columna <strong>categoría</strong> se pone la ruta completa separada
+        por <strong>«&nbsp;&gt;&nbsp;»</strong>: <em>Facilities &gt; Support</em> crea
+        la categoría <em>Facilities</em> y, dentro, <em>Support</em>, y cuelga el
+        artículo de la última. Vale cualquier profundidad — <em>Camera &gt;
+        Accesories &gt; Filters &gt; 4x5.65</em> son cuatro niveles — y también
+        sirven «/» o «|» como separador. Mayúsculas y espacios sobrantes no cuentan:
+        «camera» y «Camera » son la misma rama. Lo que viene sin categoría entra
+        en <em>General</em>.
+      </p>
+      <p>
+        <strong>Cantidad 0 es cero</strong>, no «vacío»: un artículo en catálogo con
+        tarifa y sin unidades ahora mismo entra con 0. Solo la celda vacía vale 1.
+        Y las <strong>notas</strong> entran tal cual, sin recortes.
+      </p>
+    </div>
     <p>
       <strong>Exportar Excel</strong> saca lo que estés viendo, con los filtros
       aplicados. Necesita la capacidad <em>exportar</em>.

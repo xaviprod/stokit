@@ -209,6 +209,28 @@
       <strong>Fijos</strong>— y por estado —<strong>Activas</strong>,
       <strong>Bajas</strong>.
     </p>
+    <div class="ojo">
+      <span class="ojo-tit">Importar las líneas desde un Excel</span>
+      <p>
+        <strong>Telefonía → Importar Excel</strong> (arriba a la derecha; necesita la
+        capacidad <em>importar</em>). Columnas que entiende: <em>Número</em> (la
+        única imprescindible), <em>Nº</em>, <em>Nombre</em>, <em>Departamento</em>,
+        <em>Extensión</em>, <em>PIN</em>, <em>PUK</em>, <em>Fecha Alta</em> y
+        <em>Tipo</em>. Un guion en PIN o PUK se lee como vacío.
+      </p>
+      <p>
+        <strong>Tipo de las líneas del archivo:</strong> por defecto se decide por
+        el número (6 y 7 móvil, 9 fijo). El listado de la centralita son
+        extensiones <em>fijas</em> con números que empiezan por 6 y 7: ahí se elige
+        <strong>«Todas fijas»</strong> antes de soltar el archivo.
+      </p>
+      <p>
+        Antes de tocar nada se enseña la previa: cuántas entran, cuántas se omiten
+        y por qué. Una línea cuyo número <strong>ya existe</strong> no se vuelve a
+        crear —se compara solo por los dígitos, así que «971 22 62 32» y
+        «971226232» son la misma—; el mismo Excel dos veces no duplica nada.
+      </p>
+    </div>
     <p>
       Cada línea lleva número, persona asignada, extensión, departamento, y el
       <strong>PIN</strong> y el <strong>PUK</strong>, que es lo que nadie encuentra

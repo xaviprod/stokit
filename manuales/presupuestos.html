@@ -75,6 +75,21 @@
       <li><strong>Desde Presupuestos → + Nuevo</strong>: nace suelto y hay que
         elegirle el proyecto en el selector.</li>
     </ul>
+    <div class="ojo">
+      <span class="ojo-tit">La fecha del documento es la que tú pongas</span>
+      <p>
+        Arriba, junto al proyecto, están la <strong>fecha del documento</strong> y el
+        <strong>número</strong>. La fecha sale tal cual en el PDF: un presupuesto que se
+        firma el lunes puede llevar fecha del viernes. El número se asigna solo al
+        guardar, pero puedes escribir uno propio (la app no deja repetirlo). En
+        <strong>Más datos del documento</strong>: cliente, a la atención de quién, la
+        referencia del cliente (nº de pedido, PO), validez, forma de pago, NIF y
+        domicilio, un texto de presentación que sale antes de las líneas, notas y las
+        condiciones de este documento (si se dejan vacías salen las generales de
+        Ajustes). En los totales, además del descuento y el IVA, la
+        <strong>retención IRPF</strong>, que se resta del total.
+      </p>
+    </div>
     <ol class="pasos">
       <li><strong>El cliente</strong> es lo único obligatorio para poder guardar.</li>
       <li>Comprueba el <strong>proyecto</strong> y, si lo hay, el
@@ -115,8 +130,13 @@
     <p>
       Abrir un presupuesto de la lista enseña <strong>el documento tal como lo va a
       recibir el cliente</strong>, con la hoja a escala y el fondo de marca puesto.
-      Desde ahí: <strong>Editar</strong> para volver al montador y
-      <strong>Exportar PDF</strong> para imprimir o guardar.
+      Desde ahí: <strong>Editar</strong> para volver al montador,
+      <strong>PDF</strong> para imprimir o guardar, <strong>Fechas…</strong> para
+      cambiar la fecha, la validez, el vencimiento o la referencia sin abrir el
+      montador, <strong>Convertir en factura</strong> (pide la fecha de la factura, el
+      vencimiento y la forma de pago) y <strong>Duplicar</strong>, que crea una copia
+      en borrador con número nuevo para una segunda versión de la oferta o para
+      repetirla a otro cliente.
     </p>
     <p>
       Si el documento ya se ha enviado, debajo sale <strong>a quién y cuándo</strong>.
@@ -173,7 +193,10 @@
       Se conserva el número de presupuesto del que salió, porque es la primera
       pregunta que hace cualquiera al mirar una factura. La numeración cambia al
       prefijo de facturas que tengas en
-      <a href="sistema.html#numeracion">Ajustes → Numeración</a>.
+      <a href="sistema.html#numeracion">Ajustes → Numeración</a>. Al convertir se
+      piden la <strong>fecha de la factura</strong>, el <strong>vencimiento</strong> (por
+      defecto los días de Ajustes) y la forma de pago; también al crear una factura
+      directamente desde el material de un proyecto.
     </p>
     <div class="ojo">
       <span class="ojo-tit">Una factura necesita CIF y domicilio</span>

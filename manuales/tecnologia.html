@@ -275,6 +275,18 @@
         crear —se compara solo por los dígitos, así que «971 22 62 32» y
         «971226232» son la misma—; el mismo Excel dos veces no duplica nada.
       </p>
+      <p>
+        Pero una línea que ya existe <strong>sí se completa</strong>: si el archivo
+        trae nombre, extensión, PIN o PUK y la línea los tenía vacíos, se rellenan
+        (nunca se pisa lo que ya había). Es la manera de poner nombre a cincuenta
+        líneas que entraron sin él: se sube el listado con nombres y listo. Si el
+        nombre coincide con <strong>un solo empleado activo</strong>, la línea queda
+        enlazada a su ficha; si hay dos personas con ese nombre, se deja el nombre y
+        la previa avisa para elegir a mano en la línea. Los PIN escritos con la
+        letra O en vez del cero se corrigen. Y si el archivo no trae fila de títulos
+        (empieza directamente por el primer número), las columnas se leen por
+        posición: número · nº · nombre · extensión · PIN · PUK · fecha.
+      </p>
     </div>
     <p>
       Cada línea lleva número, persona asignada, extensión, departamento, y el

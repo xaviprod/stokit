@@ -49,6 +49,22 @@
       esta pantalla.
     </p>
 
+    <h2 id="clientes">Clientes</h2>
+    <p>
+      <strong>Producción → Clientes.</strong> A quién se presupuesta y se factura. Cada
+      cliente es una ficha: nombre comercial, razón social, <strong>NIF y domicilio
+      fiscal</strong> (lo que va en la factura), correo de facturación, contacto,
+      <strong>forma y plazo de pago</strong>, idioma y notas. Debajo, sus documentos,
+      con lo pendiente de cobro y lo facturado del año arriba.
+    </p>
+    <p>
+      En el constructor el cliente se <strong>elige de la lista</strong> y sus datos
+      fiscales y su forma de pago vienen solos. Si escribes uno que no existe, la app
+      avisa de que se creará su ficha al guardar y deja <strong>completar datos</strong>
+      sin salir. Los presupuestos que ya existían se enlazaron a su cliente por el
+      nombre que tenían escrito.
+    </p>
+
     <h2 id="lista">La lista</h2>
     <p>
       <strong>Producción → Presupuestos.</strong> Arriba, tres botones:
@@ -152,6 +168,40 @@
         Presupuestos sigue siendo el sitio para verlos todos juntos.
       </p>
     </div>
+
+    <h2 id="versiones">Versiones, aceptación y caducidad</h2>
+    <p>
+      Un presupuesto <strong>enviado no se edita</strong>: si el cliente pide cambios,
+      <strong>Nueva versión</strong> crea la v2 en borrador con todo copiado y deja la v1
+      guardada tal como se mandó. Las versiones se ven en una barra dentro del
+      documento; <strong>Comparar</strong> enseña qué líneas cambian y la diferencia de
+      total. Las versiones sustituidas no salen en la lista ni suman en Economía.
+    </p>
+    <p>
+      <strong>Aceptar…</strong> pide quién lo acepta, cuándo, cómo (correo, PDF firmado,
+      teléfono…) y notas. Es la huella que se enseña si alguien dice «yo no acepté
+      eso». Aceptado, el presupuesto queda <strong>bloqueado</strong>; los cambios van en
+      una versión nueva. <strong>Rechazado…</strong> pide el motivo y queda en el historial.
+    </p>
+    <p>
+      Pasada la fecha de validez, un enviado sale como <strong>Caducado</strong> en la lista
+      y en el documento. Se reactiva haciendo una versión nueva con fecha nueva.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Días por línea</span>
+      <p>
+        Cada línea tiene <strong>cantidad × días × precio</strong>. Dos cámaras tres
+        días son 2 × 3 × 450 €, no una cantidad de seis. La columna Días sale en el
+        constructor y, en el PDF, solo si alguna línea tiene más de un día. El
+        material que llega desde Equipment trae sus días.
+      </p>
+    </div>
+    <p>
+      Debajo del documento, la <strong>línea de tiempo</strong>: creado, cada envío (a
+      quién, cuándo), versiones, aceptación, factura, contabilización y lo que
+      viene. Los botones cambian con el estado: en borrador Editar y Enviar; enviado
+      Aceptar, Nueva versión, Reenviar y Rechazado; aceptado Convertir en factura.
+    </p>
 
     <h2 id="enviar">Enviar</h2>
     <p>

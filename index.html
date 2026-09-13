@@ -38,6 +38,7 @@
   /* Retícula de fondo: papel milimetrado. Muy tenue de base, viva cerca
      del cursor. En claro tiene que ser más contenida que en oscuro. */
   --tramaC:     rgba(20,22,31,.055);
+  --tramaHonda: rgba(20,22,31,.075);
   --tramaViva:  rgba(20,22,31,.16);
   --halo:       rgba(200,16,46,.10);
 
@@ -62,6 +63,7 @@
     --dorado-piel:#241c0e;
     --velo:       rgba(11,11,13,.82);
     --tramaC:     rgba(255,255,255,.045);
+    --tramaHonda: rgba(255,255,255,.06);
     --tramaViva:  rgba(255,255,255,.15);
     --halo:       rgba(255,77,95,.13);
   }
@@ -82,6 +84,7 @@
   --dorado-piel:#241c0e;
   --velo:       rgba(11,11,13,.82);
   --tramaC:     rgba(255,255,255,.045);
+  --tramaHonda: rgba(255,255,255,.06);
   --tramaViva:  rgba(255,255,255,.15);
   --halo:       rgba(255,77,95,.13);
 }
@@ -135,6 +138,59 @@ body {
 }
 .halo {
   background-image: radial-gradient(circle 380px at var(--mx, 50%) var(--my, 40%), var(--halo) 0%, transparent 70%);
+}
+
+/* ── EL PLANO HONDO ─────────────────────────────────────────────────────
+   Una segunda retícula, cuatro veces más grande y detrás de la fina, que
+   deriva a menos de la mitad de velocidad.
+
+   La profundidad no la da una capa que se mueve: la da la DIFERENCIA entre
+   dos que se mueven distinto. Con una sola capa el fondo resbala; con dos a
+   distinta velocidad el ojo lee que una está más lejos que la otra.
+
+   Cuatro veces exactas (58 × 4 = 232) y no una medida cualquiera: así sus
+   líneas caen siempre sobre líneas de la retícula fina, y se lee como el
+   mismo papel visto de más lejos y no como un segundo papel mal encajado.
+
+   No lleva las casillas: esas van clavadas a la retícula fina y moverlas a
+   otra velocidad las despegaría de su celda. */
+.trama-honda {
+  background-image:
+    linear-gradient(to right,  var(--tramaHonda) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--tramaHonda) 1px, transparent 1px);
+  background-size: 232px 232px;
+  transform: translate3d(0, var(--honda, 0px), 0);
+}
+
+/* ── LOS PLANOS DEL CONTENIDO ───────────────────────────────────────────
+   `data-plano` dice qué fracción de la altura de la ventana se adelanta o
+   se retrasa un bloque respecto a la página. En positivo se queda atrás y
+   parece lejos; en negativo corre por delante y parece cerca.
+
+   En el centro de la pantalla el desplazamiento es CERO, siempre. Es la
+   regla que hace que esto no se note como un truco: nada salta al cargar,
+   nada se descoloca al redimensionar, y el movimiento solo existe mientras
+   el bloque entra y sale.
+
+   NUNCA sobre un elemento con `.rev`: esa clase ya anima `transform` para
+   aparecer, y dos transformaciones en el mismo elemento se pisan. Por eso
+   los planos van en envoltorios o en hijos. */
+[data-plano] { transform: translate3d(0, var(--plano-y, 0px), 0); }
+
+/* La tarjeta de producto, además, llega ligeramente inclinada hacia atrás y
+   se endereza al subir hasta el centro. Es el único sitio de la página con
+   perspectiva, y a propósito: es la pieza que hay que mirar.
+   `transform-origin` arriba para que gire como una hoja apoyada por el
+   borde superior, y no como un cartel colgado del centro. */
+.plano-tarjeta {
+  transform: perspective(1600px) rotateX(var(--inclina, 0deg)) translate3d(0, var(--plano-y, 0px), 0);
+  transform-origin: 50% 0%;
+  backface-visibility: hidden;
+}
+
+/* Sin movimiento: todo quieto y a plena opacidad. */
+@media (prefers-reduced-motion: reduce) {
+  [data-plano], .plano-tarjeta { transform: none !important; opacity: 1 !important; }
 }
 
 /* ── Casillas marcadas ──────────────────────────────────────────────────
@@ -668,6 +724,8 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 </style>
 
 <div class="fondo" aria-hidden="true">
+  <!-- De más lejos a más cerca: honda, fina, viva, halo, casillas. -->
+  <div class="trama-honda"></div>
   <div class="trama"></div>
   <div class="trama-viva" id="tramaViva"></div>
   <div class="halo" id="halo"></div>
@@ -704,6 +762,10 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 
 <!-- ══ PORTADA ══════════════════════════════════════════════════════ -->
 <div class="env portada" id="inicio" data-lente>
+  <!-- El texto y la tarjeta son dos planos: el texto se queda un poco atrás
+       y se apaga al salir, la tarjeta va por delante. Los envoltorios están
+       aquí por eso, no por maquetación: los hijos ya usan `.rev`. -->
+  <div class="portada-texto" data-plano="0.05">
   <span class="eyebrow campo rev"><i class="punto"></i> Sistema de gestión para productoras</span>
   <h1 class="rev d1">Material, flota y presupuestos en un solo sistema.</h1>
   <p class="tesis rev d2">
@@ -715,7 +777,9 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     <a class="btn" href="#contacto">Pedir demo</a>
     <a class="btn hueco" href="#areas">Ver qué cubre</a>
   </div>
+  </div>
 
+  <div class="plano-tarjeta" data-plano="-0.035">
   <figure class="muestra rev d4">
     <div class="muestra-cab">
       <span class="campo">Inventario · material fuera de casa</span>
@@ -749,6 +813,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       </table>
     </div>
   </figure>
+  </div>
 </div>
 
 <!-- ══ ÁREAS ════════════════════════════════════════════════════════ -->
@@ -1240,6 +1305,38 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   var hitos    = document.querySelectorAll('.via-hito');
   var eslabones = document.querySelectorAll('#eslabones .eslabon');
 
+  /* ── LOS PLANOS ───────────────────────────────────────────────────────
+     Las cabeceras de sección se parten en dos planos sin tocar el marcado:
+     el rótulo se retrasa un pelín y el titular se adelanta otro pelín. Se
+     hace desde aquí, y no escribiendo `data-plano` diez veces en el HTML,
+     porque es una decisión de movimiento y no de contenido: si mañana no
+     convence, se quita de un sitio y no de diez.
+
+     Se marcan los HIJOS de la cabecera, nunca la cabecera: ella lleva
+     `.rev` y su transformación de entrada no se puede pisar. */
+  document.querySelectorAll('.cabecera-seccion').forEach(function (c) {
+    var rotulo  = c.querySelector('.campo');
+    var titular = c.querySelector('div');
+    if (rotulo)  rotulo.setAttribute('data-plano', '0.03');
+    if (titular) titular.setAttribute('data-plano', '-0.018');
+  });
+  var rejillaAreas = document.querySelector('.modulos');
+  if (rejillaAreas) rejillaAreas.setAttribute('data-plano', '-0.025');
+
+  var planos  = [].slice.call(document.querySelectorAll('[data-plano]'));
+  var honda   = document.querySelector('.trama-honda');
+  var tarjeta = document.querySelector('.plano-tarjeta');
+  var texto   = document.querySelector('.portada-texto');
+
+  /* En pantalla estrecha, la mitad de recorrido. No es por rendimiento: en
+     un móvil el mismo desplazamiento ocupa proporcionalmente mucho más
+     ancho de pantalla y deja de leerse como profundidad para leerse como
+     que las cosas bailan. */
+  var atenua = window.matchMedia('(min-width: 760px)').matches ? 1 : 0.5;
+  window.addEventListener('resize', function () {
+    atenua = window.matchMedia('(min-width: 760px)').matches ? 1 : 0.5;
+  });
+
   if (quieto) {
     eslabones.forEach(function (e) { e.classList.add('on'); });
     hitos.forEach(function (h) { h.classList.add('pasado'); });
@@ -1268,6 +1365,45 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         document.querySelectorAll('.trama, .trama-viva, .casillas').forEach(function (n) {
           n.style.setProperty('--deriva', (-(y * 0.34) % 58).toFixed(1) + 'px');
         });
+      }
+
+      /* El plano hondo va a 0,14 contra el 0,34 del fino, y su módulo es el
+         suyo (232), no el de la otra capa: si compartieran módulo volverían
+         a coincidir cada pocos píxeles y se perdería la separación. Este sí
+         se mueve siempre, también sin ratón: en un móvil es lo único que
+         queda del fondo, y es gratis. */
+      if (honda) honda.style.setProperty('--honda', (-(y * 0.14) % 232).toFixed(1) + 'px');
+
+      /* Medir TODO y después escribir TODO. Alternando lectura y escritura,
+         cada consulta de posición obliga al navegador a rehacer la maqueta
+         que acaba de invalidar la escritura anterior, y aquí son veinte
+         bloques: eso es exactamente el tirón que se quiere evitar. */
+      if (planos.length) {
+        var vh = window.innerHeight || 1;
+        var cajas = [];
+        for (var i = 0; i < planos.length; i++) cajas.push(planos[i].getBoundingClientRect());
+        for (var j = 0; j < planos.length; j++) {
+          var c = cajas[j];
+          /* Fuera de la ventana no se toca: escribir un estilo que nadie ve
+             cuesta igual que uno que sí. */
+          if (c.bottom < -260 || c.top > vh + 260) continue;
+          var lejos = ((c.top + c.height / 2) - vh / 2) / vh;   // 0 en el centro
+          var k = parseFloat(planos[j].getAttribute('data-plano')) || 0;
+          planos[j].style.setProperty('--plano-y', (lejos * k * vh * atenua).toFixed(1) + 'px');
+        }
+
+        /* La tarjeta se endereza: 3 grados cuando le falta media ventana
+           para llegar al centro, 0 al llegar. Nunca gira hacia el otro lado
+           al pasarse, que es lo que convierte un detalle en un mareo. */
+        if (tarjeta) {
+          var ct = tarjeta.getBoundingClientRect();
+          var falta = Math.max(0, Math.min(1, ((ct.top + ct.height / 2) - vh * 0.5) / (vh * 0.6)));
+          tarjeta.style.setProperty('--inclina', (falta * 3 * atenua).toFixed(2) + 'deg');
+        }
+
+        /* El texto de portada se apaga al irse, pero no del todo: a 0 la
+           página parecería rota si alguien para a media transición. */
+        if (texto) texto.style.opacity = Math.max(0.2, 1 - y / (vh * 0.85)).toFixed(3);
       }
 
       if (progreso) {

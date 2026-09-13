@@ -94,6 +94,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
 body {
   margin: 0;
+  overflow-x: clip;
   background: var(--papel);
   color: var(--tinta);
   font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -160,12 +161,21 @@ body {
     linear-gradient(to bottom, var(--tramaHonda) 1px, transparent 1px);
   background-size: 232px 232px;
   transform: translate3d(0, var(--honda, 0px), 0);
+  scale: var(--honda-z, 1);
 }
+/* La retícula fina se acerca mientras la honda se aleja. Son dos décimas de
+   escala en toda la página: no se ve moverse, se nota como aire. */
+.trama { scale: var(--fina-z, 1); }
 
 /* ── LOS PLANOS DEL CONTENIDO ───────────────────────────────────────────
    `data-plano` dice qué fracción de la altura de la ventana se adelanta o
-   se retrasa un bloque respecto a la página. En positivo se queda atrás y
-   parece lejos; en negativo corre por delante y parece cerca.
+   se retrasa un bloque respecto a la página.
+
+   EN POSITIVO corre por delante de la página y parece CERCA; en negativo
+   se queda atrás y parece LEJOS. La cuenta: la posición en pantalla de un
+   bloque cambia a razón de −(1 + k) por píxel de scroll, así que con k > 0
+   se mueve más deprisa que el papel, que es exactamente lo que hace el
+   cristal de una ventanilla contra el paisaje.
 
    En el centro de la pantalla el desplazamiento es CERO, siempre. Es la
    regla que hace que esto no se note como un truco: nada salta al cargar,
@@ -175,7 +185,11 @@ body {
    NUNCA sobre un elemento con `.rev`: esa clase ya anima `transform` para
    aparecer, y dos transformaciones en el mismo elemento se pisan. Por eso
    los planos van en envoltorios o en hijos. */
-[data-plano] { transform: translate3d(0, var(--plano-y, 0px), 0); }
+/* Se usa `translate` y NO `transform`: son propiedades independientes que el
+   navegador compone por separado, así que un bloque puede llevar su parallax
+   aquí y su animación de entrada en `transform` sin que una pise a la otra.
+   Es lo que permite dar profundidad también a lo que lleva `.rev`. */
+[data-plano] { translate: 0 var(--plano-y, 0px); }
 
 /* La tarjeta de producto, además, llega ligeramente inclinada hacia atrás y
    se endereza al subir hasta el centro. Es el único sitio de la página con
@@ -183,10 +197,79 @@ body {
    `transform-origin` arriba para que gire como una hoja apoyada por el
    borde superior, y no como un cartel colgado del centro. */
 .plano-tarjeta {
-  transform: perspective(1600px) rotateX(var(--inclina, 0deg)) translate3d(0, var(--plano-y, 0px), 0);
+  translate: 0 var(--plano-y, 0px);
+  rotate: x var(--inclina, 0deg);
+  scale: var(--esc, 1);
   transform-origin: 50% 0%;
   backface-visibility: hidden;
+  box-shadow: 0 var(--sombra-y, 0px) var(--sombra-b, 0px) rgba(0,0,0,var(--sombra-a, 0));
 }
+/* La perspectiva vive en el padre: así la tarjeta gira DENTRO de la escena de
+   la portada y no dentro de sí misma, que es lo que hace que se lea como una
+   hoja apoyada y no como un dibujo deformado. */
+.portada { position: relative; perspective: 1800px; perspective-origin: 50% 20%; }
+
+/* ── EL INVENTARIO FLOTANDO ─────────────────────────────────────────────
+   Ocho fichas de material suspendidas alrededor del titular, a tres
+   distancias. Es la firma de la página: lo que gestiona Stokit, flotando.
+
+   La profundidad no se finge solo con la velocidad. Va acompañada de las
+   tres cosas que hace de verdad la distancia: lo lejano es más pequeño,
+   más tenue y está DESENFOCADO. Sin el desenfoque, ocho tarjetas a
+   velocidades distintas son ocho tarjetas; con él, es un espacio.
+
+   No estorban: viven en la banda derecha, fuera de la columna de lectura,
+   y no capturan el ratón. Por debajo de 1080px de ancho no hay banda
+   derecha que valga y desaparecen. */
+.fichas { position: absolute; inset: 0; pointer-events: none; }
+.ficha {
+  position: absolute;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 12px;
+  border: 1px solid var(--regla);
+  background: var(--hoja);
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px; letter-spacing: .04em; white-space: nowrap;
+  color: var(--tinta-2);
+  translate: 0 var(--plano-y, 0px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.07);
+}
+.ficha i { width: 6px; height: 6px; flex: 0 0 auto; background: var(--tinta-3); }
+.ficha i.rojo  { background: var(--sello); }
+.ficha i.oro   { background: var(--dorado); }
+.ficha b { font-weight: 600; color: var(--tinta); }
+.ficha.lejos  { opacity: .34; scale: .78; filter: blur(1.6px); }
+.ficha.media  { opacity: .62; scale: .9;  filter: blur(.5px); }
+.ficha.cerca  { opacity: .96; }
+@media (max-width: 1080px) { .fichas { display: none; } }
+@media (prefers-reduced-motion: reduce) { .fichas { display: none; } }
+
+/* ── BANDAS DE ROTULACIÓN ───────────────────────────────────────────────
+   Una tira de rótulos que cruza la página en horizontal mientras se baja.
+   Es el contrapunto: todo lo demás se mueve en vertical, y una sola cosa
+   cruzando manda muchísimo más que diez moviéndose en la misma dirección.
+
+   La tira mide varias veces el ancho de la ventana y empieza corrida hacia
+   la izquierda: por mucho que se desplace, nunca se le ve el final. */
+.banda {
+  overflow: hidden; border-block: 1px solid var(--regla-fina);
+  background: var(--hoja-2);
+  padding-block: 16px;
+}
+.banda-tira {
+  display: flex; align-items: center; gap: 26px;
+  width: max-content; margin-left: -60%;
+  translate: var(--banda-x, 0px) 0;
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: clamp(22px, 3.4vw, 46px); font-weight: 600;
+  letter-spacing: -.01em; text-transform: uppercase;
+  color: var(--tinta);
+  white-space: nowrap; user-select: none;
+}
+.banda-tira em { font-style: normal; color: var(--tinta-3); }
+.banda-tira s { text-decoration: none; color: var(--sello); }
+.banda + .linea, .banda + section { border-top: 0; }
+@media (prefers-reduced-motion: reduce) { .banda-tira { margin-left: -20%; } }
 
 /* Sin movimiento: todo quieto y a plena opacidad. */
 @media (prefers-reduced-motion: reduce) {
@@ -389,7 +472,18 @@ nav.menu a.aqui { color: var(--tinta); font-weight: 600; }
 .rev.d3 { transition-delay: .21s } .rev.d4 { transition-delay: .28s }
 
 /* ── Portada ──────────────────────────────────────────────────────── */
-.portada { padding-block: clamp(90px, 12vw, 168px) 0; }
+.portada { padding-block: clamp(90px, 12vw, 168px) 74px; }
+/* Quién tapa a quién. Al bajar, la tarjeta sube por delante del texto de
+   portada, que para entonces ya se ha apagado del todo: así se cruzan sin
+   dejar un fantasma de letra sobre la tabla. Las fichas van por delante de
+   la tarjeta —ahí está la gracia— y nunca invaden la columna de lectura,
+   que para eso viven en la banda derecha. Las bandas de rotulación, por
+   encima de todo: la tarjeta se cuela por debajo al subir, como una hoja
+   que se mete bajo una regla. */
+.portada-texto { position: relative; z-index: 2; }
+.plano-tarjeta { position: relative; z-index: 3; }
+.fichas { z-index: 4; }
+.banda { position: relative; z-index: 5; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
 .punto { width: 7px; height: 7px; background: var(--sello); }
 .portada h1 { max-width: 15ch; }
@@ -762,10 +856,23 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 
 <!-- ══ PORTADA ══════════════════════════════════════════════════════ -->
 <div class="env portada" id="inicio" data-lente>
+  <!-- El inventario flotando: ocho fichas a tres distancias, en la banda
+       derecha, fuera de la columna de lectura. Datos de verdad de un rodaje;
+       no hay texto de relleno en toda la página y aquí tampoco. -->
+  <div class="fichas" aria-hidden="true">
+    <div class="ficha lejos" data-plano="-0.22" style="top:3%;left:73%"><i></i><b>LUZ-072</b> Kit HMI 2.5 kW</div>
+    <div class="ficha lejos" data-plano="-0.22" style="top:27%;left:79%"><i class="oro"></i><b>V-07</b> ITV en 6 días</div>
+    <div class="ficha lejos" data-plano="-0.22" style="top:57%;left:74%"><i></i><b>EQ-221</b> Devuelto</div>
+    <div class="ficha media" data-plano="-0.05" style="top:13%;left:76%"><i class="rojo"></i><b>CAM-014</b> Fuera · vuelve 04/09</div>
+    <div class="ficha media" data-plano="-0.05" style="top:41%;left:80%"><i></i><b>C-01</b> Camión 7,5 t</div>
+    <div class="ficha media" data-plano="-0.05" style="top:66%;left:73%"><i class="oro"></i><b>MIFI-03</b> Rodaje Ibiza</div>
+    <div class="ficha cerca" data-plano="0.30" style="top:20%;left:73%"><i class="rojo"></i><b>PRESUP-2026-042</b> Aceptado</div>
+    <div class="ficha cerca" data-plano="0.30" style="top:50%;left:77%"><i></i><b>PROY</b> Spot Meridiano</div>
+  </div>
   <!-- El texto y la tarjeta son dos planos: el texto se queda un poco atrás
        y se apaga al salir, la tarjeta va por delante. Los envoltorios están
        aquí por eso, no por maquetación: los hijos ya usan `.rev`. -->
-  <div class="portada-texto" data-plano="0.05">
+  <div class="portada-texto" data-plano="-0.10">
   <span class="eyebrow campo rev"><i class="punto"></i> Sistema de gestión para productoras</span>
   <h1 class="rev d1">Material, flota y presupuestos en un solo sistema.</h1>
   <p class="tesis rev d2">
@@ -779,7 +886,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   </div>
   </div>
 
-  <div class="plano-tarjeta" data-plano="-0.035">
+  <div class="plano-tarjeta" data-plano="0.12">
   <figure class="muestra rev d4">
     <div class="muestra-cab">
       <span class="campo">Inventario · material fuera de casa</span>
@@ -813,6 +920,16 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       </table>
     </div>
   </figure>
+  </div>
+</div>
+
+<!-- Una tira que cruza en horizontal mientras se baja. Todo lo demás se
+     mueve en vertical: una sola cosa cruzando manda más que diez a la vez. -->
+<div class="banda" aria-hidden="true">
+  <div class="banda-tira" data-banda="560">
+    <span>Inventario</span><s>·</s><span>Flota</span><s>·</s><span>Proyectos</span><s>·</s><span>Presupuestos</span><s>·</s><span>Economía</span><s>·</s><span>Personal</span><s>·</s><span>Tecnología</span><s>·</s>
+    <span>Inventario</span><s>·</s><span>Flota</span><s>·</s><span>Proyectos</span><s>·</s><span>Presupuestos</span><s>·</s><span>Economía</span><s>·</s><span>Personal</span><s>·</s><span>Tecnología</span><s>·</s>
+    <span>Inventario</span><s>·</s><span>Flota</span><s>·</s><span>Proyectos</span><s>·</s><span>Presupuestos</span><s>·</s><span>Economía</span><s>·</s><span>Personal</span><s>·</s><span>Tecnología</span><s>·</s>
   </div>
 </div>
 
@@ -1084,6 +1201,14 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 </section>
 
 <!-- ══ CONTACTO ═════════════════════════════════════════════════════ -->
+<div class="banda" aria-hidden="true">
+  <div class="banda-tira" data-banda="-560">
+    <span>Salidas</span><s>·</s><span>Revisiones</span><s>·</s><span>ITV</span><s>·</s><span>Reservas</span><s>·</s><span>Subproyectos</span><s>·</s><span>Facturas</span><s>·</s><span>Líneas</span><s>·</s><span>Etiquetas QR</span><s>·</s>
+    <span>Salidas</span><s>·</s><span>Revisiones</span><s>·</s><span>ITV</span><s>·</s><span>Reservas</span><s>·</s><span>Subproyectos</span><s>·</s><span>Facturas</span><s>·</s><span>Líneas</span><s>·</s><span>Etiquetas QR</span><s>·</s>
+    <span>Salidas</span><s>·</s><span>Revisiones</span><s>·</s><span>ITV</span><s>·</s><span>Reservas</span><s>·</s><span>Subproyectos</span><s>·</s><span>Facturas</span><s>·</s><span>Líneas</span><s>·</s><span>Etiquetas QR</span><s>·</s>
+  </div>
+</div>
+
 <section class="linea cierre" id="contacto">
   <div class="env rev">
     <span class="campo">Contacto</span>
@@ -1305,37 +1430,81 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   var hitos    = document.querySelectorAll('.via-hito');
   var eslabones = document.querySelectorAll('#eslabones .eslabon');
 
-  /* ── LOS PLANOS ───────────────────────────────────────────────────────
+  /* ── EL MOTOR DE PLANOS ───────────────────────────────────────────────
      Las cabeceras de sección se parten en dos planos sin tocar el marcado:
-     el rótulo se retrasa un pelín y el titular se adelanta otro pelín. Se
+     el rótulo de la izquierda se queda atrás y el titular se adelanta. Se
      hace desde aquí, y no escribiendo `data-plano` diez veces en el HTML,
      porque es una decisión de movimiento y no de contenido: si mañana no
      convence, se quita de un sitio y no de diez.
 
-     Se marcan los HIJOS de la cabecera, nunca la cabecera: ella lleva
-     `.rev` y su transformación de entrada no se puede pisar. */
-  document.querySelectorAll('.cabecera-seccion').forEach(function (c) {
-    var rotulo  = c.querySelector('.campo');
-    var titular = c.querySelector('div');
-    if (rotulo)  rotulo.setAttribute('data-plano', '0.03');
-    if (titular) titular.setAttribute('data-plano', '-0.018');
-  });
+     Solo en pantalla ancha: ahí la cabecera son dos columnas y los dos
+     planos no pueden chocar por mucho que se separen. Apiladas en el
+     móvil, se meterían una dentro de otra. */
+  var anchoGrande = function () { return window.matchMedia('(min-width: 900px)').matches; };
+  /* Se decide en cada medida y no solo al cargar: quien estrecha la ventana
+     —o gira el móvil— tiene que perder estos dos planos en ese momento, no
+     en la siguiente visita. */
+  function planosDeCabecera() {
+    var ancho = anchoGrande();
+    document.querySelectorAll('.cabecera-seccion').forEach(function (c) {
+      var rotulo  = c.querySelector('.campo');
+      var titular = c.querySelector('div');
+      [[rotulo, '-0.10'], [titular, '0.05']].forEach(function (par) {
+        if (!par[0]) return;
+        if (ancho) par[0].setAttribute('data-plano', par[1]);
+        else { par[0].removeAttribute('data-plano'); par[0].style.removeProperty('--plano-y'); }
+      });
+    });
+  }
   var rejillaAreas = document.querySelector('.modulos');
-  if (rejillaAreas) rejillaAreas.setAttribute('data-plano', '-0.025');
+  if (rejillaAreas) rejillaAreas.setAttribute('data-plano', '0.06');
 
-  var planos  = [].slice.call(document.querySelectorAll('[data-plano]'));
+  var planos = [], bandas = [], planoTarjeta = null;
   var honda   = document.querySelector('.trama-honda');
+  var fina    = document.querySelector('.trama');
   var tarjeta = document.querySelector('.plano-tarjeta');
   var texto   = document.querySelector('.portada-texto');
 
-  /* En pantalla estrecha, la mitad de recorrido. No es por rendimiento: en
-     un móvil el mismo desplazamiento ocupa proporcionalmente mucho más
-     ancho de pantalla y deja de leerse como profundidad para leerse como
-     que las cosas bailan. */
-  var atenua = window.matchMedia('(min-width: 760px)').matches ? 1 : 0.5;
-  window.addEventListener('resize', function () {
-    atenua = window.matchMedia('(min-width: 760px)').matches ? 1 : 0.5;
-  });
+  /* En pantalla estrecha, menos de la mitad de recorrido. No es por
+     rendimiento: en un móvil el mismo desplazamiento ocupa muchísimo más
+     proporción de pantalla y deja de leerse como profundidad para leerse
+     como que las cosas bailan. */
+  var atenua = 1;
+
+  /* ── MEDIR UNA VEZ ────────────────────────────────────────────────────
+     Se guarda el centro de cada plano en coordenadas del documento. Con
+     treinta planos, preguntar la posición en cada fotograma obliga al
+     navegador a rehacer la maqueta treinta veces por fotograma; con las
+     medidas guardadas, el bucle solo multiplica y escribe.
+
+     Se mide con TODO A CERO: un bloque ya desplazado devolvería su
+     posición desplazada, y la medida saldría corrida un poco más en cada
+     vuelta hasta irse de la página. */
+  function medir() {
+    atenua = anchoGrande() ? 1 : 0.45;
+    planosDeCabecera();
+    document.querySelectorAll('[data-plano]').forEach(function (n) { n.style.setProperty('--plano-y', '0px'); });
+    document.querySelectorAll('[data-banda]').forEach(function (n) { n.style.setProperty('--banda-x', '0px'); });
+    var y = window.scrollY || window.pageYOffset;
+    planos = []; bandas = []; planoTarjeta = null;
+    document.querySelectorAll('[data-plano]').forEach(function (n) {
+      var c = n.getBoundingClientRect();
+      var p = { n: n, k: parseFloat(n.getAttribute('data-plano')) || 0, centro: c.top + y + c.height / 2 };
+      planos.push(p);
+      if (n === tarjeta) planoTarjeta = p;
+    });
+    document.querySelectorAll('[data-banda]').forEach(function (n) {
+      var c = n.getBoundingClientRect();
+      bandas.push({ n: n, amp: parseFloat(n.getAttribute('data-banda')) || 0, centro: c.top + y + c.height / 2 });
+    });
+  }
+  medir();
+  window.addEventListener('resize', medir);
+  /* Las tipografías cambian las alturas cuando terminan de cargar: si no se
+     vuelve a medir, todo queda referido a la página con la letra de
+     reserva y el efecto sale descolocado justo en la primera visita. */
+  window.addEventListener('load', medir);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(medir);
 
   if (quieto) {
     eslabones.forEach(function (e) { e.classList.add('on'); });
@@ -1374,37 +1543,50 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
          queda del fondo, y es gratis. */
       if (honda) honda.style.setProperty('--honda', (-(y * 0.14) % 232).toFixed(1) + 'px');
 
-      /* Medir TODO y después escribir TODO. Alternando lectura y escritura,
-         cada consulta de posición obliga al navegador a rehacer la maqueta
-         que acaba de invalidar la escritura anterior, y aquí son veinte
-         bloques: eso es exactamente el tirón que se quiere evitar. */
-      if (planos.length) {
-        var vh = window.innerHeight || 1;
-        var cajas = [];
-        for (var i = 0; i < planos.length; i++) cajas.push(planos[i].getBoundingClientRect());
-        for (var j = 0; j < planos.length; j++) {
-          var c = cajas[j];
-          /* Fuera de la ventana no se toca: escribir un estilo que nadie ve
-             cuesta igual que uno que sí. */
-          if (c.bottom < -260 || c.top > vh + 260) continue;
-          var lejos = ((c.top + c.height / 2) - vh / 2) / vh;   // 0 en el centro
-          var k = parseFloat(planos[j].getAttribute('data-plano')) || 0;
-          planos[j].style.setProperty('--plano-y', (lejos * k * vh * atenua).toFixed(1) + 'px');
-        }
+      /* El fondo respira: a lo largo de toda la página la retícula fina se
+         acerca y la honda se aleja. No se ve el zoom; se nota que el fondo
+         dejó de ser un papel pegado detrás. */
+      var recorridoDoc = document.documentElement.scrollHeight - window.innerHeight;
+      var avanceDoc = recorridoDoc > 0 ? Math.min(1, Math.max(0, y / recorridoDoc)) : 0;
+      if (fina)  fina.style.setProperty('--fina-z',   (1 + avanceDoc * 0.07).toFixed(4));
+      if (honda) honda.style.setProperty('--honda-z', (1.12 - avanceDoc * 0.12).toFixed(4));
 
-        /* La tarjeta se endereza: 3 grados cuando le falta media ventana
-           para llegar al centro, 0 al llegar. Nunca gira hacia el otro lado
-           al pasarse, que es lo que convierte un detalle en un mareo. */
-        if (tarjeta) {
-          var ct = tarjeta.getBoundingClientRect();
-          var falta = Math.max(0, Math.min(1, ((ct.top + ct.height / 2) - vh * 0.5) / (vh * 0.6)));
-          tarjeta.style.setProperty('--inclina', (falta * 3 * atenua).toFixed(2) + 'deg');
-        }
+      var vh = window.innerHeight || 1;
+      var mitad = y + vh / 2;
 
-        /* El texto de portada se apaga al irse, pero no del todo: a 0 la
-           página parecería rota si alguien para a media transición. */
-        if (texto) texto.style.opacity = Math.max(0.2, 1 - y / (vh * 0.85)).toFixed(3);
+      /* Solo cuentas y escrituras: ni una consulta de posición. */
+      for (var i = 0; i < planos.length; i++) {
+        var p = planos[i];
+        var lejos = (p.centro - mitad) / vh;            // 0 en el centro
+        if (lejos > 1.7 || lejos < -1.7) continue;      // fuera de vista
+        p.n.style.setProperty('--plano-y', (lejos * p.k * vh * atenua).toFixed(1) + 'px');
       }
+
+      /* Las bandas cruzan en horizontal, cada una hacia su lado. */
+      for (var b = 0; b < bandas.length; b++) {
+        var ba = bandas[b];
+        var q = (ba.centro - mitad) / vh;
+        if (q > 2.2 || q < -2.2) continue;
+        ba.n.style.setProperty('--banda-x', (q * ba.amp * atenua).toFixed(1) + 'px');
+      }
+
+      /* La tarjeta no solo sube: llega inclinada, pequeña y sin sombra, y
+         aterriza recta, a tamaño y con su sombra puesta. Los tres gestos a
+         la vez son los que la hacen posarse en vez de deslizarse. */
+      if (planoTarjeta) {
+        var falta = Math.max(0, Math.min(1, ((planoTarjeta.centro - mitad) / vh) / 0.8));
+        tarjeta.style.setProperty('--inclina',  (falta * 9 * atenua).toFixed(2) + 'deg');
+        tarjeta.style.setProperty('--esc',      (1 - falta * 0.06 * atenua).toFixed(4));
+        tarjeta.style.setProperty('--sombra-y', (falta * 44).toFixed(0) + 'px');
+        tarjeta.style.setProperty('--sombra-b', (falta * 76).toFixed(0) + 'px');
+        tarjeta.style.setProperty('--sombra-a', (falta * 0.3).toFixed(3));
+      }
+
+      /* El texto de portada se apaga al irse, y hasta cero: cuando llega a
+         cero ya está saliendo por arriba de la ventana, y hace falta que no
+         quede ni rastro, porque es justo entonces cuando la tarjeta le pasa
+         por encima. Un doce por ciento de letra sobre la tabla es suciedad. */
+      if (texto) texto.style.opacity = Math.max(0, Math.min(1, 1 - y / (vh * 0.8))).toFixed(3);
 
       if (progreso) {
         var total = document.documentElement.scrollHeight - window.innerHeight;

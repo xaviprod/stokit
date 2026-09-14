@@ -251,25 +251,45 @@ body {
 
    La tira mide varias veces el ancho de la ventana y empieza corrida hacia
    la izquierda: por mucho que se desplace, nunca se le ve el final. */
-.banda {
-  overflow: hidden; border-block: 1px solid var(--regla-fina);
-  background: var(--hoja-2);
-  padding-block: 16px;
+/* ── CINTAS DE FICHAS ───────────────────────────────────────────────────
+   Aquí había una tira de rótulos enormes cruzando en horizontal. Fuera: un
+   cartel gigante moviéndose es ruido, y encima competía con lo único que
+   merece la atención de esta página, que son las fichas de la portada.
+
+   Dicen lo mismo —las siete áreas, y luego el oficio— pero en el lenguaje que
+   ya funciona: fichas de datos suspendidas a tres distancias. Y aquí no hay
+   columna de lectura que respetar, así que ocupan todo el ancho.
+
+   `overflow: clip` y no `hidden`: `hidden` crea un contenedor de scroll y
+   rompería los `position: sticky` de la cadena. */
+.cinta {
+  position: relative; overflow: clip;
+  height: clamp(210px, 24vw, 290px);
 }
-.banda-tira {
-  display: flex; align-items: center; gap: 26px;
-  width: max-content; margin-left: -60%;
-  translate: var(--banda-x, 0px) 0;
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  font-size: clamp(22px, 3.4vw, 46px); font-weight: 600;
-  letter-spacing: -.01em; text-transform: uppercase;
-  color: var(--tinta);
-  white-space: nowrap; user-select: none;
+/* La posición va en variables y no en `top`/`left` directos: así una consulta
+   de medios puede recolocarlas en pantalla estrecha. Un estilo en línea no hay
+   media query que lo gane sin `!important`, y eso es empezar una guerra. */
+.cinta .ficha { position: absolute; top: var(--t); left: var(--l); }
+
+/* Cuatro columnas, dos fichas por columna, y LA MISMA distancia dentro de cada
+   columna. Es lo que impide que dos fichas se crucen: las que comparten franja
+   horizontal se mueven exactamente igual, y las que se mueven distinto están
+   en columnas separadas y no llegan a tocarse. */
+@media (max-width: 1080px) {
+  /* En portátil sobra la mitad: quedan cuatro, una por columna. */
+  .cinta .ficha:nth-child(n+5) { display: none; }
 }
-.banda-tira em { font-style: normal; color: var(--tinta-3); }
-.banda-tira s { text-decoration: none; color: var(--sello); }
-.banda + .linea, .banda + section { border-top: 0; }
-@media (prefers-reduced-motion: reduce) { .banda-tira { margin-left: -20%; } }
+@media (max-width: 700px) {
+  .cinta { height: 210px; }
+  .cinta .ficha:nth-child(n+4) { display: none; }
+  /* Aquí se escribe `top`/`left` y NO las variables: las variables vienen en el
+     atributo `style` de cada ficha, y un estilo en línea gana a cualquier hoja
+     por mucha especificidad que se le ponga. Las propiedades finales, en
+     cambio, no están puestas en línea, así que estas sí mandan. */
+  .cinta .ficha:nth-child(1) { top: 10%;  left: 5%; }
+  .cinta .ficha:nth-child(2) { top: 42%;  left: 24%; }
+  .cinta .ficha:nth-child(3) { top: 72%;  left: 9%; }
+}
 
 /* Sin movimiento: todo quieto y a plena opacidad. */
 @media (prefers-reduced-motion: reduce) {
@@ -477,13 +497,11 @@ nav.menu a.aqui { color: var(--tinta); font-weight: 600; }
    portada, que para entonces ya se ha apagado del todo: así se cruzan sin
    dejar un fantasma de letra sobre la tabla. Las fichas van por delante de
    la tarjeta —ahí está la gracia— y nunca invaden la columna de lectura,
-   que para eso viven en la banda derecha. Las bandas de rotulación, por
-   encima de todo: la tarjeta se cuela por debajo al subir, como una hoja
-   que se mete bajo una regla. */
+   que para eso viven en la banda derecha. */
 .portada-texto { position: relative; z-index: 2; }
 .plano-tarjeta { position: relative; z-index: 3; }
 .fichas { z-index: 4; }
-.banda { position: relative; z-index: 5; }
+.cinta { z-index: 1; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
 .punto { width: 7px; height: 7px; background: var(--sello); }
 .portada h1 { max-width: 15ch; }
@@ -925,14 +943,17 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   </div>
 </div>
 
-<!-- Una tira que cruza en horizontal mientras se baja. Todo lo demás se
-     mueve en vertical: una sola cosa cruzando manda más que diez a la vez. -->
-<div class="banda" aria-hidden="true">
-  <div class="banda-tira" data-banda="560">
-    <span>Inventario</span><s>·</s><span>Flota</span><s>·</s><span>Proyectos</span><s>·</s><span>Presupuestos</span><s>·</s><span>Economía</span><s>·</s><span>Personal</span><s>·</s><span>Tecnología</span><s>·</s>
-    <span>Inventario</span><s>·</s><span>Flota</span><s>·</s><span>Proyectos</span><s>·</s><span>Presupuestos</span><s>·</s><span>Economía</span><s>·</s><span>Personal</span><s>·</s><span>Tecnología</span><s>·</s>
-    <span>Inventario</span><s>·</s><span>Flota</span><s>·</s><span>Proyectos</span><s>·</s><span>Presupuestos</span><s>·</s><span>Economía</span><s>·</s><span>Personal</span><s>·</s><span>Tecnología</span><s>·</s>
-  </div>
+<!-- Las siete áreas, en el mismo lenguaje que la portada: fichas flotando a
+     tres distancias en vez de un cartel cruzando la pantalla. -->
+<div class="cinta" aria-hidden="true">
+  <div class="ficha cerca" data-plano="0.10" style="--t:27%;--l:4%"><i class="rojo"></i><b>Inventario</b> 813 artículos</div>
+  <div class="ficha lejos" data-plano="-0.09" style="--t:34%;--l:27%"><i></i><b>Flota</b> 14 vehículos</div>
+  <div class="ficha media" data-plano="-0.02" style="--t:29%;--l:50%"><i class="oro"></i><b>Presupuestos</b> 3 sin respuesta</div>
+  <div class="ficha cerca" data-plano="0.10" style="--t:36%;--l:73%"><i class="rojo"></i><b>Tecnología</b> 16 plazas libres</div>
+  <div class="ficha cerca" data-plano="0.10" style="--t:56%;--l:4%"><i></i><b>Proyectos</b> 6 rodajes activos</div>
+  <div class="ficha lejos" data-plano="-0.09" style="--t:61%;--l:27%"><i></i><b>Personal</b> 161 fichas</div>
+  <div class="ficha media" data-plano="-0.02" style="--t:53%;--l:50%"><i></i><b>Economía</b> mes cerrado</div>
+  <div class="ficha cerca" data-plano="0.10" style="--t:58%;--l:73%"><i></i><b>Subproyectos</b> por departamento</div>
 </div>
 
 <!-- ══ ÁREAS ════════════════════════════════════════════════════════ -->
@@ -1203,12 +1224,16 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 </section>
 
 <!-- ══ CONTACTO ═════════════════════════════════════════════════════ -->
-<div class="banda" aria-hidden="true">
-  <div class="banda-tira" data-banda="-560">
-    <span>Salidas</span><s>·</s><span>Revisiones</span><s>·</s><span>ITV</span><s>·</s><span>Reservas</span><s>·</s><span>Subproyectos</span><s>·</s><span>Facturas</span><s>·</s><span>Líneas</span><s>·</s><span>Etiquetas QR</span><s>·</s>
-    <span>Salidas</span><s>·</s><span>Revisiones</span><s>·</s><span>ITV</span><s>·</s><span>Reservas</span><s>·</s><span>Subproyectos</span><s>·</s><span>Facturas</span><s>·</s><span>Líneas</span><s>·</s><span>Etiquetas QR</span><s>·</s>
-    <span>Salidas</span><s>·</s><span>Revisiones</span><s>·</s><span>ITV</span><s>·</s><span>Reservas</span><s>·</s><span>Subproyectos</span><s>·</s><span>Facturas</span><s>·</s><span>Líneas</span><s>·</s><span>Etiquetas QR</span><s>·</s>
-  </div>
+<!-- El oficio, antes del cierre. Lo mismo: fichas, no carteles. -->
+<div class="cinta" aria-hidden="true">
+  <div class="ficha media" data-plano="-0.02" style="--t:30%;--l:4%"><i></i><b>CAM-022</b> Sony Venice 2</div>
+  <div class="ficha cerca" data-plano="0.10" style="--t:26%;--l:27%"><i class="rojo"></i><b>FAC-2026-014</b> Cobrada</div>
+  <div class="ficha lejos" data-plano="-0.09" style="--t:35%;--l:50%"><i></i><b>GRIP-118</b> Dolly + vías 12 m</div>
+  <div class="ficha cerca" data-plano="0.10" style="--t:28%;--l:73%"><i class="oro"></i><b>V-03</b> ITV el 12/10</div>
+  <div class="ficha media" data-plano="-0.02" style="--t:61%;--l:4%"><i></i><b>LUZ-045</b> SkyPanel S60</div>
+  <div class="ficha cerca" data-plano="0.10" style="--t:55%;--l:27%"><i></i><b>C-02</b> Camión 12 t</div>
+  <div class="ficha lejos" data-plano="-0.09" style="--t:59%;--l:50%"><i class="rojo"></i><b>PRESUP-2026-051</b> Enviado</div>
+  <div class="ficha cerca" data-plano="0.10" style="--t:57%;--l:73%"><i></i><b>QR</b> etiqueta impresa</div>
 </div>
 
 <section class="linea cierre" id="contacto">
@@ -1461,7 +1486,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   var rejillaAreas = document.querySelector('.modulos');
   if (rejillaAreas) rejillaAreas.setAttribute('data-plano', '0.06');
 
-  var planos = [], bandas = [], planoTarjeta = null;
+  var planos = [], planoTarjeta = null;
   var honda   = document.querySelector('.trama-honda');
   var fina    = document.querySelector('.trama');
   var tarjeta = document.querySelector('.plano-tarjeta');
@@ -1486,18 +1511,13 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     atenua = anchoGrande() ? 1 : 0.45;
     planosDeCabecera();
     document.querySelectorAll('[data-plano]').forEach(function (n) { n.style.setProperty('--plano-y', '0px'); });
-    document.querySelectorAll('[data-banda]').forEach(function (n) { n.style.setProperty('--banda-x', '0px'); });
     var y = window.scrollY || window.pageYOffset;
-    planos = []; bandas = []; planoTarjeta = null;
+    planos = []; planoTarjeta = null;
     document.querySelectorAll('[data-plano]').forEach(function (n) {
       var c = n.getBoundingClientRect();
       var p = { n: n, k: parseFloat(n.getAttribute('data-plano')) || 0, centro: c.top + y + c.height / 2 };
       planos.push(p);
       if (n === tarjeta) planoTarjeta = p;
-    });
-    document.querySelectorAll('[data-banda]').forEach(function (n) {
-      var c = n.getBoundingClientRect();
-      bandas.push({ n: n, amp: parseFloat(n.getAttribute('data-banda')) || 0, centro: c.top + y + c.height / 2 });
     });
   }
   medir();
@@ -1562,14 +1582,6 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         var lejos = (p.centro - mitad) / vh;            // 0 en el centro
         if (lejos > 1.7 || lejos < -1.7) continue;      // fuera de vista
         p.n.style.setProperty('--plano-y', (lejos * p.k * vh * atenua).toFixed(1) + 'px');
-      }
-
-      /* Las bandas cruzan en horizontal, cada una hacia su lado. */
-      for (var b = 0; b < bandas.length; b++) {
-        var ba = bandas[b];
-        var q = (ba.centro - mitad) / vh;
-        if (q > 2.2 || q < -2.2) continue;
-        ba.n.style.setProperty('--banda-x', (q * ba.amp * atenua).toFixed(1) + 'px');
       }
 
       /* La tarjeta no solo sube: llega inclinada, pequeña y sin sombra, y

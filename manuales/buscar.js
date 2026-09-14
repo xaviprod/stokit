@@ -286,7 +286,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Presupuestos",
   "titulo": "Enviar",
-  "texto": "Enviar abre la lista de destinatarios (los contactos del proyecto primero, y cualquier correo que escribas) con el asunto y el texto por…",
+  "texto": "Desde el editor, el botón rojo es Guardar y enviar : guarda y abre el envío de una vez. No hay que exportar el PDF antes ni hacer nada más:…",
   "url": "presupuestos.html#enviar",
   "claves": [
    "mandar",

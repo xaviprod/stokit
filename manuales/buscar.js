@@ -45,6 +45,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Empezar",
+  "titulo": "Crear y editar",
+  "texto": "Crear o editar algo —un vehículo, material, un dispositivo, una línea, un MiFi, un empleado, un proyecto— abre una página propia , no una…",
+  "url": "empezar.html#crear",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
   "titulo": "El buscador",
   "texto": "Arriba a la derecha hay un buscador que mira en todo a la vez : proyectos, material, flota y personas. Escribe la matrícula de un coche, el…",
   "url": "empezar.html#buscar",
@@ -99,14 +106,14 @@ window.INDICE_MANUALES = [
  {
   "donde": "Proyectos",
   "titulo": "La lista",
-  "texto": "Producción → Proyectos. Tres pestañas arriba:",
+  "texto": "Producción → Proyectos. Una sola barra arriba: a la izquierda qué proyectos ves — En marcha , Anteriores (los finalizados) o Calendario (la…",
   "url": "proyectos.html#lista",
   "claves": []
  },
  {
   "donde": "Proyectos",
   "titulo": "Crear un proyecto",
-  "texto": "",
+  "texto": "+ Nuevo proyecto , arriba a la derecha. Se abre como una pestaña propia, no un cuadro, con cinco bloques de arriba abajo y, a la derecha, la…",
   "url": "proyectos.html#crear",
   "claves": [
    "nuevo",
@@ -221,6 +228,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Clientes",
+  "texto": "Producción → Clientes. A quién se presupuesta y se factura. Cada cliente es una ficha: nombre comercial, razón social, NIF y domicilio fiscal…",
+  "url": "presupuestos.html#clientes",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "La lista",
   "texto": "Producción → Presupuestos. Arriba, tres botones: + Nuevo , Catálogo y Ajustes PDF . Y una tira de filtros por estado: Todos, Borrador,…",
   "url": "presupuestos.html#lista",
@@ -243,6 +257,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Descuentos",
+  "texto": "Hay dos, y se pueden combinar. El descuento global está en los totales (la casilla «Descuento global %») y se aplica sobre la suma de todas…",
+  "url": "presupuestos.html#descuentos",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "El catálogo de tarifas",
   "texto": "Botón Catálogo . Es tu lista de precios: concepto, unidad (día, hora, unidad, sesión, proyecto, minuto) y precio. Lo que metas aquí aparece…",
   "url": "presupuestos.html#catalogo",
@@ -257,8 +278,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Versiones, aceptación y caducidad",
+  "texto": "Un presupuesto enviado no se edita : si el cliente pide cambios, Nueva versión crea la v2 en borrador con todo copiado y deja la v1 guardada…",
+  "url": "presupuestos.html#versiones",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "Enviar",
-  "texto": "El botón de enviar necesita la capacidad enviar . Al pulsarlo, la aplicación te ofrece solo tres destinatarios : el Line Producer, el…",
+  "texto": "Enviar abre la lista de destinatarios (los contactos del proyecto primero, y cualquier correo que escribas) con el asunto y el texto por…",
   "url": "presupuestos.html#enviar",
   "claves": [
    "mandar",
@@ -271,6 +299,13 @@ window.INDICE_MANUALES = [
    "presupuesto",
    "factura"
   ]
+ },
+ {
+  "donde": "Presupuestos",
+  "titulo": "Cuando el cliente responde, mandáis vosotros",
+  "texto": "La respuesta del cliente no cambia nada sola : queda como pendiente de revisar y el presupuesto sigue en «enviado» hasta que alguien de la…",
+  "url": "presupuestos.html#respuestas",
+  "claves": []
  },
  {
   "donde": "Presupuestos",
@@ -393,7 +428,14 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Flota",
-  "titulo": "El calendario",
+  "titulo": "El General de Flota",
+  "texto": "Flota → General. La portada de la flota: cifras de hoy y del mes, ITV pendiente, papeles que caducan y la ocupación de los próximos 30 días.…",
+  "url": "flota.html#general",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
+  "titulo": "El calendario compartido",
   "texto": "Flota → Calendario de Flota. Una fila por vehículo, una columna por día. Aquí es donde se decide de verdad quién tiene cada coche.",
   "url": "flota.html#calendario",
   "claves": [
@@ -412,6 +454,41 @@ window.INDICE_MANUALES = [
    "camión",
    "furgoneta"
   ]
+ },
+ {
+  "donde": "Flota",
+  "titulo": "Reservar: los colores",
+  "texto": "Debajo del título está la leyenda de proyectos : un bloque de color por cada rodaje activo, con su nombre escrito encima. Ese bloque es…",
+  "url": "flota.html#calendario-colores",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
+  "titulo": "ITV y mantenimiento",
+  "texto": "Un vehículo puede estar ocupado sin ir a ningún rodaje. Esos días se marcan con los botones ITV y Mantenimiento de la leyenda, y se pintan de…",
+  "url": "flota.html#calendario-bloqueos",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
+  "titulo": "A pantalla completa",
+  "texto": "El calendario tiene su propia dirección: palmapictures.stokit.es/calendario . Se abre sin barra lateral y sin pestañas, con toda la ventana…",
+  "url": "flota.html#calendario-pantalla",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
+  "titulo": "Quién puede entrar",
+  "texto": "El calendario compartido tiene permiso propio , separado del resto de Flota. Eso permite dar a alguien de producción el calendario y nada más…",
+  "url": "flota.html#calendario-quien",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
+  "titulo": "El calendario de producción",
+  "texto": "Producción → Calendario. La otra mitad del Excel. A producción no le importan los camiones ni los coches: le importan las Vitos y los…",
+  "url": "flota.html#calendario-produccion",
+  "claves": []
  },
  {
   "donde": "Flota",
@@ -530,7 +607,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Material",
   "titulo": "Fichas QR",
-  "texto": "Material → Fichas QR. Etiquetas imprimibles para pegar en la caja, en el flight o en el propio aparato. Cinco plantillas:",
+  "texto": "Material → Fichas QR. Etiquetas imprimibles para pegar en la caja, en el flight o en el propio aparato. Ocho plantillas:",
   "url": "material.html#fichas-qr",
   "claves": [
    "etiquetas",
@@ -547,6 +624,20 @@ window.INDICE_MANUALES = [
   "titulo": "Imprimir las etiquetas",
   "texto": "En papel las etiquetas tienen altura fija para poder recortarlas rectas, y el texto se ajusta solo: si un nombre es largo baja de cuerpo y…",
   "url": "material.html#imprimir",
+  "claves": []
+ },
+ {
+  "donde": "Tecnología",
+  "titulo": "General",
+  "texto": "Tecnología → General. Lo que IT tiene que hacer hoy, en una pantalla hecha de widgets : cifras, tareas de IT, salidas de personas, a revisar…",
+  "url": "tecnologia.html#general",
+  "claves": []
+ },
+ {
+  "donde": "Tecnología",
+  "titulo": "Tareas",
+  "texto": "Tecnología → Tareas. La lista de cosas por hacer del equipo de IT, compartida, al estilo Things: «cambiar el disco del portátil de X», «pedir…",
+  "url": "tecnologia.html#tareas",
   "claves": []
  },
  {
@@ -626,7 +717,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Tecnología",
   "titulo": "Microsoft 365",
-  "texto": "Tecnología → Microsoft 365. El directorio real de la empresa, leído de Microsoft: qué cuentas hay y cuáles conviene traer a Empleados .",
+  "texto": "Tecnología → Microsoft 365. El directorio real de la empresa, leído de Microsoft: qué licencias quedan libres, qué cuentas hay y cuáles…",
   "url": "tecnologia.html#m365",
   "claves": [
    "microsoft",
@@ -637,6 +728,13 @@ window.INDICE_MANUALES = [
    "empleados",
    "buzón"
   ]
+ },
+ {
+  "donde": "Tecnología",
+  "titulo": "Licencias: cuántas quedan",
+  "texto": "Lo primero de la pantalla responde a la pregunta de siempre: ¿puedo dar de alta a alguien mañana sin comprar nada? Arriba, las plazas libres,…",
+  "url": "tecnologia.html#licencias",
+  "claves": []
  },
  {
   "donde": "Tecnología",
@@ -655,7 +753,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Tecnología",
   "titulo": "Telefonía",
-  "texto": "Tecnología → Telefonía. Las líneas móviles y fijas: quién las usa, su extensión y sus códigos. Filtros por tipo — Móviles , Fijos — y por…",
+  "texto": "Tecnología → Telefonía. Las líneas móviles y fijas: quién las usa, su extensión y sus códigos. Se ven como tarjetas (el número en grande, la…",
   "url": "tecnologia.html#telefonia",
   "claves": [
    "línea",

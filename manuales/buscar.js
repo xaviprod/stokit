@@ -738,6 +738,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Tecnología",
+  "titulo": "Cambiar la contraseña de alguien",
+  "texto": "En la fila de cada cuenta, Contraseña . No hace falta entrar en ningún portal de Microsoft ni saber nada del directorio:",
+  "url": "tecnologia.html#cambiar-contrasena",
+  "claves": []
+ },
+ {
+  "donde": "Tecnología",
   "titulo": "Borrar una cuenta",
   "texto": "Borrar cuenta no la quita solo de Stokit: elimina la cuenta del directorio de la empresa, con su buzón. Por eso:",
   "url": "tecnologia.html#borrar-cuenta",

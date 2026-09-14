@@ -279,7 +279,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Presupuestos",
   "titulo": "Versiones, aceptación y caducidad",
-  "texto": "Un presupuesto enviado no se edita : si el cliente pide cambios, Nueva versión crea la v2 en borrador con todo copiado y deja la v1 guardada…",
+  "texto": "Un presupuesto enviado no se edita : si el cliente pide cambios, Nueva versión crea la v2 con todo copiado, deja la v1 guardada tal como se…",
   "url": "presupuestos.html#versiones",
   "claves": []
  },

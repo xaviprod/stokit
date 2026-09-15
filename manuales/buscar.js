@@ -906,6 +906,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Ajustes",
+  "titulo": "El enlace del calendario para producción",
+  "texto": "Sistema → Ajustes → Enlace del calendario para producción. Crea una dirección larga que abre solo el calendario . Quien la tenga entra sin…",
+  "url": "sistema.html#enlace-calendario",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
   "titulo": "Ajustes",
   "texto": "Sistema → Ajustes. Requiere nivel total en Sistema: lo que se cambia aquí afecta a todo el mundo. Un menú a la izquierda y una cosa cada vez,…",
   "url": "sistema.html#ajustes",

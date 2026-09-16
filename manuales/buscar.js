@@ -913,8 +913,8 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Ajustes",
-  "titulo": "Avisos de reservas por QR",
-  "texto": "Ajustes → Correo y avisos → Avisos de reservas por QR. Cada vez que alguien apunta desde una pegatina que se lleva o que devuelve un aparato,…",
+  "titulo": "Avisos por correo",
+  "texto": "Ajustes → Correo y avisos → Avisos por correo. Cada vez que alguien apunta desde una pegatina que se lleva o que devuelve un aparato, sale un…",
   "url": "sistema.html#avisos-qr",
   "claves": []
  },

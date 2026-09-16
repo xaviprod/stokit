@@ -920,6 +920,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Ajustes",
+  "titulo": "Firma de correo",
+  "texto": "Ajustes → Correo y avisos → Firma de correo. Cada uno se hace la suya y se la pega en Outlook. Sale ya rellena con lo que hay en tu ficha…",
+  "url": "sistema.html#firma",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
   "titulo": "Avisos por correo",
   "texto": "Ajustes → Correo y avisos → Avisos por correo. Cada vez que alguien apunta que se lleva o que devuelve un aparato, sale un correo a las…",
   "url": "sistema.html#avisos-qr",

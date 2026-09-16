@@ -913,6 +913,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Ajustes",
+  "titulo": "Avisos de reservas por QR",
+  "texto": "Ajustes → Correo y avisos → Avisos de reservas por QR. Cada vez que alguien apunta desde una pegatina que se lleva o que devuelve un aparato,…",
+  "url": "sistema.html#avisos-qr",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
   "titulo": "Ajustes",
   "texto": "Sistema → Ajustes. Requiere nivel total en Sistema: lo que se cambia aquí afecta a todo el mundo. Un menú a la izquierda y una cosa cada vez,…",
   "url": "sistema.html#ajustes",

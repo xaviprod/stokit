@@ -73,6 +73,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Empezar",
+  "titulo": "Ponlo en la pantalla de inicio del iPhone",
+  "texto": "Stokit se instala como una aplicación. No hay que bajar nada de la App Store:",
+  "url": "empezar.html#instalar",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
   "titulo": "Por qué no ves lo mismo que otro",
   "texto": "Porque no es lo mismo llevar la flota que llevar las cuentas. En Stokit el acceso se reparte por áreas —Proyectos, Presupuestos, Economía,…",
   "url": "empezar.html#permisos",
@@ -914,7 +921,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Ajustes",
   "titulo": "Avisos por correo",
-  "texto": "Ajustes → Correo y avisos → Avisos por correo. Cada vez que alguien apunta desde una pegatina que se lleva o que devuelve un aparato, sale un…",
+  "texto": "Ajustes → Correo y avisos → Avisos por correo. Cada vez que alguien apunta que se lleva o que devuelve un aparato, sale un correo a las…",
   "url": "sistema.html#avisos-qr",
   "claves": []
  },

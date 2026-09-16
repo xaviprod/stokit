@@ -574,6 +574,13 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Material",
+  "titulo": "Material que lleva material dentro",
+  "texto": "Un HMI 18kW no es un aparato: es una cabeza, un balasto, un cable de cabeza y un flight. En la ficha de cualquier ítem, abajo, está el bloque…",
+  "url": "material.html#kits",
+  "claves": []
+ },
+ {
+  "donde": "Material",
   "titulo": "Las categorías",
   "texto": "Botón Categorías . Es un árbol , no una lista: Camera → Ópticas → Zooms. Se crean con + Categoría raíz y colgando hijas de cualquier rama.",
   "url": "material.html#categorias",

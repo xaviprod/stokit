@@ -766,38 +766,10 @@ section { padding-block: var(--paso); }
 }
 
 /* ── Licencias ────────────────────────────────────────────────────────
-   Aquí vivían también los estilos de la tabla de precios y de la cifra grande.
-   Se han ido con las cifras: CSS que no pinta nada es una trampa para el que
-   venga después a buscar de dónde sale un número que ya no existe.
-   La base va aparte y primero: es el suelo del que parte todo, y mezclarla
-   con las licencias haría pensar que es una opción más. */
-.pr-base {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 24px;
-  border: 1px solid var(--regla);
-  background: var(--hoja);
-  padding: 26px 28px;
-}
-.pr-base-txt { flex: 1 1 340px; }
-.pr-base-txt h3 { margin: 10px 0 8px; }
-.pr-base-txt p { color: var(--tinta-2); font-size: 14.5px; max-width: 52ch; }
-
-.pr-rejilla {
-  display: grid; gap: 1px; margin-top: 22px;
-  background: var(--regla-fina); border: 1px solid var(--regla-fina);
-}
-@media (min-width: 700px)  { .pr-rejilla { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1020px) { .pr-rejilla { grid-template-columns: repeat(3, 1fr); } }
-
-.pr-lic { background: var(--hoja); padding: 22px 20px 24px; display: grid; align-content: start; gap: 2px; }
-.pr-lic.destacada { background: var(--hoja-2); box-shadow: inset 2px 0 0 var(--sello); }
-.pr-lic p { margin-top: 12px; font-size: 13.5px; line-height: 1.55; color: var(--tinta-2); }
-
-.pr-ejemplo {
-  margin-top: 30px; padding: 26px 28px;
-  border: 1px solid var(--regla); background: var(--hoja);
-}
-.pr-ejemplo h3 { margin: 10px 0 18px; }
-.pr-nota { margin-top: 16px; font-size: 13px; color: var(--tinta-2); }
+   Aquí vivieron los estilos de una tabla de precios, y después los de un bloque
+   que explicaba cómo se cobraba. Se han ido con su sección: CSS que no pinta
+   nada es una trampa para el que venga después a buscar de dónde sale algo que
+   ya no existe. */
 
 /* ── Cierre ───────────────────────────────────────────────────────── */
 .cierre h2 { max-width: 17ch; }
@@ -858,10 +830,10 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     </a>
     <nav class="menu" aria-label="Secciones">
       <a href="#areas">Áreas</a>
+      <a href="#pegatinas">Pegatinas</a>
       <a href="#cadena">Cómo funciona</a>
       <a href="#integracion">Integración</a>
       <a href="#implantacion">Implantación</a>
-      <a href="#licencias">Licencias</a>
       <a href="/manuales/">Manuales</a>
       <a href="#contacto">Contacto</a>
       <span class="indicador" id="indicador" aria-hidden="true"></span>
@@ -869,7 +841,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     <!-- Directo a Palma Pictures. Mientras solo haya una empresa, preguntar
          «¿de cuál eres?» es un paso que no decide nada. -->
     <a class="btn hueco entrar" href="https://palmapictures.stokit.es/">Iniciar sesión</a>
-    <a class="btn cta" href="#contacto">Pedir demo</a>
+    <a class="btn cta" href="#contacto">Contacta</a>
   </div>
   <div class="progreso" id="progreso" aria-hidden="true"></div>
 </header>
@@ -901,7 +873,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     las atraviesa sin buscar en dos sitios.
   </p>
   <div class="acciones rev d3">
-    <a class="btn" href="#contacto">Pedir demo</a>
+    <a class="btn" href="#contacto">Contacta</a>
     <a class="btn hueco" href="#areas">Ver qué cubre</a>
   </div>
   </div>
@@ -972,8 +944,10 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <span class="campo">Inventario</span>
         <div>
           <h3>Todo el material, y dónde está</h3>
-          <p>Ficha por artículo con categoría, estado y ubicación. Registro de salidas y entradas con revisión fotográfica.</p>
-          <p class="detalle">Etiquetas QR imprimibles que abren la ficha desde el propio material.</p>
+          <p>Ficha por artículo con categoría, estado y ubicación. Un artículo puede llevar
+             material dentro: un HMI es cabeza, balasto y cable, y la ficha dice cuántos kits
+             completos salen y qué pieza lo limita.</p>
+          <p class="detalle">Etiquetas QR imprimibles, y foto del material a un toque desde el móvil.</p>
         </div>
       </div>
       <div class="modulo rev">
@@ -981,7 +955,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <div>
           <h3>Vehículos con la documentación al día</h3>
           <p>Control de ITV y seguro, calendario de ocupación por vehículo, kilometraje y órdenes de taller con su coste.</p>
-          <p class="detalle">Los avisos de vencimiento se emiten con antelación configurable.</p>
+          <p class="detalle">Producción reserva desde una dirección que abre solo el calendario, sin ver el resto.</p>
         </div>
       </div>
       <div class="modulo rev">
@@ -989,15 +963,17 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <div>
           <h3>Qué lleva cada rodaje</h3>
           <p>Fechas, equipo asignado y material reservado. Subproyectos por departamento: cámara, luces, grip.</p>
-          <p class="detalle">Cada subproyecto genera un presupuesto independiente.</p>
+          <p class="detalle">Lo que se reserva escaneando una pegatina aparece aquí solo, con sus días.</p>
         </div>
       </div>
       <div class="modulo rev">
         <span class="campo">Presupuestos</span>
         <div>
           <h3>Del borrador a la factura</h3>
-          <p>Se compone desde el catálogo de precios y se convierte en factura sin reescribirlo. Plantillas configurables y exportación a PDF.</p>
-          <p class="detalle">La factura incorpora datos fiscales y numeración propia.</p>
+          <p>Se compone desde el catálogo y se convierte en factura sin reescribirlo. El cliente
+             lo abre en un enlace sin cuenta, y desde ahí acepta o pide cambios; pedir cambios
+             abre una versión nueva y la anterior se queda como se mandó.</p>
+          <p class="detalle">Descuento general o solo sobre las líneas que elijas. Plantillas y PDF.</p>
         </div>
       </div>
       <div class="modulo rev">
@@ -1020,8 +996,71 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <span class="campo">Tecnología</span>
         <div>
           <h3>Parque informático y líneas</h3>
-          <p>Ordenadores y móviles con número de serie y garantía, líneas de telefonía con su tarifa y routers portátiles asignados a rodaje.</p>
-          <p class="detalle">Incluye sincronización con Microsoft 365.</p>
+          <p>Ordenadores y móviles con número de serie y garantía, líneas de telefonía y routers
+             portátiles que se reservan escaneando su pegatina, con precio por día.</p>
+          <p class="detalle">Sincronización con Microsoft 365: directorio, altas, buzones y licencias.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PEGATINAS ═══════════════════════════════════════════════════
+     (16/9/2026) Lo más reciente y lo más distinto: el material se apunta solo
+     porque quien lo coge lo apunta en diez segundos y sin cuenta. Va con las
+     clases de «Qué cubre» —`modulos`/`modulo`— a propósito: no hace falta CSS
+     nuevo y la página sigue leyéndose igual.
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="linea" id="pegatinas">
+  <div class="env">
+    <div class="cabecera-seccion rev">
+      <span class="campo">Pegatinas</span>
+      <div>
+        <h2>Quien se lo lleva lo apunta. En diez segundos y sin cuenta.</h2>
+        <p>Un registro que obliga a recordar una contraseña es un registro que
+           nadie rellena. Cada aparato lleva su pegatina; se escanea con la
+           cámara del móvil y se apunta el rodaje y el nombre. Nada más.</p>
+      </div>
+    </div>
+
+    <div class="modulos">
+      <div class="modulo rev">
+        <span class="campo">01 · Se escanea</span>
+        <div>
+          <h3>Su propia página, sin entrar en Stokit</h3>
+          <p>La pegatina abre una pantalla de móvil que dice qué aparato es y si está
+             en el almacén o quién lo tiene. Pide el rodaje —de la lista de activos— y
+             el nombre, los dos obligatorios.</p>
+          <p class="detalle">El código del QR es aleatorio: de la pegatina de uno no se deduce la del siguiente.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">02 · Avisa</span>
+        <div>
+          <h3>Un correo en el momento</h3>
+          <p>A quien tenga que enterarse le llega un correo con el aparato, quién se lo
+             lleva, a qué rodaje y hasta cuándo. A esa hora nadie está mirando la
+             aplicación.</p>
+          <p class="detalle">Dice también si se apuntó desde la pegatina o desde dentro: no es la misma certeza.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">03 · Llega al rodaje</span>
+        <div>
+          <h3>Aparece en su material, con sus días</h3>
+          <p>La reserva abre una línea en el material de ese rodaje con los días
+             previstos, y al devolver el aparato los días se corrigen a los reales.
+             De ahí al presupuesto va una persona con un botón.</p>
+          <p class="detalle">El presupuesto se manda y se acepta: no puede cambiar solo bajo los pies de nadie.</p>
+        </div>
+      </div>
+      <div class="modulo rev">
+        <span class="campo">04 · Queda el rastro</span>
+        <div>
+          <h3>Quién lo cogió y quién lo devolvió</h3>
+          <p>Cada aparato guarda su historial entero: salidas, rodajes, días fuera y
+             cuánta gente lo ha tocado. Lo que volvió tarde queda marcado.</p>
+          <p class="detalle">No hay nada que rellenar: se escribe solo con cada escaneo.</p>
         </div>
       </div>
     </div>
@@ -1130,11 +1169,19 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       </div>
       <div class="celda">
         <h3>Sin infraestructura</h3>
-        <p>Cinco dependencias. Funciona en un servidor propio o en la red local, sin coste recurrente de plataforma ni servicios de terceros.</p>
+        <p>Funciona en un servidor propio o en la red local. Copias de seguridad y actualizaciones sin parar la producción.</p>
       </div>
       <div class="celda">
         <h3>Escrito en español</h3>
         <p>La interfaz está redactada en el idioma en el que se trabaja, no traducida. Modo claro y oscuro con el mismo cuidado en ambos.</p>
+      </div>
+      <div class="celda">
+        <h3>En el móvil, como una aplicación</h3>
+        <p>Se añade a la pantalla de inicio del teléfono y se abre a pantalla completa, sin barra de navegador y sin bajar nada de ninguna tienda. El inventario en el móvil va pensado para el almacén: tarjeta corta, buscador arriba y la foto a un toque.</p>
+      </div>
+      <div class="celda">
+        <h3>Sin coste de plataforma</h3>
+        <p>Cinco dependencias y una base de datos. No hay servicios de terceros de por medio: ni pasarelas, ni analítica, ni seguimiento. Los datos de la productora se quedan donde se pongan.</p>
       </div>
     </div>
 
@@ -1145,83 +1192,15 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   </div>
 </section>
 
-<!-- ══ PRECIOS ══════════════════════════════════════════════════════ -->
 <!-- ══ LICENCIAS ═══════════════════════════════════════════════════
-     Aquí había una tabla de precios completa: base, cinco licencias con su
-     importe y un ejemplo con el total sumado. Fuera las cifras.
+     (16/9/2026) Xavi: «quitar lo de las licencias por persona. Ni nada que
+     tenga que ver con los pagos. Nada de mostrar de pagos. Solo informativo de
+     la web app.»
 
-     Un precio en la web es una respuesta antes de conocer la pregunta: una
-     productora de cinco personas y una de cincuenta no compran lo mismo, y el
-     número suelto o asusta o se queda corto sin que nadie haya podido explicar
-     nada. Lo que sí queda es CÓMO se cobra —por persona y según lo que toca—,
-     que es lo que de verdad se quiere entender antes de preguntar.
+     Aquí hubo primero una tabla de precios, después un bloque que explicaba
+     cómo se cobraba sin decir cuánto, y ahora nada. La web cuenta lo que el
+     sistema hace; lo que cuesta se habla hablando.
      ══════════════════════════════════════════════════════════════════ -->
-<section class="linea" id="licencias">
-  <div class="env">
-    <div class="cabecera-seccion rev">
-      <span class="campo">Licencias</span>
-      <div>
-        <h2>Se paga por quien lo usa, no por lo que hay dentro.</h2>
-        <p>Una base fija y una licencia por persona según lo que necesite tocar.
-           El material, la flota y los proyectos no cuentan: podéis meter todo el
-           inventario que tengáis, y meter más no cuesta más.</p>
-      </div>
-    </div>
-
-    <div class="pr-base rev">
-      <div class="pr-base-txt">
-        <span class="campo">Base</span>
-        <h3>El sistema completo</h3>
-        <p>Las siete áreas, la integración con Microsoft 365, copias de seguridad
-           y actualizaciones. Sin límite de material ni de proyectos.</p>
-      </div>
-    </div>
-
-    <div class="cabecera-seccion rev" style="margin-top:52px">
-      <span class="campo">Por persona</span>
-      <div>
-        <h2 style="font-size:clamp(21px,2.4vw,30px)">Una licencia por persona, según su trabajo</h2>
-        <p>Cada una da acceso solo a lo suyo. Quien lleva la flota no ve los
-           presupuestos, y quien hace presupuestos no toca el parque informático.</p>
-      </div>
-    </div>
-
-    <div class="pr-rejilla rev">
-      <div class="pr-lic destacada">
-        <span class="campo">Superusuario</span>
-        <p>Acceso a todo, sin restricciones. Es quien administra: da de alta a los
-           demás, define permisos y toca los ajustes del sistema.</p>
-      </div>
-      <div class="pr-lic">
-        <span class="campo">Inventario</span>
-        <p>Material, categorías, salidas y entradas, etiquetas QR.</p>
-      </div>
-      <div class="pr-lic">
-        <span class="campo">Administración</span>
-        <p>Presupuestos, facturas, proyectos y economía.</p>
-      </div>
-      <div class="pr-lic">
-        <span class="campo">Flota</span>
-        <p>Vehículos, ITV y seguros, calendario de ocupación y órdenes de taller.</p>
-      </div>
-      <div class="pr-lic">
-        <span class="campo">IT</span>
-        <p>Parque de dispositivos, líneas de telefonía y Microsoft 365.</p>
-      </div>
-    </div>
-
-    <div class="pr-ejemplo rev">
-      <span class="campo">El presupuesto</span>
-      <h3>Se hace a medida, y se hace rápido</h3>
-      <p class="pr-nota">Contadnos cuántos sois y quién toca qué, y os pasamos el
-         número. Sin permanencia: las licencias se suben y se bajan cada mes, así
-         que un rodaje grande entra y sale sin renegociar nada.</p>
-      <div class="acciones" style="margin-top:18px">
-        <a class="btn" href="mailto:info@stokit.es?subject=Stokit%20%C2%B7%20presupuesto">Pedir presupuesto</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ CONTACTO ═════════════════════════════════════════════════════ -->
 <!-- El oficio, antes del cierre. Lo mismo: fichas, no carteles. -->
@@ -1239,11 +1218,12 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 <section class="linea cierre" id="contacto">
   <div class="env rev">
     <span class="campo">Contacto</span>
-    <h2 style="margin-top:16px">Cuarenta minutos y lo ves con material real.</h2>
-    <p>Una sesión de demostración para valorar si encaja con vuestra forma de trabajar. Sin compromiso y sin instalación previa.</p>
+    <h2 style="margin-top:16px">Escríbenos y lo hablamos.</h2>
+    <p>Cuéntanos cómo lleváis hoy el material, la flota y los presupuestos, y os
+       decimos si Stokit encaja con vuestra forma de trabajar.</p>
     <p class="correo dato">info@stokit.es</p>
     <div class="acciones">
-      <a class="btn" href="mailto:info@stokit.es?subject=Stokit%20%C2%B7%20demo">Escribir un correo</a>
+      <a class="btn" href="mailto:info@stokit.es?subject=Stokit">Escribir un correo</a>
     </div>
   </div>
 </section>
@@ -1281,7 +1261,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       <div class="pie-col">
         <h4>Contacto</h4>
         <ul>
-          <li><a href="#contacto">Pedir una demo</a></li>
+          <li><a href="#contacto">Contacta</a></li>
           <li><a href="mailto:info@stokit.es">Escribir un correo</a></li>
         </ul>
       </div>

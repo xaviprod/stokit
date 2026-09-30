@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Política de privacidad de Stokit: qué datos trata, para qué, dónde se guardan y qué derechos tienes.">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Privacidad · Stokit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+</head>
+<body>
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   Stokit · política de privacidad
+
+   Mismo papel que la portada: reglas a sangre, etiquetas en versalita
+   monoespaciada, esquinas rectas, el rojo solo como sello. Es un
+   documento legal, así que aquí manda leerlo del tirón: una columna,
+   medida corta y nada que se mueva.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --papel:      #eef0f4;
+  --hoja:       #ffffff;
+  --hoja-2:     #f6f7fa;
+  --tinta:      #14161f;
+  --tinta-2:    #4e5566;
+  --tinta-3:    #767d8d;
+  --regla:      #c6ccd7;
+  --regla-fina: #e0e4ea;
+  --sello:      #c8102e;
+  --sello-piel: #fbe9ec;
+  --ancho:      760px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papel:      #0b0b0d;
+    --hoja:       #131418;
+    --hoja-2:     #191b21;
+    --tinta:      #eaecf2;
+    --tinta-2:    #a6adbc;
+    --tinta-3:    #838a9a;
+    --regla:      #2b303b;
+    --regla-fina: #22262e;
+    --sello:      #ff4d5f;
+    --sello-piel: #2a1419;
+  }
+}
+:root[data-theme="dark"] {
+  --papel:      #0b0b0d;
+  --hoja:       #131418;
+  --hoja-2:     #191b21;
+  --tinta:      #eaecf2;
+  --tinta-2:    #a6adbc;
+  --tinta-3:    #838a9a;
+  --regla:      #2b303b;
+  --regla-fina: #22262e;
+  --sello:      #ff4d5f;
+  --sello-piel: #2a1419;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--papel); color: var(--tinta);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.env { max-width: var(--ancho); margin-inline: auto; padding-inline: 26px; }
+
+/* ── Cabecera ────────────────────────────────────────────────────── */
+.barra { border-bottom: 1px solid var(--regla); background: var(--hoja); }
+.barra .env { display: flex; align-items: center; gap: 12px; padding-block: 18px; }
+.marca { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+.marca .logo { width: 26px; height: 26px; fill: var(--tinta); }
+.marca b { font-family: Archivo, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.035em; }
+.volver {
+  margin-inline-start: auto; color: var(--tinta-2); text-decoration: none;
+  font-family: "IBM Plex Mono", monospace; font-size: 11px;
+  letter-spacing: .16em; text-transform: uppercase;
+}
+.volver:hover { color: var(--sello); }
+
+/* ── Documento ───────────────────────────────────────────────────── */
+main { background: var(--hoja); border-bottom: 1px solid var(--regla); }
+main .env { padding-block: clamp(40px, 6vw, 72px); }
+
+.rotulo {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--tinta-3);
+  margin: 0 0 14px;
+}
+h1 {
+  font-family: Archivo, sans-serif; font-weight: 800;
+  font-size: clamp(30px, 5.5vw, 44px); letter-spacing: -0.035em;
+  line-height: 1.08; margin: 0 0 16px; text-wrap: balance;
+}
+.entradilla { font-size: 17px; color: var(--tinta-2); margin: 0 0 8px; max-width: 58ch; }
+
+.fechas {
+  display: flex; flex-wrap: wrap; gap: 8px 26px;
+  border-block: 1px solid var(--regla-fina);
+  margin-block: 30px; padding-block: 12px;
+  font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+  letter-spacing: .06em; color: var(--tinta-3);
+  font-variant-numeric: tabular-nums;
+}
+.fechas b { color: var(--tinta); font-weight: 500; }
+
+h2 {
+  font-family: Archivo, sans-serif; font-weight: 700;
+  font-size: clamp(20px, 3vw, 25px); letter-spacing: -0.02em;
+  line-height: 1.2; margin: 44px 0 4px; text-wrap: balance;
+  padding-top: 22px; border-top: 1px solid var(--regla-fina);
+}
+h2 .num {
+  display: block; font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px; font-weight: 600; letter-spacing: .2em;
+  color: var(--sello); margin-bottom: 9px;
+}
+h3 {
+  font-family: Archivo, sans-serif; font-weight: 600;
+  font-size: 16.5px; letter-spacing: -0.01em; margin: 26px 0 2px;
+}
+p { margin: 12px 0; max-width: 66ch; }
+ul { margin: 12px 0; padding-inline-start: 20px; max-width: 66ch; }
+li { margin: 7px 0; }
+a { color: var(--sello); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+strong { font-weight: 600; }
+
+/* Tabla de tratamientos. En móvil se apila: una tabla de tres columnas
+   a 380 px no se lee, se adivina. */
+.tabla { margin: 20px 0; border-top: 1px solid var(--regla); }
+.fila { border-bottom: 1px solid var(--regla-fina); padding-block: 14px; }
+.fila dt {
+  font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--tinta-3);
+  margin-bottom: 5px;
+}
+.fila dd { margin: 0; }
+@media (min-width: 720px) {
+  .fila { display: grid; grid-template-columns: 210px 1fr; gap: 24px; align-items: baseline; }
+  .fila dt { margin-bottom: 0; padding-top: 3px; }
+}
+
+.nota {
+  background: var(--hoja-2); border-inline-start: 3px solid var(--sello);
+  padding: 15px 18px; margin: 24px 0;
+}
+.nota p { margin: 0; max-width: none; }
+.nota p + p { margin-top: 9px; }
+
+/* ── Pie ─────────────────────────────────────────────────────────── */
+footer { background: var(--hoja); }
+footer .env {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  padding-block: 22px;
+  font-family: "IBM Plex Mono", monospace; font-size: 11px;
+  letter-spacing: .08em; color: var(--tinta-3);
+}
+footer a { color: var(--tinta-2); text-decoration: none; }
+footer a:hover { color: var(--sello); }
+footer .campo:first-child { margin-inline-end: auto; }
+</style>
+
+<header class="barra">
+  <div class="env">
+    <a class="marca" href="/" aria-label="Stokit, inicio">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/>
+        <path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/>
+      </svg>
+      <b>Stokit</b>
+    </a>
+    <a class="volver" href="/">Volver</a>
+  </div>
+</header>
+
+<main>
+<div class="env">
+
+  <p class="rotulo">Documento legal</p>
+  <h1>Política de privacidad</h1>
+  <p class="entradilla">Qué datos trata Stokit, para qué, dónde se guardan, cuánto duran y qué puedes exigir sobre ellos.</p>
+
+  <div class="fechas">
+    <span>Última actualización · <b>30 de septiembre de 2026</b></span>
+    <span>Versión · <b>1.0</b></span>
+  </div>
+
+  <div class="nota">
+    <p><strong>Lo primero, porque es lo que casi nadie dice claro:</strong> Stokit es una herramienta de trabajo interna. No vende datos, no los cede a anunciantes, no hace perfiles publicitarios y no lleva ningún rastreador de terceros. Ni en la web ni en la app del móvil hay analítica, ni píxeles, ni SDK de publicidad.</p>
+  </div>
+
+  <h2><span class="num">01</span>Quién responde de tus datos</h2>
+  <p>Stokit es un programa de gestión que cada empresa instala para su propio uso. Eso parte la responsabilidad en dos, y conviene saber en cuál de las dos estás:</p>
+  <ul>
+    <li><strong>Tu empresa es la responsable.</strong> Es quien decide qué datos mete en Stokit, quién entra, con qué permisos y durante cuánto tiempo. Si eres empleado y quieres saber qué hay sobre ti o que se corrija, tu interlocutor es tu empresa.</li>
+    <li><strong>Stokit es el encargado del tratamiento.</strong> Ponemos el programa y lo mantenemos. Solo tocamos los datos de una empresa cuando ella lo pide para resolver una incidencia, y nunca para nada más.</li>
+  </ul>
+  <p>Para cualquier cosa relacionada con esta política: <a href="mailto:info@stokit.es">info@stokit.es</a>.</p>
+
+  <h2><span class="num">02</span>Qué datos hay dentro</h2>
+  <p>Stokit no pide datos «por si acaso». Dentro solo hay lo que hace falta para llevar el trabajo de una productora:</p>
+
+  <div class="tabla">
+    <dl class="fila">
+      <dt>Cuenta</dt>
+      <dd>Nombre, usuario, correo electrónico y los permisos de cada persona. La contraseña se guarda cifrada, nunca en claro: ni nosotros podemos leerla.</dd>
+    </dl>
+    <dl class="fila">
+      <dt>Ficha de empleado</dt>
+      <dd>Nombre, correo, teléfono, departamento y puesto, cuando la empresa los rellena.</dd>
+    </dl>
+    <dl class="fila">
+      <dt>Jornadas de rodaje</dt>
+      <dd>Día, hora de entrada, hora de salida, descanso y a qué rodaje corresponde. Con eso se calculan las horas, las extras y el descanso entre jornadas.</dd>
+    </dl>
+    <dl class="fila">
+      <dt>Material y flota</dt>
+      <dd>Inventario, vehículos, matrículas, kilómetros, documentación, partes de avería y fotos que sube la propia empresa.</dd>
+    </dl>
+    <dl class="fila">
+      <dt>Proyectos y clientes</dt>
+      <dd>Rodajes, contactos de producción, presupuestos y los datos fiscales del cliente que la empresa introduce.</dd>
+    </dl>
+    <dl class="fila">
+      <dt>Registro de actividad</dt>
+      <dd>Qué se hizo, quién lo hizo y cuándo. Existe para poder deshacer errores y saber qué pasó, no para vigilar a nadie.</dd>
+    </dl>
+    <dl class="fila">
+      <dt>Avisos al móvil</dt>
+      <dd>Si usas la app y aceptas los avisos, se guarda el identificador que Apple asigna a esa instalación. Sirve solo para entregar la notificación.</dd>
+    </dl>
+  </div>
+
+  <h3>Qué NO hay</h3>
+  <p>Stokit no recoge tu ubicación, no accede a tus contactos, no lee tu agenda, no graba audio ni vídeo y no rastrea lo que haces fuera de la aplicación. La cámara del móvil se usa exclusivamente para leer códigos QR y las imágenes no se guardan ni se envían: se descarta todo menos el código leído.</p>
+
+  <h2><span class="num">03</span>Para qué se usan, y con qué amparo</h2>
+  <p>Los datos se tratan para que el programa haga su trabajo: identificar a quien entra, aplicar sus permisos, llevar el inventario y la flota, calcular las horas de rodaje, preparar presupuestos y avisar de lo que caduca o se vence.</p>
+  <p>La base legal es la <strong>relación laboral o contractual</strong> entre tú y la empresa que usa Stokit, y el <strong>interés legítimo</strong> de esa empresa en organizar su material y su trabajo. Cuando una función exija tu permiso —los avisos al móvil, por ejemplo— se te pide antes y lo puedes quitar cuando quieras desde los ajustes del teléfono.</p>
+
+  <h2><span class="num">04</span>Dónde se guardan</h2>
+  <p>Los datos viven en servidores de <strong>Render</strong> situados en <strong>Frankfurt (Alemania)</strong>, dentro de la Unión Europea. No se transfieren fuera del Espacio Económico Europeo.</p>
+  <p>Todo viaja cifrado con HTTPS, tanto desde el navegador como desde la app.</p>
+
+  <h2><span class="num">05</span>Quién más los toca</h2>
+  <p>Solo tres, y cada uno para una cosa concreta:</p>
+  <ul>
+    <li><strong>Render</strong> — alojamiento del programa y de la base de datos, en Frankfurt.</li>
+    <li><strong>Microsoft</strong> — envío de correos y acceso con la cuenta de la empresa, cuando esa empresa lo tiene activado.</li>
+    <li><strong>Apple</strong> — entrega de los avisos al móvil, si los has aceptado.</li>
+  </ul>
+  <p>No hay ninguno más. No vendemos ni cedemos datos a terceros, y no existe ningún acuerdo publicitario ni de análisis de comportamiento.</p>
+
+  <h2><span class="num">06</span>Qué guarda la app en tu teléfono</h2>
+  <p>Casi nada, y a propósito: el servidor es la única fuente. Lo único que se queda en el móvil es la <strong>cola de apuntes sin cobertura</strong> —lo que anotas cuando no hay red—, que se guarda en la propia app y se borra sola en cuanto se envía al recuperar la conexión.</p>
+  <p>Si activas Face ID o Touch ID, la comprobación la hace el propio iPhone. Stokit recibe un sí o un no: tu huella y tu cara nunca salen del teléfono ni llegan a nuestros servidores.</p>
+
+  <h2><span class="num">07</span>Cuánto duran</h2>
+  <p>Mientras tu empresa siga usando Stokit y mientras hagan falta para lo que se recogieron. Las jornadas de rodaje y los registros de actividad se conservan además el tiempo que exija la normativa laboral y fiscal, que es cosa de tu empresa decidir.</p>
+  <p>Cuando una empresa deja de usar Stokit, sus datos se borran de nuestros sistemas a petición suya, y en todo caso dentro de los treinta días siguientes al cierre del servicio.</p>
+
+  <h2><span class="num">08</span>Tus derechos</h2>
+  <p>Puedes pedir acceder a tus datos, corregirlos, borrarlos, limitar su uso, llevártelos a otro sitio u oponerte a que se traten.</p>
+  <p>Como los datos los mete y los gobierna tu empresa, <strong>el camino más rápido es pedírselo a ella</strong>. Si no obtienes respuesta, escríbenos a <a href="mailto:info@stokit.es">info@stokit.es</a> y te ayudamos a canalizarlo. También puedes reclamar ante la <a href="https://www.aepd.es" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
+
+  <h2><span class="num">09</span>Menores</h2>
+  <p>Stokit es una herramienta de trabajo y no está dirigida a menores de 16 años. No se recogen datos de menores a sabiendas.</p>
+
+  <h2><span class="num">10</span>Cambios en esta política</h2>
+  <p>Si cambia algo importante, se actualiza la fecha de arriba y se avisa a las empresas que usan Stokit. La versión vigente es siempre la publicada en esta página.</p>
+
+</div>
+</main>
+
+<footer>
+  <div class="env">
+    <span class="campo">Stokit</span>
+    <span class="campo"><a href="/">Inicio</a></span>
+    <span class="campo"><a href="mailto:info@stokit.es">info@stokit.es</a></span>
+  </div>
+</footer>
+</body>
+</html>

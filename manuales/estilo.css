@@ -1,0 +1,283 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Bulx · manuales
+
+   La marca de bulx.es: lienzo gris cálido, tarjetas blancas muy redondas,
+   letra Inter apretada en los títulos, el negro de la tinta y el amarillo de
+   las celdas. El amarillo marca —el paso, el apartado en el que estás, lo que
+   importa— y nunca rellena un párrafo entero.
+
+   Lo que manda aquí es el trabajo de la página. A un manual se viene a BUSCAR
+   ALGO CONCRETO, con prisa y a veces desde el móvil en medio de un rodaje:
+     · columna de lectura de 68 caracteres y letra de 17 px;
+     · índice siempre a mano, con el apartado actual marcado;
+     · cada apartado con su propio enlace, que la aplicación usa desde el botón
+       de Ayuda: esas direcciones no pueden cambiar.
+
+   Se conservan las clases de siempre (nota, ojo, truco, pasos, ficha…), así
+   que el texto de los manuales no depende de este archivo.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --lienzo:      #E9E9E6;
+  --hoja:        #FBFBFB;
+  --hoja-2:      #F2F2EF;
+  --tinta:       #1D1F1C;
+  --tinta-2:     #4E504B;
+  --tinta-3:     #7C7E78;
+  --raya:        #DCDCD7;
+  --amarillo:    #FEC833;
+  --amarillo-2:  #E3AA0E;
+  --amarillo-piel:#FFF3CC;
+  --negro:       #1D1F1C;
+  --sobre-negro: #FBFBFB;
+  --sombra:      0 1px 2px rgba(29, 31, 28, .06), 0 18px 40px -24px rgba(29, 31, 28, .28);
+  --r-l: 32px;
+  --r-m: 20px;
+  --ancho-texto: 68ch;
+  --muelle: cubic-bezier(.22, 1.2, .36, 1);
+  color-scheme: light;
+}
+
+/* Tres estados, no dos: claro, oscuro y «lo que diga el sistema», que es el
+   de partida. El bloque del sistema lleva `:not([data-tema="claro"])` para que
+   una elección explícita gane sobre él. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --lienzo: #121311; --hoja: #1B1C1A; --hoja-2: #232421; --tinta: #F3F3F0; --tinta-2: #C4C5C0; --tinta-3: #9A9C96;
+    --raya: #33342F; --amarillo-piel: #3A3317; --negro: #0B0C0A; --sombra: 0 0 0 1px rgba(255,255,255,.05);
+    color-scheme: dark;
+  }
+}
+:root[data-tema="oscuro"] {
+  --lienzo: #121311; --hoja: #1B1C1A; --hoja-2: #232421; --tinta: #F3F3F0; --tinta-2: #C4C5C0; --tinta-3: #9A9C96;
+  --raya: #33342F; --amarillo-piel: #3A3317; --negro: #0B0C0A; --sombra: 0 0 0 1px rgba(255,255,255,.05);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 104px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--lienzo); color: var(--tinta);
+  font: 400 17px/1.62 Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; font-feature-settings: 'ss01', 'cv11';
+}
+:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; border-radius: 10px; }
+
+/* ── La barra de arriba: la píldora de bulx.es ──────────────────────────── */
+.barra {
+  position: sticky; top: max(12px, env(safe-area-inset-top, 0px)); z-index: 20;
+  display: flex; align-items: center; gap: 18px;
+  width: min(1240px, calc(100% - 32px)); margin: 12px auto 0; padding: 10px 10px 10px 22px;
+  background: color-mix(in srgb, var(--hoja) 84%, transparent);
+  backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px);
+  border: 1px solid color-mix(in srgb, var(--tinta) 7%, transparent); border-radius: 999px;
+  box-shadow: 0 8px 30px -18px rgba(29, 31, 28, .35);
+}
+.marca { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--tinta); }
+.marca img { width: 84px; height: auto; display: block; }
+.marca b { font-weight: 900; font-size: 21px; letter-spacing: -0.05em; }
+.marca span {
+  padding: 5px 11px; font-size: 13px; font-weight: 700; letter-spacing: -0.005em;
+  color: var(--tinta-2); background: var(--hoja-2); border-radius: 999px;
+}
+.barra-der { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+.barra a.volver {
+  display: inline-flex; align-items: center; height: 40px; padding: 0 18px;
+  font-size: 14.5px; font-weight: 700; color: var(--negro); text-decoration: none;
+  background: var(--amarillo); border-radius: 999px;
+  transition: transform .25s var(--muelle), background .2s;
+}
+.barra a.volver:hover { transform: translateY(-2px); background: #FFD24F; }
+.tema {
+  width: 40px; height: 40px; display: grid; place-items: center; padding: 0; cursor: pointer;
+  background: none; border: 0; border-radius: 999px; color: var(--tinta-2);
+}
+.tema:hover { color: var(--tinta); background: var(--hoja-2); }
+.tema svg { width: 17px; height: 17px; }
+/* El logo en oscuro: el negro de la marca no se lee sobre tinta. */
+:root[data-tema="oscuro"] .marca img { filter: invert(1) hue-rotate(180deg) brightness(1.15); }
+@media (prefers-color-scheme: dark) { :root:not([data-tema="claro"]) .marca img { filter: invert(1) hue-rotate(180deg) brightness(1.15); } }
+
+/* ── El armazón: índice a la izquierda, texto a la derecha ───────────────── */
+.marco {
+  display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; align-items: start;
+  width: min(1240px, calc(100% - 32px)); margin: 24px auto 0;
+}
+.indice {
+  position: sticky; top: 92px; max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 22px 14px 18px; background: var(--hoja); border-radius: var(--r-l); box-shadow: var(--sombra);
+}
+.indice-tit { margin: 0 10px 10px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-3); }
+.indice ol { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.indice li { margin: 0; }
+.indice a {
+  display: block; padding: 8px 12px; font-size: 14.5px; font-weight: 600; line-height: 1.3;
+  color: var(--tinta-2); text-decoration: none; border-radius: 12px;
+}
+.indice a:hover { color: var(--tinta); background: var(--hoja-2); }
+/* El apartado en el que estás. Sin transición: la marca tiene que ir con el
+   scroll y no un instante por detrás. */
+.indice a.aqui { color: var(--tinta); background: var(--amarillo-piel); box-shadow: inset 3px 0 0 var(--amarillo); }
+
+.texto { min-width: 0; padding: 52px 56px 64px; background: var(--hoja); border-radius: var(--r-l); box-shadow: var(--sombra); }
+.texto > * { max-width: var(--ancho-texto); }
+
+/* ── Tipografía ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 { margin: 0; color: var(--tinta); text-wrap: balance; }
+h1 { font-weight: 900; font-size: clamp(40px, 5.4vw, 68px); letter-spacing: -0.05em; line-height: .98; }
+h2 {
+  display: flex; align-items: center; gap: 14px; max-width: none;
+  font-weight: 900; font-size: clamp(26px, 2.8vw, 34px); letter-spacing: -0.04em; line-height: 1.06;
+  margin: 60px 0 16px; padding-top: 30px; border-top: 1px solid var(--raya);
+}
+h2::before {
+  content: ''; flex: 0 0 auto; width: 18px; height: 16px; background: var(--amarillo);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+h2 + p, h2 + .nota, h2 + ul, h2 + ol { margin-top: 0; }
+h3 { font-weight: 800; font-size: 19px; letter-spacing: -0.025em; margin: 32px 0 8px; }
+h4 { font-weight: 700; font-size: 12.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--tinta-3); margin: 26px 0 7px; }
+
+.entradilla { margin: 18px 0 8px; max-width: 60ch; font-size: 20px; line-height: 1.5; color: var(--tinta-2); }
+
+p { margin: 0 0 15px; }
+a { color: var(--tinta); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--amarillo); text-decoration-thickness: 2px; }
+a:hover { text-decoration-color: var(--tinta); }
+strong { font-weight: 700; }
+em { font-style: normal; font-weight: 700; background: linear-gradient(transparent 58%, var(--amarillo-piel) 58%); }
+
+ul, ol { margin: 0 0 16px; padding-left: 22px; }
+li { margin: 0 0 7px; }
+li::marker { color: var(--tinta-3); }
+li > ul, li > ol { margin-top: 7px; }
+
+/* Los pasos de una tarea, cada número en su celda. */
+ol.pasos { list-style: none; padding: 0; counter-reset: paso; }
+ol.pasos > li { position: relative; padding-left: 46px; margin-bottom: 14px; counter-increment: paso; }
+ol.pasos > li::before {
+  content: counter(paso); position: absolute; left: 0; top: -1px;
+  width: 31px; height: 27px; display: grid; place-items: center;
+  font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--negro);
+  background: var(--amarillo); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+
+code, kbd {
+  font: 600 .86em/1 ui-monospace, 'SF Mono', Menlo, monospace;
+  padding: 3px 7px; background: var(--hoja-2); border-radius: 7px;
+}
+kbd { box-shadow: inset 0 -1px 0 var(--raya); }
+
+/* ── Avisos: gris (nota), negro (ojo) y amarillo (truco) ─────────────────── */
+.nota, .ojo, .truco { margin: 22px 0; padding: 18px 22px 18px; font-size: 16px; border-radius: var(--r-m); }
+.nota > :last-child, .ojo > :last-child, .truco > :last-child { margin-bottom: 0; }
+.nota { background: var(--hoja-2); }
+.truco { background: var(--amarillo-piel); }
+.ojo { background: var(--negro); color: var(--sobre-negro); }
+.ojo a, .ojo strong { color: var(--sobre-negro); }
+.ojo code, .ojo kbd { background: rgba(251, 251, 251, .1); }
+.nota-tit, .ojo-tit, .truco-tit {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+  font-size: 12.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--tinta-3);
+}
+.nota-tit::before, .ojo-tit::before, .truco-tit::before {
+  content: ''; width: 11px; height: 10px; background: currentColor;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+.ojo .ojo-tit { color: var(--amarillo); }
+.truco .truco-tit { color: var(--amarillo-2); }
+
+/* ── Tablas ─────────────────────────────────────────────────────────────── */
+.tabla-caja { max-width: none; overflow-x: auto; margin: 22px 0; }
+table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 420px; font-size: 15.5px; }
+th, td { text-align: left; padding: 12px 16px 12px 0; vertical-align: top; border-top: 1px solid var(--raya); }
+th { padding-top: 0; border-top: 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-3); white-space: nowrap; }
+td { color: var(--tinta-2); line-height: 1.55; }
+td:first-child { font-weight: 700; color: var(--tinta); white-space: nowrap; padding-right: 24px; }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ── La portada: las fichas de cada manual ──────────────────────────────── */
+.rejilla { display: grid; gap: 14px; max-width: none; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin: 30px 0 12px; }
+.ficha {
+  display: flex; flex-direction: column; padding: 24px 24px 26px; text-decoration: none; color: var(--tinta);
+  background: var(--hoja-2); border-radius: var(--r-m);
+  transition: transform .25s var(--muelle), background .2s, box-shadow .25s;
+}
+.ficha:hover { transform: translateY(-3px); background: var(--hoja); box-shadow: var(--sombra), 0 0 0 1px var(--raya); }
+.ficha-num { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: .06em; color: var(--tinta-3); font-variant-numeric: tabular-nums; }
+.ficha-num::before { content: ''; width: 13px; height: 11px; background: var(--amarillo); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+.ficha-tit { font-weight: 900; font-size: 22px; letter-spacing: -0.035em; margin: 12px 0 6px; }
+.ficha-sub { font-size: 15px; line-height: 1.5; color: var(--tinta-2); }
+.ficha-que { margin-top: auto; padding-top: 14px; font-size: 13px; font-weight: 600; color: var(--tinta-3); }
+
+/* ── El buscador ────────────────────────────────────────────────────────── */
+.buscador { max-width: none; margin: 28px 0 8px; position: relative; }
+.buscador input {
+  width: 100%; max-width: 640px; height: 56px; padding: 0 24px; font: inherit; font-size: 16.5px;
+  color: var(--tinta); background: var(--hoja-2); border: 2px solid transparent; border-radius: 999px;
+  transition: border-color .2s, background .2s;
+}
+.buscador input:focus { outline: none; border-color: var(--amarillo); background: var(--hoja); }
+.buscador input::placeholder { color: var(--tinta-3); }
+#resultados { max-width: 640px; margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+#resultados a { display: block; padding: 14px 18px; text-decoration: none; background: var(--hoja-2); border-radius: 16px; transition: background .2s; }
+#resultados a:hover { background: var(--amarillo-piel); }
+#resultados .r-donde { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--amarillo-2); }
+#resultados .r-tit { font-weight: 700; margin-top: 3px; }
+#resultados .r-txt { font-size: 14.5px; color: var(--tinta-2); margin-top: 2px; }
+#resultados .r-nada { padding: 12px 4px; color: var(--tinta-3); font-size: 15px; }
+
+/* ── Pie y «siguiente» ──────────────────────────────────────────────────── */
+.pie {
+  max-width: none; margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--raya);
+  font-size: 14.5px; color: var(--tinta-3); display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline;
+}
+.pie a { color: var(--tinta-2); }
+/* El apartado siguiente: un manual se lee en orden la primera vez. */
+.siguiente {
+  display: flex; align-items: center; gap: 14px; max-width: none; margin-top: 48px; padding: 22px 26px;
+  text-decoration: none; color: var(--sobre-negro); background: var(--negro); border-radius: var(--r-m);
+  transition: transform .25s var(--muelle);
+}
+.siguiente:hover { transform: translateY(-3px); }
+.siguiente-et { font-size: 12.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--amarillo); }
+.siguiente-nom { font-weight: 900; font-size: 21px; letter-spacing: -0.035em; color: var(--sobre-negro); }
+.siguiente::after { content: '→'; margin-left: auto; font-size: 20px; color: var(--amarillo); transition: transform .25s var(--muelle); }
+.siguiente:hover::after { transform: translateX(4px); }
+
+/* ── El enlace propio de cada apartado ──────────────────────────────────── */
+.ancla { margin-left: 4px; font-size: .6em; font-weight: 600; color: var(--tinta-3); text-decoration: none; opacity: 0; }
+h2:hover .ancla, h3:hover .ancla, .ancla:focus { opacity: 1; }
+
+/* ── En estrecho ────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .marco { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 16px; }
+  /* El índice pasa arriba y deja de ir pegado: en un móvil, una columna fija se come media pantalla. */
+  .indice { position: static; max-height: none; padding: 18px 14px 8px; }
+  .indice ol { flex-direction: row; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+  .indice a { padding: 7px 12px; background: var(--hoja-2); border-radius: 999px; font-size: 14px; }
+  .indice a.aqui { box-shadow: none; background: var(--amarillo); color: var(--negro); }
+  .texto { padding: 32px 22px 44px; }
+  body { font-size: 16.5px; }
+}
+@media (max-width: 560px) {
+  .barra { padding-left: 16px; gap: 10px; }
+  .marca span { display: none; }
+  .barra a.volver { padding: 0 14px; font-size: 13.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ficha, .siguiente, .barra a.volver, .siguiente::after { transition: none; }
+}
+
+/* ── Al imprimir ────────────────────────────────────────────────────────── */
+/* Alguien va a querer el manual en papel para dejarlo en la oficina. */
+@media print {
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .barra, .indice, .buscador, .siguiente, .tema { display: none; }
+  .marco { display: block; width: auto; margin: 0; }
+  .texto { padding: 0; box-shadow: none; background: #fff; }
+  .texto > * { max-width: none; }
+  h2 { break-after: avoid; page-break-after: avoid; }
+  .nota, .ojo, .truco { border: 1px solid #999; background: #fff; color: #000; break-inside: avoid; }
+  a { text-decoration: none; color: #000; }
+}

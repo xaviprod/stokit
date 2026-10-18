@@ -152,7 +152,7 @@
       t156: `<a class="btn btn-amarillo btn-grande" href="mailto:info@stokit.es?subject=I%20want%20to%20see%20Bulx">Book a demo <span aria-hidden="true">→</span></a> <a class="btn btn-claro btn-grande" id="entrar" href="#entrar">Already a client · Log in</a>`,
       t157: `Inventory and production for production companies.`,
       t158: `<b>Product</b><a href="#producto">Gear</a><a href="#producto">Fleet</a><a href="#producto">Quotes</a><a href="#app">App</a>`,
-      t159: `<b>Bulx</b><a href="#como">How it works</a><a href="#dia">A shooting day</a><a href="#seguridad">Security</a><a href="#preguntas">FAQ</a><a href="#demo">Contact</a>`,
+      t159: `<b>Bulx</b><a href="#como">How it works</a><a href="#dia">A shooting day</a><a href="#seguridad">Security</a><a href="#preguntas">FAQ</a><a href="manuales/">Manuals (Spanish)</a><a href="privacidad.html">Privacy (Spanish)</a><a href="#demo">Contact</a>`,
       t160: `© 2026 bulx.es · Logo designed by <b>Xavi Murillo</b>`,
     },
 
@@ -296,7 +296,7 @@
       t156: `<a class="btn btn-amarillo btn-grande" href="mailto:info@stokit.es?subject=Ich%20m%C3%B6chte%20Bulx%20sehen">Demo anfragen <span aria-hidden="true">→</span></a> <a class="btn btn-claro btn-grande" id="entrar" href="#entrar">Schon Kunde · Anmelden</a>`,
       t157: `Inventar und Produktion für Produktionsfirmen.`,
       t158: `<b>Produkt</b><a href="#producto">Equipment</a><a href="#producto">Fuhrpark</a><a href="#producto">Angebote</a><a href="#app">App</a>`,
-      t159: `<b>Bulx</b><a href="#como">So funktioniert's</a><a href="#dia">Ein Drehtag</a><a href="#seguridad">Sicherheit</a><a href="#preguntas">Fragen</a><a href="#demo">Kontakt</a>`,
+      t159: `<b>Bulx</b><a href="#como">So funktioniert's</a><a href="#dia">Ein Drehtag</a><a href="#seguridad">Sicherheit</a><a href="#preguntas">Fragen</a><a href="manuales/">Handbücher (Spanisch)</a><a href="privacidad.html">Datenschutz (Spanisch)</a><a href="#demo">Kontakt</a>`,
       t160: `© 2026 bulx.es · Logo gestaltet von <b>Xavi Murillo</b>`,
     },
   };

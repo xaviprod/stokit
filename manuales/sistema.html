@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="El dashboard, los ajustes de la casa, la numeración de documentos, las pantallas de pared y el registro de actividad de Bulx.">
+<link rel="icon" type="image/svg+xml" href="../img/bulx-favicon.svg">
+<title>Ajustes y pantallas · Manuales de Bulx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="index.html" aria-label="Manuales de Bulx"><img src="../img/bulx-negro.png" alt="Bulx" width="84" height="25"><span>Manuales</span></a>
+  <div class="barra-der">
+    <a class="volver" href="index.html">Todos los manuales</a>
+    <button class="tema" type="button"></button>
+  </div>
+</header>
+
+<div class="marco">
+  <nav class="indice">
+    <p class="indice-tit">08 · Ajustes y pantallas</p>
+    <ol>
+      <li><a href="#dashboard">El Dashboard</a></li>
+      <li><a href="#enlace-calendario">Enlace del calendario</a></li>
+      <li><a href="#firma">Firma de correo</a></li>
+      <li><a href="#avisos-qr">Avisos por correo</a></li>
+      <li><a href="#ajustes">Ajustes</a></li>
+      <li><a href="#empresa">Datos de la empresa</a></li>
+      <li><a href="#numeracion">Numeración</a></li>
+      <li><a href="#pantalla">Pantalla de oficina</a></li>
+      <li><a href="#qr-ajuste">Etiquetas con QR</a></li>
+      <li><a href="#actividad">Registro de actividad</a></li>
+      <li><a href="#guardado">Cuando algo no se guarda</a></li>
+    </ol>
+    <p class="indice-tit">Volver</p>
+    <ol><li><a href="index.html">Todos los manuales</a></li></ol>
+  </nav>
+
+  <main class="texto">
+    <h1>Ajustes y pantallas</h1>
+    <p class="entradilla">
+      Lo que se toca una vez y afecta a todos: cómo salen los documentos, cómo se
+      numeran, qué se ve en las teles de la oficina y dónde mirar cuando algo no
+      cuadra.
+    </p>
+
+    <h2 id="dashboard">El Dashboard</h2>
+    <p>
+      La primera pantalla al entrar. Bloques que contestan a «¿cómo va hoy?»: las
+      cifras del día, el gantt de los rodajes, las alertas, la flota en proyectos,
+      la agenda, la telefonía y el material más usado.
+    </p>
+    <p>
+      Cada bloque respeta tus permisos: si no tienes acceso a Economía, sus cifras
+      no aparecen. Un bloque vacío no significa que no haya datos — puede que no
+      sean para ti.
+    </p>
+
+    <h2 id="enlace-calendario">El enlace del calendario para producción</h2>
+    <p>
+      <strong>Sistema → Ajustes → Enlace del calendario para producción.</strong> Crea
+      una dirección larga que <strong>abre solo el calendario</strong>. Quien la tenga
+      entra sin contraseña, puede <strong>reservar y quitar vehículos</strong>, y no ve
+      nada más de Bulx: ni presupuestos, ni fichas de vehículo, ni Tecnología, ni
+      estos ajustes. Tampoco puede marcar días de ITV o taller, que sigue siendo cosa
+      de flota.
+    </p>
+    <p>
+      Y no es que le escondamos los botones: el servidor le niega todo lo demás aunque
+      escriba la dirección a mano. Es el mismo permiso de siempre, «Producción · solo
+      calendario», aplicado a un usuario que se crea con el enlace.
+    </p>
+    <p>
+      Quien entra por el enlace ve <strong>la pantalla desnuda</strong>: el calendario
+      a todo lo ancho, sin barra lateral ni pestañas. No hay menú porque no hay a
+      dónde ir.
+    </p>
+    <ol class="pasos">
+      <li><strong>+ Crear un enlace</strong> y ponle nombre: «Rodajes», «Producción
+        Documental Bahía»… Ese nombre es el que saldrá en el registro de actividad cuando muevan un
+        coche, así que con dos enlaces repartidos sabrás cuál de los dos fue.</li>
+      <li><strong>Copiar</strong> y pásasela a quien tenga que usarla.</li>
+      <li>Debajo de cada enlace verás <strong>cuántas veces se ha abierto</strong> y
+        cuándo fue la última.</li>
+    </ol>
+    <div class="ojo">
+      <span class="ojo-tit">Puedes tenerlo abierto a la vez que Bulx</span>
+      <p>
+        En una pestaña el calendario del enlace, en otra tu Bulx de siempre, y las
+        dos funcionan. El enlace <strong>no abre sesión</strong>: se identifica solo
+        con la dirección, pestaña por pestaña, así que no toca tu cuenta ni tu cuenta
+        le quita el sitio a él. No hace falta ventana privada.
+      </p>
+      <p>
+        Lo que sí es cierto es que en la pestaña del enlace ves <strong>lo mismo que
+        ellos</strong>: el calendario y nada más. Para lo demás, tu pestaña.
+      </p>
+    </div>
+    <div class="ojo">
+      <span class="ojo-tit">Quien tenga la dirección entra</span>
+      <p>
+        No pide contraseña: es su gracia y es su riesgo. Compártela con cabeza —no en
+        un grupo grande— y pulsa <strong>Revocar</strong> cuando ya no haga falta. Al
+        revocar deja de funcionar <strong>al momento</strong>, también para quien la
+        tenga abierta en ese instante. Lo que ya hubieran reservado se queda como está.
+      </p>
+      <p>
+        El enlace <strong>no caduca</strong>: vale hasta que lo revoques. Guardado en
+        favoritos, el portátil de producción lo abre cada mañana sin preguntar nada.
+      </p>
+    </div>
+
+    <h2 id="firma">Firma de correo</h2>
+    <p>
+      <strong>Ajustes → Correo y avisos → Firma de correo.</strong> Cada uno se hace la suya
+      y se la pega en Outlook. Sale ya rellena con lo que hay en tu ficha —nombre, cargo,
+      teléfono y correo—, así que lo normal es no escribir nada y pulsar
+      <strong>Copiar firma</strong>.
+    </p>
+    <p>
+      En Outlook: <em>Archivo → Opciones → Correo → Firmas</em>, y pegar. Se copia con
+      formato, no como código. Si tu Outlook la pega descolocada, abajo hay
+      <strong>Ver el código HTML</strong> para pegarlo a mano, que es como funciona Outlook
+      en el navegador (<em>Configuración → Correo → Redactar y responder</em>).
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">El logo tiene que estar en una dirección pública</span>
+      <p>
+        Outlook pide la imagen desde el ordenador de <strong>quien recibe</strong> el correo, y
+        esa persona no entra en Bulx. Por eso no vale una imagen del disco ni una de dentro
+        de la aplicación: haría falta una dirección que funcione para cualquiera. Por defecto
+        va la marca de Bulx, publicada en bulx.es. Si tenéis el logo de la casa en vuestra
+        web, poned esa dirección y <strong>Guardar el logo para todos</strong>: así todas las
+        firmas de la empresa llevan la misma marca.
+      </p>
+      <p>
+        Y el texto no depende del logo: algunos correos bloquean las imágenes hasta que quien
+        recibe las permite, y la firma se sigue leyendo igual.
+      </p>
+    </div>
+
+    <h2 id="avisos-qr">Avisos por correo</h2>
+    <p>
+      <strong>Ajustes → Correo y avisos → Avisos por correo.</strong> Cada vez que
+      alguien apunta que <strong>se lleva</strong> o que <strong>devuelve</strong> un
+      aparato, sale un correo a las personas que pongas aquí. No hay que mirar nada: llega
+      solo, en el momento.
+    </p>
+    <p>
+      Avisa <strong>siempre</strong>, se haya apuntado escaneando la pegatina o desde dentro
+      de Bulx. Y el correo dice cuál de las dos fue: «Escaneando la pegatina» o «Desde
+      Bulx, por Fulano». No es un detalle — un apunte del QR lo escribió quien tenía el
+      aparato en la mano, y uno de Bulx lo escribió quien estaba en la oficina.
+    </p>
+    <p>
+      Es el complemento de que la pegatina no pida sesión. Quien coge el router lo apunta
+      en diez segundos y se va; a esa hora nadie está mirando Bulx. Si el aviso no
+      saliera solo, el que tiene que enterarse se enteraría cuando faltase algo.
+    </p>
+    <p>La pantalla son tres pasos, en este orden:</p>
+    <ol class="pasos">
+      <li><strong>¿A qué correo aviso?</strong> Escribes la dirección en la casilla y pulsas
+        <strong>Añadir</strong>. Se guarda al momento, sin botón de Guardar. Puedes poner
+        tantas como quieras, y quitarlas igual de fácil.</li>
+      <li><strong>¿Cuándo aviso?</strong> Dos casillas: cuando alguien <em>coge</em> un
+        aparato, cuando lo <em>devuelve</em>, o las dos.</li>
+      <li><strong>Esto es lo que llega.</strong> Un ejemplo del correo, para no tener que
+        imaginárselo. Debajo, <strong>Mandarme una prueba ahora</strong> envía uno de
+        mentira a esa misma lista.</li>
+    </ol>
+    <div class="ojo">
+      <span class="ojo-tit">No la confundas con «Etiquetas con QR»</span>
+      <p>
+        Son dos cosas distintas y los nombres se parecían. <strong>Etiquetas con QR</strong>
+        (en «Otros») es para las pegatinas de los ordenadores, y lo que se pone ahí es una
+        <em>dirección web</em>, no un correo. Los avisos van aquí, en «Correo y avisos».
+      </p>
+    </div>
+    <div class="ojo">
+      <span class="ojo-tit">Sale siempre desde info@stokit.es</span>
+      <p>
+        El remitente es fijo y no se cambia desde la pantalla. Ese buzón tiene que
+        <strong>existir en vuestro Microsoft 365</strong> y la aplicación necesita el permiso
+        «Mail.Send». Si falta cualquiera de las dos cosas, la propia pantalla lo dice: debajo
+        de la lista aparece en rojo <em>«el último aviso no se pudo enviar»</em> con el motivo
+        exacto. Un correo que no sale tiene que verse ahí —si solo quedara en el registro del
+        servidor, la pantalla diría que los avisos están encendidos y no llegaría nada—.
+      </p>
+    </div>
+
+    <h2 id="ajustes">Ajustes</h2>
+    <p>
+      <strong>Sistema → Ajustes.</strong> Requiere nivel <strong>total</strong> en
+      Sistema: lo que se cambia aquí afecta a todo el mundo. Un menú a la izquierda
+      y una cosa cada vez, en cuatro grupos:
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Grupo</th><th>Qué hay</th></tr></thead>
+        <tbody>
+          <tr><td>Empresa</td><td>Datos de la empresa.</td></tr>
+          <tr><td>Documentos</td><td>Plantillas de presupuesto y de factura, formato de la hoja, fondo del documento.</td></tr>
+          <tr><td>Presupuestos y facturas</td><td>Valores por defecto, facturación, numeración.</td></tr>
+          <tr><td>Otros</td><td>Pantalla de oficina, etiquetas con QR.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nota">
+      <span class="nota-tit">Aquí no se guarda al tocar</span>
+      <p>
+        Cambiar el prefijo de las facturas o la plantilla por defecto afecta a todos
+        los documentos que se emitan después, así que los cambios se acumulan y se
+        aplican al pulsar <strong>Guardar</strong>. Escribir a medias en una casilla no
+        puede quedar guardado.
+      </p>
+    </div>
+
+    <h2 id="empresa">Datos de la empresa</h2>
+    <p>
+      Nombre, NIF/CIF, domicilio fiscal, teléfono, correo y web. Salen en la
+      cabecera de todos los documentos.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">El CIF y el domicilio no son opcionales</span>
+      <p>
+        Una factura sin ellos <strong>no es válida</strong>, y el documento los marca en
+        rojo. Lo mismo con el IBAN y la forma de pago, en Facturación: sin ellos la
+        factura no dice cómo hay que cobrarla, que es la mitad de para qué se emite.
+      </p>
+    </div>
+
+    <h2 id="numeracion">Numeración</h2>
+    <p>
+      Los números se forman como <code>PREFIJO-AÑO-000</code>. Se elige el prefijo de
+      los presupuestos y el de las facturas, y debajo se ve cómo quedaría el
+      siguiente.
+    </p>
+    <p>
+      <strong>Cambiar un prefijo no renumera lo ya emitido</strong>: solo afecta a lo
+      que se cree a partir de ahora. Los documentos viejos conservan su número, que
+      es lo que hay que hacer con un número de factura.
+    </p>
+
+    <h2 id="pantalla">Pantalla de oficina</h2>
+    <p>
+      Pantallas de pared, sin teclado y sin sesión: se pega la dirección una vez en
+      el reproductor y se olvida. Se refrescan solas cada minuto y no hay nada que
+      pulsar.
+    </p>
+    <p><strong>Son dos</strong>, una por tele, porque quien mira busca una cosa concreta
+      y con todo rotando hay que esperar a que le toque:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Pantalla</th><th>Qué enseña</th></tr></thead>
+        <tbody>
+          <tr><td>Producción</td><td>El cuadro de <a href="proyectos.html#equipo">equipo de rodaje</a> del proyecto en marcha, y nada más.</td></tr>
+          <tr><td>Operación</td><td>Va pasando por el pulso del día, los vehículos que salen, los papeles de flota que caducan y lo que está en taller.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ol class="pasos">
+      <li><strong>Ajustes → Pantalla de oficina → Ver la dirección.</strong></li>
+      <li>Copia la dirección de la pantalla que quieras.</li>
+      <li>Pégala en el reproductor de la tele. Ya está.</li>
+    </ol>
+    <p>
+      El <strong>aspecto</strong> se elige aquí —oscuro o en blanco— y se aplica en la
+      tele al minuto siguiente, sin tocarla. El oscuro marca menos el panel de una
+      tele encendida meses; el blanco se lee mejor en una oficina con mucha luz.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Qué NO enseña, y no es un descuido</span>
+      <p>
+        <strong>Ni dinero, ni la cartera de lo que viene, ni teléfonos, ni correos.</strong>
+        Esa pantalla la ve quien entre por la puerta. Los rodajes que aún no han
+        empezado salen como un número, sin nombres.
+      </p>
+      <p>
+        La dirección lleva una clave. Si alguna vez se filtra, se genera otra desde
+        la misma pantalla de Ajustes y la anterior deja de servir.
+      </p>
+    </div>
+
+    <h2 id="qr-ajuste">Etiquetas con QR</h2>
+    <p>
+      Aquí se decide a dónde apunta el QR de las
+      <a href="tecnologia.html#qr-publico">etiquetas de dispositivo</a>. En blanco la
+      sirve Bulx, que es lo que funciona sin depender de nadie. Si algún día hay
+      una sección de información en la web de la casa, se pone su dirección y las
+      etiquetas nuevas apuntan allí.
+    </p>
+
+    <h2 id="actividad">Registro de actividad</h2>
+    <p>
+      <strong>Sistema → Actividad.</strong> Quién ha hecho qué y cuándo, en toda la
+      aplicación. Filtros por área, por persona, por acción y por fecha.
+    </p>
+    <p>
+      Es la pantalla del «¿quién ha borrado esto?». Y la respuesta que más veces da
+      es la útil: <strong>nadie</strong>. Si algo falta y aquí no hay ningún apunte de
+      borrado, no lo borró una persona — y eso cambia por completo dónde hay que
+      buscar.
+    </p>
+
+    <h2 id="guardado">Cuando algo no se guarda</h2>
+    <p>
+      Bulx trabaja con los datos <strong>en memoria</strong> y escribe en la base justo
+      detrás. Es lo que hace que todo vaya instantáneo. A cambio, hay dos cosas que
+      conviene saber:
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">La banda roja de arriba</span>
+      <p>
+        Si aparece <strong>«No se está guardando en la base de datos»</strong>, es de
+        verdad: lo que escribas se puede perder. Avisa a quien lleve el sistema.
+        Cuando se arregla, sale una banda verde — y entonces conviene repasar lo
+        último que escribiste.
+      </p>
+    </div>
+    <div class="nota">
+      <span class="nota-tit">Dos ventanas de la aplicación abiertas</span>
+      <p>
+        Si por lo que sea hay dos servidores en marcha con los mismos datos, el
+        segundo <strong>funciona sin guardar</strong> a propósito, para no pisarle el
+        trabajo al primero, y su banda lo dice: «hay otro servidor en marcha, cierra
+        el otro». No es un fallo, es la protección haciendo su trabajo.
+      </p>
+      <p>
+        Ojo: esto habla de <em>servidores</em>, no de pestañas del navegador. Tener la
+        aplicación abierta en el móvil y en el ordenador a la vez es normal y no
+        pasa nada.
+      </p>
+    </div>
+
+    <a class="siguiente" href="index.html">
+      <span class="siguiente-et">Volver</span>
+      <span class="siguiente-nom">Todos los manuales</span>
+    </a>
+
+    <div class="pie">
+      <span>Bulx · manuales</span>
+      <a href="index.html">Todos los manuales</a>
+    </div>
+  </main>
+</div>
+
+<script src="manual.js"></script>
+</body>
+</html>

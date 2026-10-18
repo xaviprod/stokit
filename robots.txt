@@ -1,9 +1,5 @@
-# Stokit — web de presentación
-# Todo abierto menos la puerta de entrada, que es una redirección y no tiene
-# contenido que indexar.
-
 User-agent: *
-Allow: /
-Disallow: /entrar.html
+Disallow: /
 
-Sitemap: https://stokit.es/sitemap.xml
+# Stokit ahora es Bulx: https://bulx.es
+Sitemap: https://bulx.es/sitemap.xml

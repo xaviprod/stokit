@@ -346,3 +346,138 @@ main, .pie { position: relative; z-index: 1; }
 .bento .tarjeta, .pasos li, .seg-item { transform-style: preserve-3d; }
 .bento .tarjeta.inclina, .pasos li.inclina, .seg-item.inclina { transition: transform .12s ease-out, box-shadow .3s; }
 @media (max-width: 1000px) { .abejas { display: none; } }
+
+/* ══ Más página (18/10/2026, Xavi: «le has quitado todo el parallax al
+   iPhone… intenta que la página esté un poco más completa») ═══════════════ */
+
+/* ── El móvil, en escena: se inclina al pasar, flota a otra velocidad que
+   las notificaciones de alrededor y su pantalla se desliza por dentro. ── */
+.app-tarjeta { overflow: visible; }
+.movil-escena { position: relative; justify-self: center; width: 300px; perspective: 1400px; }
+.movil-capa { position: relative; z-index: 2; }
+.movil { transform-style: preserve-3d; transition: box-shadow .4s; will-change: transform; }
+.movil-contenido { display: flex; flex-direction: column; gap: 12px; will-change: transform; }
+.m-barra { position: absolute; left: 16px; right: 16px; bottom: 26px; margin: 0 !important; z-index: 2; }
+.m-lista { display: flex; flex-direction: column; gap: 8px; }
+.m-lista div { display: flex; align-items: center; gap: 10px; padding: 11px 12px; background: var(--blanco); border-radius: 16px; }
+.m-lista .hx { width: 20px; height: 17px; }
+.m-lista span { font-size: 13px; font-weight: 700; line-height: 1.2; }
+.m-lista small { display: block; font-size: 11px; font-weight: 500; color: var(--suave); }
+
+.chip {
+  position: absolute; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 12px 18px 12px 14px;
+  background: var(--blanco); border-radius: 18px; box-shadow: 0 24px 50px -24px rgba(29, 31, 28, .55), 0 0 0 1px rgba(29, 31, 28, .05);
+  white-space: nowrap; font-size: 14px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2;
+  animation: chipFlota 6s ease-in-out infinite;
+}
+.chip small { display: block; font-size: 12px; font-weight: 500; color: var(--suave); letter-spacing: 0; }
+.chip .hx { width: 22px; height: 19px; }
+.chip.oscuro { background: var(--negro); color: var(--blanco); }
+.chip.oscuro small { color: rgba(251, 251, 251, .6); }
+.ch1 { top: 70px; left: -150px; animation-delay: -1s; }
+.ch2 { top: 280px; right: -120px; animation-delay: -3s; }
+.ch3 { bottom: 70px; left: -120px; animation-delay: -4.5s; }
+@keyframes chipFlota { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+.m-abeja { position: absolute; z-index: 1; display: block; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+.m-abeja.e1 { width: 64px; height: 56px; top: -30px; right: -50px; background: var(--negro); }
+.m-abeja.e2 { width: 36px; height: 31px; bottom: 140px; right: -70px; background: var(--blanco); }
+.m-abeja.e3 { width: 46px; height: 40px; bottom: -20px; left: -40px; background: var(--amarillo-2); }
+
+/* ── Cifras ──────────────────────────────────────────────────────────── */
+.cifras { width: min(var(--ancho), calc(100% - 32px)); margin: 96px auto 0; }
+.cifras-tit { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 28px; font-size: 15px; font-weight: 700; color: var(--tinta-2); text-align: center; }
+.cifras-fila { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.cifra { padding: 30px 32px; background: var(--blanco); border-radius: var(--r-l); display: flex; flex-direction: column; gap: 6px; }
+.cifra b { font-size: clamp(48px, 5.5vw, 76px); font-weight: 900; letter-spacing: -0.06em; line-height: 1; font-variant-numeric: tabular-nums; }
+.cifra span { font-size: 15px; color: var(--tinta-2); }
+.cifra.amarilla { background: var(--amarillo); }
+.cifra.amarilla span { color: rgba(29, 31, 28, .75); }
+
+/* ── Un día de rodaje: se fija en pantalla y la pista corre de lado ──── */
+.dia { position: relative; height: 340vh; margin-top: 120px; }
+.dia-fijo { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 36px; overflow: hidden; }
+.dia-cab { width: min(var(--ancho), calc(100% - 32px)); margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.dia-cab h2 { max-width: 900px; }
+.dia-linea { width: min(var(--ancho), calc(100% - 32px)); margin: 0 auto; height: 6px; background: var(--gris); border-radius: 999px; overflow: hidden; }
+.dia-linea i { display: block; width: 0; height: 100%; background: var(--amarillo); border-radius: 999px; }
+.dia-pista {
+  display: flex; gap: 20px; margin: 0; padding: 0 max(16px, calc((100% - var(--ancho)) / 2)); list-style: none;
+  will-change: transform;
+}
+.momento { flex: 0 0 380px; display: flex; flex-direction: column; gap: 14px; opacity: .45; transform: scale(.96); transition: opacity .5s ease, transform .6s var(--muelle); }
+.momento.visto { opacity: 1; transform: none; }
+.hora { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.hora::before { content: ""; width: 16px; height: 14px; background: var(--negro); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); transition: background .3s; }
+.momento.visto .hora::before { background: var(--amarillo); }
+.momento-t { padding: 32px; min-height: 280px; display: flex; flex-direction: column; gap: 14px; border-radius: var(--r-l); }
+.momento-t p { font-size: 16px; color: var(--tinta-2); }
+.momento-t.tarjeta-negra p { color: rgba(251, 251, 251, .68); }
+.momento-t.tarjeta-amarilla p { color: rgba(29, 31, 28, .78); }
+
+/* ── Antes y con bulx ────────────────────────────────────────────────── */
+.antes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.antes-t { padding: 40px; border-radius: var(--r-xl); }
+.antes-tit { height: 30px; display: flex; align-items: center; margin-bottom: 22px; font-size: 22px; font-weight: 900; letter-spacing: -0.03em; }
+.antes-tit img { width: 92px; }
+.antes ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.antes li { display: flex; align-items: center; gap: 14px; padding: 14px 0; font-size: 17px; font-weight: 600; border-top: 1px solid rgba(29, 31, 28, .1); }
+.antes li::before { content: ""; flex: none; width: 18px; height: 2px; background: #A3A59F; }
+.antes-t:not(.con) li { color: #7C7E78; text-decoration: line-through; text-decoration-color: rgba(124, 126, 120, .5); }
+.antes-t.con li { border-top-color: rgba(251, 251, 251, .1); color: var(--blanco); }
+.antes-t.con li::before { width: 18px; height: 16px; background: var(--amarillo); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+
+/* ── Encaja ──────────────────────────────────────────────────────────── */
+.encaja { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.pieza { padding: 28px 22px; background: var(--blanco); border-radius: var(--r-l); display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; transition: box-shadow .4s; }
+.pieza:hover { box-shadow: var(--sombra); }
+.pieza-hex { width: 64px; height: 56px; display: grid; place-items: center; margin-bottom: 10px; background: var(--negro); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); transition: background .3s; }
+.pieza:hover .pieza-hex { background: var(--amarillo); }
+.pieza-hex svg { width: 24px; height: 24px; fill: none; stroke: var(--amarillo); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke .3s; }
+.pieza:hover .pieza-hex svg { stroke: var(--negro); }
+.pieza b { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; }
+.pieza small { font-size: 13.5px; color: var(--suave); line-height: 1.35; }
+
+/* ── Preguntas ───────────────────────────────────────────────────────── */
+.preguntas { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; align-items: start; }
+.preguntas .seccion-cab { position: sticky; top: 120px; }
+.preguntas .seccion-sub a { font-weight: 700; }
+.faq { display: flex; flex-direction: column; gap: 10px; }
+.faq details { background: var(--blanco); border-radius: var(--r-m); overflow: hidden; transition: box-shadow .3s; }
+.faq details[open] { box-shadow: var(--sombra); }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 26px; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; flex: none; width: 22px; height: 19px; background: var(--gris); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); transition: background .3s, transform .4s var(--muelle); }
+.faq details[open] summary::after { background: var(--amarillo); transform: rotate(90deg); }
+.faq .faq-cuerpo { overflow: hidden; transition: height .4s var(--muelle); }
+.faq p { padding: 0 26px 24px; font-size: 16.5px; color: var(--tinta-2); max-width: 640px; }
+
+/* Más abejas, para lo que ha crecido la página. */
+.abeja.a7 { width: 40px; height: 35px; top: 5600px; right: 4%; }
+.abeja.a8 { width: 24px; height: 21px; top: 6500px; left: 7%; background: var(--negro); }
+.abeja.a9 { width: 80px; height: 70px; top: 7400px; right: -20px; opacity: .55; }
+
+@media (max-width: 1000px) {
+  .cifras-fila { grid-template-columns: 1fr 1fr; }
+  /* En pantalla estrecha el día va en columna, sin fijarse. */
+  .dia { height: auto; }
+  .dia-fijo { position: static; height: auto; overflow: visible; }
+  .dia-pista { flex-direction: column; padding: 0 16px; transform: none !important; }
+  .momento { flex: none; opacity: 1; transform: none; }
+  .dia-linea { display: none; }
+  .antes { grid-template-columns: 1fr; }
+  .encaja { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .preguntas { grid-template-columns: 1fr; }
+  .preguntas .seccion-cab { position: static; }
+  .chip { display: none; }
+  .movil-escena { margin-top: 12px; }
+}
+@media (max-width: 640px) {
+  .cifra { padding: 22px; }
+  .encaja { grid-template-columns: 1fr 1fr; }
+  .antes-t { padding: 28px; border-radius: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dia { height: auto; } .dia-fijo { position: static; height: auto; }
+  .dia-pista { flex-wrap: wrap; transform: none !important; } .momento { opacity: 1; transform: none; }
+}
+@media (max-width: 1240px) { .ch1 { left: -110px; } .ch2 { right: -70px; } .ch3 { left: -90px; } }

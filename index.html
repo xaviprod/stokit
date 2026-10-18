@@ -19,9 +19,10 @@
   <a class="nav-marca" href="#inicio" aria-label="bulx, inicio"><img src="img/bulx-negro.png" alt="bulx" width="96" height="29"></a>
   <nav class="nav-enlaces" aria-label="Secciones">
     <a href="#producto">Producto</a>
-    <a href="#como">Cómo funciona</a>
+    <a href="#dia">Un día</a>
     <a href="#app">App</a>
     <a href="#seguridad">Seguridad</a>
+    <a href="#preguntas">Preguntas</a>
   </nav>
   <div class="nav-acciones">
     <a class="btn btn-texto" href="#entrar">Entrar</a>
@@ -32,6 +33,7 @@
 <div class="abejas" aria-hidden="true">
   <i class="abeja a1" data-par="-0.35"></i><i class="abeja a2" data-par="0.25"></i><i class="abeja a3" data-par="-0.55"></i>
   <i class="abeja a4" data-par="0.4"></i><i class="abeja a5" data-par="-0.2"></i><i class="abeja a6" data-par="0.6"></i>
+  <i class="abeja a7" data-par="-0.3"></i><i class="abeja a8" data-par="0.45"></i><i class="abeja a9" data-par="-0.5"></i>
 </div>
 <main id="inicio">
 
@@ -94,6 +96,17 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── Cifras: las de la casa donde nació ─────────────────────────────── -->
+  <section class="cifras" aria-label="bulx en Palma Pictures">
+    <p class="cifras-tit"><span class="hexito"></span>Hoy, en Palma Pictures, la productora donde nació bulx</p>
+    <div class="cifras-fila">
+      <div class="cifra" data-par="0.04"><b data-cuenta="711">711</b><span>artículos con su ficha y su QR</span></div>
+      <div class="cifra" data-par="-0.03"><b data-cuenta="29">29</b><span>vehículos en un solo calendario</span></div>
+      <div class="cifra" data-par="0.05"><b data-cuenta="180">180</b><span>personas del equipo y del crew</span></div>
+      <div class="cifra amarilla" data-par="-0.04"><b data-cuenta="51">51</b><span>días de rodaje en lo que va de 2026</span></div>
     </div>
   </section>
 
@@ -181,6 +194,90 @@
     </ol>
   </section>
 
+
+  <!-- ── Un día de rodaje: se recorre de lado al bajar ──────────────────── -->
+  <section class="dia" id="dia">
+    <div class="dia-fijo">
+      <div class="dia-cab">
+        <p class="etiqueta"><span class="hexito"></span>Un día de rodaje</p>
+        <h2>De las 7:00 a las 20:30, <span class="gris">sin una llamada de «¿quién tiene…?».</span></h2>
+      </div>
+      <div class="dia-linea" aria-hidden="true"><i id="dia-progreso"></i></div>
+      <ol class="dia-pista" id="dia-pista">
+        <li class="momento">
+          <span class="hora">07:10</span>
+          <div class="tarjeta tarjeta-blanca momento-t">
+            <div class="hex-ico"><svg viewBox="0 0 24 24"><path d="M4 4h5v5H4zM15 4h5v5h-5zM4 15h5v5H4z"/><path d="M15 15h2v2h-2zM19 19h1M15 20h1M20 15v2"/></svg></div>
+            <h3>Recoger la furgoneta</h3>
+            <p>Marta escanea el QR de la puerta de la MV2. Queda apuntado quién la lleva, con qué kilómetros y para qué rodaje.</p>
+          </div>
+        </li>
+        <li class="momento">
+          <span class="hora">08:30</span>
+          <div class="tarjeta tarjeta-negra momento-t">
+            <div class="hex-ico oscuro"><svg viewBox="0 0 24 24"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg></div>
+            <h3>Sale el material</h3>
+            <p>Las cajas del kit de luces salen del almacén. El presupuesto ya sabía cuáles iban, y el peso para el camión sale sumado.</p>
+          </div>
+        </li>
+        <li class="momento">
+          <span class="hora">12:15</span>
+          <div class="tarjeta tarjeta-gris momento-t">
+            <div class="hex-ico"><svg viewBox="0 0 24 24"><path d="M12 3l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></svg></div>
+            <h3>Algo se rompe</h3>
+            <p>Un piloto fundido. Parte de avería desde el móvil, con foto, y el taller lo tiene delante antes de que la furgo vuelva.</p>
+          </div>
+        </li>
+        <li class="momento">
+          <span class="hora">17:45</span>
+          <div class="tarjeta tarjeta-amarilla momento-t">
+            <div class="hex-ico negro"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 14l2 2 4-4.5"/></svg></div>
+            <h3>El cliente acepta</h3>
+            <p>Abre el enlace del presupuesto del próximo rodaje y lo acepta. El material queda reservado para esas fechas.</p>
+          </div>
+        </li>
+        <li class="momento">
+          <span class="hora">20:30</span>
+          <div class="tarjeta tarjeta-blanca momento-t">
+            <div class="hex-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div>
+            <h3>Todo vuelve a casa</h3>
+            <p>Se escanea a la vuelta. Si falta una caja, salta sola; si no, mañana todo está donde tiene que estar.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── Antes y con bulx ───────────────────────────────────────────────── -->
+  <section class="seccion" id="antes">
+    <div class="seccion-cab">
+      <p class="etiqueta"><span class="hexito"></span>El cambio</p>
+      <h2>Menos Excel, <span class="gris">menos WhatsApp.</span></h2>
+    </div>
+    <div class="antes">
+      <div class="tarjeta tarjeta-gris antes-t" data-par="0.05">
+        <p class="antes-tit">Antes</p>
+        <ul>
+          <li>Un Excel de material que nadie actualiza</li>
+          <li>Pedir la furgoneta por el grupo de WhatsApp</li>
+          <li>La ITV apuntada en un pósit</li>
+          <li>«¿Quién tiene el monitor de 17"?»</li>
+          <li>El presupuesto, en un PDF que se pierde en el correo</li>
+        </ul>
+      </div>
+      <div class="tarjeta tarjeta-negra antes-t con" data-par="-0.05">
+        <p class="antes-tit"><img src="img/bulx-blanco.png" alt="Con bulx" width="92" height="28"></p>
+        <ul>
+          <li>Cada pieza con su ficha, su foto y su QR</li>
+          <li>Reservas en una línea de tiempo que ve todo el mundo</li>
+          <li>Aviso antes de que caduque cualquier papel</li>
+          <li>Quién lo tiene, desde cuándo y para qué rodaje</li>
+          <li>Un enlace que el cliente acepta con un clic</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- ── La app ─────────────────────────────────────────────────────────── -->
   <section class="seccion" id="app">
     <div class="tarjeta tarjeta-amarilla app-tarjeta">
@@ -194,8 +291,14 @@
           <li>Chat del equipo con tarjetas del presupuesto o del material</li>
         </ul>
       </div>
-      <div class="movil" aria-hidden="true" data-par="-0.04">
-        <div class="movil-pantalla">
+      <div class="movil-escena" aria-hidden="true">
+        <div class="chip ch1" data-par="-0.22" data-raton="22"><b class="hx negro"></b><span>MV2 reservada<small>14 – 16 oct · Rodaje en Sóller</small></span></div>
+        <div class="chip ch2" data-par="0.14" data-raton="30"><b class="hx amarillo"></b><span>Escaneado<small>ARRI Alexa Mini · sale a rodaje</small></span></div>
+        <div class="chip ch3 oscuro" data-par="-0.08" data-raton="16"><b class="hx amarillo"></b><span>Presupuesto aceptado<small>PRESUP-2026-106 · hace 2 min</small></span></div>
+        <i class="m-abeja e1" data-par="0.3"></i><i class="m-abeja e2" data-par="-0.35"></i><i class="m-abeja e3" data-par="0.2"></i>
+        <div class="movil-capa" data-par="-0.12">
+      <div class="movil" id="movil">
+        <div class="movil-pantalla"><div class="movil-contenido" id="movil-contenido">
           <div class="m-cab"><span class="m-avatar"></span><div><small>Buenos días</small><b>Palma Pictures</b></div></div>
           <div class="m-hero"><small>Domingo 18</small><b>51</b><span>días de rodaje este año</span></div>
           <div class="m-tejas">
@@ -203,7 +306,15 @@
             <div><b>787</b><span>en el almacén</span></div>
           </div>
           <div class="m-escaner"><span class="hx amarillo"></span>Escanear</div>
+          <div class="m-lista">
+            <div><b class="hx amarillo"></b><span>MV2 · Vito<small>Contigo hasta el jueves</small></span></div>
+            <div><b class="hx negro"></b><span>Kit SkyPanel S60<small>4 cajas · 38 kg</small></span></div>
+            <div><b class="hx gris"></b><span>Tus horas de hoy<small>9 h · Rodaje en Sóller</small></span></div>
+          </div>
+          </div>
           <div class="m-barra"><i class="on"></i><i></i><i class="centro"></i><i></i><i></i></div>
+        </div>
+      </div>
         </div>
       </div>
     </div>
@@ -224,6 +335,42 @@
         <div class="tarjeta tarjeta-blanca seg-item"><b>Todo queda apuntado</b><span>Quién cambió qué y cuándo, en un registro de actividad que no se borra.</span></div>
         <div class="tarjeta tarjeta-blanca seg-item"><b>Servidores en Europa</b><span>Los datos se guardan en Frankfurt, con copia en la base y fuera del ordenador de nadie.</span></div>
         <div class="tarjeta tarjeta-blanca seg-item"><b>Enlaces que caducan</b><span>Lo que se comparte fuera —un presupuesto, un calendario— se puede revocar cuando quieras.</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Con lo que ya usas ─────────────────────────────────────────────── -->
+  <section class="seccion" id="encaja">
+    <div class="seccion-cab">
+      <p class="etiqueta"><span class="hexito"></span>Encaja</p>
+      <h2>Se lleva bien <span class="gris">con lo que ya usáis.</span></h2>
+    </div>
+    <div class="encaja">
+      <div class="pieza" data-par="0.06"><span class="pieza-hex"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg></span><b>Microsoft 365</b><small>Se entra con la cuenta de la casa</small></div>
+      <div class="pieza" data-par="-0.04"><span class="pieza-hex"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l8 8M16 8l-8 8"/></svg></span><b>Excel</b><small>Se importa y se exporta con gráficos</small></div>
+      <div class="pieza" data-par="0.08"><span class="pieza-hex"><svg viewBox="0 0 24 24"><path d="M5 20V12M10 20V6M15 20v-9M20 20V9"/></svg></span><b>Power BI</b><small>Los datos, en directo</small></div>
+      <div class="pieza" data-par="-0.06"><span class="pieza-hex"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><b>iPhone y iPad</b><small>Con Face ID y avisos</small></div>
+      <div class="pieza" data-par="0.05"><span class="pieza-hex"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg></span><b>Correo</b><small>Presupuestos y recordatorios</small></div>
+      <div class="pieza" data-par="-0.07"><span class="pieza-hex"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 19h1M19 14h1"/></svg></span><b>Etiquetas QR</b><small>Las imprimes tú, en cualquier impresora</small></div>
+    </div>
+  </section>
+
+  <!-- ── Preguntas ──────────────────────────────────────────────────────── -->
+  <section class="seccion" id="preguntas">
+    <div class="preguntas">
+      <div class="seccion-cab izq">
+        <p class="etiqueta"><span class="hexito"></span>Preguntas</p>
+        <h2>Lo que nos <span class="gris">suelen preguntar.</span></h2>
+        <p class="seccion-sub">¿Falta la tuya? Escríbenos a <a href="mailto:info@stokit.es">info@stokit.es</a>.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>¿Hay que instalar algo?</summary><p>No. bulx es una web: se abre en el navegador del ordenador de siempre. La app del iPhone y del iPad es para quien está en la calle o en el almacén, y es opcional.</p></details>
+        <details><summary>¿Puedo traer mi Excel de material?</summary><p>Sí. Se sube tal cual y bulx lo ordena por departamentos y le pone a cada pieza su código. Lo que no encaje, te lo enseña para que lo revises.</p></details>
+        <details><summary>¿Quién ve qué?</summary><p>Cada persona ve sus áreas: producción, flota, almacén o tecnología. Los precios y la economía solo los ve quien tiene que verlos.</p></details>
+        <details><summary>¿Dónde están mis datos?</summary><p>En servidores en Frankfurt, en Europa, con copia. Y todo lo que se cambia queda apuntado: quién, qué y cuándo.</p></details>
+        <details><summary>¿Sirve para una productora pequeña?</summary><p>Nació en una productora de Mallorca, con el día a día de un rodaje real. Si tienes material, furgonetas o gente que sale a rodar, te sirve.</p></details>
+        <details><summary>¿Cuánto cuesta?</summary><p>Depende de cuánto material y cuánta gente. Te lo decimos en la demo, con números claros y sin letra pequeña.</p></details>
       </div>
     </div>
   </section>
@@ -252,7 +399,7 @@
   </div>
   <div class="pie-cols">
     <div><b>Producto</b><a href="#producto">Material</a><a href="#producto">Flota</a><a href="#producto">Presupuestos</a><a href="#app">App</a></div>
-    <div><b>bulx</b><a href="#como">Cómo funciona</a><a href="#seguridad">Seguridad</a><a href="#demo">Contacto</a></div>
+    <div><b>bulx</b><a href="#como">Cómo funciona</a><a href="#dia">Un día de rodaje</a><a href="#seguridad">Seguridad</a><a href="#preguntas">Preguntas</a><a href="#demo">Contacto</a></div>
   </div>
   <p class="pie-credito">© 2026 bulx.es · Logotipo diseñado por <b>Xavi Murillo</b></p>
 </footer>

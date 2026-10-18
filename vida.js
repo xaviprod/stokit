@@ -82,9 +82,19 @@
     const capas = [...document.querySelectorAll('[data-par]')].map(el => ({ el, v: parseFloat(el.dataset.par) || 0, y0: null }));
     const raton = [...document.querySelectorAll('[data-raton]')].map(el => ({ el, m: parseFloat(el.dataset.raton) || 0 }));
     const ventana = document.getElementById('ventana');
+    const movil = document.getElementById('movil');
+    const movilEsc = movil && movil.closest('.movil-escena');
+    const movilCont = document.getElementById('movil-contenido');
+    const dia = document.getElementById('dia');
+    const pista = document.getElementById('dia-pista');
+    const progreso = document.getElementById('dia-progreso');
+    const momentos = pista ? [...pista.children] : [];
+    const ancho = () => innerWidth > 1000;
+    const entre = (v, a, b) => Math.max(a, Math.min(b, v));
     let mx = 0, my = 0, rx = 0, ry = 0, pendiente = false;
     const medir = () => capas.forEach(c => { const t = c.el.style.transform; c.el.style.transform = ''; const r = c.el.getBoundingClientRect(); c.y0 = r.top + scrollY + r.height / 2; c.el.style.transform = t; });
-    medir(); addEventListener('resize', () => setTimeout(medir, 220));
+    medir(); addEventListener('resize', () => setTimeout(() => { medir(); pedir(); }, 220));
+    addEventListener('load', () => { medir(); pedir(); });
     addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; pedir(); }, { passive: true });
     addEventListener('scroll', () => pedir(), { passive: true });
     function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(pinta); } }
@@ -106,6 +116,29 @@
         const k = Math.min(1, scrollY / 500);
         ventana.style.transform = `perspective(1400px) rotateX(${((1 - k) * 14).toFixed(2)}deg) scale(${(0.93 + 0.07 * k).toFixed(3)})`;
       }
+      if (movil && movilEsc) {
+        /* El móvil: llega girado hacia la página, se endereza en el centro de
+           la pantalla y se va girando hacia el otro lado; el ratón lo mece un
+           poco más. Su pantalla se desliza por dentro como si alguien bajara. */
+        const r = movilEsc.getBoundingClientRect();
+        const k = entre((r.top + r.height / 2 - innerHeight / 2) / innerHeight, -1, 1);
+        movil.style.transform = `rotateY(${(k * -16 + rx * 10).toFixed(2)}deg) rotateX(${(k * 9 - ry * 6).toFixed(2)}deg) rotateZ(${(k * -2.5).toFixed(2)}deg)`;
+        movil.style.boxShadow = `${(-k * 30).toFixed(0)}px 50px 90px -40px rgba(29, 31, 28, .65), inset 0 0 0 1.5px #3A3C37`;
+        if (movilCont) {
+          const pr = entre((innerHeight - r.top) / (innerHeight + r.height), 0, 1);
+          movilCont.style.transform = `translate3d(0, ${(-pr * 120).toFixed(1)}px, 0)`;
+        }
+      }
+      if (dia && pista && ancho()) {
+        /* Un día de rodaje: la sección se queda fija y la pista corre de lado
+           mientras bajas; la raya amarilla dice por dónde vas. */
+        const r = dia.getBoundingClientRect();
+        const p = entre(-r.top / Math.max(1, r.height - innerHeight), 0, 1);
+        const sobra = Math.max(0, pista.scrollWidth - innerWidth);
+        pista.style.transform = `translate3d(${(-p * sobra).toFixed(1)}px, 0, 0)`;
+        if (progreso) progreso.style.width = (p * 100).toFixed(2) + '%';
+        momentos.forEach((m, i) => m.classList.toggle('visto', i <= p * (momentos.length - 1) + 0.4));
+      } else if (pista) { pista.style.transform = ''; momentos.forEach(m => m.classList.add('visto')); }
       if (Math.abs(mx - rx) > 0.002 || Math.abs(my - ry) > 0.002) pedir();
     }
     pinta();
@@ -121,6 +154,44 @@
       el.addEventListener('pointerleave', () => { el.style.transform = ''; setTimeout(() => el.classList.remove('inclina'), 150); });
     });
   }
+
+  /* Las cifras cuentan desde cero cuando llegan a la pantalla (en reposo ya
+     están escritas: si no hay animación, se leen igual). */
+  if (!quieto && 'IntersectionObserver' in window) {
+    const cuentas = new IntersectionObserver((es) => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      cuentas.unobserve(e.target);
+      const fin = +e.target.dataset.cuenta, t0 = performance.now(), dura = 1300;
+      const paso = (t) => {
+        const k = Math.min(1, (t - t0) / dura), suave = 1 - Math.pow(1 - k, 4);
+        e.target.textContent = Math.round(fin * suave);
+        if (k < 1) requestAnimationFrame(paso);
+      };
+      requestAnimationFrame(paso);
+    }), { threshold: .6 });
+    document.querySelectorAll('[data-cuenta]').forEach(el => { if (el.getBoundingClientRect().top > innerHeight * .8) { el.textContent = '0'; cuentas.observe(el); } });
+  }
+
+  /* Las preguntas se abren y se cierran deslizando, no de golpe. */
+  document.querySelectorAll('.faq details').forEach(d => {
+    const sum = d.querySelector('summary');
+    const cuerpo = document.createElement('div'); cuerpo.className = 'faq-cuerpo';
+    while (sum.nextSibling) cuerpo.appendChild(sum.nextSibling);
+    d.appendChild(cuerpo);
+    if (quieto) return;
+    sum.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      if (d.open) {
+        cuerpo.style.height = cuerpo.scrollHeight + 'px';
+        requestAnimationFrame(() => { cuerpo.style.height = '0px'; });
+        cuerpo.addEventListener('transitionend', function fin() { d.open = false; cuerpo.style.height = ''; cuerpo.removeEventListener('transitionend', fin); });
+      } else {
+        d.open = true; cuerpo.style.height = '0px';
+        requestAnimationFrame(() => { cuerpo.style.height = cuerpo.scrollHeight + 'px'; });
+        cuerpo.addEventListener('transitionend', function fin() { cuerpo.style.height = ''; cuerpo.removeEventListener('transitionend', fin); });
+      }
+    });
+  });
 
   /* La barra de arriba se marca un poco más al bajar. */
   const nav = document.getElementById('nav');

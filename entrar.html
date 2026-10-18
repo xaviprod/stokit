@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulx · entrando</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="img/bulx-favicon.svg">
+<!-- ══════════════════════════════════════════════════════════════════════════
+     LA PUERTA DE ENTRADA
+
+     El botón «Entrar» de la lanzadera apuntaba a `#entrar`, que es un enlace
+     del pie que apunta a sí mismo: quien quería entrar a trabajar no tenía por
+     dónde. Esto lo arregla.
+
+     Y es una página puente y no un enlace directo a propósito: la dirección
+     del cliente lleva su nombre dentro, y la lanzadera es pública. Lo que se
+     publica dice `/entrar.html`; el nombre solo aparece cuando ya estás
+     saliendo hacia allí. El día que haya más de una productora, aquí se
+     pregunta cuál y se deja de adivinar.
+
+     Tres capas para que funcione siempre: la cabecera del navegador, el guion
+     y, si no hay ninguna de las dos, un enlace a mano.
+     ══════════════════════════════════════════════════════════════════════ -->
+<meta http-equiv="refresh" content="0; url=https://palmapictures.bulx.es/">
+<link rel="canonical" href="https://palmapictures.bulx.es/">
+<style>
+  :root { color-scheme: light dark;
+    --papel:#F1F1EE; --tinta:#1D1F1C; --tinta-2:rgba(29,31,28,.7); --am:#FEC833; }
+  @media (prefers-color-scheme: dark) {
+    :root { --papel:#121311; --tinta:#F3F3F0; --tinta-2:rgba(243,243,240,.7); }
+  }
+  html, body { height: 100%; }
+  body {
+    margin: 0; display: grid; place-items: center;
+    background: var(--papel); color: var(--tinta);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  .caja { text-align: center; padding: 28px; }
+  /* Las tres celdas del logotipo, girando despacio: dice «estoy haciendo
+     algo» sin escribir «cargando». */
+  .celdas { display: inline-flex; gap: 6px; margin-bottom: 22px; }
+  .celdas i {
+    width: 18px; height: 16px; display: block; background: var(--am);
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    animation: late 1.25s ease-in-out infinite;
+  }
+  .celdas i:nth-child(2) { animation-delay: .18s; }
+  .celdas i:nth-child(3) { animation-delay: .36s; }
+  @keyframes late { 0%, 100% { opacity: .28; } 45% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .celdas i { animation: none; opacity: 1; } }
+  b { font-size: 21px; font-weight: 800; letter-spacing: -.03em; display: block; }
+  p { margin: 12px 0 0; color: var(--tinta-2); font-size: 15px; }
+  a { color: var(--tinta); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="caja">
+    <span class="celdas" aria-hidden="true"><i></i><i></i><i></i></span>
+    <b>Bulx</b>
+    <p>Llevándote a tu Bulx…</p>
+    <p><a href="https://palmapictures.bulx.es/">Entrar ahora</a></p>
+  </div>
+  <script>location.replace('https://palmapictures.bulx.es/');</script>
+</body>
+</html>

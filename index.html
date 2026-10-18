@@ -3,13 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stokit</title>
-<meta name="description" content="Stokit: el sistema con el que una productora lleva su material, su flota, sus rodajes y sus presupuestos. En el navegador y en una app nativa de iPhone y iPad.">
-<meta property="og:title" content="Stokit">
-<meta property="og:description" content="El sistema con el que una productora lleva su material, su flota, sus rodajes y sus presupuestos.">
+<!-- ══ Lo que se ve FUERA de la página ═══════════════════════════════════════
+     En Google y al pegar el enlace. Antes el título era solo «Stokit», así que
+     el resultado no decía qué es esto, y no había imagen de enlace: en WhatsApp
+     o en Slack salía el enlace pelado.
+
+     El nombre del sitio sale de og:site_name y del JSON-LD de abajo; sin ellos
+     Google escribe «stokit.es», que es el dominio, no la marca.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<title>Stokit — Gestión para productoras audiovisuales</title>
+<meta name="description" content="El material, la flota, los rodajes y los presupuestos de una productora en un solo sistema. En el navegador y en una app nativa de iPhone y iPad.">
+<link rel="canonical" href="https://stokit.es/">
+
+<meta property="og:site_name" content="Stokit">
+<meta property="og:title" content="Stokit — Gestión para productoras audiovisuales">
+<meta property="og:description" content="El material, la flota, los rodajes y los presupuestos de una productora en un solo sistema. En el navegador y en una app nativa de iPhone y iPad.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:url" content="https://stokit.es/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://stokit.es/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stokit — Todo el rodaje, en un solo sitio.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stokit — Gestión para productoras audiovisuales">
+<meta name="twitter:description" content="El material, la flota, los rodajes y los presupuestos de una productora en un solo sistema.">
+<meta name="twitter:image" content="https://stokit.es/og.png">
+
+<!-- El SVG primero: lo prefieren los navegadores que lo entienden, es nítido a
+     cualquier tamaño y cambia de color en modo oscuro. El PNG se queda de
+     respaldo, que es el que rastrea Google. El de iOS va aparte y opaco:
+     allí la transparencia se compone sobre negro y el logotipo desaparece. -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#eef0f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+
+<!-- Datos estructurados. Solo lo que es verdad y se puede comprobar en la
+     página: ni valoraciones ni precios inventados, que eso Google lo castiga. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://stokit.es/#marca",
+      "name": "Stokit",
+      "url": "https://stokit.es/",
+      "logo": "https://stokit.es/apple-touch-icon.png",
+      "email": "info@stokit.es"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://stokit.es/#sitio",
+      "name": "Stokit",
+      "url": "https://stokit.es/",
+      "inLanguage": "es-ES",
+      "publisher": { "@id": "https://stokit.es/#marca" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Stokit",
+      "url": "https://stokit.es/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS",
+      "inLanguage": "es-ES",
+      "description": "Sistema de gestión para productoras audiovisuales: material con etiquetas QR, flota con calendario e ITV, rodajes y presupuestos, en el navegador y en una app nativa de iPhone y iPad.",
+      "publisher": { "@id": "https://stokit.es/#marca" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">

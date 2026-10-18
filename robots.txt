@@ -1,0 +1,9 @@
+# Stokit — web de presentación
+# Todo abierto menos la puerta de entrada, que es una redirección y no tiene
+# contenido que indexar.
+
+User-agent: *
+Allow: /
+Disallow: /entrar.html
+
+Sitemap: https://stokit.es/sitemap.xml

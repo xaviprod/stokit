@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -15 130 130" width="130" height="130">
+  <title>Stokit</title>
+  <!-- El mismo logotipo de la web. En claro va en tinta y en oscuro en blanco:
+       sobre una barra de pestañas negra, un glifo negro no está. -->
+  <style>
+    path { fill: #14161f }
+    @media (prefers-color-scheme: dark) { path { fill: #ffffff } }
+  </style>
+  <path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/>
+  <path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/>
+</svg>

@@ -302,6 +302,14 @@
   };
 
   const IDIOMAS = ['es', 'en', 'de'];
+  /* Las banderas, a trazo: España sin escudo (como en la bandera civil),
+     la Union Jack con sus dos aspas y Alemania a tres franjas. El
+     `slice` hace que llenen el círculo que las recorta. */
+  const BANDERA = {
+    es: '<svg viewBox="0 0 3 2" preserveAspectRatio="xMidYMid slice"><rect width="3" height="2" fill="#AA151B"/><rect y=".5" width="3" height="1" fill="#F1BF00"/></svg>',
+    en: '<svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><clipPath id="bx-uk"><path d="M30 15h30v15zv15H30zH0V15zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#bx-uk)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>',
+    de: '<svg viewBox="0 0 5 3" preserveAspectRatio="xMidYMid slice"><rect width="5" height="3" fill="#000"/><rect y="1" width="5" height="2" fill="#D00"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>',
+  };
   const NOMBRE = { es: 'Español', en: 'English', de: 'Deutsch' };
 
   /* El español, leído del propio HTML la primera vez: así no hay que
@@ -354,8 +362,13 @@
     if (!acc || document.querySelector('.idioma')) return;
     const caja = document.createElement('div');
     caja.className = 'idioma'; caja.setAttribute('role', 'group'); caja.setAttribute('aria-label', 'Idioma · Language · Sprache');
+    /* Cada idioma con su bandera (18/10/2026, Xavi: «¿podríamos poner
+       banderas del Reino Unido, Alemania y España?»). Van dibujadas aquí
+       mismo, sin imágenes: un círculo recortado sobre la bandera. Las
+       siglas se quedan, que la bandera sola no la lee un lector de
+       pantalla; en el móvil se esconden y se queda la bandera. */
     caja.innerHTML = '<i class="idioma-marca" aria-hidden="true"></i>' + IDIOMAS.map(l =>
-      `<button type="button" data-lang="${l}" lang="${l}" title="${NOMBRE[l]}" aria-pressed="false">${l.toUpperCase()}</button>`).join('');
+      `<button type="button" data-lang="${l}" lang="${l}" title="${NOMBRE[l]}" aria-pressed="false"><span class="idioma-bandera" aria-hidden="true">${BANDERA[l]}</span><span class="idioma-sigla">${l.toUpperCase()}</span></button>`).join('');
     caja.addEventListener('click', (ev) => { const b = ev.target.closest('button[data-lang]'); if (b) poner(b.dataset.lang, true); });
     acc.parentNode.insertBefore(caja, acc);
   }

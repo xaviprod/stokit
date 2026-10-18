@@ -491,7 +491,27 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
 .hecho-en { display:inline-flex; align-items:center; gap:8px; }
 .bandera { flex:0 0 auto; opacity:.9; }
 
+/* ── Parallax ────────────────────────────────────────────────────────────
+   Lo que lleva `data-lejos` se queda un poco atrás al desplazar (o se
+   adelanta, si el número es negativo), y eso da la sensación de que unas
+   cosas están más lejos que otras.
+
+   El desplazamiento NO se calcula aquí: lo escribe en `--py` el mismo
+   fotograma que ya mueve la trama y la cadena. Un segundo bucle de scroll
+   compitiendo con el primero es justo como se consigue que una página vaya a
+   tirones.
+
+   Los mockups que llevan parallax renuncian al deslizamiento de entrada de
+   `.rev`: las dos cosas viven en `transform`, y dejar la transición puesta
+   haría que cada ajuste del parallax se animara con tres cuartos de segundo
+   de retraso — el efecto se arrastraría detrás del dedo. Se quedan con el
+   fundido, que es lo que de verdad se nota al entrar. */
+[data-lejos] { transform:translate3d(0,var(--py,0px),0); will-change:transform; }
+.rev[data-lejos], .rev[data-lejos].visto { transform:translate3d(0,var(--py,0px),0); }
+.rev[data-lejos] { transition-property:opacity; }
+
 @media (prefers-reduced-motion: reduce) {
+  [data-lejos] { transform:none !important; will-change:auto; }
   .pista{height:auto} .pin{position:static;height:auto;min-height:0;display:block}
   .eslabon .campo,.eslabon b,.eslabon span{opacity:1;transform:none}
   .eslabon.on .campo{color:var(--sello)}
@@ -552,7 +572,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
 
 <!-- ══ MOCKUP PRINCIPAL ══ -->
 <div class="env" style="margin-top:clamp(52px,7vw,86px)">
-  <div class="marco rev d4" aria-hidden="true">
+  <div class="marco rev d4" data-lejos="0.05" aria-hidden="true">
     <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es</span></div>
     <div class="mini">
       <div class="mini-lado">
@@ -619,7 +639,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
           <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg><span><b>Medidas y peso</b> de cada caja, para cuadrar lo que cabe en la furgoneta.</span></li>
         </ul>
       </div>
-      <div class="marco rev d2" aria-hidden="true">
+      <div class="marco rev d2" data-lejos="0.08" aria-hidden="true">
         <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es/inventario</span></div>
         <div class="inv-deps">
           <div class="inv-dep on"><b>Todo</b><span>642 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
@@ -656,7 +676,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
           <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 13.5V8M6 13.5V4M10 13.5V6.5M14 13.5V2"/></svg><span><b>Días de vehículo por rodaje</b>, que es lo que acaba en el presupuesto.</span></li>
         </ul>
       </div>
-      <div class="marco rev d2" aria-hidden="true">
+      <div class="marco rev d2" data-lejos="0.08" aria-hidden="true">
         <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es/calendario-flota</span></div>
         <div class="tl">
           <div class="tl-cab">
@@ -720,7 +740,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
           <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1.8 3.8h12.4v8.4H1.8z"/><path d="M1.8 4.2L8 8.6l6.2-4.4"/></svg><span><b>Nada automático</b>: cuando el cliente contesta, lo revisáis vosotros.</span></li>
         </ul>
       </div>
-      <div class="marco rev d2" aria-hidden="true">
+      <div class="marco rev d2" data-lejos="0.08" aria-hidden="true">
         <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es/presupuestos</span></div>
         <div class="pre-kpis">
           <div class="pre-k"><span>En el aire</span><b>6</b><i>38.400 €</i></div>
@@ -756,7 +776,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
     </div>
 
     <div class="telefonos rev d2">
-      <div class="movil detras">
+      <div class="movil detras" data-lejos="0.13">
         <div class="movil-marco">
           <span class="movil-pantalla">
             <img src="app/reservas.jpg" width="560" height="1217" loading="lazy" decoding="async"
@@ -766,7 +786,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
         <p class="movil-pie">Reservas</p>
       </div>
 
-      <div class="movil delante">
+      <div class="movil delante" data-lejos="-0.05">
         <div class="movil-marco">
           <span class="movil-pantalla">
             <img src="app/flota.jpg" width="560" height="1217" loading="lazy" decoding="async"
@@ -776,7 +796,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
         <p class="movil-pie">Flota</p>
       </div>
 
-      <div class="movil detras">
+      <div class="movil detras" data-lejos="0.13">
         <div class="movil-marco">
           <span class="movil-pantalla">
             <img src="app/almacen.jpg" width="560" height="1217" loading="lazy" decoding="async"
@@ -1030,6 +1050,19 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
     })();
   }
 
+  /* Las piezas con parallax, medidas una vez. */
+  var lejanos = [].slice.call(document.querySelectorAll('[data-lejos]'));
+  var conParallax = false;
+  function medirParallax() {
+    /* En el móvil no: con el dedo el desplazamiento no va fotograma a
+       fotograma y el efecto se ve a saltos, y además ahí los teléfonos de los
+       lados ni salen. */
+    conParallax = window.innerWidth > 860;
+    if (!conParallax) lejanos.forEach(function (n) { n.style.setProperty('--py', '0px'); });
+  }
+  medirParallax();
+  window.addEventListener('resize', medirParallax);
+
   var pendiente = false;
   function alScroll() {
     if (pendiente) return;
@@ -1046,6 +1079,25 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
       if (vivo) {
         var d = (-(y * .34) % 58).toFixed(1) + 'px';
         document.querySelectorAll('.trama, .trama-viva').forEach(function (n) { n.style.setProperty('--deriva', d); });
+      }
+      if (conParallax) {
+        var medio = window.innerHeight / 2;
+        for (var i = 0; i < lejanos.length; i++) {
+          var n = lejanos[i], r = n.getBoundingClientRect();
+          /* Lo que no se ve no se mueve: mover fuera de pantalla es gastar
+             fotograma en algo que nadie mira. */
+          if (r.bottom < -240 || r.top > window.innerHeight + 240) continue;
+          /* OJO: el rectángulo ya viene con el desplazamiento de la vuelta
+             anterior aplicado. Si no se le resta, cada fotograma se suma al
+             anterior y la pieza se va de la página. */
+          var puesto = parseFloat(n.style.getPropertyValue('--py')) || 0;
+          var centro = r.top + r.height / 2 - puesto;
+          var d = (centro - medio) * (parseFloat(n.getAttribute('data-lejos')) || 0);
+          /* Con tope: en una pantalla muy alta, sin él, la pieza se despega
+             tanto que deja un hueco en su sitio. */
+          d = Math.max(-74, Math.min(74, d));
+          n.style.setProperty('--py', d.toFixed(1) + 'px');
+        }
       }
       if (pista && eslabones.length) {
         var caja = pista.getBoundingClientRect();

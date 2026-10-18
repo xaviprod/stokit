@@ -481,3 +481,23 @@ main, .pie { position: relative; z-index: 1; }
   .dia-pista { flex-wrap: wrap; transform: none !important; } .momento { opacity: 1; transform: none; }
 }
 @media (max-width: 1240px) { .ch1 { left: -110px; } .ch2 { right: -70px; } .ch3 { left: -90px; } }
+
+/* ── Idioma: ES · EN · DE en una píldora, la marca amarilla se desliza ── */
+.idioma { position: relative; display: inline-grid; grid-template-columns: repeat(3, 40px); height: 36px; padding: 3px; margin-right: 4px; background: rgba(29, 31, 28, .06); border-radius: 999px; }
+.idioma-marca { position: absolute; top: 3px; left: 3px; width: 40px; height: 30px; background: var(--negro); border-radius: 999px; transition: transform .45s var(--muelle); }
+.idioma[data-lang="en"] .idioma-marca { transform: translateX(40px); }
+.idioma[data-lang="de"] .idioma-marca { transform: translateX(80px); }
+.idioma button { position: relative; z-index: 1; border: 0; background: none; padding: 0; font: 800 12.5px/1 Inter, sans-serif; letter-spacing: .04em; color: var(--tinta-2); cursor: pointer; border-radius: 999px; transition: color .3s; }
+.idioma button[aria-pressed="true"] { color: var(--amarillo); }
+.idioma button:hover:not([aria-pressed="true"]) { color: var(--tinta); }
+@media (max-width: 640px) { .idioma { grid-template-columns: repeat(3, 34px); } .idioma-marca { width: 34px; } .idioma[data-lang="en"] .idioma-marca { transform: translateX(34px); } .idioma[data-lang="de"] .idioma-marca { transform: translateX(68px); } }
+@media (prefers-reduced-motion: reduce) { .idioma-marca { transition: none; } }
+/* En el móvil caben el logo, el idioma y la demo aunque el texto sea alemán. */
+.nav-marca { flex: none; }
+@media (max-width: 640px) {
+  .nav { gap: 8px; padding: 8px 8px 8px 16px; }
+  .nav-marca img { width: 70px; }
+  .nav-acciones .btn-amarillo { height: 38px; padding: 0 14px; font-size: 13.5px; }
+  .idioma { margin-left: auto; margin-right: 0; }
+}
+@media (max-width: 380px) { .nav-acciones .btn-amarillo { display: none; } }

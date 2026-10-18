@@ -483,20 +483,20 @@ main, .pie { position: relative; z-index: 1; }
 @media (max-width: 1240px) { .ch1 { left: -110px; } .ch2 { right: -70px; } .ch3 { left: -90px; } }
 
 /* ── Idioma: ES · EN · DE en una píldora, la marca amarilla se desliza ── */
-/* Bandera + sigla por idioma; la celda mide 58 px (16 de bandera, 6 de
-   hueco, la sigla). En el móvil la sigla se esconde y la celda vuelve a 34. */
-.idioma { position: relative; display: inline-grid; grid-template-columns: repeat(3, 58px); height: 36px; padding: 3px; margin-right: 4px; background: rgba(29, 31, 28, .06); border-radius: 999px; }
-.idioma-marca { position: absolute; top: 3px; left: 3px; width: 58px; height: 30px; background: var(--negro); border-radius: 999px; transition: transform .45s var(--muelle); }
-.idioma[data-lang="en"] .idioma-marca { transform: translateX(58px); }
-.idioma[data-lang="de"] .idioma-marca { transform: translateX(116px); }
-.idioma button { position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 0; background: none; padding: 0; font: 800 12.5px/1 Inter, sans-serif; letter-spacing: .04em; color: var(--tinta-2); cursor: pointer; border-radius: 999px; transition: color .3s; }
+/* Bandera + sigla por idioma; la celda mide 70 px (18 de bandera, 9 de
+   hueco, la sigla y aire a los lados: apretado quedaba «atropellado»). En el móvil la sigla se esconde y la celda vuelve a 34. */
+.idioma { position: relative; display: inline-grid; grid-template-columns: repeat(3, 70px); height: 38px; padding: 4px; margin-right: 14px; background: rgba(29, 31, 28, .06); border-radius: 999px; }
+.idioma-marca { position: absolute; top: 4px; left: 4px; width: 70px; height: 30px; background: var(--negro); border-radius: 999px; transition: transform .45s var(--muelle); }
+.idioma[data-lang="en"] .idioma-marca { transform: translateX(70px); }
+.idioma[data-lang="de"] .idioma-marca { transform: translateX(140px); }
+.idioma button { position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; background: none; padding: 0; font: 800 12px/1 Inter, sans-serif; letter-spacing: .06em; color: var(--tinta-2); cursor: pointer; border-radius: 999px; transition: color .3s; }
 .idioma button[aria-pressed="true"] { color: var(--amarillo); }
 .idioma button:hover:not([aria-pressed="true"]) { color: var(--tinta); }
-.idioma-bandera { display: inline-flex; width: 16px; height: 16px; border-radius: 50%; overflow: hidden; flex: 0 0 auto; box-shadow: 0 0 0 1px rgba(29, 31, 28, .12) inset; opacity: .78; transition: opacity .3s, transform .45s var(--muelle); }
+.idioma-bandera { display: inline-flex; width: 18px; height: 18px; border-radius: 50%; overflow: hidden; flex: 0 0 auto; box-shadow: 0 0 0 1px rgba(29, 31, 28, .12) inset; opacity: .78; transition: opacity .3s, transform .45s var(--muelle); }
 .idioma-bandera svg { width: 100%; height: 100%; display: block; }
 .idioma button[aria-pressed="true"] .idioma-bandera, .idioma button:hover .idioma-bandera { opacity: 1; }
 .idioma button[aria-pressed="true"] .idioma-bandera { transform: scale(1.08); box-shadow: 0 0 0 1px rgba(255, 255, 255, .25) inset; }
-@media (max-width: 640px) { .idioma { grid-template-columns: repeat(3, 34px); } .idioma-marca { width: 34px; } .idioma[data-lang="en"] .idioma-marca { transform: translateX(34px); } .idioma[data-lang="de"] .idioma-marca { transform: translateX(68px); } .idioma-sigla { display: none; } .idioma-bandera { width: 18px; height: 18px; } }
+@media (max-width: 640px) { .idioma { grid-template-columns: repeat(3, 36px); margin-right: 8px; } .idioma-marca { width: 36px; } .idioma[data-lang="en"] .idioma-marca { transform: translateX(36px); } .idioma[data-lang="de"] .idioma-marca { transform: translateX(72px); } .idioma-sigla { display: none; } }
 @media (prefers-reduced-motion: reduce) { .idioma-marca { transition: none; } }
 /* En el móvil caben el logo, el idioma y la demo aunque el texto sea alemán. */
 .nav-marca { flex: none; }

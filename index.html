@@ -29,13 +29,17 @@
   </div>
 </header>
 
+<div class="abejas" aria-hidden="true">
+  <i class="abeja a1" data-par="-0.35"></i><i class="abeja a2" data-par="0.25"></i><i class="abeja a3" data-par="-0.55"></i>
+  <i class="abeja a4" data-par="0.4"></i><i class="abeja a5" data-par="-0.2"></i><i class="abeja a6" data-par="0.6"></i>
+</div>
 <main id="inicio">
 
   <!-- ── Hero: la tarjeta negra del logo ────────────────────────────────── -->
   <section class="hero">
     <div class="tarjeta tarjeta-negra hero-tarjeta">
-      <svg class="hero-panal" id="hero-panal" aria-hidden="true"></svg>
-      <div class="hero-texto">
+      <svg class="hero-panal" id="hero-panal" aria-hidden="true" data-par="-0.12"></svg>
+      <div class="hero-texto" data-par="0.06">
         <p class="etiqueta etiqueta-oscura"><span class="hexito"></span>Inventario y producción</p>
         <h1>Todo el rodaje,<br>en un solo <span class="subrayado">panal.</span></h1>
         <p class="hero-sub">El material, la flota, los presupuestos y el equipo de tu productora, cada cosa en su celda y todas conectadas. En la web y en el iPhone.</p>
@@ -46,14 +50,14 @@
         <p class="hero-nota">Hecho dentro de una productora de Mallorca, para el día a día de un rodaje.</p>
       </div>
       <div class="hero-celdas" aria-hidden="true">
-        <div class="celda c1"><span>Material</span></div>
-        <div class="celda c2"><span>Flota</span></div>
-        <div class="celda c3"><span>Rodaje</span></div>
+        <div class="celda-capa" data-par="0.10" data-raton="18"><div class="celda c1"><span>Material</span></div></div>
+        <div class="celda-capa" data-par="-0.08" data-raton="34"><div class="celda c2"><span>Flota</span></div></div>
+        <div class="celda-capa" data-par="0.18" data-raton="26"><div class="celda c3"><span>Rodaje</span></div></div>
       </div>
     </div>
 
     <!-- La captura del producto, montada a mano -->
-    <div class="ventana" aria-label="Así se ve bulx por dentro">
+    <div class="ventana" id="ventana" aria-label="Así se ve bulx por dentro">
       <div class="ventana-barra"><i></i><i></i><i></i><span>bulx.es · Calendario de flota</span></div>
       <div class="ventana-cuerpo">
         <aside class="v-lateral">
@@ -190,7 +194,7 @@
           <li>Chat del equipo con tarjetas del presupuesto o del material</li>
         </ul>
       </div>
-      <div class="movil" aria-hidden="true">
+      <div class="movil" aria-hidden="true" data-par="-0.12">
         <div class="movil-pantalla">
           <div class="m-cab"><span class="m-avatar"></span><div><small>Buenos días</small><b>Palma Pictures</b></div></div>
           <div class="m-hero"><small>Domingo 18</small><b>51</b><span>días de rodaje este año</span></div>
@@ -227,7 +231,7 @@
   <!-- ── Llamada final ──────────────────────────────────────────────────── -->
   <section class="seccion" id="demo">
     <div class="tarjeta tarjeta-negra final">
-      <svg class="final-panal" id="final-panal" aria-hidden="true"></svg>
+      <svg class="final-panal" id="final-panal" aria-hidden="true" data-par="-0.1"></svg>
       <div class="final-texto">
         <img src="img/bulx-blanco.png" alt="bulx" width="210" height="63">
         <h2>¿Lo vemos con tu material?</h2>

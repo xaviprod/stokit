@@ -71,6 +71,57 @@
     });
   }
 
+  /* ── Parallax ─────────────────────────────────────────────────────────
+     Cada cosa con data-par se mueve con el scroll a su propia velocidad
+     (positivo, más lenta que la página; negativo, más rápida), medida desde
+     el centro de la pantalla: en reposo, en su sitio. Las celdas del hero
+     siguen además al ratón (data-raton = cuántos px como mucho), y la
+     ventana del producto se endereza y crece al subir. Un solo bucle por
+     fotograma y nada si la pestaña no se ve o se pide reducir movimiento. */
+  if (!quieto) {
+    const capas = [...document.querySelectorAll('[data-par]')].map(el => ({ el, v: parseFloat(el.dataset.par) || 0, y0: null }));
+    const raton = [...document.querySelectorAll('[data-raton]')].map(el => ({ el, m: parseFloat(el.dataset.raton) || 0 }));
+    const ventana = document.getElementById('ventana');
+    let mx = 0, my = 0, rx = 0, ry = 0, pendiente = false;
+    const medir = () => capas.forEach(c => { const t = c.el.style.transform; c.el.style.transform = ''; const r = c.el.getBoundingClientRect(); c.y0 = r.top + scrollY + r.height / 2; c.el.style.transform = t; });
+    medir(); addEventListener('resize', () => setTimeout(medir, 220));
+    addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; pedir(); }, { passive: true });
+    addEventListener('scroll', () => pedir(), { passive: true });
+    function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(pinta); } }
+    function pinta() {
+      pendiente = false;
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      const centro = scrollY + innerHeight / 2;
+      capas.forEach(c => {
+        if (c.y0 == null) return;
+        const d = centro - c.y0;
+        if (Math.abs(d) > innerHeight * 1.6) return;   // lejos: no se toca
+        let t = `translate3d(0, ${(d * c.v).toFixed(1)}px, 0)`;
+        const r = raton.find(x => x.el === c.el);
+        if (r) t = `translate3d(${(rx * r.m).toFixed(1)}px, ${(d * c.v + ry * r.m).toFixed(1)}px, 0)`;
+        c.el.style.transform = t;
+      });
+      if (ventana) {
+        /* De inclinada y algo pequeña a plana y a tamaño, en los primeros 500 px. */
+        const k = Math.min(1, scrollY / 500);
+        ventana.style.transform = `perspective(1400px) rotateX(${((1 - k) * 14).toFixed(2)}deg) scale(${(0.93 + 0.07 * k).toFixed(3)})`;
+      }
+      if (Math.abs(mx - rx) > 0.002 || Math.abs(my - ry) > 0.002) pedir();
+    }
+    pinta();
+
+    /* Las tarjetas se inclinan un poco hacia el ratón, como una ficha que se coge. */
+    document.querySelectorAll('.bento .tarjeta, .pasos li, .seg-item').forEach(el => {
+      el.addEventListener('pointermove', (e) => {
+        const b = el.getBoundingClientRect();
+        const x = (e.clientX - b.left) / b.width - 0.5, y = (e.clientY - b.top) / b.height - 0.5;
+        el.classList.add('inclina');
+        el.style.transform = `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg) translateY(-6px)`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; setTimeout(() => el.classList.remove('inclina'), 150); });
+    });
+  }
+
   /* La barra de arriba se marca un poco más al bajar. */
   const nav = document.getElementById('nav');
   addEventListener('scroll', () => { nav.style.boxShadow = scrollY > 20 ? '0 12px 40px -18px rgba(29,31,28,.45)' : ''; }, { passive: true });

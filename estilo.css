@@ -25,7 +25,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body {
+body { position: relative;
   margin: 0; background: var(--lienzo); color: var(--tinta);
   font: 400 17px/1.55 Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased; font-feature-settings: 'ss01', 'cv11';
@@ -320,3 +320,24 @@ p { margin: 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .sube { transform: none; }
 }
+
+/* ── Parallax (vida.js mueve lo que lleva data-par / data-raton) ───────── */
+[data-par], [data-raton] { will-change: transform; }
+.hero-panal { inset: -10% 0 !important; height: 120% !important; }
+.final-panal { inset: -12% 0 !important; height: 124% !important; }
+.celda-capa { position: absolute; inset: 0; transition: transform .25s ease-out; }
+.ventana { transform-origin: 50% 0; transition: box-shadow .4s; }
+/* Las abejas: celdas sueltas que cruzan la página a otra velocidad. */
+.abejas { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+main, .pie { position: relative; z-index: 1; }
+.abeja { position: absolute; display: block; background: var(--amarillo); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); opacity: .9; }
+.abeja.a1 { width: 54px; height: 47px; top: 1150px; left: 3%; }
+.abeja.a2 { width: 26px; height: 23px; top: 1500px; right: 6%; background: var(--negro); }
+.abeja.a3 { width: 90px; height: 78px; top: 2350px; right: -24px; opacity: .55; }
+.abeja.a4 { width: 34px; height: 30px; top: 2900px; left: 5%; }
+.abeja.a5 { width: 20px; height: 17px; top: 3400px; right: 12%; background: var(--negro); }
+.abeja.a6 { width: 70px; height: 61px; top: 4100px; left: -18px; opacity: .6; }
+/* Las tarjetas se inclinan un poco hacia el ratón. */
+.bento .tarjeta, .pasos li, .seg-item { transform-style: preserve-3d; }
+.bento .tarjeta.inclina, .pasos li.inclina, .seg-item.inclina { transition: transform .12s ease-out, box-shadow .3s; }
+@media (max-width: 1000px) { .abejas { display: none; } }

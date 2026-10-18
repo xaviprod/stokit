@@ -6,7 +6,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Empezar",
   "titulo": "Entrar",
-  "texto": "Stokit no tiene una única dirección: cada empresa entra por la suya . La de Palma Pictures es palmapictures.stokit.es . Si entras por…",
+  "texto": "Stokit no tiene una única dirección: cada empresa entra por la suya . La tuya es tuproductora.stokit.es . Si entras por…",
   "url": "empezar.html#entrar",
   "claves": [
    "login",
@@ -479,7 +479,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Flota",
   "titulo": "A pantalla completa",
-  "texto": "El calendario tiene su propia dirección: palmapictures.stokit.es/calendario . Se abre sin barra lateral y sin pestañas, con toda la ventana…",
+  "texto": "El calendario tiene su propia dirección: tuproductora.stokit.es/calendario . Se abre sin barra lateral y sin pestañas, con toda la ventana…",
   "url": "flota.html#calendario-pantalla",
   "claves": []
  },

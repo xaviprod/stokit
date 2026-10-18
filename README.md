@@ -4,7 +4,7 @@ Página estática. No necesita servidor ni compilación.
 
 ```
 index.html      la página de presentación
-entrar.html     redirección a palmapictures.stokit.es (era el "¿de qué empresa eres?")
+entrar.html     redirección a tuproductora.stokit.es (era el "¿de qué empresa eres?")
 manuales/       los manuales de la aplicación  →  stokit.es/manuales
 ```
 
@@ -48,6 +48,6 @@ lanza `generar-indice.py` y después `comprobar-enlaces.py`.
 ## Pendiente antes de enseñarla fuera
 
 - El correo de contacto es `hola@stokit.es` y **todavía no existe**.
-- El botón «Iniciar sesión» va directo a `palmapictures.stokit.es`. Mientras
+- El botón «Iniciar sesión» va directo a `tuproductora.stokit.es`. Mientras
   solo haya una empresa no hay nada que elegir; `entrar.html` se queda como
   redirección para los enlaces viejos.

@@ -371,10 +371,16 @@ section { padding-block:var(--paso); }
    1284×2778 y reducida a 560 de ancho (el doble de lo que ocupa en pantalla,
    para que en una retina no se vea blanda).
 
-   Las capturas salen de un Stokit local cargado con una COPIA ANONIMIZADA de
-   los datos: misma forma y mismo volumen, pero cada nombre, cada matrícula y
-   cada correo son inventados. El guion que lo hace está en el repositorio de
-   la aplicación; si hay que repetirlas, se vuelve a pasar antes.
+   Las capturas salen de un Stokit local cargado con una PRODUCTORA INVENTADA.
+   Al principio se usó una copia anonimizada de los datos de un cliente, y eso
+   estaba mal: cambiaba los nombres pero dejaba el catálogo —la lista de lo que
+   esa casa tiene, artículo por artículo— y las cifras, que dicen el tamaño del
+   negocio. Un modelo de cámara es público; la lista de lo que uno tiene, no.
+
+   Así que ahora la empresa no existe: su catálogo, su flota, su gente y su
+   tamaño se generan de cero. Los guiones están en el repositorio de la
+   aplicación (`anonimizar.py` y `simular.py`); si hay que repetir una captura,
+   se vuelve a pasar la cadena entera antes.
 
    Medidas: proporción de pantalla 1284:2778, bisel del 3,5 % del ancho, radio
    exterior del 13,5 % y la isla al 29 % del ancho, que es lo que mide en un
@@ -435,7 +441,7 @@ section { padding-block:var(--paso); }
 .via-hito { position:absolute; top:18px; left:var(--x); width:9px; height:9px; margin-inline-start:-4.5px; border:1px solid var(--regla); background:var(--hoja); transition:background .3s,border-color .3s,transform .3s cubic-bezier(.2,1.4,.4,1); }
 .via-hito.pasado { background:var(--sello); border-color:var(--sello); transform:scale(1.25); }
 .via-nodo { position:absolute; top:14px; left:var(--via-nodo,12.5%); margin-inline-start:-8.5px; width:17px; height:17px; background:var(--sello); box-shadow:0 0 0 4px color-mix(in srgb,var(--sello) 22%,transparent); transition:left .12s linear; }
-.via-nodo::after { content:'ARRI Alexa 35'; position:absolute; left:50%; bottom:calc(100% + 9px); transform:translateX(-50%); padding:3px 8px; white-space:nowrap; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; background:var(--sello); color:var(--sobre-sello); }
+.via-nodo::after { content:'Cuerpo de cámara A'; position:absolute; left:50%; bottom:calc(100% + 9px); transform:translateX(-50%); padding:3px 8px; white-space:nowrap; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; background:var(--sello); color:var(--sobre-sello); }
 .eslabones { display:grid; gap:1px; background:var(--regla-fina); border:1px solid var(--regla-fina); border-top:0; }
 @media (min-width:900px){ .eslabones { grid-template-columns:repeat(4,1fr); } }
 .eslabon { position:relative; background:var(--hoja); padding:28px 22px; display:grid; gap:8px; align-content:start; overflow:hidden; }
@@ -597,9 +603,9 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
         </div>
 
         <div class="mini-cifras">
-          <div class="mini-cifra"><b>64</b><span>Personas</span></div>
-          <div class="mini-cifra"><b>18</b><span>Vehículos</span></div>
-          <div class="mini-cifra"><b>642</b><span>Artículos</span></div>
+          <div class="mini-cifra"><b>41</b><span>Personas</span></div>
+          <div class="mini-cifra"><b>12</b><span>Vehículos</span></div>
+          <div class="mini-cifra"><b>354</b><span>Artículos</span></div>
           <div class="mini-cifra"><b>47</b><span>Presupuestos</span></div>
         </div>
 
@@ -642,15 +648,15 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
       <div class="marco rev d2" data-lejos="0.08" aria-hidden="true">
         <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es/inventario</span></div>
         <div class="inv-deps">
-          <div class="inv-dep on"><b>Todo</b><span>642 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
-          <div class="inv-dep"><b>Cámara</b><span>214 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
-          <div class="inv-dep"><b>Luces</b><span>186 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
-          <div class="inv-dep"><b>Grip</b><span>98 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+          <div class="inv-dep on"><b>Todo</b><span>354 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+          <div class="inv-dep"><b>Cámara</b><span>142 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+          <div class="inv-dep"><b>Luces</b><span>118 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+          <div class="inv-dep"><b>Grip</b><span>94 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
         </div>
         <table class="mini-tabla">
           <thead><tr><th>Código</th><th>Nombre</th><th>Categoría</th><th>Estado</th></tr></thead>
           <tbody>
-            <tr><td>CAM-014</td><td>ARRI Alexa 35</td><td>Cámara / Cuerpos</td><td><span class="mini-pill uso">En rodaje</span></td></tr>
+            <tr><td>CAM-014</td><td>Cuerpo de cámara A</td><td>Cámara / Cuerpos</td><td><span class="mini-pill uso">En rodaje</span></td></tr>
             <tr><td>CAM-061</td><td>Juego de ópticas 6×</td><td>Cámara / Ópticas</td><td><span class="mini-pill ok">En casa</span></td></tr>
             <tr><td>LUZ-072</td><td>Kit HMI 2.5 kW</td><td>Luces / Descarga</td><td><span class="mini-pill uso">En rodaje</span></td></tr>
             <tr><td>GRP-118</td><td>Dolly con vías 12 m</td><td>Grip / Travelling</td><td><span class="mini-pill av">En el taller</span></td></tr>
@@ -790,10 +796,10 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
         <div class="movil-marco">
           <span class="movil-pantalla">
             <img src="app/vehiculo.jpg" width="560" height="1217" loading="lazy" decoding="async"
-                 alt="La ficha de un vehículo en el iPhone: la furgoneta en grande y, debajo, cuatro tarjetas con la ITV que queda, los kilómetros, el seguro y los partes abiertos.">
+                 alt="Los vehículos en el iPhone: un mapa con la flota situada en la base, un contador con cuántos hay allí, y debajo la lista con su matrícula, su tipo y si están libres.">
           </span>
         </div>
-        <p class="movil-pie">Un vehículo</p>
+        <p class="movil-pie">Vehículos</p>
       </div>
 
       <div class="movil detras" data-lejos="0.13">
@@ -870,7 +876,7 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
           <div class="via-nodo" id="viaNodo"></div>
         </div>
         <div class="eslabones" id="eslabones">
-          <div class="eslabon"><span class="campo">01 · Material</span><b>ARRI Alexa 35</b><span>Salida registrada con revisión fotográfica, escaneando su QR.</span></div>
+          <div class="eslabon"><span class="campo">01 · Material</span><b>Cuerpo de cámara A</b><span>Salida registrada con revisión fotográfica, escaneando su QR.</span></div>
           <div class="eslabon"><span class="campo">02 · Flota</span><b>Furgoneta 01</b><span>Vehículo asignado y bloqueado en el calendario esos días.</span></div>
           <div class="eslabon"><span class="campo">03 · Rodaje</span><b>Spot Meridiano</b><span>El proyecto de destino, con sus fechas y su equipo.</span></div>
           <div class="eslabon"><span class="campo">04 · Presupuesto</span><b>Línea del cliente</b><span>Al precio del catálogo vigente en esa fecha, no al del rodaje anterior.</span></div>

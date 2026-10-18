@@ -3,44 +3,125 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stokit · entrando</title>
+<title>Stokit · entrar</title>
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="favicon.png">
 <!-- ══════════════════════════════════════════════════════════════════════════
-     Esto era el «¿de qué empresa eres?» que llevaba a cada subdominio.
+     «¿De qué productora eres?».
 
-     Hoy solo hay una empresa, así que preguntarlo era un paso que no decidía
-     nada. La página se queda —redirigiendo— y no se borra a propósito: hay
-     marcadores y enlaces viejos apuntando aquí, y un 404 en la puerta de
-     entrada es la peor manera de recibir a alguien que quiere trabajar.
+     Esta página existía, llevaba a un subdominio escrito a mano y se convirtió
+     en una redirección cuando solo había una empresa. Eso ataba la web de
+     presentación —que es del PRODUCTO— al nombre de un cliente concreto: salía
+     en el código, en la etiqueta canónica y en la barra de direcciones de
+     cualquiera que pulsara «Iniciar sesión». Stokit se vende a más de una
+     productora, así que vuelve a preguntar.
 
-     Tres capas para que funcione siempre: la cabecera del navegador, el guion
-     y, si no hay ninguna de las dos, un enlace a mano.
+     Cada casa tiene su propia dirección, <su-nombre>.stokit.es. Se recuerda la
+     última en este navegador, así que quien entra a diario escribe una vez y
+     ya; y se queda el enlace a mano por si el guion no corre.
      ══════════════════════════════════════════════════════════════════════ -->
-<meta http-equiv="refresh" content="0; url=https://palmapictures.stokit.es/">
-<link rel="canonical" href="https://palmapictures.stokit.es/">
 <style>
-  :root { color-scheme: light dark; --papel: #eef0f4; --tinta: #14161f; --tinta-2: #4e5566; --sello: #c8102e; }
-  @media (prefers-color-scheme: dark) { :root { --papel: #0b0b0d; --tinta: #eaecf2; --tinta-2: #9aa2b4; --sello: #ff4d5f; } }
-  html, body { height: 100%; }
-  body {
-    margin: 0; display: grid; place-items: center; gap: 0;
-    background: var(--papel); color: var(--tinta);
-    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  :root {
+    color-scheme: light dark;
+    --papel:#eef0f4; --hoja:#fff; --tinta:#14161f; --tinta-2:#4e5566; --tinta-3:#767d8d;
+    --regla:#c6ccd7; --sello:#c8102e; --sobre-sello:#fff;
   }
-  .caja { text-align: center; padding: 26px; }
-  .marca { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.02em; font-size: 19px; }
-  .punto { width: 9px; height: 9px; background: var(--sello); }
-  p { margin: 18px 0 0; color: var(--tinta-2); font-size: 15px; }
-  a { color: var(--tinta); }
+  @media (prefers-color-scheme: dark) {
+    :root { --papel:#0b0b0d; --hoja:#131418; --tinta:#eaecf2; --tinta-2:#a6adbc; --tinta-3:#838a9a;
+            --regla:#2b303b; --sello:#ff4d5f; --sobre-sello:#14161f; }
+  }
+  * { box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    margin:0; display:grid; place-items:center; padding:24px;
+    background:var(--papel); color:var(--tinta);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  .caja { width:100%; max-width:380px; }
+  .marca { display:inline-flex; align-items:center; gap:10px; margin-bottom:26px; }
+  .marca svg { width:20px; height:20px; }
+  .marca svg path { fill:currentColor; }
+  .marca b { font-family:Archivo, ui-sans-serif, system-ui, sans-serif; font-weight:800; font-size:17px; letter-spacing:-.035em; }
+  h1 { margin:0 0 8px; font-family:Archivo, ui-sans-serif, system-ui, sans-serif;
+       font-size:27px; font-weight:700; letter-spacing:-.035em; line-height:1.1; }
+  p.pie { margin:0 0 22px; color:var(--tinta-2); font-size:14.5px; line-height:1.55; }
+  label { display:block; font-family:"IBM Plex Mono", ui-monospace, monospace;
+          font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+          color:var(--tinta-3); margin-bottom:8px; }
+  .campo { display:flex; align-items:stretch; border:1px solid var(--regla); background:var(--hoja); }
+  .campo:focus-within { border-color:var(--tinta); }
+  .campo input {
+    flex:1; min-width:0; border:0; background:transparent; color:var(--tinta);
+    padding:0 12px; height:48px; font:inherit; font-size:16px; outline:none;
+  }
+  .campo .sufijo { display:flex; align-items:center; padding-inline-end:12px;
+                   font-family:"IBM Plex Mono", monospace; font-size:13px; color:var(--tinta-3); }
+  button {
+    margin-top:12px; width:100%; height:48px; border:1px solid var(--tinta);
+    background:var(--tinta); color:var(--papel); cursor:pointer;
+    font-family:"IBM Plex Mono", monospace; font-size:11.5px; font-weight:600;
+    letter-spacing:.11em; text-transform:uppercase;
+    transition:background .17s, border-color .17s, color .17s;
+  }
+  button:hover { background:var(--sello); border-color:var(--sello); color:var(--sobre-sello); }
+  .aviso { margin-top:12px; font-size:13px; color:var(--sello); min-height:1.2em; }
+  .atras { margin-top:26px; font-size:13.5px; }
+  .atras a { color:var(--tinta-2); }
 </style>
 </head>
 <body>
   <div class="caja">
-    <span class="marca"><i class="punto"></i> Stokit</span>
-    <p>Llevándote a tu Stokit…</p>
-    <p><a href="https://palmapictures.stokit.es/">Entrar ahora</a></p>
+    <span class="marca">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/><path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/></svg>
+      <b>Stokit</b>
+    </span>
+
+    <h1>¿De qué productora eres?</h1>
+    <p class="pie">Cada casa tiene su propia dirección. Escribe la tuya y te llevo.</p>
+
+    <form id="f" autocomplete="on">
+      <label for="casa">Tu productora</label>
+      <div class="campo">
+        <input id="casa" name="casa" inputmode="url" autocapitalize="none"
+               autocorrect="off" spellcheck="false" placeholder="tuproductora" required>
+        <span class="sufijo">.stokit.es</span>
+      </div>
+      <button type="submit">Entrar</button>
+      <p class="aviso" id="aviso" role="status"></p>
+    </form>
+
+    <p class="atras"><a href="/">Volver a Stokit</a></p>
   </div>
-  <script>location.replace('https://palmapictures.stokit.es/');</script>
+
+<script>
+(function () {
+  'use strict';
+  var f = document.getElementById('f'), campo = document.getElementById('casa'), aviso = document.getElementById('aviso');
+
+  /* Quien entra todos los días no tiene por qué escribirlo cada vez. */
+  try {
+    var ultima = localStorage.getItem('stokit_casa');
+    if (ultima) campo.value = ultima;
+  } catch (e) {}
+  campo.focus();
+  campo.select();
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    /* Se acepta lo que escriba la gente —«Tu Productora», con espacios, o
+       «tuproductora.stokit.es» entero— y se queda solo la etiqueta. */
+    var n = campo.value.trim().toLowerCase()
+      .replace(/^https?:\/\//, '')
+      .replace(/\.stokit\.es.*$/, '')
+      .replace(/\/.*$/, '')
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    if (!n) { aviso.textContent = 'Escribe el nombre de tu productora.'; campo.focus(); return; }
+    try { localStorage.setItem('stokit_casa', n); } catch (e) {}
+    location.href = 'https://' + n + '.stokit.es/';
+  });
+})();
+</script>
 </body>
 </html>

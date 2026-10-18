@@ -16,40 +16,35 @@
 
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
-   Stokit · web de presentación (rehecha el 18/10/2026)
+   Stokit · web de presentación (18/10/2026)
 
-   La anterior contaba «cuatro áreas» y se escribió en agosto. Desde entonces
-   Stokit tiene app nativa en la App Store, chat, clientes con versiones de
-   presupuesto y enlace público, Power BI, jornada y tarifas, medidas y peso…
-   Nada de eso salía. Esta se escribe sobre lo que el producto hace hoy.
+   ⚠ TODO LO QUE SE VE EN LOS MOCKUPS ES INVENTADO. Son recreaciones en HTML
+   de las pantallas reales, no capturas: ni una matrícula, ni un código de
+   flota, ni un nombre de rodaje, ni una cifra de ningún cliente. Se hacen así
+   a propósito y por tres motivos: no se filtra nada, quedan nítidos en
+   cualquier pantalla (una captura sale a 800 px y se ve blanda), y no se
+   quedan viejos con el próximo rediseño de la aplicación.
 
-   Se mantiene la identidad, que ya es la del producto: Archivo + IBM Plex,
-   todo cuadrado, el rojo como sello, y el papel milimetrado de fondo que se
-   enciende alrededor del cursor.
+   Si algún día se cambian por capturas de verdad: pasarlas antes por el modo
+   demo (?demo=1) y revisar flota y presupuestos a mano, que el demo no cubre.
 
-   OJO: no se factura desde Stokit (se factura fuera), así que aquí no se
-   promete facturación. Y no aparece el nombre de ningún cliente.
+   Identidad: Archivo + IBM Plex, todo cuadrado, el rojo como sello, y el
+   papel milimetrado de fondo que se enciende alrededor del cursor.
+
+   OJO: no se factura desde Stokit, así que aquí no se promete facturación.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  --papel:      #eef0f4;
-  --hoja:       #ffffff;
-  --hoja-2:     #f6f7fa;
-  --tinta:      #14161f;
-  --tinta-2:    #4e5566;
-  --tinta-3:    #767d8d;
-  --regla:      #c6ccd7;
-  --regla-fina: #e2e6ec;
-  --sello:      #c8102e;
-  --sobre-sello:#ffffff;
-  --verde:      #1a7f4b;
-  --ambar:      #8a6410;
-  --velo:       rgba(255,255,255,.84);
-  --trama:      rgba(20,22,31,.05);
-  --trama-viva: rgba(20,22,31,.15);
-  --halo:       rgba(200,16,46,.09);
-  --ancho: 1180px;
-  --paso: clamp(66px, 8vw, 122px);
+  --papel:#eef0f4; --hoja:#fff; --hoja-2:#f6f7fa;
+  --tinta:#14161f; --tinta-2:#4e5566; --tinta-3:#767d8d;
+  --regla:#c6ccd7; --regla-fina:#e2e6ec;
+  --sello:#c8102e; --sobre-sello:#fff;
+  --verde:#1a7f4b; --ambar:#8a6410; --azul:#2c5fd0;
+  --velo:rgba(255,255,255,.84);
+  --trama:rgba(20,22,31,.05); --trama-viva:rgba(20,22,31,.15);
+  --halo:rgba(200,16,46,.09);
+  --sombra: 0 1px 2px rgba(20,22,31,.05), 0 12px 40px -12px rgba(20,22,31,.18);
+  --ancho:1180px; --paso:clamp(86px,10vw,158px);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -57,10 +52,11 @@
     --tinta:#eaecf2; --tinta-2:#a6adbc; --tinta-3:#838a9a;
     --regla:#2b303b; --regla-fina:#22262e;
     --sello:#ff4d5f; --sobre-sello:#14161f;
-    --verde:#3ec27e; --ambar:#d9a441;
+    --verde:#3ec27e; --ambar:#d9a441; --azul:#6f9bff;
     --velo:rgba(11,11,13,.84);
     --trama:rgba(255,255,255,.042); --trama-viva:rgba(255,255,255,.14);
     --halo:rgba(255,77,95,.12);
+    --sombra: 0 1px 2px rgba(0,0,0,.5), 0 16px 50px -14px rgba(0,0,0,.7);
   }
 }
 :root[data-theme="dark"] {
@@ -68,306 +64,371 @@
   --tinta:#eaecf2; --tinta-2:#a6adbc; --tinta-3:#838a9a;
   --regla:#2b303b; --regla-fina:#22262e;
   --sello:#ff4d5f; --sobre-sello:#14161f;
-  --verde:#3ec27e; --ambar:#d9a441;
+  --verde:#3ec27e; --ambar:#d9a441; --azul:#6f9bff;
   --velo:rgba(11,11,13,.84);
   --trama:rgba(255,255,255,.042); --trama-viva:rgba(255,255,255,.14);
   --halo:rgba(255,77,95,.12);
+  --sombra: 0 1px 2px rgba(0,0,0,.5), 0 16px 50px -14px rgba(0,0,0,.7);
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 86px; }
-body {
-  margin: 0; background: var(--papel); color: var(--tinta);
-  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin:0; background:var(--papel); color:var(--tinta);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
 
-/* ── Fondo: papel milimetrado que se enciende con el cursor ─────────────── */
-.fondo { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.fondo > div { position: absolute; inset: -60px; }
-.trama, .trama-viva {
-  background-size: 58px 58px;
-  transform: translate3d(0, var(--deriva, 0px), 0);
-}
-.trama {
-  background-image:
-    linear-gradient(to right, var(--trama) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--trama) 1px, transparent 1px);
-}
+/* ── Fondo ──────────────────────────────────────────────────────────────── */
+.fondo { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.fondo > div { position:absolute; inset:-60px; }
+.trama,.trama-viva { background-size:58px 58px; transform:translate3d(0,var(--deriva,0),0); }
+.trama { background-image:
+  linear-gradient(to right,var(--trama) 1px,transparent 1px),
+  linear-gradient(to bottom,var(--trama) 1px,transparent 1px); }
 .trama-viva {
   background-image:
-    linear-gradient(to right, var(--trama-viva) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--trama-viva) 1px, transparent 1px);
-  -webkit-mask-image: radial-gradient(circle 300px at var(--mx,50%) var(--my,40%), #000 0%, rgba(0,0,0,.45) 45%, transparent 72%);
-          mask-image: radial-gradient(circle 300px at var(--mx,50%) var(--my,40%), #000 0%, rgba(0,0,0,.45) 45%, transparent 72%);
-}
-.halo { background-image: radial-gradient(circle 380px at var(--mx,50%) var(--my,40%), var(--halo) 0%, transparent 70%); }
-.barra, .portada, section, footer { position: relative; z-index: 1; }
-
-/* La lente: desenfoca lo que tiene detrás, sin duplicar el texto. */
+    linear-gradient(to right,var(--trama-viva) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--trama-viva) 1px,transparent 1px);
+  -webkit-mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,40%),#000 0%,rgba(0,0,0,.45) 45%,transparent 72%);
+          mask-image:radial-gradient(circle 300px at var(--mx,50%) var(--my,40%),#000 0%,rgba(0,0,0,.45) 45%,transparent 72%); }
+.halo { background-image:radial-gradient(circle 380px at var(--mx,50%) var(--my,40%),var(--halo) 0%,transparent 70%); }
+.barra,.portada,section,footer { position:relative; z-index:1; }
 .lente {
-  position: fixed; inset: 0; z-index: 5; pointer-events: none; opacity: 0;
-  transition: opacity .28s ease;
-  -webkit-backdrop-filter: blur(2.5px) saturate(114%);
-          backdrop-filter: blur(2.5px) saturate(114%);
-  -webkit-mask-image: radial-gradient(circle 155px at var(--mx,50%) var(--my,40%), rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 46%, transparent 72%);
-          mask-image: radial-gradient(circle 155px at var(--mx,50%) var(--my,40%), rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 46%, transparent 72%);
+  position:fixed; inset:0; z-index:5; pointer-events:none; opacity:0; transition:opacity .28s;
+  -webkit-backdrop-filter:blur(2.5px) saturate(114%); backdrop-filter:blur(2.5px) saturate(114%);
+  -webkit-mask-image:radial-gradient(circle 155px at var(--mx,50%) var(--my,40%),rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 46%,transparent 72%);
+          mask-image:radial-gradient(circle 155px at var(--mx,50%) var(--my,40%),rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 46%,transparent 72%); }
+.lente.on { opacity:1; }
+
+@media (max-width:700px){
+  :root { --trama:rgba(20,22,31,.032); --trama-viva:rgba(20,22,31,.09); }
 }
-.lente.on { opacity: 1; }
-
-.env { max-width: var(--ancho); margin-inline: auto; padding-inline: 26px; }
-
-h1,h2,h3 { font-family: Archivo, ui-sans-serif, system-ui, sans-serif; text-wrap: balance; margin: 0; letter-spacing: -.03em; line-height: 1.04; }
-h1 { font-weight: 500; font-size: clamp(42px, 7vw, 88px); letter-spacing: -.045em; line-height: .98; }
-h2 { font-weight: 700; font-size: clamp(27px, 3.4vw, 42px); }
-h3 { font-weight: 600; font-size: 17.5px; letter-spacing: -.015em; line-height: 1.3; }
-p { margin: 0; }
-
-.campo {
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  font-size: 10.5px; font-weight: 600; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--tinta-3);
+@media (max-width:700px) and (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) { --trama:rgba(255,255,255,.026); --trama-viva:rgba(255,255,255,.085); }
 }
-.dato { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--sello); outline-offset: 3px; }
+@media (max-width:700px){
+  :root[data-theme="dark"] { --trama:rgba(255,255,255,.026); --trama-viva:rgba(255,255,255,.085); }
+}
+
+.env { max-width:var(--ancho); margin-inline:auto; padding-inline:26px; }
+h1,h2,h3 { font-family:Archivo,ui-sans-serif,system-ui,sans-serif; text-wrap:balance; margin:0; letter-spacing:-.03em; line-height:1.04; }
+h1 { font-weight:500; font-size:clamp(46px,7.6vw,100px); letter-spacing:-.047em; line-height:.96; }
+h2 { font-weight:700; font-size:clamp(29px,3.8vw,48px); }
+h3 { font-weight:600; font-size:17.5px; letter-spacing:-.015em; line-height:1.3; }
+p { margin:0; }
+.campo { font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); }
+a:focus-visible, button:focus-visible { outline:2px solid var(--sello); outline-offset:3px; }
 
 /* ── Cabecera ───────────────────────────────────────────────────────────── */
-.barra {
-  position: sticky; top: 0; z-index: 50; background: var(--velo);
-  backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid transparent; transition: border-color .2s ease;
-}
-.barra.pegada { border-bottom-color: var(--regla); }
-.barra .env { display: flex; align-items: center; gap: 20px; height: 66px; transition: height .2s ease; }
-.barra.pegada .env { height: 56px; }
-.marca { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--tinta); }
-.marca .logo { width: 22px; height: 22px; transition: color .2s ease; }
-.marca:hover .logo { color: var(--sello); }
-.marca b { font-family: Archivo, sans-serif; font-weight: 800; font-size: 17.5px; letter-spacing: -.035em; }
-.logo { display: block; color: currentColor; }
-.logo path { fill: currentColor; }
+.barra { position:sticky; top:0; z-index:50; background:var(--velo); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid transparent; transition:border-color .2s; }
+.barra.pegada { border-bottom-color:var(--regla); }
+.barra .env { display:flex; align-items:center; gap:20px; height:68px; transition:height .2s; }
+.barra.pegada .env { height:57px; }
+.marca { display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--tinta); }
+.marca .logo { width:22px; height:22px; transition:color .2s; }
+.marca:hover .logo { color:var(--sello); }
+.marca b { font-family:Archivo,sans-serif; font-weight:800; font-size:17.5px; letter-spacing:-.035em; }
+.logo { display:block; color:currentColor; } .logo path { fill:currentColor; }
+nav.menu { position:relative; display:flex; align-items:center; gap:2px; margin-inline-start:auto; }
+nav.menu a { position:relative; z-index:1; padding:9px 13px; font-size:13.5px; font-weight:500; color:var(--tinta-2); text-decoration:none; transition:color .18s; }
+nav.menu a:hover, nav.menu a.aqui { color:var(--tinta); }
+nav.menu a.aqui { font-weight:600; }
+.indicador { position:absolute; bottom:2px; left:0; height:2px; width:var(--ind-w,0); transform:translateX(var(--ind-x,0)); background:var(--sello); opacity:0; }
+.indicador.listo { opacity:1; transition:transform .32s cubic-bezier(.2,.9,.3,1),width .32s cubic-bezier(.2,.9,.3,1),opacity .2s; }
+.barra .entrar { margin-inline-start:8px; } .barra .cta { margin-inline-start:6px; }
+@media (max-width:1040px){ nav.menu{display:none} .barra .entrar{margin-inline-start:auto} }
+@media (max-width:620px){ .barra .entrar{display:none} .barra .cta{margin-inline-start:auto} }
+.progreso { position:absolute; left:0; bottom:-1px; height:2px; background:var(--sello); width:var(--avance,0); transition:width .08s linear; }
 
-nav.menu { position: relative; display: flex; align-items: center; gap: 2px; margin-inline-start: auto; }
-nav.menu a { position: relative; z-index: 1; padding: 9px 13px; font-size: 13.5px; font-weight: 500; color: var(--tinta-2); text-decoration: none; transition: color .18s ease; }
-nav.menu a:hover, nav.menu a.aqui { color: var(--tinta); }
-nav.menu a.aqui { font-weight: 600; }
-.indicador { position: absolute; bottom: 2px; left: 0; height: 2px; width: var(--ind-w,0); transform: translateX(var(--ind-x,0)); background: var(--sello); opacity: 0; }
-.indicador.listo { opacity: 1; transition: transform .32s cubic-bezier(.2,.9,.3,1), width .32s cubic-bezier(.2,.9,.3,1), opacity .2s; }
-.barra .entrar { margin-inline-start: 8px; }
-.barra .cta { margin-inline-start: 6px; }
-@media (max-width: 1020px) { nav.menu { display: none; } .barra .entrar { margin-inline-start: auto; } }
-@media (max-width: 600px)  { .barra .cta { display: none; } }
-.progreso { position: absolute; left: 0; bottom: -1px; height: 2px; background: var(--sello); width: var(--avance,0); transition: width .08s linear; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; height:44px; padding:0 22px; white-space:nowrap; text-decoration:none;
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:600; letter-spacing:.11em; text-transform:uppercase;
+  border:1px solid var(--tinta); background:var(--tinta); color:var(--papel); transition:background .17s,color .17s,border-color .17s,transform .17s; }
+.btn:hover { background:var(--sello); border-color:var(--sello); color:var(--sobre-sello); transform:translateY(-1px); }
+.btn.hueco { background:transparent; color:var(--tinta); border-color:var(--regla); }
+.btn.hueco:hover { background:var(--tinta); color:var(--papel); border-color:var(--tinta); }
 
-/* ── Botones ────────────────────────────────────────────────────────────── */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-  height: 42px; padding: 0 20px; white-space: nowrap; text-decoration: none;
-  font-family: "IBM Plex Mono", monospace; font-size: 11.5px; font-weight: 600;
-  letter-spacing: .11em; text-transform: uppercase;
-  border: 1px solid var(--tinta); background: var(--tinta); color: var(--papel);
-  transition: background .17s, color .17s, border-color .17s, transform .17s;
-}
-.btn:hover { background: var(--sello); border-color: var(--sello); color: var(--sobre-sello); transform: translateY(-1px); }
-.btn.hueco { background: transparent; color: var(--tinta); border-color: var(--regla); }
-.btn.hueco:hover { background: var(--tinta); color: var(--papel); border-color: var(--tinta); }
-
-/* ── Revelado ───────────────────────────────────────────────────────────── */
-.rev { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1); }
-.rev.visto { opacity: 1; transform: none; }
-.rev.d1 { transition-delay:.07s } .rev.d2 { transition-delay:.14s }
-.rev.d3 { transition-delay:.21s } .rev.d4 { transition-delay:.28s }
+.rev { opacity:0; transform:translateY(22px); transition:opacity .75s cubic-bezier(.16,.8,.3,1),transform .75s cubic-bezier(.16,.8,.3,1); }
+.rev.visto { opacity:1; transform:none; }
+.rev.d1{transition-delay:.07s} .rev.d2{transition-delay:.14s} .rev.d3{transition-delay:.21s} .rev.d4{transition-delay:.28s}
 
 /* ── Portada ────────────────────────────────────────────────────────────── */
-.portada { padding-block: clamp(82px, 11vw, 150px) 0; }
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-.punto { width: 7px; height: 7px; background: var(--sello); }
-.portada h1 { max-width: 15ch; }
-.tesis { max-width: 54ch; margin-top: 28px; font-size: clamp(17px,1.6vw,20px); line-height: 1.6; color: var(--tinta-2); }
-.tesis strong { color: var(--tinta); font-weight: 600; }
-.acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+.portada { padding-block:clamp(92px,13vw,172px) 0; text-align:center; }
+.eyebrow { display:inline-flex; align-items:center; gap:10px; margin-bottom:24px; }
+.punto { width:7px; height:7px; background:var(--sello); }
+.portada h1 { max-width:16ch; margin-inline:auto; }
+.tesis { max-width:58ch; margin:30px auto 0; font-size:clamp(17px,1.7vw,21px); line-height:1.6; color:var(--tinta-2); }
+.tesis strong { color:var(--tinta); font-weight:600; }
+.acciones { display:flex; flex-wrap:wrap; gap:11px; margin-top:38px; justify-content:center; }
+.donde { display:flex; flex-wrap:wrap; justify-content:center; gap:12px 30px; margin-top:34px; }
+.donde span { display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--tinta-2); }
+.donde svg { color:var(--sello); flex:0 0 auto; }
 
-/* Tira de dónde se usa */
-.donde { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--regla-fina); }
-.donde span { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--tinta-2); }
-.donde svg { color: var(--sello); flex: 0 0 auto; }
+/* ══ MOCKUPS ═══════════════════════════════════════════════════════════════
+   Marco de navegador y una miniatura de la aplicación dentro. Todo dibujado:
+   los datos son inventados y las medidas van en em para que el conjunto
+   escale con un solo font-size.                                            */
+.marco { border:1px solid var(--regla); background:var(--hoja); box-shadow:var(--sombra); overflow:hidden; text-align:left; }
+.marco-barra { display:flex; align-items:center; gap:10px; padding:9px 13px; border-bottom:1px solid var(--regla-fina); background:var(--hoja-2); }
+.marco-barra i { width:9px; height:9px; background:var(--regla); flex:0 0 auto; }
+.marco-url { flex:1; min-width:0; margin-inline-start:6px; padding:3px 10px; background:var(--papel); border:1px solid var(--regla-fina);
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--tinta-3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
-/* ── Muestra de producto ────────────────────────────────────────────────── */
-.muestra { margin-top: clamp(50px,6vw,80px); border: 1px solid var(--regla); background: var(--hoja); }
-.muestra-cab { display: flex; align-items: center; gap: 12px; padding: 11px 16px; border-bottom: 1px solid var(--regla-fina); background: var(--hoja-2); }
-.muestra-cab .campo { margin-inline-end: auto; }
-.semaforo { display: flex; gap: 5px; }
-.semaforo i { width: 8px; height: 8px; background: var(--regla); }
-.tabla-wrap { overflow-x: auto; }
-table.gear { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 13.5px; }
-table.gear th { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--regla-fina); font-family:"IBM Plex Mono",monospace; font-size: 10px; font-weight: 600; letter-spacing:.16em; text-transform: uppercase; color: var(--tinta-3); white-space: nowrap; }
-table.gear td { padding: 13px 16px; border-bottom: 1px solid var(--regla-fina); }
-table.gear tr:last-child td { border-bottom: 0; }
-.cod { font-family:"IBM Plex Mono",monospace; color: var(--tinta-3); font-size: 12.5px; }
-.nom { font-weight: 500; }
-.sub { display: block; font-size: 12px; color: var(--tinta-3); }
-.pill { display: inline-block; padding: 3px 9px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:.06em; white-space: nowrap; background: var(--hoja-2); color: var(--tinta-2); border: 1px solid var(--regla-fina); }
-.pill.fuera { background: color-mix(in srgb, var(--sello) 10%, transparent); color: var(--sello); border-color: transparent; }
-.pill.aviso { background: color-mix(in srgb, var(--ambar) 14%, transparent); color: var(--ambar); border-color: transparent; }
-.pill.ok    { background: color-mix(in srgb, var(--verde) 12%, transparent); color: var(--verde); border-color: transparent; }
+.mini { display:grid; grid-template-columns:150px minmax(0,1fr); font-size:11px; }
+.mini-lado { border-inline-end:1px solid var(--regla-fina); padding:12px 10px; background:var(--hoja-2); display:flex; flex-direction:column; gap:3px; }
+.mini-marca { display:flex; align-items:center; gap:7px; padding:2px 6px 11px; }
+.mini-marca .logo { width:13px; height:13px; }
+.mini-marca b { font-family:Archivo,sans-serif; font-size:12px; letter-spacing:-.03em; }
+.mini-gr { padding:11px 6px 4px; font-family:"IBM Plex Mono",monospace; font-size:8px; letter-spacing:.16em; color:var(--tinta-3); }
+.mini-it { padding:5px 7px; color:var(--tinta-2); border-inline-start:2px solid transparent; }
+.mini-it.on { color:var(--tinta); font-weight:600; background:var(--hoja); border-inline-start-color:var(--sello); }
+.mini-cuerpo { padding:16px 18px 18px; min-width:0; }
+.mini-h { font-family:Archivo,sans-serif; font-size:21px; font-weight:700; letter-spacing:-.035em; margin-bottom:2px; }
+.mini-sub { font-size:10.5px; color:var(--tinta-3); }
 
-/* ── Secciones ──────────────────────────────────────────────────────────── */
-section { padding-block: var(--paso); }
-.linea { border-top: 1px solid var(--regla); }
-.cab-sec { display: grid; grid-template-columns: 176px minmax(0,1fr); gap: 30px; align-items: start; margin-bottom: 46px; }
-.cab-sec .campo { padding-top: 10px; }
-.cab-sec p { max-width: 58ch; margin-top: 15px; color: var(--tinta-2); font-size: 16.5px; }
-@media (max-width: 780px) { .cab-sec { grid-template-columns: 1fr; gap: 12px; } .cab-sec .campo { padding-top: 0; } }
+/* Barra de días de rodaje */
+.mini-tira { display:flex; height:11px; margin:14px 0 7px; gap:2px; }
+.mini-tira i { display:block; }
+.mini-tira .a { flex:112; background:var(--sello); }
+.mini-tira .b { flex:26; background:var(--tinta); }
+.mini-tira .c { flex:26; background:var(--regla); }
+.mini-leyenda { display:flex; gap:14px; font-size:9px; color:var(--tinta-3); }
+.mini-leyenda b { color:var(--tinta); font-size:10px; display:block; }
 
-/* ── La app ─────────────────────────────────────────────────────────────── */
-.app-fila { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: clamp(32px,5vw,70px); align-items: center; }
-@media (max-width: 900px) { .app-fila { grid-template-columns: 1fr; } .movil { justify-self: start; } }
-.app-lista { display: grid; gap: 16px; margin-top: 26px; margin-bottom: 0; padding: 0; }
-.app-lista li { display: flex; gap: 13px; align-items: flex-start; list-style: none; }
-.app-lista svg { flex: 0 0 auto; margin-top: 3px; color: var(--sello); }
-.app-lista b { display: block; font-size: 15px; font-weight: 600; }
-.app-lista span { font-size: 14.5px; color: var(--tinta-2); line-height: 1.55; }
+.mini-cifras { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:16px 0 0; }
+.mini-cifra b { display:block; font-family:Archivo,sans-serif; font-size:23px; font-weight:700; letter-spacing:-.04em; line-height:1; }
+.mini-cifra span { font-size:9px; color:var(--tinta-3); }
 
-/* Un iPhone dibujado, sin imagen: nada que se quede viejo ni que pese. */
-.movil { width: 272px; border: 10px solid var(--tinta); background: var(--hoja); }
-.movil-barra { display: flex; align-items: center; justify-content: space-between; padding: 9px 14px 7px; font-family:"IBM Plex Mono",monospace; font-size: 10px; color: var(--tinta-3); }
-.movil-cuerpo { padding: 4px 14px 14px; }
-.movil h4 { margin: 0 0 2px; font-family: Archivo, sans-serif; font-size: 23px; font-weight: 700; letter-spacing: -.035em; }
-.movil .campo { font-size: 9.5px; }
-.movil-cifra { margin: 14px 0 4px; display: flex; align-items: baseline; gap: 8px; }
-.movil-cifra b { font-family: Archivo, sans-serif; font-size: 38px; font-weight: 700; letter-spacing: -.04em; line-height: 1; }
-.movil-cifra i { font-style: normal; font-size: 12px; color: var(--verde); font-weight: 600; }
-.movil-linea { height: 34px; margin: 10px 0 14px; display: flex; align-items: flex-end; gap: 3px; }
-.movil-linea i { flex: 1; background: color-mix(in srgb, var(--sello) 28%, transparent); }
-.movil-linea i:last-child { background: var(--sello); }
-.movil-teja { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--regla-fina); font-size: 13px; }
-.movil-teja b { margin-inline-start: auto; font-family:"IBM Plex Mono",monospace; font-size: 12px; }
-.movil-nav { display: flex; justify-content: space-around; padding: 11px 0 3px; margin-top: 6px; border-top: 1px solid var(--regla); color: var(--tinta-3); }
-.movil-nav svg:first-child { color: var(--sello); }
+.mini-tarjetas { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px; }
+.mini-t { border:1px solid var(--regla-fina); padding:11px 12px 12px; background:var(--hoja); }
+.mini-t-cab { display:flex; align-items:center; justify-content:space-between; font-size:9.5px; color:var(--tinta-3); margin-bottom:7px; }
+.mini-t b { font-family:Archivo,sans-serif; font-size:26px; font-weight:700; letter-spacing:-.04em; line-height:1; }
+.mini-t em { font-style:normal; font-size:9px; color:var(--verde); font-weight:600; margin-inline-start:5px; }
+.mini-spark { display:block; width:100%; height:26px; margin-top:7px; color:var(--sello); }
 
-/* ── Rejilla de áreas ───────────────────────────────────────────────────── */
-.areas { display: grid; gap: 1px; background: var(--regla-fina); border: 1px solid var(--regla-fina); }
-@media (min-width: 620px) { .areas { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1000px) { .areas { grid-template-columns: repeat(4,1fr); } }
-.area { background: var(--hoja); padding: 22px 20px 24px; display: flex; flex-direction: column; gap: 9px; transition: background .18s; }
-.area:hover { background: var(--hoja-2); }
-.area-ico { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--regla-fina); color: var(--sello); }
-.area h3 { margin-top: 3px; }
-.area p { font-size: 14px; color: var(--tinta-2); line-height: 1.55; }
-.area i { font-style: normal; margin-top: auto; padding-top: 10px; font-family:"IBM Plex Mono",monospace; font-size: 11px; color: var(--tinta-3); letter-spacing: .04em; }
+/* Timeline de flota */
+.tl { font-size:10.5px; }
+.tl-cab { display:flex; align-items:center; gap:8px; padding:12px 14px 10px; }
+.tl-cab .seg { display:flex; border:1px solid var(--regla-fina); }
+.tl-cab .seg span { padding:3px 9px; font-size:9.5px; color:var(--tinta-2); }
+.tl-cab .seg span.on { background:var(--tinta); color:var(--papel); font-weight:600; }
+.tl-cab .hoy { margin-inline-start:auto; font-family:"IBM Plex Mono",monospace; font-size:9.5px; color:var(--tinta-3); }
+.tl-rej { display:grid; grid-template-columns:132px repeat(14,minmax(0,1fr)); border-top:1px solid var(--regla-fina); }
+.tl-dia { padding:5px 0; text-align:center; font-family:"IBM Plex Mono",monospace; font-size:8.5px; color:var(--tinta-3); border-inline-start:1px solid var(--regla-fina); }
+.tl-dia.fin { background:var(--hoja-2); }
+.tl-dia.hoy { color:var(--sello); font-weight:700; }
+.tl-veh { padding:7px 10px; border-top:1px solid var(--regla-fina); }
+.tl-veh b { display:block; font-size:10.5px; font-weight:600; }
+.tl-veh span { font-size:9px; color:var(--tinta-3); }
+.tl-cel { border-top:1px solid var(--regla-fina); border-inline-start:1px solid var(--regla-fina); min-height:30px; position:relative; }
+.tl-cel.fin { background:var(--hoja-2); }
+.tl-barra { position:absolute; inset:5px 2px; display:flex; align-items:center; padding-inline:6px; font-size:9px; font-weight:600; color:var(--sobre-sello); background:var(--sello); overflow:hidden; white-space:nowrap; }
+.tl-barra.prev { background:transparent; border:1px dashed var(--sello); color:var(--sello); }
+.tl-barra.taller { background:var(--ambar); }
+.tl-chip { display:inline-block; margin-top:3px; padding:1px 5px; font-family:"IBM Plex Mono",monospace; font-size:8px; font-weight:600; color:var(--sello); background:color-mix(in srgb,var(--sello) 12%,transparent); }
 
-/* ── La cadena ──────────────────────────────────────────────────────────── */
-#cadena { background: var(--hoja); border-block: 1px solid var(--regla); padding-block: 0; }
-.pista { position: relative; height: 200vh; }
-.pin { position: sticky; top: 0; height: 100vh; min-height: 540px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-.pin-cab { margin-bottom: clamp(24px,4vh,44px); }
-.pin-cab h2 { max-width: 20ch; }
-.pin-cab p { margin-top: 13px; max-width: 54ch; color: var(--tinta-2); }
-.via { position: relative; height: 34px; }
-.via-rail { position: absolute; inset-inline: 0; top: 22px; height: 1px; background: var(--regla); }
-.via-trazo { position: absolute; left: 0; top: 22px; height: 1px; width: var(--via,0); background: linear-gradient(90deg, color-mix(in srgb,var(--sello) 45%,transparent) 0%, var(--sello) 70%); transition: width .12s linear; }
-.via-hito { position: absolute; top: 18px; left: var(--x); width: 9px; height: 9px; margin-inline-start: -4.5px; border: 1px solid var(--regla); background: var(--hoja); transition: background .3s, border-color .3s, transform .3s cubic-bezier(.2,1.4,.4,1); }
-.via-hito.pasado { background: var(--sello); border-color: var(--sello); transform: scale(1.25); }
-.via-nodo { position: absolute; top: 14px; left: var(--via-nodo,12.5%); margin-inline-start: -8.5px; width: 17px; height: 17px; background: var(--sello); box-shadow: 0 0 0 4px color-mix(in srgb,var(--sello) 22%,transparent); transition: left .12s linear; }
-.via-nodo::after { content: 'ARRI Alexa 35'; position: absolute; left: 50%; bottom: calc(100% + 9px); transform: translateX(-50%); padding: 3px 8px; white-space: nowrap; font-family:"IBM Plex Mono",monospace; font-size: 10px; font-weight: 600; letter-spacing:.1em; text-transform: uppercase; background: var(--sello); color: var(--sobre-sello); }
-.eslabones { display: grid; gap: 1px; background: var(--regla-fina); border: 1px solid var(--regla-fina); border-top: 0; }
-@media (min-width: 900px) { .eslabones { grid-template-columns: repeat(4,1fr); } }
-.eslabon { position: relative; background: var(--hoja); padding: 28px 22px; display: grid; gap: 8px; align-content: start; overflow: hidden; }
-.eslabon::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 0; margin-inline-start: -.5px; background: var(--sello); transition: height .42s cubic-bezier(.16,.8,.3,1); }
-.eslabon.on::before { height: 22px; }
-.eslabon::after { content: ''; position: absolute; top: 0; left: 0; height: 2px; width: 0; background: var(--sello); transition: width .5s cubic-bezier(.16,.8,.3,1); }
-.eslabon.on::after { width: 100%; }
-.eslabon .campo, .eslabon b, .eslabon span { opacity: .28; transform: translateY(7px); transition: opacity .45s ease, transform .45s cubic-bezier(.16,.8,.3,1), color .45s ease; }
-.eslabon.on .campo { opacity: 1; transform: none; color: var(--sello); transition-delay: .06s; }
-.eslabon.on b { opacity: 1; transform: none; transition-delay: .13s; }
-.eslabon.on span { opacity: 1; transform: none; transition-delay: .2s; }
-.eslabon b { font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(18px,2vw,24px); letter-spacing: -.03em; line-height: 1.1; }
-.eslabon span { font-size: 14px; color: var(--tinta-2); line-height: 1.5; }
-.remate { margin-top: clamp(20px,3.5vh,38px); font-family: Archivo, sans-serif; font-weight: 600; font-size: clamp(17px,2vw,23px); letter-spacing: -.02em; color: var(--tinta-3); transition: color .5s ease; }
-.remate.on { color: var(--tinta); }
-.remate em { font-style: normal; color: var(--sello); }
-@media (max-width: 899px) {
-  .via { height: 18px; } .via-rail, .via-trazo { top: 8px; }
-  .via-hito, .via-nodo { display: none; }
-  .eslabon::before { left: 0; margin-inline-start: 0; width: 2px; }
-  .eslabon.on::before { height: 100%; }
-  .eslabon::after { display: none; }
+/* Inventario */
+.inv-deps { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; padding:14px 14px 0; }
+.inv-dep { border:1px solid var(--regla-fina); padding:9px 10px 10px; }
+.inv-dep.on { border-color:var(--tinta); }
+.inv-dep b { display:block; font-size:11px; font-weight:600; }
+.inv-dep span { font-size:9px; color:var(--tinta-3); }
+.inv-bar { display:flex; height:4px; margin-top:7px; gap:1px; }
+.inv-bar i:nth-child(1){flex:7;background:var(--verde)} .inv-bar i:nth-child(2){flex:2;background:var(--sello)} .inv-bar i:nth-child(3){flex:1;background:var(--ambar)}
+table.mini-tabla { width:100%; border-collapse:collapse; font-size:10.5px; margin-top:14px; }
+table.mini-tabla th { text-align:left; padding:7px 14px; border-block:1px solid var(--regla-fina); font-family:"IBM Plex Mono",monospace; font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta-3); }
+table.mini-tabla td { padding:9px 14px; border-bottom:1px solid var(--regla-fina); }
+table.mini-tabla tr:last-child td { border-bottom:0; }
+.mini-pill { display:inline-block; padding:2px 7px; font-family:"IBM Plex Mono",monospace; font-size:8.5px; font-weight:600; }
+.mini-pill.ok { color:var(--verde); background:color-mix(in srgb,var(--verde) 12%,transparent); }
+.mini-pill.uso { color:var(--sello); background:color-mix(in srgb,var(--sello) 11%,transparent); }
+.mini-pill.av { color:var(--ambar); background:color-mix(in srgb,var(--ambar) 14%,transparent); }
+
+/* Presupuesto */
+.pre-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; padding:14px; }
+.pre-k { border:1px solid var(--regla-fina); padding:10px 11px 11px; }
+.pre-k span { font-size:9px; color:var(--tinta-3); display:block; }
+.pre-k b { font-family:Archivo,sans-serif; font-size:24px; font-weight:700; letter-spacing:-.04em; line-height:1.1; display:block; margin-top:3px; }
+.pre-k i { font-style:normal; font-size:9px; color:var(--tinta-3); }
+.pre-cols { display:grid; grid-template-columns:1fr 1fr; gap:9px; padding:0 14px 14px; }
+.pre-col { border:1px solid var(--regla-fina); padding:11px 12px; }
+.pre-col h5 { margin:0 0 8px; font-size:10.5px; font-weight:600; }
+.pre-fila { display:flex; align-items:center; gap:8px; padding:6px 0; border-top:1px solid var(--regla-fina); font-size:10px; }
+.pre-fila:first-of-type { border-top:0; }
+.pre-fila div { flex:1; min-width:0; }
+.pre-fila b { display:block; font-size:10.5px; font-weight:600; }
+.pre-fila em { font-style:normal; font-size:9px; color:var(--tinta-3); }
+
+
+/* ── Los mockups, de cerca ────────────────────────────────────────────────
+   Van al final a propósito: estas reglas tienen que pisar a las de arriba.
+   En pantalla estrecha el panel pierde la barra lateral (no aporta nada
+   encogida) y el calendario se mira arrastrando, que apretar catorce días en
+   390 px no deja leer ninguno. */
+@media (max-width:900px){
+  .mini-tarjetas { grid-template-columns:1fr 1fr; }
+  .mini-tarjetas .mini-t:last-child { display:none; }
+  .inv-deps { grid-template-columns:1fr 1fr; }
+  .pre-kpis { grid-template-columns:1fr 1fr; }
+  .pre-cols { grid-template-columns:1fr; }
+}
+@media (max-width:720px){
+  .mini { grid-template-columns:minmax(0,1fr); }
+  .mini-lado { display:none; }
+  .mini-cuerpo { padding:14px 14px 16px; }
+  .mini-cifras { grid-template-columns:repeat(2,1fr); gap:12px 10px; }
+  .tl { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .tl-rej { min-width:620px; }
+  .tl-cab { min-width:620px; }
 }
 
-/* ── Rejillas sueltas ───────────────────────────────────────────────────── */
-.rej { display: grid; gap: 1px; background: var(--regla-fina); border: 1px solid var(--regla-fina); }
-@media (min-width: 760px) { .rej.dos { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 900px) { .rej.tres { grid-template-columns: repeat(3,1fr); } }
-.celda { background: var(--hoja); padding: 24px 22px; }
-.celda h3 { margin-bottom: 8px; }
-.celda p { color: var(--tinta-2); font-size: 14.5px; line-height: 1.55; }
-.nota { margin-top: 28px; padding: 20px 22px; background: var(--hoja); border: 1px solid var(--regla-fina); border-inline-start: 3px solid var(--sello); font-size: 14.5px; color: var(--tinta-2); max-width: 74ch; line-height: 1.6; }
-.nota strong { color: var(--tinta); font-weight: 600; }
+/* ── Secciones ──────────────────────────────────────────────────────────── */
+section { padding-block:var(--paso); }
+.linea { border-top:1px solid var(--regla); }
+.cab-sec { max-width:58ch; margin-bottom:54px; }
+.cab-sec h2 { margin-top:16px; }
+.cab-sec p { margin-top:18px; color:var(--tinta-2); font-size:17px; }
+.cab-centro { text-align:center; margin-inline:auto; }
 
-/* ── Cierre ─────────────────────────────────────────────────────────────── */
-.cierre h2 { max-width: 18ch; }
-.cierre p { max-width: 54ch; margin-top: 17px; color: var(--tinta-2); font-size: 17px; }
-.correo { margin-top: 20px; font-size: clamp(19px,2.4vw,27px); font-weight: 500; letter-spacing: -.01em; }
-.correo a { color: var(--tinta); text-decoration: none; border-bottom: 2px solid var(--sello); }
-.correo a:hover { color: var(--sello); }
+/* Fila alterna: texto + mockup */
+.duo { display:grid; grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr); gap:clamp(34px,5vw,72px); align-items:center; }
+.duo.vuelta > .duo-txt { order:2; }
+@media (max-width:960px){ .duo { grid-template-columns:1fr; } .duo.vuelta > .duo-txt { order:0; } }
+.duo-txt h2 { font-size:clamp(26px,3vw,38px); margin-top:14px; }
+.duo-txt p { margin-top:16px; color:var(--tinta-2); font-size:16.5px; max-width:46ch; }
+.duo-lista { display:grid; gap:13px; margin:24px 0 0; padding:0; list-style:none; }
+.duo-lista li { display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--tinta-2); line-height:1.55; }
+.duo-lista svg { flex:0 0 auto; margin-top:4px; color:var(--sello); }
+.duo-lista b { color:var(--tinta); font-weight:600; }
+
+/* ── La app ─────────────────────────────────────────────────────────────── */
+.movil { width:262px; border:10px solid var(--tinta); background:var(--hoja); box-shadow:var(--sombra); }
+.movil-barra { display:flex; align-items:center; justify-content:space-between; padding:9px 14px 7px; font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--tinta-3); }
+.movil-cuerpo { padding:4px 14px 14px; }
+.movil h4 { margin:0 0 2px; font-family:Archivo,sans-serif; font-size:22px; font-weight:700; letter-spacing:-.035em; }
+.movil .campo { font-size:9.5px; }
+.movil-cifra { margin:13px 0 3px; display:flex; align-items:baseline; gap:8px; }
+.movil-cifra b { font-family:Archivo,sans-serif; font-size:36px; font-weight:700; letter-spacing:-.04em; line-height:1; }
+.movil-cifra i { font-style:normal; font-size:11.5px; color:var(--verde); font-weight:600; }
+.movil-linea { height:32px; margin:9px 0 13px; display:flex; align-items:flex-end; gap:3px; }
+.movil-linea i { flex:1; background:color-mix(in srgb,var(--sello) 28%,transparent); }
+.movil-linea i:last-child { background:var(--sello); }
+.movil-teja { display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px solid var(--regla-fina); font-size:12.5px; }
+.movil-teja b { margin-inline-start:auto; font-family:"IBM Plex Mono",monospace; font-size:11.5px; }
+.movil-nav { display:flex; justify-content:space-around; padding:11px 0 3px; margin-top:6px; border-top:1px solid var(--regla); color:var(--tinta-3); }
+.movil-nav svg:first-child { color:var(--sello); }
+.app-centro { display:flex; justify-content:center; }
+
+/* ── Rejilla de áreas ───────────────────────────────────────────────────── */
+.areas { display:grid; gap:1px; background:var(--regla-fina); border:1px solid var(--regla-fina); }
+@media (min-width:620px){ .areas { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1000px){ .areas { grid-template-columns:repeat(4,1fr); } }
+.area { background:var(--hoja); padding:24px 22px 26px; display:flex; flex-direction:column; gap:9px; transition:background .18s; }
+.area:hover { background:var(--hoja-2); }
+.area-ico { width:30px; height:30px; display:grid; place-items:center; border:1px solid var(--regla-fina); color:var(--sello); }
+.area h3 { margin-top:3px; }
+.area p { font-size:14px; color:var(--tinta-2); line-height:1.55; }
+.area i { font-style:normal; margin-top:auto; padding-top:11px; font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--tinta-3); letter-spacing:.04em; }
+
+/* ── La cadena ──────────────────────────────────────────────────────────── */
+#cadena { background:var(--hoja); border-block:1px solid var(--regla); padding-block:0; }
+.pista { position:relative; height:200vh; }
+.pin { position:sticky; top:0; height:100vh; min-height:540px; display:flex; flex-direction:column; justify-content:center; overflow:hidden; }
+.pin-cab { margin-bottom:clamp(24px,4vh,46px); }
+.pin-cab h2 { max-width:20ch; margin-top:14px; }
+.pin-cab p { margin-top:14px; max-width:54ch; color:var(--tinta-2); }
+.via { position:relative; height:34px; }
+.via-rail { position:absolute; inset-inline:0; top:22px; height:1px; background:var(--regla); }
+.via-trazo { position:absolute; left:0; top:22px; height:1px; width:var(--via,0); background:linear-gradient(90deg,color-mix(in srgb,var(--sello) 45%,transparent) 0%,var(--sello) 70%); transition:width .12s linear; }
+.via-hito { position:absolute; top:18px; left:var(--x); width:9px; height:9px; margin-inline-start:-4.5px; border:1px solid var(--regla); background:var(--hoja); transition:background .3s,border-color .3s,transform .3s cubic-bezier(.2,1.4,.4,1); }
+.via-hito.pasado { background:var(--sello); border-color:var(--sello); transform:scale(1.25); }
+.via-nodo { position:absolute; top:14px; left:var(--via-nodo,12.5%); margin-inline-start:-8.5px; width:17px; height:17px; background:var(--sello); box-shadow:0 0 0 4px color-mix(in srgb,var(--sello) 22%,transparent); transition:left .12s linear; }
+.via-nodo::after { content:'ARRI Alexa 35'; position:absolute; left:50%; bottom:calc(100% + 9px); transform:translateX(-50%); padding:3px 8px; white-space:nowrap; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; background:var(--sello); color:var(--sobre-sello); }
+.eslabones { display:grid; gap:1px; background:var(--regla-fina); border:1px solid var(--regla-fina); border-top:0; }
+@media (min-width:900px){ .eslabones { grid-template-columns:repeat(4,1fr); } }
+.eslabon { position:relative; background:var(--hoja); padding:28px 22px; display:grid; gap:8px; align-content:start; overflow:hidden; }
+.eslabon::before { content:''; position:absolute; top:0; left:50%; width:1px; height:0; margin-inline-start:-.5px; background:var(--sello); transition:height .42s cubic-bezier(.16,.8,.3,1); }
+.eslabon.on::before { height:22px; }
+.eslabon::after { content:''; position:absolute; top:0; left:0; height:2px; width:0; background:var(--sello); transition:width .5s cubic-bezier(.16,.8,.3,1); }
+.eslabon.on::after { width:100%; }
+.eslabon .campo,.eslabon b,.eslabon span { opacity:.28; transform:translateY(7px); transition:opacity .45s,transform .45s cubic-bezier(.16,.8,.3,1),color .45s; }
+.eslabon.on .campo { opacity:1; transform:none; color:var(--sello); transition-delay:.06s; }
+.eslabon.on b { opacity:1; transform:none; transition-delay:.13s; }
+.eslabon.on span { opacity:1; transform:none; transition-delay:.2s; }
+.eslabon b { font-family:Archivo,sans-serif; font-weight:700; font-size:clamp(18px,2vw,24px); letter-spacing:-.03em; line-height:1.1; }
+.eslabon span { font-size:14px; color:var(--tinta-2); line-height:1.5; }
+.remate { margin-top:clamp(20px,3.5vh,38px); font-family:Archivo,sans-serif; font-weight:600; font-size:clamp(17px,2vw,23px); letter-spacing:-.02em; color:var(--tinta-3); transition:color .5s; }
+.remate.on { color:var(--tinta); }
+.remate em { font-style:normal; color:var(--sello); }
+@media (max-width:899px){
+  .via{height:18px} .via-rail,.via-trazo{top:8px} .via-hito,.via-nodo{display:none}
+  .eslabon::before{left:0;margin-inline-start:0;width:2px} .eslabon.on::before{height:100%} .eslabon::after{display:none}
+}
+
+/* ── Rejillas y cierre ──────────────────────────────────────────────────── */
+.rej { display:grid; gap:1px; background:var(--regla-fina); border:1px solid var(--regla-fina); }
+@media (min-width:760px){ .rej.dos { grid-template-columns:1fr 1fr; } }
+@media (min-width:900px){ .rej.tres { grid-template-columns:repeat(3,1fr); } }
+.celda { background:var(--hoja); padding:26px 24px; }
+.celda h3 { margin-bottom:8px; }
+.celda p { color:var(--tinta-2); font-size:14.5px; line-height:1.55; }
+.nota { margin-top:30px; padding:20px 22px; background:var(--hoja); border:1px solid var(--regla-fina); border-inline-start:3px solid var(--sello); font-size:14.5px; color:var(--tinta-2); max-width:74ch; line-height:1.6; }
+.nota strong { color:var(--tinta); font-weight:600; }
+.cierre { text-align:center; }
+.cierre h2 { max-width:18ch; margin-inline:auto; }
+.cierre p { max-width:54ch; margin:18px auto 0; color:var(--tinta-2); font-size:17px; }
+.correo { margin-top:22px; font-size:clamp(20px,2.6vw,30px); font-weight:500; letter-spacing:-.015em; }
+.correo a { color:var(--tinta); text-decoration:none; border-bottom:2px solid var(--sello); }
+.correo a:hover { color:var(--sello); }
 
 /* ── Pie ────────────────────────────────────────────────────────────────── */
-footer { border-top: 1px solid var(--regla); background: var(--hoja); }
-.pie-rej { display: grid; gap: 38px 30px; padding-block: clamp(42px,6vw,64px); grid-template-columns: 1fr; }
-@media (min-width: 780px) { .pie-rej { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
-.pie-marca .logo { width: 32px; height: 32px; margin-bottom: 15px; }
-.pie-marca b { display: block; font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -.035em; margin-bottom: 8px; }
-.pie-marca p { color: var(--tinta-2); font-size: 14px; max-width: 34ch; line-height: 1.55; }
-.pie-col h4 { margin: 0 0 13px; font-family:"IBM Plex Mono",monospace; font-size: 10.5px; font-weight: 600; letter-spacing:.2em; text-transform: uppercase; color: var(--tinta-3); }
-.pie-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
-.pie-col a { color: var(--tinta-2); text-decoration: none; font-size: 14.5px; transition: color .16s; }
-.pie-col a:hover { color: var(--sello); }
-.pie-baja { border-top: 1px solid var(--regla-fina); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding-block: 19px; }
-.pie-baja .campo:first-child { margin-inline-end: auto; }
-.hecho-en { display: inline-flex; align-items: center; gap: 8px; }
-.bandera { flex: 0 0 auto; opacity: .9; }
+footer { border-top:1px solid var(--regla); background:var(--hoja); }
+.pie-rej { display:grid; gap:38px 30px; padding-block:clamp(44px,6vw,68px); grid-template-columns:1fr; }
+@media (min-width:780px){ .pie-rej { grid-template-columns:1.6fr 1fr 1fr 1fr; } }
+.pie-marca .logo { width:32px; height:32px; margin-bottom:15px; }
+.pie-marca b { display:block; font-family:Archivo,sans-serif; font-weight:800; font-size:20px; letter-spacing:-.035em; margin-bottom:8px; }
+.pie-marca p { color:var(--tinta-2); font-size:14px; max-width:34ch; line-height:1.55; }
+.pie-col h4 { margin:0 0 13px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3); }
+.pie-col ul { list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.pie-col a { color:var(--tinta-2); text-decoration:none; font-size:14.5px; transition:color .16s; }
+.pie-col a:hover { color:var(--sello); }
+.pie-baja { border-top:1px solid var(--regla-fina); display:flex; flex-wrap:wrap; gap:12px; align-items:center; padding-block:19px; }
+.pie-baja .campo:first-child { margin-inline-end:auto; }
+.hecho-en { display:inline-flex; align-items:center; gap:8px; }
+.bandera { flex:0 0 auto; opacity:.9; }
 
 @media (prefers-reduced-motion: reduce) {
-  .pista { height: auto; }
-  .pin { position: static; height: auto; min-height: 0; display: block; }
-  .eslabon .campo, .eslabon b, .eslabon span { opacity: 1; transform: none; }
-  .eslabon.on .campo { color: var(--sello); }
-  .via, .lente { display: none; }
-  .rev { opacity: 1; transform: none; transition: none; }
-  html { scroll-behavior: auto; }
-  * { animation: none !important; }
+  .pista{height:auto} .pin{position:static;height:auto;min-height:0;display:block}
+  .eslabon .campo,.eslabon b,.eslabon span{opacity:1;transform:none}
+  .eslabon.on .campo{color:var(--sello)}
+  .via,.lente{display:none}
+  .rev{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto} *{animation:none !important}
 }
 </style>
 </head>
 <body>
 
 <div class="fondo" aria-hidden="true">
-  <div class="trama"></div>
-  <div class="trama-viva" id="tramaViva"></div>
-  <div class="halo" id="halo"></div>
+  <div class="trama"></div><div class="trama-viva" id="tramaViva"></div><div class="halo" id="halo"></div>
 </div>
 <div class="lente" id="lente" aria-hidden="true"></div>
 
 <header class="barra" id="barra">
   <div class="env">
     <a class="marca" href="#inicio" aria-label="Stokit, inicio">
-      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
-        <path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/>
-        <path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/>
-      </svg>
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/><path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/></svg>
       <b>Stokit</b>
     </a>
     <nav class="menu" aria-label="Secciones">
-      <a href="#que-hace">Qué hace</a>
+      <a href="#material">Material</a>
+      <a href="#flota">Flota</a>
+      <a href="#presupuestos">Presupuestos</a>
       <a href="#app">App</a>
       <a href="#cadena">Cómo funciona</a>
-      <a href="#integra">Integraciones</a>
-      <a href="#implantacion">Implantación</a>
       <a href="/manuales/">Manuales</a>
       <a href="#contacto">Contacto</a>
       <span class="indicador" id="indicador" aria-hidden="true"></span>
     </nav>
-    <a class="btn hueco entrar" href="https://palmapictures.stokit.es/" rel="noopener">Iniciar sesión</a>
+    <a class="btn hueco entrar" href="/entrar.html">Iniciar sesión</a>
     <a class="btn cta" href="#contacto">Pedir demo</a>
   </div>
   <div class="progreso" id="progreso" aria-hidden="true"></div>
@@ -378,81 +439,274 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   <span class="eyebrow campo rev"><i class="punto"></i> Sistema de gestión para productoras</span>
   <h1 class="rev d1">Todo el rodaje, en un solo sitio.</h1>
   <p class="tesis rev d2">
-    El material, la flota, los rodajes y los presupuestos de una productora, en un
-    sistema que <strong>comparte los mismos datos</strong>. En el navegador y en una
-    app nativa de iPhone y iPad.
+    El material, la flota, los rodajes y los presupuestos de una productora en un sistema
+    que <strong>comparte los mismos datos</strong>. En el navegador y en una app nativa
+    de iPhone y iPad.
   </p>
   <div class="acciones rev d3">
     <a class="btn" href="#contacto">Pedir demo</a>
-    <a class="btn hueco" href="#que-hace">Ver qué cubre</a>
+    <a class="btn hueco" href="#material">Ver qué cubre</a>
   </div>
-
   <div class="donde rev d3">
     <span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="3" width="11" height="8"/><path d="M5.5 13.5h5"/></svg> Navegador</span>
     <span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="1.5" width="7" height="13"/><path d="M7 3.2h2"/></svg> iPhone y iPad en la App Store</span>
     <span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><path d="M9 9h2v2M13 13h.01"/></svg> Códigos QR en el material</span>
-    <span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 1.8l5 2v4c0 3.1-2.1 5.4-5 6.4-2.9-1-5-3.3-5-6.4v-4z"/></svg> Permisos por área</span>
   </div>
-
-  <figure class="muestra rev d4">
-    <div class="muestra-cab">
-      <span class="campo">Inventario · material fuera de casa</span>
-      <span class="semaforo" aria-hidden="true"><i></i><i></i><i></i></span>
-    </div>
-    <div class="tabla-wrap">
-      <table class="gear">
-        <thead><tr><th>Cód.</th><th>Material</th><th>Rodaje</th><th>Salió en</th><th>Estado</th></tr></thead>
-        <tbody>
-          <tr><td class="cod">CAM-014</td><td class="nom">ARRI Alexa 35<span class="sub">Cámara / Cuerpos</span></td><td class="dato">Spot Meridiano</td><td class="dato">V-04 · Furgoneta</td><td><span class="pill fuera">Fuera · vuelve 04/09</span></td></tr>
-          <tr><td class="cod">LUZ-072</td><td class="nom">Kit HMI 2.5 kW<span class="sub">Luces / Descarga</span></td><td class="dato">Spot Meridiano</td><td class="dato">C-01 · Camión 7,5 t</td><td><span class="pill fuera">Fuera · vuelve 04/09</span></td></tr>
-          <tr><td class="cod">V-07</td><td class="nom">Furgoneta 9 plazas<span class="sub">Flota / Furgonetas</span></td><td class="dato">—</td><td class="dato">—</td><td><span class="pill aviso">ITV en 6 días</span></td></tr>
-          <tr><td class="cod">PRE-118</td><td class="nom">Presupuesto enviado<span class="sub">Serie Levante · 14.280 €</span></td><td class="dato">Serie Levante</td><td class="dato">—</td><td><span class="pill ok">Aceptado por el cliente</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </figure>
 </div>
 
-<!-- ══ QUÉ HACE ══ -->
-<section id="que-hace">
-  <div class="env">
-    <div class="cab-sec rev">
-      <span class="campo">Qué cubre</span>
-      <div>
-        <h2>Ocho áreas, un sistema.</h2>
-        <p>Cada una resuelve lo suyo y todas comparten los mismos datos. No hay que repetir un dato en dos sitios ni cuadrar dos listas a mano.</p>
+<!-- ══ MOCKUP PRINCIPAL ══ -->
+<div class="env" style="margin-top:clamp(52px,7vw,86px)">
+  <div class="marco rev d4" aria-hidden="true">
+    <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es</span></div>
+    <div class="mini">
+      <div class="mini-lado">
+        <div class="mini-marca"><svg class="logo" viewBox="0 0 100 100"><path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/><path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/></svg><b>Stokit</b></div>
+        <div class="mini-it on">Inicio</div>
+        <div class="mini-gr">PRODUCCIÓN</div>
+        <div class="mini-it">Rodajes</div><div class="mini-it">Clientes</div><div class="mini-it">Presupuestos</div><div class="mini-it">Economía</div>
+        <div class="mini-gr">FLOTA</div>
+        <div class="mini-it">Vehículos</div><div class="mini-it">Calendario</div>
+        <div class="mini-gr">MATERIAL</div>
+        <div class="mini-it">Inventario</div>
+      </div>
+      <div class="mini-cuerpo">
+        <div class="mini-h">Buenos días</div>
+        <div class="mini-sub">Lo de hoy en un sitio: rodajes, flota, material y presupuestos.</div>
+
+        <div style="margin-top:16px"><span class="campo" style="font-size:9px">Días de rodaje 2026</span>
+          <div style="font-family:Archivo,sans-serif;font-size:27px;font-weight:700;letter-spacing:-.04em;line-height:1.1">164</div></div>
+        <div class="mini-tira"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+        <div class="mini-leyenda">
+          <span><b>112</b>Rodados</span><span><b>26</b>Confirmados</span><span><b>26</b>Previstos</span>
+        </div>
+
+        <div class="mini-cifras">
+          <div class="mini-cifra"><b>64</b><span>Personas</span></div>
+          <div class="mini-cifra"><b>18</b><span>Vehículos</span></div>
+          <div class="mini-cifra"><b>642</b><span>Artículos</span></div>
+          <div class="mini-cifra"><b>47</b><span>Presupuestos</span></div>
+        </div>
+
+        <div class="mini-tarjetas">
+          <div class="mini-t">
+            <div class="mini-t-cab"><span>Presupuestos enviados</span><span>↗</span></div>
+            <div><b>12</b><em>+17 %</em></div>
+            <svg class="mini-spark" viewBox="0 0 100 26" preserveAspectRatio="none"><polyline points="0,20 14,17 28,21 42,12 56,15 70,8 84,10 100,3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <div class="mini-t">
+            <div class="mini-t-cab"><span>Salidas de material</span><span>↗</span></div>
+            <div><b>96</b><em>+22 %</em></div>
+            <svg class="mini-spark" viewBox="0 0 100 26" preserveAspectRatio="none"><polyline points="0,22 14,18 28,19 42,13 56,16 70,9 84,11 100,5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <div class="mini-t">
+            <div class="mini-t-cab"><span>Días de vehículo</span><span>↗</span></div>
+            <div><b>38</b><em>+9 %</em></div>
+            <svg class="mini-spark" viewBox="0 0 100 26" preserveAspectRatio="none"><polyline points="0,18 14,20 28,14 42,16 56,11 70,13 84,7 100,6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
 
+<!-- ══ MATERIAL ══ -->
+<section id="material">
+  <div class="env">
+    <div class="duo">
+      <div class="duo-txt rev">
+        <span class="campo">Material</span>
+        <h2>Saber dónde está cada caja.</h2>
+        <p>Ficha por artículo con su categoría, su estado y dónde está. Cada salida y cada entrada quedan registradas, con fotos si hace falta.</p>
+        <ul class="duo-lista">
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><path d="M9 9h2v2M13 13h.01"/></svg><span><b>Etiquetas QR imprimibles</b> que abren la ficha desde la propia caja.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/></svg><span><b>Conjuntos y packing list</b> para que lo que sale junto vuelva junto.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg><span><b>Medidas y peso</b> de cada caja, para cuadrar lo que cabe en la furgoneta.</span></li>
+        </ul>
+      </div>
+      <div class="marco rev d2" aria-hidden="true">
+        <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es/inventario</span></div>
+        <div class="inv-deps">
+          <div class="inv-dep on"><b>Todo</b><span>642 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+          <div class="inv-dep"><b>Cámara</b><span>214 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+          <div class="inv-dep"><b>Luces</b><span>186 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+          <div class="inv-dep"><b>Grip</b><span>98 fichas</span><div class="inv-bar"><i></i><i></i><i></i></div></div>
+        </div>
+        <table class="mini-tabla">
+          <thead><tr><th>Código</th><th>Nombre</th><th>Categoría</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>CAM-014</td><td>ARRI Alexa 35</td><td>Cámara / Cuerpos</td><td><span class="mini-pill uso">En rodaje</span></td></tr>
+            <tr><td>CAM-061</td><td>Juego de ópticas 6×</td><td>Cámara / Ópticas</td><td><span class="mini-pill ok">En casa</span></td></tr>
+            <tr><td>LUZ-072</td><td>Kit HMI 2.5 kW</td><td>Luces / Descarga</td><td><span class="mini-pill uso">En rodaje</span></td></tr>
+            <tr><td>GRP-118</td><td>Dolly con vías 12 m</td><td>Grip / Travelling</td><td><span class="mini-pill av">En el taller</span></td></tr>
+            <tr><td>CAM-203</td><td>Monitor de campo 7″</td><td>Cámara / Monitores</td><td><span class="mini-pill ok">En casa</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FLOTA ══ -->
+<section class="linea" id="flota">
+  <div class="env">
+    <div class="duo vuelta">
+      <div class="duo-txt rev">
+        <span class="campo">Flota</span>
+        <h2>Quién tiene cada furgoneta, y hasta cuándo.</h2>
+        <p>Un calendario donde se ve de un vistazo qué vehículo está ocupado, por qué rodaje y qué días. Se reserva arrastrando sobre el hueco.</p>
+        <ul class="duo-lista">
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 2l6.5 11.5h-13z"/><path d="M8 6.5v3.2M8 12h.01"/></svg><span><b>ITV y seguro avisan antes</b>, con el plazo que decidáis, no el día que caducan.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10.5 2.5a3 3 0 0 0-2.8 4L3 11.2V13h1.8l.6-.6V11h1.4l.9-.9 1-1a3 3 0 1 0 1.8-6.6z"/></svg><span><b>Partes de avería desde el QR</b> del propio vehículo, y órdenes de taller con su coste.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 13.5V8M6 13.5V4M10 13.5V6.5M14 13.5V2"/></svg><span><b>Días de vehículo por rodaje</b>, que es lo que acaba en el presupuesto.</span></li>
+        </ul>
+      </div>
+      <div class="marco rev d2" aria-hidden="true">
+        <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es/calendario-flota</span></div>
+        <div class="tl">
+          <div class="tl-cab">
+            <span class="seg"><span>Día</span><span class="on">Semana</span><span>Mes</span></span>
+            <span class="hoy">5 — 18 de octubre</span>
+          </div>
+          <div class="tl-rej">
+            <div style="padding:5px 10px" class="campo">Vehículos</div>
+            <div class="tl-dia">5</div><div class="tl-dia">6</div><div class="tl-dia">7</div><div class="tl-dia">8</div><div class="tl-dia">9</div>
+            <div class="tl-dia fin">10</div><div class="tl-dia fin">11</div>
+            <div class="tl-dia">12</div><div class="tl-dia">13</div><div class="tl-dia">14</div><div class="tl-dia">15</div><div class="tl-dia">16</div>
+            <div class="tl-dia fin">17</div><div class="tl-dia fin hoy">18</div>
+
+            <div class="tl-veh"><b>Furgoneta 01</b><span>9 plazas</span></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel"><div class="tl-barra" style="inset-inline:2px -200%">Spot Meridiano</div></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+
+            <div class="tl-veh"><b>Furgoneta 02</b><span>9 plazas</span><span class="tl-chip">ITV en 6 días</span></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+            <div class="tl-cel"><div class="tl-barra prev" style="inset-inline:2px -300%">Serie Levante</div></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel"></div><div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+
+            <div class="tl-veh"><b>Camión 7,5 t</b><span>Grip y luces</span></div>
+            <div class="tl-cel"></div>
+            <div class="tl-cel"><div class="tl-barra taller" style="inset-inline:2px -100%">Taller</div></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel"><div class="tl-barra" style="inset-inline:2px -300%">Spot Meridiano</div></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+
+            <div class="tl-veh"><b>Coche 03</b><span>Producción</span></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel"><div class="tl-barra" style="inset-inline:2px -100%">Anuncio Norte</div></div>
+            <div class="tl-cel"></div><div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+            <div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div><div class="tl-cel"></div>
+            <div class="tl-cel fin"></div><div class="tl-cel fin"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRESUPUESTOS ══ -->
+<section class="linea" id="presupuestos">
+  <div class="env">
+    <div class="duo">
+      <div class="duo-txt rev">
+        <span class="campo">Presupuestos</span>
+        <h2>Del catálogo al sí del cliente.</h2>
+        <p>Se montan sobre vuestro catálogo de precios y se envían por correo. El cliente los abre en un enlace propio y acepta o pide cambios desde ahí.</p>
+        <ul class="duo-lista">
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 1.5h5.5L12.5 4.5v10h-8.5z"/><path d="M9 1.5V5h3.5"/></svg><span><b>Versiones</b>: la v2 no pisa a la v1, y se ve cuál aceptó el cliente.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.3V8l2.6 1.6"/></svg><span><b>Lo que se enfría</b>: caducados y enviados sin respuesta, con su aviso.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1.8 3.8h12.4v8.4H1.8z"/><path d="M1.8 4.2L8 8.6l6.2-4.4"/></svg><span><b>Nada automático</b>: cuando el cliente contesta, lo revisáis vosotros.</span></li>
+        </ul>
+      </div>
+      <div class="marco rev d2" aria-hidden="true">
+        <div class="marco-barra"><i></i><i></i><i></i><span class="marco-url">tuproductora.stokit.es/presupuestos</span></div>
+        <div class="pre-kpis">
+          <div class="pre-k"><span>En el aire</span><b>6</b><i>38.400 €</i></div>
+          <div class="pre-k"><span>Aceptado este año</span><b>21</b><i>186.900 €</i></div>
+          <div class="pre-k"><span>Borradores</span><b>4</b><i>A medias</i></div>
+          <div class="pre-k"><span>Caducados</span><b>2</b><i>Pasó la validez</i></div>
+        </div>
+        <div class="pre-cols">
+          <div class="pre-col">
+            <h5>Ha contestado el cliente</h5>
+            <div class="pre-fila"><div><b>PRE-2026-118</b><em>Serie Levante · lo acepta</em></div><span class="mini-pill ok">Acepta</span></div>
+            <div class="pre-fila"><div><b>PRE-2026-115</b><em>Anuncio Norte · pide cambios</em></div><span class="mini-pill av">Cambios</span></div>
+          </div>
+          <div class="pre-col">
+            <h5>Se está enfriando</h5>
+            <div class="pre-fila"><div><b>PRE-2026-109</b><em>Venció el 11 de octubre</em></div><span class="mini-pill uso">Caducado</span></div>
+            <div class="pre-fila"><div><b>PRE-2026-112</b><em>Enviado hace 14 días</em></div><span class="mini-pill av">14 d</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LA APP ══ -->
+<section class="linea" id="app">
+  <div class="env">
+    <div class="duo vuelta">
+      <div class="duo-txt rev">
+        <span class="campo">En el bolsillo</span>
+        <h2>La app nativa, no la web encogida.</h2>
+        <p>Está en la App Store, para iPhone y iPad. Hecha aparte, con lo que hace falta cuando se está en el almacén o de camino al set.</p>
+        <ul class="duo-lista">
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><path d="M9 9h2v2M13 13h.01"/></svg><span><b>Escanear y listo</b>: se apunta al QR de una caja y sale su ficha.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.3V8l2.6 1.6"/></svg><span><b>Fichar la jornada</b> desde el móvil, con las horas y las tarifas del rodaje.</span></li>
+          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="12" height="11"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span><b>Reservar tocando el día</b>, vehículos y espacios.</span></li>
+        </ul>
+      </div>
+      <div class="app-centro rev d2">
+        <div class="movil" aria-hidden="true">
+          <div class="movil-barra"><span>9:41</span><span>▮▮▮</span></div>
+          <div class="movil-cuerpo">
+            <span class="campo">Hoy</span>
+            <h4>Buenos días</h4>
+            <div class="movil-cifra"><b>12</b><i>+4 vs semana pasada</i></div>
+            <span class="campo" style="font-size:9px">Presupuestos enviados</span>
+            <div class="movil-linea"><i style="height:38%"></i><i style="height:55%"></i><i style="height:30%"></i><i style="height:68%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:62%"></i><i style="height:100%"></i></div>
+            <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/></svg> Material fuera <b>19</b></div>
+            <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1.5 4.5h8v6.5h-8zM9.5 7h3l2 2.2V11h-5"/></svg> Vehículos libres <b>5</b></div>
+            <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 2l6.5 11.5h-13z"/><path d="M8 6.5v3.2"/></svg> ITV este mes <b>2</b></div>
+            <div class="movil-nav">
+              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 7l6-5 6 5v7H2z"/></svg>
+              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/></svg>
+              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
+              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="5" r="2.6"/><path d="M3 13.5c0-2.6 2.2-4.2 5-4.2s5 1.6 5 4.2"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Y ADEMÁS ══ -->
+<section class="linea" id="mas">
+  <div class="env">
+    <div class="cab-sec cab-centro rev">
+      <span class="campo">Y además</span>
+      <h2>Lo que hace falta alrededor.</h2>
+      <p>Cada área resuelve lo suyo y todas comparten los mismos datos.</p>
+    </div>
     <div class="areas rev">
-      <div class="area">
-        <span class="area-ico"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/><path d="M2 5l6 3 6-3M8 8v6"/></svg></span>
-        <h3>Material</h3>
-        <p>Ficha por artículo con categoría, estado y ubicación. Salidas y entradas con revisión fotográfica, conjuntos y packing list.</p>
-        <i>Etiquetas QR · medidas y peso</i>
-      </div>
-      <div class="area">
-        <span class="area-ico"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1.5 4.5h8v6.5h-8zM9.5 7h3l2 2.2V11h-5"/><circle cx="4.5" cy="11.8" r="1.3"/><circle cx="11.5" cy="11.8" r="1.3"/></svg></span>
-        <h3>Flota</h3>
-        <p>ITV y seguro con aviso por adelantado, calendario de ocupación, kilómetros, partes de avería desde el QR y órdenes de taller con su coste.</p>
-        <i>Reservas por rodaje</i>
-      </div>
       <div class="area">
         <span class="area-ico"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="12" height="11"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg></span>
         <h3>Producción</h3>
-        <p>Rodajes con fechas, equipo y material reservado. Calendario de producción con vehículos y espacios, y subproyectos por departamento.</p>
+        <p>Rodajes con fechas, equipo y material reservado. Calendario con vehículos y espacios, y subproyectos por departamento.</p>
         <i>Cámara, luces, grip…</i>
-      </div>
-      <div class="area">
-        <span class="area-ico"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 1.5h5.5L12.5 4.5v10h-8.5z"/><path d="M9 1.5V5h3.5M6 8h4.5M6 10.5h3"/></svg></span>
-        <h3>Presupuestos</h3>
-        <p>Se montan sobre el catálogo de precios y se envían por correo. El cliente los abre en un enlace propio y acepta o pide cambios desde ahí.</p>
-        <i>Versiones · caducidad</i>
       </div>
       <div class="area">
         <span class="area-ico"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 13.5V8M6 13.5V4M10 13.5V6.5M14 13.5V2"/></svg></span>
         <h3>Economía</h3>
-        <p>Embudo comercial por estado, movimiento mensual, ingreso por proyecto y gasto de flota descontado. Lo firme separado de lo que está en el aire.</p>
+        <p>Embudo comercial por estado, movimiento mensual, ingreso por rodaje y gasto de flota descontado. Lo firme, aparte de lo que está en el aire.</p>
         <i>Por rodaje y por año</i>
       </div>
       <div class="area">
@@ -465,68 +719,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         <span class="area-ico"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="12" height="8"/><path d="M5 14h6M8 11v3"/></svg></span>
         <h3>Tecnología</h3>
         <p>Ordenadores y móviles con número de serie y garantía, líneas de telefonía, routers portátiles y licencias, todo con su dueño.</p>
-        <i>Sincronizado con Microsoft 365</i>
-      </div>
-      <div class="area">
-        <span class="area-ico"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3h12v8.5H8l-3.5 2.5V11.5H2z"/></svg></span>
-        <h3>Chat</h3>
-        <p>Conversaciones del equipo dentro del sistema, para pasar un presupuesto o un rodaje sin salir a otra aplicación ni perder el hilo.</p>
-        <i>Grupos y respuestas</i>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ LA APP ══ -->
-<section class="linea" id="app">
-  <div class="env">
-    <div class="app-fila">
-      <div class="rev">
-        <span class="campo">En el bolsillo</span>
-        <h2 style="margin-top:14px">La app nativa, no la web encogida.</h2>
-        <p style="margin-top:16px;max-width:52ch;color:var(--tinta-2);font-size:16.5px">
-          Está en la App Store, para iPhone y iPad. Hecha aparte, con lo que hace
-          falta cuando se está en el almacén o de camino al set — no la misma
-          pantalla del ordenador apretada en un móvil.
-        </p>
-        <ul class="app-lista">
-          <li>
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><path d="M9 9h2v2M13 13h.01"/></svg>
-            <span><b>Escanear y listo</b>Se apunta la cámara al QR de una caja y sale su ficha: sacarla, devolverla o mandarla al taller.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.3V8l2.6 1.6"/></svg>
-            <span><b>Fichar la jornada</b>Entrada y salida desde el móvil, con las horas y las tarifas del rodaje.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 13.5V8.5M8 13.5V3M13 13.5V6"/></svg>
-            <span><b>El pulso del día</b>Lo enviado, lo que sale y lo que vuelve, comparado con la semana anterior.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="12" height="11"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>
-            <span><b>Reservar sobre el calendario</b>Vehículos y espacios, tocando el día.</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="movil rev d2" aria-hidden="true">
-        <div class="movil-barra"><span>9:41</span><span>▮▮▮</span></div>
-        <div class="movil-cuerpo">
-          <span class="campo">Hoy</span>
-          <h4>Buenos días</h4>
-          <div class="movil-cifra"><b>14</b><i>+5 vs semana pasada</i></div>
-          <span class="campo" style="font-size:9px">Presupuestos enviados</span>
-          <div class="movil-linea"><i style="height:38%"></i><i style="height:55%"></i><i style="height:30%"></i><i style="height:68%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:62%"></i><i style="height:100%"></i></div>
-          <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/></svg> Material fuera <b>23</b></div>
-          <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1.5 4.5h8v6.5h-8zM9.5 7h3l2 2.2V11h-5"/></svg> Vehículos libres <b>4</b></div>
-          <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 2l6.5 11.5h-13z"/><path d="M8 6.5v3.2"/></svg> ITV este mes <b>2</b></div>
-          <div class="movil-nav">
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 7l6-5 6 5v7H2z"/></svg>
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/></svg>
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
-            <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="5" r="2.6"/><path d="M3 13.5c0-2.6 2.2-4.2 5-4.2s5 1.6 5 4.2"/></svg>
-          </div>
-        </div>
+        <i>Con Microsoft 365</i>
       </div>
     </div>
   </div>
@@ -539,21 +732,18 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
       <div class="env" style="width:100%">
         <div class="pin-cab">
           <span class="campo">Cómo funciona</span>
-          <h2 style="margin-top:13px">Una cámara no es una fila. Es una cadena.</h2>
+          <h2>Una cámara no es una fila. Es una cadena.</h2>
           <p>Una consulta recorre las cuatro áreas sin salir del sistema.</p>
         </div>
         <div class="via" id="via" aria-hidden="true">
-          <div class="via-rail"></div>
-          <div class="via-trazo" id="viaTrazo"></div>
-          <span class="via-hito" style="--x:12.5%"></span>
-          <span class="via-hito" style="--x:37.5%"></span>
-          <span class="via-hito" style="--x:62.5%"></span>
-          <span class="via-hito" style="--x:87.5%"></span>
+          <div class="via-rail"></div><div class="via-trazo" id="viaTrazo"></div>
+          <span class="via-hito" style="--x:12.5%"></span><span class="via-hito" style="--x:37.5%"></span>
+          <span class="via-hito" style="--x:62.5%"></span><span class="via-hito" style="--x:87.5%"></span>
           <div class="via-nodo" id="viaNodo"></div>
         </div>
         <div class="eslabones" id="eslabones">
           <div class="eslabon"><span class="campo">01 · Material</span><b>ARRI Alexa 35</b><span>Salida registrada con revisión fotográfica, escaneando su QR.</span></div>
-          <div class="eslabon"><span class="campo">02 · Flota</span><b>V-04 · Furgoneta</b><span>Vehículo asignado y bloqueado en el calendario esos días.</span></div>
+          <div class="eslabon"><span class="campo">02 · Flota</span><b>Furgoneta 01</b><span>Vehículo asignado y bloqueado en el calendario esos días.</span></div>
           <div class="eslabon"><span class="campo">03 · Rodaje</span><b>Spot Meridiano</b><span>El proyecto de destino, con sus fechas y su equipo.</span></div>
           <div class="eslabon"><span class="campo">04 · Presupuesto</span><b>Línea del cliente</b><span>Al precio del catálogo vigente en esa fecha, no al del rodaje anterior.</span></div>
         </div>
@@ -568,24 +758,13 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   <div class="env">
     <div class="cab-sec rev">
       <span class="campo">Integraciones</span>
-      <div>
-        <h2>Habla con lo que ya usáis.</h2>
-        <p>Stokit no pide cambiar de correo, de directorio ni de hoja de cálculo. Se conecta a lo que hay.</p>
-      </div>
+      <h2>Habla con lo que ya usáis.</h2>
+      <p>Stokit no pide cambiar de correo, de directorio ni de hoja de cálculo.</p>
     </div>
     <div class="rej tres rev">
-      <div class="celda">
-        <h3>Microsoft 365</h3>
-        <p>Sincroniza el directorio con las fichas de personal, da de alta usuarios con su licencia, y gestiona buzones, respuestas automáticas, reenvíos y grupos sin entrar en la consola de Microsoft.</p>
-      </div>
-      <div class="celda">
-        <h3>Power BI y Excel</h3>
-        <p>Una conexión en vivo con diecinueve tablas del sistema. Los informes se actualizan solos, sin exportar nada a mano cada mes.</p>
-      </div>
-      <div class="celda">
-        <h3>Correo</h3>
-        <p>Los presupuestos salen desde vuestro propio buzón. Cada envío publica una copia exacta en un enlace privado y apunta cuándo la abre el cliente.</p>
-      </div>
+      <div class="celda"><h3>Microsoft 365</h3><p>Sincroniza el directorio con las fichas de personal, da de alta usuarios con su licencia, y gestiona buzones, respuestas automáticas, reenvíos y grupos sin entrar en la consola de Microsoft.</p></div>
+      <div class="celda"><h3>Power BI y Excel</h3><p>Una conexión en vivo con diecinueve tablas del sistema. Los informes se actualizan solos, sin exportar nada a mano cada mes.</p></div>
+      <div class="celda"><h3>Correo</h3><p>Los presupuestos salen desde vuestro propio buzón. Cada envío publica una copia exacta en un enlace privado y apunta cuándo la abre el cliente.</p></div>
     </div>
   </div>
 </section>
@@ -595,34 +774,16 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   <div class="env">
     <div class="cab-sec rev">
       <span class="campo">Implantación</span>
-      <div>
-        <h2>Se monta sobre lo que ya tenéis.</h2>
-        <p>No hay que empezar de cero ni parar la producción para ponerlo en marcha.</p>
-      </div>
+      <h2>Se monta sobre lo que ya tenéis.</h2>
+      <p>No hay que empezar de cero ni parar la producción para ponerlo en marcha.</p>
     </div>
     <div class="rej dos rev">
-      <div class="celda">
-        <h3>Migración desde hojas de cálculo</h3>
-        <p>El catálogo, el inventario y la flota se importan desde los ficheros que ya se usan. La correspondencia de columnas se revisa antes de escribir nada, y lo importado conserva sus códigos.</p>
-      </div>
-      <div class="celda">
-        <h3>Permisos por área</h3>
-        <p>Nueve áreas por cuatro niveles de acceso, con plantillas de rol. Quien lleva la flota no ve los presupuestos.</p>
-      </div>
-      <div class="celda">
-        <h3>Vuestra dirección y vuestra marca</h3>
-        <p>Cada productora tiene su propia dirección, su logo, su nombre y su color en toda la web y en los documentos que salen al cliente.</p>
-      </div>
-      <div class="celda">
-        <h3>Manuales incluidos</h3>
-        <p>Una guía por área, escrita en castellano llano y pensada para enseñársela a quien entra nuevo. <a href="/manuales/" style="color:var(--sello)">Están aquí</a>.</p>
-      </div>
+      <div class="celda"><h3>Migración desde hojas de cálculo</h3><p>El catálogo, el inventario y la flota se importan desde los ficheros que ya se usan. La correspondencia de columnas se revisa antes de escribir nada, y lo importado conserva sus códigos.</p></div>
+      <div class="celda"><h3>Permisos por área</h3><p>Nueve áreas por cuatro niveles de acceso, con plantillas de rol. Quien lleva la flota no ve los presupuestos.</p></div>
+      <div class="celda"><h3>Vuestra dirección y vuestra marca</h3><p>Cada productora tiene su propia dirección, su logo, su nombre y su color en toda la web y en los documentos que salen al cliente.</p></div>
+      <div class="celda"><h3>Manuales incluidos</h3><p>Una guía por área, en castellano llano y pensada para enseñársela a quien entra nuevo. <a href="/manuales/" style="color:var(--sello)">Están aquí</a>.</p></div>
     </div>
-    <p class="nota rev">
-      <strong>Los presupuestos salen sin IVA</strong> y la facturación se hace fuera de Stokit,
-      con la herramienta que ya use la gestoría. El sistema llega hasta el documento aceptado
-      por el cliente.
-    </p>
+    <p class="nota rev"><strong>Los presupuestos salen sin IVA</strong> y la facturación se hace fuera de Stokit, con la herramienta que ya use la gestoría. El sistema llega hasta el documento aceptado por el cliente.</p>
   </div>
 </section>
 
@@ -630,7 +791,7 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
 <section class="linea cierre" id="contacto">
   <div class="env rev">
     <span class="campo">Contacto</span>
-    <h2 style="margin-top:15px">Cuarenta minutos y lo ves con material real.</h2>
+    <h2 style="margin-top:16px">Cuarenta minutos y lo ves con material real.</h2>
     <p>Una demostración para valorar si encaja con vuestra forma de trabajar. Sin compromiso y sin instalar nada.</p>
     <p class="correo"><a href="mailto:info@stokit.es?subject=Stokit%20%C2%B7%20demo">info@stokit.es</a></p>
     <div class="acciones">
@@ -644,44 +805,27 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   <div class="env">
     <div class="pie-rej">
       <div class="pie-marca">
-        <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
-          <path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/>
-          <path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/>
-        </svg>
+        <svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><path d="M0 0 H100 V41.9 H73.9 V26.7 H27.6 V41.9 H0 Z"/><path d="M0 58.1 H27.6 V71.1 H73.9 V58.1 H100 V100 H0 Z"/></svg>
         <b>Stokit</b>
         <p>El sistema con el que una productora lleva su material, su flota, sus rodajes y sus presupuestos.</p>
       </div>
-      <div class="pie-col">
-        <h4>Producto</h4>
-        <ul>
-          <li><a href="#que-hace">Qué cubre</a></li>
-          <li><a href="#app">App de iPhone y iPad</a></li>
-          <li><a href="#integra">Integraciones</a></li>
-        </ul>
-      </div>
-      <div class="pie-col">
-        <h4>Ayuda</h4>
-        <ul>
-          <li><a href="/manuales/">Manuales</a></li>
-          <li><a href="#implantacion">Implantación</a></li>
-          <li><a href="/privacidad.html">Privacidad</a></li>
-        </ul>
-      </div>
-      <div class="pie-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="#contacto">Pedir una demo</a></li>
-          <li><a href="mailto:info@stokit.es">info@stokit.es</a></li>
-          <li><a href="https://palmapictures.stokit.es/" rel="noopener">Iniciar sesión</a></li>
-        </ul>
-      </div>
+      <div class="pie-col"><h4>Producto</h4><ul>
+        <li><a href="#material">Material</a></li><li><a href="#flota">Flota</a></li>
+        <li><a href="#presupuestos">Presupuestos</a></li><li><a href="#app">App de iPhone y iPad</a></li>
+      </ul></div>
+      <div class="pie-col"><h4>Ayuda</h4><ul>
+        <li><a href="/manuales/">Manuales</a></li><li><a href="#integra">Integraciones</a></li>
+        <li><a href="#implantacion">Implantación</a></li><li><a href="/privacidad.html">Privacidad</a></li>
+      </ul></div>
+      <div class="pie-col"><h4>Contacto</h4><ul>
+        <li><a href="#contacto">Pedir una demo</a></li><li><a href="mailto:info@stokit.es">info@stokit.es</a></li>
+        <li><a href="/entrar.html">Iniciar sesión</a></li>
+      </ul></div>
     </div>
     <div class="pie-baja">
       <span class="campo">Stokit</span>
       <span class="campo hecho-en">
-        <svg class="bandera" viewBox="0 0 24 16" width="17" height="11" aria-hidden="true">
-          <rect width="24" height="16" fill="#c8102e"/><rect y="4" width="24" height="8" fill="#f1bf00"/>
-        </svg>
+        <svg class="bandera" viewBox="0 0 24 16" width="17" height="11" aria-hidden="true"><rect width="24" height="16" fill="#c8102e"/><rect y="4" width="24" height="8" fill="#f1bf00"/></svg>
         Designed and Assembled in Spain
       </span>
     </div>
@@ -693,7 +837,6 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   'use strict';
   var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Revelado al entrar: IntersectionObserver, no un listener de scroll. */
   var revs = document.querySelectorAll('.rev');
   if (quieto || !('IntersectionObserver' in window)) {
     revs.forEach(function (n) { n.classList.add('visto'); });
@@ -704,24 +847,16 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     revs.forEach(function (n) { obs.observe(n); });
   }
 
-  var barra    = document.getElementById('barra');
-  var progreso = document.getElementById('progreso');
-  var pista    = document.getElementById('pista');
-  var viaTrazo = document.getElementById('viaTrazo');
-  var viaNodo  = document.getElementById('viaNodo');
-  var hitos    = document.querySelectorAll('.via-hito');
-  var eslabones= document.querySelectorAll('#eslabones .eslabon');
-  var remate   = document.getElementById('remate');
-  var lente    = document.getElementById('lente');
-  var zonaLente= document.querySelector('[data-lente]');
-  var tramaViva= document.getElementById('tramaViva');
-  var halo     = document.getElementById('halo');
+  var barra = document.getElementById('barra'), progreso = document.getElementById('progreso');
+  var pista = document.getElementById('pista'), viaTrazo = document.getElementById('viaTrazo');
+  var viaNodo = document.getElementById('viaNodo'), hitos = document.querySelectorAll('.via-hito');
+  var eslabones = document.querySelectorAll('#eslabones .eslabon'), remate = document.getElementById('remate');
+  var lente = document.getElementById('lente'), zonaLente = document.querySelector('[data-lente]');
+  var tramaViva = document.getElementById('tramaViva'), halo = document.getElementById('halo');
 
-  /* Menú: apartado activo e indicador que se desliza. Se mide el enlace en vez
-     de usar posiciones fijas, que cambian con el texto o el idioma. */
-  var enlaces   = [].slice.call(document.querySelectorAll('nav.menu a[href^="#"]'));
-  var indicador = document.getElementById('indicador');
-  var activo = null;
+  /* Menú: se mide el enlace, no se usan posiciones fijas (cambian con el texto). */
+  var enlaces = [].slice.call(document.querySelectorAll('nav.menu a[href^="#"]'));
+  var indicador = document.getElementById('indicador'), activo = null;
   function moverInd(a) {
     if (!indicador || !a) return;
     indicador.style.setProperty('--ind-w', a.offsetWidth + 'px');
@@ -752,9 +887,8 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
   }
 
   /* El ratón solo apunta una variable; quien pinta es el fotograma. El foco
-     persigue con retraso (clavado parecería un cursor gigante); la lente no,
-     porque un cristal que se arrastra se nota falso. */
-  var raton = { x: .5, y: .38 }, suave = { x: .5, y: .38 };
+     persigue con retraso; la lente no, que un cristal arrastrado se nota falso. */
+  var raton = { x:.5, y:.38 }, suave = { x:.5, y:.38 };
   var vivo = tramaViva && halo && window.matchMedia('(hover: hover)').matches;
   var cajaLente = null;
   function medirZona() {
@@ -762,7 +896,6 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     var r = zonaLente.getBoundingClientRect();
     cajaLente = { t: r.top + window.scrollY, b: r.bottom + window.scrollY };
   }
-
   if (vivo) {
     medirZona();
     window.addEventListener('resize', medirZona);
@@ -789,8 +922,6 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
     })();
   }
 
-  /* Todo el trabajo de scroll en UN fotograma: leer y escribir mezclados
-     provoca recálculos de maqueta en cadena. */
   var pendiente = false;
   function alScroll() {
     if (pendiente) return;
@@ -813,8 +944,6 @@ footer { border-top: 1px solid var(--regla); background: var(--hoja); }
         var rec = caja.height - window.innerHeight;
         var avance = rec > 0 ? Math.max(0, Math.min(1, (-caja.top) / rec)) : 0;
         var p = Math.min(1, avance / .88);
-        /* El nodo va del centro del primero al del cuarto (12,5 → 87,5): al
-           llegar ya está posado sobre el primero y al salir no queda colgando. */
         var n = eslabones.length, mitad = 100 / (n * 2);
         var nodo = mitad + p * (100 - mitad * 2);
         if (viaNodo)  viaNodo.style.setProperty('--via-nodo', nodo.toFixed(2) + '%');

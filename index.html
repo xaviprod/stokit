@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>bulx · Inventario y producción para productoras</title>
+  <meta name="description" content="bulx: el material, la flota, los presupuestos y el equipo de una productora en un solo sitio. En la web y en el iPhone.">
+  <meta name="theme-color" content="#1D1F1C">
+  <link rel="icon" type="image/svg+xml" href="img/bulx-favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- ── Navegación ─────────────────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <a class="nav-marca" href="#inicio" aria-label="bulx, inicio"><img src="img/bulx-negro.png" alt="bulx" width="96" height="29"></a>
+  <nav class="nav-enlaces" aria-label="Secciones">
+    <a href="#producto">Producto</a>
+    <a href="#como">Cómo funciona</a>
+    <a href="#app">App</a>
+    <a href="#seguridad">Seguridad</a>
+  </nav>
+  <div class="nav-acciones">
+    <a class="btn btn-texto" href="#entrar">Entrar</a>
+    <a class="btn btn-amarillo" href="#demo">Pide una demo</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- ── Hero: la tarjeta negra del logo ────────────────────────────────── -->
+  <section class="hero">
+    <div class="tarjeta tarjeta-negra hero-tarjeta">
+      <svg class="hero-panal" id="hero-panal" aria-hidden="true"></svg>
+      <div class="hero-texto">
+        <p class="etiqueta etiqueta-oscura"><span class="hexito"></span>Inventario y producción</p>
+        <h1>Todo el rodaje,<br>en un solo <span class="subrayado">panal.</span></h1>
+        <p class="hero-sub">El material, la flota, los presupuestos y el equipo de tu productora, cada cosa en su celda y todas conectadas. En la web y en el iPhone.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-amarillo btn-grande" href="#demo">Pide una demo <span aria-hidden="true">→</span></a>
+          <a class="btn btn-claro btn-grande" href="#como">Ver cómo funciona</a>
+        </div>
+        <p class="hero-nota">Hecho dentro de una productora de Mallorca, para el día a día de un rodaje.</p>
+      </div>
+      <div class="hero-celdas" aria-hidden="true">
+        <div class="celda c1"><span>Material</span></div>
+        <div class="celda c2"><span>Flota</span></div>
+        <div class="celda c3"><span>Rodaje</span></div>
+      </div>
+    </div>
+
+    <!-- La captura del producto, montada a mano -->
+    <div class="ventana" aria-label="Así se ve bulx por dentro">
+      <div class="ventana-barra"><i></i><i></i><i></i><span>bulx.es · Calendario de flota</span></div>
+      <div class="ventana-cuerpo">
+        <aside class="v-lateral">
+          <img src="img/bulx-blanco.png" alt="" width="74" height="22">
+          <ul>
+            <li class="activo"><b class="hx"></b>Inicio</li>
+            <li><b class="hx"></b>Proyectos</li>
+            <li><b class="hx"></b>Presupuestos</li>
+            <li class="sec">Flota</li>
+            <li><b class="hx"></b>Vehículos</li>
+            <li class="activo2"><b class="hx"></b>Calendario</li>
+            <li class="sec">Material</li>
+            <li><b class="hx"></b>Inventario</li>
+            <li><b class="hx"></b>Fichas QR</li>
+          </ul>
+        </aside>
+        <div class="v-principal">
+          <div class="v-cab">
+            <div><small>Flota</small><h3>Calendario de reservas</h3></div>
+            <div class="v-chips"><span class="on">Semana</span><span>Mes</span></div>
+          </div>
+          <div class="v-tl">
+            <div class="v-dias"><span></span><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span class="finde">S</span><span class="finde">D</span></div>
+            <div class="v-fila"><span>MV1 · Vito</span><i class="b amarillo" style="--d:1;--l:3">Anuncio Netflix</i></div>
+            <div class="v-fila"><span>MV2 · Vito</span><i class="b negro" style="--d:2;--l:4">Serie HBO</i></div>
+            <div class="v-fila"><span>W1 · Sprinter</span><i class="b amarillo" style="--d:0;--l:2">Vestuario</i><i class="b gris" style="--d:4;--l:1">Taller</i></div>
+            <div class="v-fila"><span>GC3 · PickUp</span><i class="b negro" style="--d:3;--l:3">Localizaciones</i></div>
+            <div class="v-fila"><span>UV1 · Vito</span><i class="b amarillo" style="--d:5;--l:2">Rodaje fin de semana</i></div>
+          </div>
+          <div class="v-tarjetas">
+            <div><small>Vehículos libres hoy</small><b>21<em>de 29</em></b></div>
+            <div><small>Material en casa</small><b>92<em>%</em></b></div>
+            <div><small>Presupuestos en el aire</small><b>6</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Las celdas: el producto en bento ───────────────────────────────── -->
+  <section class="seccion" id="producto">
+    <div class="seccion-cab">
+      <p class="etiqueta"><span class="hexito"></span>El producto</p>
+      <h2>Seis celdas. <span class="gris">Una sola colmena.</span></h2>
+      <p class="seccion-sub">Cada área tiene su sitio, pero hablan entre ellas: el presupuesto sabe qué material sale, el calendario sabe qué furgoneta está en el taller y el equipo sabe qué rodaje le toca.</p>
+    </div>
+
+    <div class="bento">
+      <article class="tarjeta tarjeta-blanca b-grande">
+        <div class="hex-ico"><svg viewBox="0 0 24 24"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg></div>
+        <h3>Material e inventario</h3>
+        <p>Cada caja, foco o cámara con su ficha, su foto y su código QR. Kits con lo que llevan dentro, medidas y peso para el camión, y lo que está fuera, en casa o en el taller de un vistazo.</p>
+        <div class="mini-inv" aria-hidden="true">
+          <div><b class="hx amarillo"></b><span>ARRI Alexa Mini<small>Camera · 1 ud.</small></span><em class="ok">En casa</em></div>
+          <div><b class="hx negro"></b><span>Kit SkyPanel S60<small>Lights · 4 uds.</small></span><em class="uso">En uso</em></div>
+          <div><b class="hx gris"></b><span>Dolly Fisher 10<small>Grip · 1 ud.</small></span><em class="mal">Taller</em></div>
+        </div>
+      </article>
+
+      <article class="tarjeta tarjeta-negra b-alta">
+        <div class="hex-ico oscuro"><svg viewBox="0 0 24 24"><path d="M3 15V7h11v8M14 10h4l3 4v1H3"/><circle cx="7" cy="16.5" r="1.8"/><circle cx="17" cy="16.5" r="1.8"/></svg></div>
+        <h3>Flota</h3>
+        <p>Reservas en una línea de tiempo, ITV y seguros con aviso, partes de avería desde el QR de la puerta y el mapa de dónde está cada vehículo.</p>
+        <div class="mini-itv" aria-hidden="true">
+          <span>ITV · MV3</span><i style="--p:.82"></i><small>caduca en 12 días</small>
+        </div>
+      </article>
+
+      <article class="tarjeta tarjeta-amarilla b-media">
+        <div class="hex-ico negro"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></div>
+        <h3>Presupuestos</h3>
+        <p>Se mandan con un enlace: el cliente lo abre, lo acepta o pide cambios con un clic. Y si no contesta, se le recuerda solo.</p>
+        <div class="mini-pasos" aria-hidden="true"><span class="h">Enviado</span><span class="a">Revisión</span><span>Aceptado</span></div>
+      </article>
+
+      <article class="tarjeta tarjeta-blanca b-media">
+        <div class="hex-ico"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></div>
+        <h3>Tecnología</h3>
+        <p>Portátiles, móviles, líneas, MiFis y licencias, cada uno con su dueño. Cuando alguien se va, la lista de lo que tiene que devolver sale sola.</p>
+      </article>
+
+      <article class="tarjeta tarjeta-gris b-media">
+        <div class="hex-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M19 14.6c1.6.8 2.6 2.6 3 5.4"/></svg></div>
+        <h3>Equipo y rodajes</h3>
+        <p>Quién sale a rodar, cuántas horas y en qué proyecto. El chat del equipo con el presupuesto o la furgoneta pegados en la conversación.</p>
+      </article>
+
+      <article class="tarjeta tarjeta-negra b-ancha">
+        <div class="hex-ico oscuro"><svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M22 20H2"/></svg></div>
+        <div class="b-ancha-texto">
+          <h3>Economía, Excel y Power BI</h3>
+          <p>El embudo de presupuestos, lo facturado y lo que falta por cobrar, con un Excel con gráficos listo para enseñar. Y si tu dirección vive en Power BI, los datos van en directo.</p>
+        </div>
+        <div class="mini-barras" aria-hidden="true"><i style="--h:.35"></i><i style="--h:.55"></i><i style="--h:.42"></i><i style="--h:.7"></i><i style="--h:.6"></i><i style="--h:.88" class="a"></i><i style="--h:.5"></i></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Cómo funciona ──────────────────────────────────────────────────── -->
+  <section class="seccion" id="como">
+    <div class="seccion-cab">
+      <p class="etiqueta"><span class="hexito"></span>Cómo funciona</p>
+      <h2>Tres pasos y <span class="gris">el almacén se ordena solo.</span></h2>
+    </div>
+    <ol class="pasos">
+      <li class="tarjeta tarjeta-blanca">
+        <span class="paso-num"><svg viewBox="-1 -1 2 2"><polygon points="-1,0 -.5,-.866 .5,-.866 1,0 .5,.866 -.5,.866"/></svg><b>1</b></span>
+        <h3>Sube lo que ya tienes</h3>
+        <p>Tu Excel de material, tus vehículos y tu equipo. bulx lo ordena por departamentos y le pone a cada cosa su código.</p>
+      </li>
+      <li class="tarjeta tarjeta-blanca">
+        <span class="paso-num"><svg viewBox="-1 -1 2 2"><polygon points="-1,0 -.5,-.866 .5,-.866 1,0 .5,.866 -.5,.866"/></svg><b>2</b></span>
+        <h3>Pega las etiquetas QR</h3>
+        <p>Quien coge una furgoneta o una caja escanea la pegatina con el móvil. Sin cuenta, sin apps raras: queda apuntado quién, cuándo y para qué rodaje.</p>
+      </li>
+      <li class="tarjeta tarjeta-blanca">
+        <span class="paso-num"><svg viewBox="-1 -1 2 2"><polygon points="-1,0 -.5,-.866 .5,-.866 1,0 .5,.866 -.5,.866"/></svg><b>3</b></span>
+        <h3>Presupuesta y reserva</h3>
+        <p>Con el catálogo a mano, el presupuesto sale en minutos y el material queda reservado para esas fechas. Nada sale dos veces.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ── La app ─────────────────────────────────────────────────────────── -->
+  <section class="seccion" id="app">
+    <div class="tarjeta tarjeta-amarilla app-tarjeta">
+      <div class="app-texto">
+        <p class="etiqueta etiqueta-negra"><span class="hexito negro"></span>En el iPhone y el iPad</p>
+        <h2>El almacén cabe<br>en el bolsillo.</h2>
+        <p>Escanea, reserva una furgoneta deslizando el dedo, apunta tus horas o mira qué hay libre mañana, de pie en el muelle de carga. Con Face ID y avisos al móvil.</p>
+        <ul class="app-lista">
+          <li>Escáner de QR para material y vehículos</li>
+          <li>Reservas guiadas por días y por tipo de vehículo</li>
+          <li>Chat del equipo con tarjetas del presupuesto o del material</li>
+        </ul>
+      </div>
+      <div class="movil" aria-hidden="true">
+        <div class="movil-pantalla">
+          <div class="m-cab"><span class="m-avatar"></span><div><small>Buenos días</small><b>Palma Pictures</b></div></div>
+          <div class="m-hero"><small>Domingo 18</small><b>51</b><span>días de rodaje este año</span></div>
+          <div class="m-tejas">
+            <div><b>29</b><span>vehículos libres</span></div>
+            <div><b>787</b><span>en el almacén</span></div>
+          </div>
+          <div class="m-escaner"><span class="hx amarillo"></span>Escanear</div>
+          <div class="m-barra"><i class="on"></i><i></i><i class="centro"></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Seguridad ──────────────────────────────────────────────────────── -->
+  <section class="seccion" id="seguridad">
+    <div class="seg">
+      <div class="seccion-cab izq">
+        <p class="etiqueta"><span class="hexito"></span>Seguridad</p>
+        <h2>Pensado para pasar <span class="gris">una auditoría.</span></h2>
+        <p class="seccion-sub">Tus datos de producción son tuyos. bulx los trata como si lo fueran.</p>
+      </div>
+      <div class="seg-rejilla">
+        <div class="tarjeta tarjeta-blanca seg-item"><b>Entrar con Microsoft</b><span>Tu equipo entra con su cuenta de la casa, con la verificación en dos pasos de Microsoft.</span></div>
+        <div class="tarjeta tarjeta-blanca seg-item"><b>Código de 6 cifras</b><span>Para quien entra con contraseña: una app del móvil, sin SMS.</span></div>
+        <div class="tarjeta tarjeta-blanca seg-item"><b>Permisos por área</b><span>Producción, flota, almacén o IT: cada uno ve lo suyo y nada más.</span></div>
+        <div class="tarjeta tarjeta-blanca seg-item"><b>Todo queda apuntado</b><span>Quién cambió qué y cuándo, en un registro de actividad que no se borra.</span></div>
+        <div class="tarjeta tarjeta-blanca seg-item"><b>Servidores en Europa</b><span>Los datos se guardan en Frankfurt, con copia en la base y fuera del ordenador de nadie.</span></div>
+        <div class="tarjeta tarjeta-blanca seg-item"><b>Enlaces que caducan</b><span>Lo que se comparte fuera —un presupuesto, un calendario— se puede revocar cuando quieras.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Llamada final ──────────────────────────────────────────────────── -->
+  <section class="seccion" id="demo">
+    <div class="tarjeta tarjeta-negra final">
+      <svg class="final-panal" id="final-panal" aria-hidden="true"></svg>
+      <div class="final-texto">
+        <img src="img/bulx-blanco.png" alt="bulx" width="210" height="63">
+        <h2>¿Lo vemos con tu material?</h2>
+        <p>Te enseñamos bulx con tu propio inventario y tu flota en media hora. Sin compromiso y sin instalar nada.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-amarillo btn-grande" href="mailto:info@stokit.es?subject=Quiero%20ver%20bulx">Pide una demo <span aria-hidden="true">→</span></a>
+          <a class="btn btn-claro btn-grande" id="entrar" href="#entrar">Ya soy cliente · Entrar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="pie-marca">
+    <img src="img/bulx-negro.png" alt="bulx" width="88" height="26">
+    <p>Inventario y producción para productoras.</p>
+  </div>
+  <div class="pie-cols">
+    <div><b>Producto</b><a href="#producto">Material</a><a href="#producto">Flota</a><a href="#producto">Presupuestos</a><a href="#app">App</a></div>
+    <div><b>bulx</b><a href="#como">Cómo funciona</a><a href="#seguridad">Seguridad</a><a href="#demo">Contacto</a></div>
+  </div>
+  <p class="pie-credito">© 2026 bulx.es · Logotipo diseñado por <b>Xavi Murillo</b></p>
+</footer>
+
+<script src="vida.js"></script>
+</body>
+</html>

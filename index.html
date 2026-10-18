@@ -299,23 +299,52 @@ section { padding-block:var(--paso); }
 .duo-lista svg { flex:0 0 auto; margin-top:4px; color:var(--sello); }
 .duo-lista b { color:var(--tinta); font-weight:600; }
 
-/* ── La app ─────────────────────────────────────────────────────────────── */
-.movil { width:262px; border:10px solid var(--tinta); background:var(--hoja); box-shadow:var(--sombra); }
-.movil-barra { display:flex; align-items:center; justify-content:space-between; padding:9px 14px 7px; font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--tinta-3); }
-.movil-cuerpo { padding:4px 14px 14px; }
-.movil h4 { margin:0 0 2px; font-family:Archivo,sans-serif; font-size:22px; font-weight:700; letter-spacing:-.035em; }
-.movil .campo { font-size:9.5px; }
-.movil-cifra { margin:13px 0 3px; display:flex; align-items:baseline; gap:8px; }
-.movil-cifra b { font-family:Archivo,sans-serif; font-size:36px; font-weight:700; letter-spacing:-.04em; line-height:1; }
-.movil-cifra i { font-style:normal; font-size:11.5px; color:var(--verde); font-weight:600; }
-.movil-linea { height:32px; margin:9px 0 13px; display:flex; align-items:flex-end; gap:3px; }
-.movil-linea i { flex:1; background:color-mix(in srgb,var(--sello) 28%,transparent); }
-.movil-linea i:last-child { background:var(--sello); }
-.movil-teja { display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px solid var(--regla-fina); font-size:12.5px; }
-.movil-teja b { margin-inline-start:auto; font-family:"IBM Plex Mono",monospace; font-size:11.5px; }
-.movil-nav { display:flex; justify-content:space-around; padding:11px 0 3px; margin-top:6px; border-top:1px solid var(--regla); color:var(--tinta-3); }
-.movil-nav svg:first-child { color:var(--sello); }
-.app-centro { display:flex; justify-content:center; }
+/* ── La app ─────────────────────────────────────────────────────────────
+   El teléfono estaba dibujado a mano con divs y se notaba: una caricatura de
+   la aplicación al lado de las pantallas de verdad del navegador. Ahora el
+   marco es lo único dibujado y dentro va una captura real del simulador, a
+   1284×2778 y reducida a 560 de ancho (el doble de lo que ocupa en pantalla,
+   para que en una retina no se vea blanda).
+
+   Las capturas salen de un Stokit local cargado con una COPIA ANONIMIZADA de
+   los datos: misma forma y mismo volumen, pero cada nombre, cada matrícula y
+   cada correo son inventados. El guion que lo hace está en el repositorio de
+   la aplicación; si hay que repetirlas, se vuelve a pasar antes.
+
+   Medidas: proporción de pantalla 1284:2778, bisel del 3,5 % del ancho, radio
+   exterior del 13,5 % y la isla al 29 % del ancho, que es lo que mide en un
+   iPhone de verdad. Si se cambia el ancho, lo demás va detrás solo.           */
+.telefonos { display:flex; justify-content:center; align-items:flex-end; gap:clamp(16px,3vw,38px); padding-top:8px; }
+.movil { --w:clamp(176px,19vw,250px); --bisel:calc(var(--w)*.035); position:relative; flex:0 0 auto; }
+.movil-marco {
+  width:calc(var(--w) + var(--bisel)*2); padding:var(--bisel);
+  background:linear-gradient(160deg,#2e3140,#15171f 42%,#0b0c11);
+  border-radius:calc((var(--w) + var(--bisel)*2) * .135);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.07) inset, 0 2px 4px rgba(20,22,31,.2), 0 30px 60px -22px rgba(20,22,31,.45);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .movil-marco { box-shadow:0 0 0 1px rgba(255,255,255,.09) inset, 0 34px 70px -24px rgba(0,0,0,.9); } }
+:root[data-theme="dark"] .movil-marco { box-shadow:0 0 0 1px rgba(255,255,255,.09) inset, 0 34px 70px -24px rgba(0,0,0,.9); }
+.movil-pantalla { position:relative; display:block; border-radius:calc((var(--w) + var(--bisel)*2) * .135 - var(--bisel)); overflow:hidden; background:var(--hoja-2); }
+.movil-pantalla img { display:block; width:100%; height:auto; }
+/* Botones laterales: no se ven si no están, y cuando están nadie los mira. */
+.movil-marco::before, .movil-marco::after {
+  content:''; position:absolute; width:2px; background:linear-gradient(#3a3e4e,#1a1c25); border-radius:2px;
+}
+.movil-marco::before { left:-2px; top:21%; height:9%; }
+.movil-marco::after  { right:-2px; top:26%; height:15%; }
+.movil-pie { margin-top:14px; text-align:center; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--tinta-3); }
+/* El del medio, un palmo por delante: da profundidad sin inclinar nada. */
+.movil.delante { --w:clamp(200px,22vw,286px); z-index:1; }
+.movil.detras { margin-bottom:clamp(18px,3vw,44px); opacity:.97; }
+@media (max-width:860px){
+  .telefonos { gap:14px; }
+  .movil.detras:last-child { display:none; }
+}
+@media (max-width:560px){
+  .telefonos { gap:0; }
+  .movil.detras { display:none; }
+  .movil.delante { --w:min(248px,70vw); }
+}
 
 /* ── Rejilla de áreas ───────────────────────────────────────────────────── */
 .areas { display:grid; gap:1px; background:var(--regla-fina); border:1px solid var(--regla-fina); }
@@ -367,6 +396,8 @@ section { padding-block:var(--paso); }
 .rej { display:grid; gap:1px; background:var(--regla-fina); border:1px solid var(--regla-fina); }
 @media (min-width:760px){ .rej.dos { grid-template-columns:1fr 1fr; } }
 @media (min-width:900px){ .rej.tres { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:980px){ .rej.cuatro { grid-template-columns:repeat(4,1fr); } }
+@media (min-width:620px) and (max-width:979px){ .rej.cuatro { grid-template-columns:repeat(2,1fr); } }
 .celda { background:var(--hoja); padding:26px 24px; }
 .celda h3 { margin-bottom:8px; }
 .celda p { color:var(--tinta-2); font-size:14.5px; line-height:1.55; }
@@ -652,38 +683,50 @@ footer { border-top:1px solid var(--regla); background:var(--hoja); }
 <!-- ══ LA APP ══ -->
 <section class="linea" id="app">
   <div class="env">
-    <div class="duo vuelta">
-      <div class="duo-txt rev">
-        <span class="campo">En el bolsillo</span>
-        <h2>La app nativa, no la web encogida.</h2>
-        <p>Está en la App Store, para iPhone y iPad. Hecha aparte, con lo que hace falta cuando se está en el almacén o de camino al set.</p>
-        <ul class="duo-lista">
-          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><path d="M9 9h2v2M13 13h.01"/></svg><span><b>Escanear y listo</b>: se apunta al QR de una caja y sale su ficha.</span></li>
-          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.3V8l2.6 1.6"/></svg><span><b>Fichar la jornada</b> desde el móvil, con las horas y las tarifas del rodaje.</span></li>
-          <li><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="12" height="11"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg><span><b>Reservar tocando el día</b>, vehículos y espacios.</span></li>
-        </ul>
-      </div>
-      <div class="app-centro rev d2">
-        <div class="movil" aria-hidden="true">
-          <div class="movil-barra"><span>9:41</span><span>▮▮▮</span></div>
-          <div class="movil-cuerpo">
-            <span class="campo">Hoy</span>
-            <h4>Buenos días</h4>
-            <div class="movil-cifra"><b>12</b><i>+4 vs semana pasada</i></div>
-            <span class="campo" style="font-size:9px">Presupuestos enviados</span>
-            <div class="movil-linea"><i style="height:38%"></i><i style="height:55%"></i><i style="height:30%"></i><i style="height:68%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:62%"></i><i style="height:100%"></i></div>
-            <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/></svg> Material fuera <b>19</b></div>
-            <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1.5 4.5h8v6.5h-8zM9.5 7h3l2 2.2V11h-5"/></svg> Vehículos libres <b>5</b></div>
-            <div class="movil-teja"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 2l6.5 11.5h-13z"/><path d="M8 6.5v3.2"/></svg> ITV este mes <b>2</b></div>
-            <div class="movil-nav">
-              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 7l6-5 6 5v7H2z"/></svg>
-              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 5l6-3 6 3v6l-6 3-6-3z"/></svg>
-              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
-              <svg viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="5" r="2.6"/><path d="M3 13.5c0-2.6 2.2-4.2 5-4.2s5 1.6 5 4.2"/></svg>
-            </div>
-          </div>
+    <div class="cab-sec cab-centro rev">
+      <span class="campo">En el bolsillo</span>
+      <h2>La app nativa, no la web encogida.</h2>
+      <p>Está en la App Store, para iPhone y iPad. Hecha aparte, con lo que hace
+         falta cuando se está en el almacén o de camino al set.</p>
+    </div>
+
+    <div class="telefonos rev d2">
+      <div class="movil detras">
+        <div class="movil-marco">
+          <span class="movil-pantalla">
+            <img src="app/reservas.jpg" width="560" height="1217" loading="lazy" decoding="async"
+                 alt="La pantalla de reservas en el iPhone: el calendario del mes con un punto por reserva y, debajo, los vehículos reservados para hoy con su rodaje.">
+          </span>
         </div>
+        <p class="movil-pie">Reservas</p>
       </div>
+
+      <div class="movil delante">
+        <div class="movil-marco">
+          <span class="movil-pantalla">
+            <img src="app/flota.jpg" width="560" height="1217" loading="lazy" decoding="async"
+                 alt="La pantalla de flota en el iPhone: vehículos libres hoy, los que están fuera y en el taller, y la lista de lo que tiene los papeles caducados.">
+          </span>
+        </div>
+        <p class="movil-pie">Flota</p>
+      </div>
+
+      <div class="movil detras">
+        <div class="movil-marco">
+          <span class="movil-pantalla">
+            <img src="app/almacen.jpg" width="560" height="1217" loading="lazy" decoding="async"
+                 alt="La pantalla de almacén en el iPhone: la lista de material con su código, su categoría y si está disponible.">
+          </span>
+        </div>
+        <p class="movil-pie">Almacén</p>
+      </div>
+    </div>
+
+    <div class="rej cuatro rev" style="margin-top:clamp(42px,6vw,72px)">
+      <div class="celda"><h3>Escanear y listo</h3><p>Se apunta al QR de una caja y sale su ficha, con su estado y dónde debería estar.</p></div>
+      <div class="celda"><h3>Fichar la jornada</h3><p>Entrada y salida desde el móvil, con las horas y las tarifas del rodaje al que van.</p></div>
+      <div class="celda"><h3>Reservar tocando el día</h3><p>Vehículos y espacios, sin esperar a volver a la oficina a abrir el calendario.</p></div>
+      <div class="celda"><h3>El chat del equipo</h3><p>Dentro, no en otra aplicación: se habla al lado de la ficha de la que se está hablando.</p></div>
     </div>
   </div>
 </section>

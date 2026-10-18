@@ -92,7 +92,11 @@
     const ancho = () => innerWidth > 1000;
     const entre = (v, a, b) => Math.max(a, Math.min(b, v));
     let mx = 0, my = 0, rx = 0, ry = 0, pendiente = false;
-    const medir = () => capas.forEach(c => { const t = c.el.style.transform; c.el.style.transform = ''; const r = c.el.getBoundingClientRect(); c.y0 = r.top + scrollY + r.height / 2; c.el.style.transform = t; });
+    const vent = { y0: null, ancho: 1 };
+    const medir = () => {
+      capas.forEach(c => { const t = c.el.style.transform; c.el.style.transform = ''; const r = c.el.getBoundingClientRect(); c.y0 = r.top + scrollY + r.height / 2; c.el.style.transform = t; });
+      if (ventana) { const t = ventana.style.transform; ventana.style.transform = ''; const r = ventana.getBoundingClientRect(); vent.y0 = r.top + scrollY + r.height / 2; vent.ancho = r.width || 1; ventana.style.transform = t; }
+    };
     medir(); addEventListener('resize', () => setTimeout(() => { medir(); pedir(); }, 220));
     addEventListener('load', () => { medir(); pedir(); });
     addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; pedir(); }, { passive: true });
@@ -111,10 +115,26 @@
         if (r) t = `translate3d(${(rx * r.m).toFixed(1)}px, ${(d * c.v + ry * r.m).toFixed(1)}px, 0)`;
         c.el.style.transform = t;
       });
-      if (ventana) {
-        /* De inclinada y algo pequeña a plana y a tamaño, en los primeros 500 px. */
-        const k = Math.min(1, scrollY / 500);
-        ventana.style.transform = `perspective(1400px) rotateX(${((1 - k) * 14).toFixed(2)}deg) scale(${(0.93 + 0.07 * k).toFixed(3)})`;
+      if (ventana && vent.y0 != null) {
+        /* La ventana del producto se ACERCA al bajar (18/10/2026, Xavi: «que
+           la pantalla se acerque y parezca que es la nuestra, y scrolleando
+           hacia abajo vuelve a irse»): llega inclinada y algo pequeña, se
+           endereza y crece hasta casi el ancho de la pantalla cuando pasa por
+           el centro, y al seguir bajando se encoge y se inclina hacia atrás,
+           como si se alejara. p = dónde está su centro respecto al de la
+           pantalla, en pantallas (negativo: aún por debajo). */
+        const p = (centro - vent.y0) / innerHeight;
+        const suave = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        const grande = Math.max(1, Math.min(1.12, (innerWidth - 56) / vent.ancho));
+        let rot, esc, y;
+        if (p < 0) {
+          const k = suave(entre((p + 0.95) / 0.85, 0, 1));          // de -0.95 a -0.10 pantallas
+          rot = (1 - k) * 14; esc = 0.93 + (grande - 0.93) * k; y = 0;
+        } else {
+          const j = suave(entre(p / 0.9, 0, 1));                    // de 0 a 0.9 pantallas
+          rot = -9 * j; esc = grande - (grande - 0.94) * j; y = -40 * j;
+        }
+        ventana.style.transform = `perspective(1400px) translate3d(0, ${y.toFixed(1)}px, 0) rotateX(${rot.toFixed(2)}deg) scale(${esc.toFixed(3)})`;
       }
       if (movil && movilEsc) {
         /* El móvil: llega girado hacia la página, se endereza en el centro de

@@ -331,7 +331,7 @@ p { margin: 0; }
 .hero-panal { inset: -10% 0 !important; height: 120% !important; }
 .final-panal { inset: -12% 0 !important; height: 124% !important; }
 .celda-capa { position: absolute; inset: 0; transition: transform .25s ease-out; }
-.ventana { transform-origin: 50% 0; transition: box-shadow .4s; }
+.ventana { transform-origin: 50% 50%; transition: box-shadow .4s; will-change: transform; }
 /* Las abejas: celdas sueltas que cruzan la página a otra velocidad. */
 .abejas { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
 main, .pie { position: relative; z-index: 1; }

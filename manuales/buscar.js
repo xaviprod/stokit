@@ -6,7 +6,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Empezar",
   "titulo": "Entrar",
-  "texto": "Bulx no tiene una única dirección: cada empresa entra por la suya . La tuya es tuproductora.bulx.es . Si entras por…",
+  "texto": "Bulx no tiene una única dirección: cada empresa entra por la suya , &lt;tuproductora&gt;.bulx.es . Si entras por bulx.es a secas verás la web…",
   "url": "empezar.html#entrar",
   "claves": [
    "login",
@@ -22,15 +22,22 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Empezar",
-  "titulo": "Moverse",
-  "texto": "Todo está en la barra de la izquierda , agrupada por asunto: Producción, Flota, Material, Tecnología, Personal y Sistema. Arriba, fuera de…",
+  "titulo": "¿Has olvidado la contraseña?",
+  "texto": "La pantalla nunca dice si un usuario existe o no: siempre contesta lo mismo. Si no llega nada, mira el correo no deseado. Y si en tu casa se…",
+  "url": "empezar.html#olvido",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
+  "titulo": "La barra lateral",
+  "texto": "Todo está en la barra de la izquierda . De arriba abajo:",
   "url": "empezar.html#moverse",
   "claves": []
  },
  {
   "donde": "Empezar",
   "titulo": "Las pestañas",
-  "texto": "Esta es la parte que sorprende al principio: Bulx abre pestañas propias , arriba, como un navegador dentro del navegador. Cada proyecto,…",
+  "texto": "Esta es la parte que sorprende al principio: Bulx abre pestañas propias , arriba, como un navegador dentro del navegador. Cada proyecto, cada…",
   "url": "empezar.html#pestanas",
   "claves": [
    "tabs",
@@ -53,29 +60,57 @@ window.INDICE_MANUALES = [
  {
   "donde": "Empezar",
   "titulo": "El buscador",
-  "texto": "Arriba a la derecha hay un buscador que mira en todo a la vez : proyectos, material, flota y personas. Escribe la matrícula de un coche, el…",
+  "texto": "Vive arriba del Dashboard y mira en todo a la vez : proyectos, presupuestos, flota, material, dispositivos, líneas y empleados. Desde…",
   "url": "empezar.html#buscar",
   "claves": []
  },
  {
   "donde": "Empezar",
+  "titulo": "El chat",
+  "texto": "Para hablar con la gente de la casa sin salir de Bulx, y sobre todo para pasarse cosas de Bulx. Está en Mensajes , en la barra lateral: las…",
+  "url": "empezar.html#chat",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
   "titulo": "Claro y oscuro",
-  "texto": "El interruptor de arriba a la derecha. Tres estados: claro, oscuro y lo que diga tu ordenador , que es el de partida — si tu portátil cambia…",
+  "texto": "El botón del sol y la luna, arriba a la derecha, cambia entre claro y oscuro. Está también en la pantalla de entrada, para quien entra de…",
   "url": "empezar.html#tema",
   "claves": []
  },
  {
   "donde": "Empezar",
   "titulo": "En el móvil",
-  "texto": "Funciona en el teléfono, y está pensado para lo que de verdad se hace desde el teléfono: consultar. La barra lateral se abre con el botón de…",
+  "texto": "La web funciona en el teléfono. La barra lateral se abre con el botón de las tres rayas y se cierra al elegir algo. Las tablas anchas se…",
   "url": "empezar.html#movil",
   "claves": []
  },
  {
   "donde": "Empezar",
-  "titulo": "Ponlo en la pantalla de inicio del iPhone",
-  "texto": "Bulx se instala como una aplicación. No hay que bajar nada de la App Store:",
+  "titulo": "Ponlo en la pantalla de inicio",
+  "texto": "Si prefieres la web a la app , se puede dejar como un icono más del teléfono:",
   "url": "empezar.html#instalar",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
+  "titulo": "La app de iPhone y iPad",
+  "texto": "Bulx tiene app propia, para iPhone y para iPad. No es la web metida en un marco: está hecha para el almacén, la calle y el rodaje. Lee los…",
+  "url": "empezar.html#app",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
+  "titulo": "Entrar en la app",
+  "texto": "",
+  "url": "empezar.html#app-entrar",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
+  "titulo": "La barra de abajo",
+  "texto": "Se arma con tus permisos. Casi todos tienen Inicio , Escanear en el centro, Chat y Menú . Según lo que lleves, además Reservas , Flota y…",
+  "url": "empezar.html#app-barra",
   "claves": []
  },
  {
@@ -98,7 +133,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Empezar",
   "titulo": "Cuándo se guarda",
-  "texto": "Casi todo se guarda al momento , sin botón: asignar un coche a un día, marcar una tarea, cambiar un dato de una ficha. Lo que sí tiene botón…",
+  "texto": "Casi todo se guarda al momento , sin botón: asignar un vehículo a un día, marcar una tarea, cambiar un dato de una ficha.",
   "url": "empezar.html#guardado",
   "claves": [
    "se",
@@ -113,14 +148,14 @@ window.INDICE_MANUALES = [
  {
   "donde": "Proyectos",
   "titulo": "La lista",
-  "texto": "Producción → Proyectos. Una sola barra arriba: a la izquierda qué proyectos ves — En marcha , Anteriores (los finalizados) o Calendario (la…",
+  "texto": "Producción → Proyectos. Arriba a la derecha, + Nuevo proyecto . Debajo, una sola barra: qué proyectos ves — En marcha , Anteriores (los…",
   "url": "proyectos.html#lista",
   "claves": []
  },
  {
   "donde": "Proyectos",
   "titulo": "Crear un proyecto",
-  "texto": "+ Nuevo proyecto , arriba a la derecha. Se abre como una pestaña propia, no un cuadro, con cinco bloques de arriba abajo y, a la derecha, la…",
+  "texto": "+ Nuevo proyecto abre una página propia con cinco bloques y, a la derecha, la tarjeta del proyecto tal como va a quedar , que cambia con cada…",
   "url": "proyectos.html#crear",
   "claves": [
    "nuevo",
@@ -134,7 +169,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Proyectos",
   "titulo": "La ficha",
-  "texto": "Al abrir un proyecto se abre su ficha en una pestaña propia. Arriba, la franja de cifras contesta a lo que se pregunta al entrar:…",
+  "texto": "La ficha se abre en una pestaña propia. Arriba, el nombre, el estado, el cliente, las fechas y los días que quedan, y a la derecha Editar (y…",
   "url": "proyectos.html#ficha",
   "claves": []
  },
@@ -156,7 +191,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Proyectos",
   "titulo": "Subproyectos",
-  "texto": "Un subproyecto es una parte del rodaje con sus propios presupuestos : Cámara, Iluminación, Segunda unidad, Rodaje Madrid. Se administran en…",
+  "texto": "Un subproyecto es una parte del rodaje con su material y sus presupuestos : Cámara, Iluminación, Segunda unidad. Se administran en la pestaña…",
   "url": "proyectos.html#subproyectos",
   "claves": [
    "departamento",
@@ -169,37 +204,28 @@ window.INDICE_MANUALES = [
  {
   "donde": "Proyectos",
   "titulo": "Contactos",
-  "texto": "La agenda del rodaje: nombre, rol, correo y teléfono, con el correo y el teléfono pulsables. Se edita con Editar en la cabecera del bloque, y…",
+  "texto": "La agenda del rodaje: rol, nombre, correo y teléfono, con Correo y Llamar a un clic. Se edita con Editar en la cabecera del bloque, y no se…",
   "url": "proyectos.html#contactos",
   "claves": []
  },
  {
   "donde": "Proyectos",
   "titulo": "Material del proyecto",
-  "texto": "Pestaña Equipment . Aquí se planifica lo que lleva el rodaje, sacándolo del inventario de la casa o del catálogo de tarifas.",
+  "texto": "Pestaña Equipment . Dos paneles: a la izquierda, las categorías del inventario y el catálogo de tarifas, con un buscador; a la derecha, lo…",
   "url": "proyectos.html#material",
   "claves": []
  },
  {
   "donde": "Proyectos",
-  "titulo": "Equipo de rodaje",
-  "texto": "Quién va en cada vehículo. Se monta desde Flota → Vehículos → Equipo de Rodaje , que enseña la matriz de vehículos × puestos por proyecto:…",
-  "url": "proyectos.html#equipo",
-  "claves": [
-   "crew",
-   "quién",
-   "va",
-   "en",
-   "cada",
-   "coche",
-   "matriz",
-   "puestos"
-  ]
+  "titulo": "Finanzas",
+  "texto": "Pestaña Finanzas . Arriba, los presupuestos del proyecto agrupados por estado —Borradores, Enviados, Aceptados, Rechazados— con lo que suma…",
+  "url": "proyectos.html#finanzas",
+  "claves": []
  },
  {
   "donde": "Proyectos",
   "titulo": "La flota del proyecto",
-  "texto": "Pestaña Flota de la ficha. Los vehículos del rodaje, agrupados por categoría — Camión Pesado, Camión Ligero, Vitos, Coches — y cada uno con…",
+  "texto": "Pestaña Flota . Los vehículos del rodaje, agrupados por categoría —Camión Pesado, Camión Ligero, Vitos, Coches…— y cada uno con su logo de…",
   "url": "proyectos.html#flota",
   "claves": [
    "coches",
@@ -214,43 +240,80 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Proyectos",
+  "titulo": "Transporte",
+  "texto": "Pestaña Transporte . Contesta lo que pregunta el cliente antes de cargar: cuántos bultos , cuántos kilos y cuántos metros cúbicos salen para…",
+  "url": "proyectos.html#transporte",
+  "claves": []
+ },
+ {
+  "donde": "Proyectos",
+  "titulo": "Equipo de rodaje",
+  "texto": "Quién va en cada vehículo. En la web se monta desde Flota → Vehículos → Equipo de Rodaje : una cuadrícula con los proyectos en columnas y los…",
+  "url": "proyectos.html#equipo",
+  "claves": [
+   "crew",
+   "quién",
+   "va",
+   "en",
+   "cada",
+   "coche",
+   "matriz",
+   "puestos"
+  ]
+ },
+ {
+  "donde": "Proyectos",
   "titulo": "El calendario de proyectos",
-  "texto": "Pestaña Calendario de la lista, o el bloque plegado de arriba en General. Una barra por proyecto sobre una escala de meses, con la línea de…",
+  "texto": "Pestaña Calendario de la lista. Una fila por proyecto y una barra de su inicio a su fin, agrupados en En marcha , Previstos y Terminados .…",
   "url": "proyectos.html#calendario",
   "claves": []
  },
  {
   "donde": "Proyectos",
+  "titulo": "El chat del rodaje",
+  "texto": "Cada rodaje en marcha puede tener su conversación. En el chat, Nueva conversación → De un rodaje , eliges el rodaje y quién entra, y Entrar…",
+  "url": "proyectos.html#chat",
+  "claves": []
+ },
+ {
+  "donde": "Proyectos",
+  "titulo": "En el iPhone y el iPad",
+  "texto": "En la app de Bulx, la ficha del rodaje está pensada para el móvil en la mano: las fechas y por qué día va, quién lo lleva (con botones para…",
+  "url": "proyectos.html#app",
+  "claves": []
+ },
+ {
+  "donde": "Proyectos",
   "titulo": "Finalizar un proyecto",
-  "texto": "Es lo que se hace el 99 % de las veces. En la tarjeta de un proyecto activo, en la lista, hay un botón Finalizar : el rodaje pasa a la…",
+  "texto": "Es lo que se hace el 99 % de las veces. Con el botón derecho sobre un proyecto en marcha, o en la vista de tabla, Finalizar : el rodaje pasa…",
   "url": "proyectos.html#finalizar",
   "claves": []
  },
  {
   "donde": "Proyectos",
   "titulo": "Borrar un proyecto",
-  "texto": "Eliminar , en la cabecera de la ficha, al lado de Editar. Solo aparece con nivel total en Proyectos, y no mientras estás editando.",
+  "texto": "Eliminar , en la cabecera de la ficha o con el botón derecho en la lista. Solo aparece con nivel total en Proyectos.",
   "url": "proyectos.html#borrar",
   "claves": []
  },
  {
   "donde": "Presupuestos",
-  "titulo": "Clientes",
-  "texto": "Producción → Clientes. A quién se presupuesta y se factura. Cada cliente es una ficha: nombre comercial, razón social, NIF y domicilio fiscal…",
-  "url": "presupuestos.html#clientes",
-  "claves": []
- },
- {
-  "donde": "Presupuestos",
   "titulo": "La lista",
-  "texto": "Producción → Presupuestos. Arriba, tres botones: + Nuevo , Catálogo y Ajustes PDF . Y una tira de filtros por estado: Todos, Borrador,…",
+  "texto": "Producción → Presupuestos. Arriba, tres botones: Catálogo , Ajustes PDF y + Nuevo presupuesto .",
   "url": "presupuestos.html#lista",
   "claves": []
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Clientes",
+  "texto": "Producción → Clientes. A quién se presupuesta. Arriba, cuántos clientes hay, cuántos tienen presupuestos abiertos y cuánto se ha aceptado…",
+  "url": "presupuestos.html#clientes",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "Montar un presupuesto",
-  "texto": "Se puede empezar de dos sitios, y no da lo mismo:",
+  "texto": "Se puede empezar desde tres sitios:",
   "url": "presupuestos.html#crear",
   "claves": [
    "hacer",
@@ -264,36 +327,57 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Personalizar presupuesto",
+  "texto": "Mientras metes material no hay nada a mano que reordene el documento. Todo eso está detrás del botón Personalizar presupuesto : + Sección…",
+  "url": "presupuestos.html#personalizar",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "Descuentos",
-  "texto": "Hay dos, y se pueden combinar. El descuento global está en los totales (la casilla «Descuento global %») y se aplica sobre la suma de todas…",
+  "texto": "Hay dos, y se pueden combinar. El descuento global está en los totales («Descuento global %») y se aplica sobre la suma de todas las líneas.…",
   "url": "presupuestos.html#descuentos",
   "claves": []
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Se guarda solo",
+  "texto": "El constructor guarda mientras trabajas: al lado de Guardar pone Guardando… , Guardado con la hora o Sin guardar . Un presupuesto nuevo no se…",
+  "url": "presupuestos.html#guardado",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "El catálogo de tarifas",
-  "texto": "Botón Catálogo . Es tu lista de precios: concepto, unidad (día, hora, unidad, sesión, proyecto, minuto) y precio. Lo que metas aquí aparece…",
+  "texto": "Botón Catálogo . Son los conceptos que cobras y que no son material físico: personal, servicios, dietas. Cada uno con categoría, nombre,…",
   "url": "presupuestos.html#catalogo",
   "claves": []
  },
  {
   "donde": "Presupuestos",
   "titulo": "Ver el documento",
-  "texto": "Abrir un presupuesto de la lista enseña el documento tal como lo va a recibir el cliente , con la hoja a escala y el fondo de marca puesto.…",
+  "texto": "Abrir un presupuesto enseña el documento tal como lo recibe el cliente , con su plantilla y su fondo. Arriba, el número, el cliente y el…",
   "url": "presupuestos.html#documento",
   "claves": []
  },
  {
   "donde": "Presupuestos",
-  "titulo": "Versiones, aceptación y caducidad",
-  "texto": "Un presupuesto enviado no se edita : si el cliente pide cambios, Nueva versión crea la v2 con todo copiado, deja la v1 guardada tal como se…",
+  "titulo": "Pasarlo por el chat",
+  "texto": "En el chat, el clip tiene Un presupuesto : sale como una tarjeta con el número, el cliente, el proyecto y el estado de hoy, y quien la pulsa…",
+  "url": "presupuestos.html#chat",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
+  "titulo": "Versiones y aceptación",
+  "texto": "Un presupuesto enviado ya no tiene Editar: si el cliente pide cambios, Nueva versión pide la fecha y la validez nuevas, crea la v2 con todo…",
   "url": "presupuestos.html#versiones",
   "claves": []
  },
  {
   "donde": "Presupuestos",
   "titulo": "Enviar",
-  "texto": "Desde el editor, el botón rojo es Guardar y enviar : guarda y abre el envío de una vez. No hay que exportar el PDF antes ni hacer nada más:…",
+  "texto": "Enviar (o Guardar y enviar desde el constructor) abre el envío. Delante salen los tres de producción del proyecto —Line Producer, Production…",
   "url": "presupuestos.html#enviar",
   "claves": [
    "mandar",
@@ -309,9 +393,23 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Lo que ve el cliente",
+  "texto": "El enlace abre la copia exacta del documento tal como se mandó. El cliente no necesita cuenta. Arriba ve una portada con lo esencial…",
+  "url": "presupuestos.html#enlace",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "Cuando el cliente responde, mandáis vosotros",
-  "texto": "La respuesta del cliente no cambia nada sola : queda como pendiente de revisar y el presupuesto sigue en «enviado» hasta que alguien de la…",
+  "texto": "La respuesta no cambia nada sola : queda pendiente de revisar y el presupuesto sigue en «enviado» hasta que alguien de la casa decide.",
   "url": "presupuestos.html#respuestas",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
+  "titulo": "Recordar al cliente",
+  "texto": "Para el presupuesto que nadie contesta. Recordar le reenvía al cliente el mismo enlace, a los destinatarios del último envío, para que lo…",
+  "url": "presupuestos.html#recordar",
   "claves": []
  },
  {
@@ -323,21 +421,8 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
-  "titulo": "Pasar a factura",
-  "texto": "No se crea un documento nuevo ni se copia nada: el mismo documento cambia de naturaleza . Lo que ya se acordó con el cliente —líneas,…",
-  "url": "presupuestos.html#factura",
-  "claves": [
-   "facturar",
-   "convertir",
-   "emitir",
-   "cif",
-   "domicilio"
-  ]
- },
- {
-  "donde": "Presupuestos",
   "titulo": "Contabilizar",
-  "texto": "Contabilizar un documento suma los días de alquiler a cada ítem del inventario que aparezca en él. Es lo que hace que un foco sepa cuántos…",
+  "texto": "Contabilizar un presupuesto suma los días de alquiler a cada artículo del inventario que lleva. Es lo que hace que un foco sepa cuántos días…",
   "url": "presupuestos.html#contabilizar",
   "claves": [
    "días",
@@ -350,7 +435,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Presupuestos",
   "titulo": "Anular",
-  "texto": "Los presupuestos y las facturas no se borran: se anulan . El documento se queda en la base y desaparece de las listas y de las sumas, pero su…",
+  "texto": "Los presupuestos no se borran: se anulan . Anular pide un motivo (opcional), lo saca de las listas y de las cifras y lo lleva al filtro…",
   "url": "presupuestos.html#anular",
   "claves": [
    "borrar",
@@ -361,8 +446,21 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
+  "titulo": "Y la factura",
+  "texto": "Bulx no hace facturas. Presupuesta, manda, recoge la aceptación y contabiliza el material; la factura se hace fuera, con el programa de…",
+  "url": "presupuestos.html#factura",
+  "claves": [
+   "facturar",
+   "convertir",
+   "emitir",
+   "cif",
+   "domicilio"
+  ]
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "Plantillas y PDF",
-  "texto": "Botón Ajustes PDF , o Ajustes → Documentos . Cuatro plantillas — Sobria, Clásico, Moderno, Cine — y el diseño de cada una se puede editar por…",
+  "texto": "Dos plantillas, Sobria y Clásico . La que usa cada presupuesto nuevo se elige en Ajustes → Diseño del documento , y ahí mismo Editar diseño…",
   "url": "presupuestos.html#plantillas",
   "claves": [
    "pdf",
@@ -376,8 +474,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Presupuestos",
+  "titulo": "En el iPhone y el iPad",
+  "texto": "La app de Bulx tiene Presupuestos en el menú y en la ficha de cada rodaje. Sirve para mirar : la lista con sus filtros (Enviados, Aceptados,…",
+  "url": "presupuestos.html#app",
+  "claves": []
+ },
+ {
+  "donde": "Presupuestos",
   "titulo": "Economía",
-  "texto": "Producción → Economía. Los números del negocio, con dos filtros arriba: año y proyecto . Cinco bloques:",
+  "texto": "Producción → Economía. Los números del negocio, con dos filtros arriba: año y proyecto , y un botón para sacarlo en Excel.",
   "url": "presupuestos.html#economia",
   "claves": [
    "márgenes",
@@ -390,8 +495,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Flota",
+  "titulo": "Dónde está cada cosa",
+  "texto": "En la barra lateral, el grupo Flota tiene cinco pantallas: General , Vehículos , Calendario de Flota , Salidas y revisiones y Tareas / ITV .…",
+  "url": "flota.html#menu",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
   "titulo": "Los vehículos",
-  "texto": "Flota → Vehículos. Arriba, una barra con las categorías y el buscador; debajo, la tabla. Dos botones que no son la tabla:",
+  "texto": "Flota → Vehículos. Arriba, tres botones:",
   "url": "flota.html#vehiculos",
   "claves": []
  },
@@ -405,7 +517,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Flota",
   "titulo": "La ficha de un vehículo",
-  "texto": "Doble clic en una fila, o Abrir . Tres pestañas: Información , Documentos / Fotos e Historial servicio . Y arriba, En reparación para…",
+  "texto": "Un clic en la fila —o en la tarjeta, en cuadrícula— la abre en su propia pestaña, con el nombre del vehículo. Arriba van su estado y tres…",
   "url": "flota.html#ficha",
   "claves": []
  },
@@ -428,22 +540,29 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Flota",
-  "titulo": "Documentos y fotos",
-  "texto": "+ Subir documento : el permiso de circulación, la ficha técnica, la póliza, el parte de un golpe. Se pueden previsualizar y descargar desde…",
+  "titulo": "Papeles, fotos e historial",
+  "texto": "La pestaña Documentos / Fotos empieza por Los papeles del coche : cuatro huecos fijos — Permiso de circulación , Ficha técnica , ITV y Seguro…",
   "url": "flota.html#documentos",
   "claves": []
  },
  {
   "donde": "Flota",
+  "titulo": "La pegatina de la puerta",
+  "texto": "Cada vehículo tiene un QR para pegar en la puerta. Está en su ficha, en el bloque Pegatina de la puerta , con tres botones: Ver e imprimir ,…",
+  "url": "flota.html#pegatina",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
   "titulo": "El General de Flota",
-  "texto": "Flota → General. La portada de la flota: cifras de hoy y del mes, ITV pendiente, papeles que caducan y la ocupación de los próximos 30 días.…",
+  "texto": "Flota → General. La portada de la flota. Debajo del título, una línea con cuántos vehículos hay, cuántos están libres hoy y cuántos se han…",
   "url": "flota.html#general",
   "claves": []
  },
  {
   "donde": "Flota",
-  "titulo": "El calendario compartido",
-  "texto": "Flota → Calendario de Flota. Una fila por vehículo, una columna por día. Aquí es donde se decide de verdad quién tiene cada coche.",
+  "titulo": "El calendario de flota",
+  "texto": "Flota → Calendario de Flota. Una fila por vehículo y una barra por cada reserva. Aquí es donde se decide de verdad quién tiene cada coche.…",
   "url": "flota.html#calendario",
   "claves": [
    "asignar",
@@ -464,36 +583,36 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Flota",
-  "titulo": "Reservar: los colores",
-  "texto": "Debajo del título está la leyenda de proyectos : un bloque de color por cada rodaje activo, con su nombre escrito encima. Ese bloque es…",
-  "url": "flota.html#calendario-colores",
+  "titulo": "Reservar un vehículo",
+  "texto": "Debajo de los campos, el panel dice cuántos días son y avisa si el vehículo tiene la ITV o el seguro mal. Si las fechas pisan otra reserva ,…",
+  "url": "flota.html#calendario-reservar",
   "claves": []
  },
  {
   "donde": "Flota",
-  "titulo": "ITV y mantenimiento",
-  "texto": "Un vehículo puede estar ocupado sin ir a ningún rodaje. Esos días se marcan con los botones ITV y Mantenimiento de la leyenda, y se pintan de…",
+  "titulo": "ITV y taller en el calendario",
+  "texto": "Un vehículo puede estar ocupado sin ir a ningún rodaje. En Para qué , al final, está el grupo Sin proyecto con ITV y Taller / mantenimiento .…",
   "url": "flota.html#calendario-bloqueos",
   "claves": []
  },
  {
   "donde": "Flota",
   "titulo": "A pantalla completa",
-  "texto": "El calendario tiene su propia dirección: tuproductora.bulx.es/calendario . Se abre sin barra lateral y sin pestañas, con toda la ventana…",
+  "texto": "El calendario tiene su propia dirección: tuproductora.bulx.es/calendario . Se abre sin barra lateral y sin pestañas, con toda la ventana para…",
   "url": "flota.html#calendario-pantalla",
   "claves": []
  },
  {
   "donde": "Flota",
-  "titulo": "Quién puede entrar",
-  "texto": "El calendario compartido tiene permiso propio , separado del resto de Flota. Eso permite dar a alguien de producción el calendario y nada más…",
+  "titulo": "Quién puede reservar",
+  "texto": "El calendario compartido tiene área de permiso propia , Calendario compartido , separada de Flota. Da el calendario de flota y el de…",
   "url": "flota.html#calendario-quien",
   "claves": []
  },
  {
   "donde": "Flota",
-  "titulo": "El calendario de producción",
-  "texto": "Producción → Calendario. La otra mitad del Excel. A producción no le importan los camiones ni los coches: le importan las Vitos y los…",
+  "titulo": "El calendario de reservas",
+  "texto": "Producción → Calendario (la pantalla se llama Calendario de reservas ). A producción no le importan los camiones: le importan las Vitos y los…",
   "url": "flota.html#calendario-produccion",
   "claves": []
  },
@@ -521,14 +640,14 @@ window.INDICE_MANUALES = [
  {
   "donde": "Flota",
   "titulo": "Tareas / ITV",
-  "texto": "Flota → Tareas / ITV. Listas de cosas por hacer en los vehículos, organizadas por proyecto. Tres columnas: los proyectos, sus listas, y el…",
+  "texto": "Flota → Tareas / ITV. Arriba va el panel de ITV , con su botón Apuntar ITV . Reúne todo lo que hay pendiente en cinco grupos:",
   "url": "flota.html#tareas",
   "claves": []
  },
  {
   "donde": "Flota",
   "titulo": "Mantenimiento",
-  "texto": "El acceso directo de arriba en la barra lateral, fuera de los grupos, porque se mira a diario. Reúne tres cosas: las órdenes de taller , los…",
+  "texto": "En la barra lateral está dentro del grupo Material , pero sirve igual para vehículos, material e IT: es el sitio de las órdenes de taller .…",
   "url": "flota.html#taller",
   "claves": [
    "avería",
@@ -541,7 +660,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Flota",
   "titulo": "Dar de baja un vehículo",
-  "texto": "Requiere nivel total en Flota. Si el vehículo está en algún proyecto en curso o tiene días futuros en el calendario, la aplicación no lo…",
+  "texto": "Requiere nivel total en Flota, y se hace con Borrar en la fila o en el menú del botón derecho. Si el vehículo está en algún proyecto en curso…",
   "url": "flota.html#borrar",
   "claves": [
    "baja",
@@ -551,9 +670,37 @@ window.INDICE_MANUALES = [
   ]
  },
  {
+  "donde": "Flota",
+  "titulo": "Desde el iPhone y el iPad",
+  "texto": "La app es la misma en los dos. La pestaña Flota de la barra de abajo tiene cuatro apartados: General , Vehículos , ITVs y Calendario . En el…",
+  "url": "flota.html#app",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
+  "titulo": "El mapa de la flota",
+  "texto": "Encima de la lista de vehículos va un mapa. Los vehículos no llevan GPS : cada uno se pone en sus propias coordenadas si las tiene guardadas…",
+  "url": "flota.html#mapa",
+  "claves": []
+ },
+ {
+  "donde": "Flota",
+  "titulo": "Reservar paso a paso",
+  "texto": "La pestaña Reservas guía en cinco pasos, pensados para el pulgar:",
+  "url": "flota.html#reservar-app",
+  "claves": []
+ },
+ {
+  "donde": "Material",
+  "titulo": "Dónde está cada cosa",
+  "texto": "En la barra lateral, el grupo Material tiene cuatro pantallas: Inventario , Medidas y peso , Fichas QR y Mantenimiento . Mantenimiento antes…",
+  "url": "material.html#menu",
+  "claves": []
+ },
+ {
   "donde": "Material",
   "titulo": "El inventario",
-  "texto": "Material → Inventario. Arriba, las categorías como chips con su cuenta —Todo, Camera, Lights, Grip, Facilities, Vehicles, IT, Offices &…",
+  "texto": "Material → Inventario. Arriba, los departamentos como píldoras con su cuenta — Todo y una por cada categoría raíz— y, al lado, una barra con…",
   "url": "material.html#inventario",
   "claves": [
    "material",
@@ -567,22 +714,22 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Material",
-  "titulo": "La ficha de un ítem",
-  "texto": "Ficha en la fila, o doble clic. Dentro: los datos, las fotos, y el historial de por qué rodajes ha pasado. + Añadir ítem , arriba, da de alta…",
+  "titulo": "La ficha de un artículo",
+  "texto": "Doble clic en la fila, o Abrir la ficha en el menú. En el móvil basta con tocarla. Se abre en su propia pestaña, así que se puede tener…",
   "url": "material.html#ficha",
   "claves": []
  },
  {
   "donde": "Material",
   "titulo": "Material que lleva material dentro",
-  "texto": "Un HMI 18kW no es un aparato: es una cabeza, un balasto, un cable de cabeza y un flight. En la ficha de cualquier ítem, abajo, está el bloque…",
+  "texto": "Un foco grande no es un aparato: es una cabeza, un balasto, un cable de cabeza y un flight. En la ficha de cualquier artículo está el bloque…",
   "url": "material.html#kits",
   "claves": []
  },
  {
   "donde": "Material",
   "titulo": "Las categorías",
-  "texto": "Botón Categorías . Es un árbol , no una lista: Camera → Ópticas → Zooms. Se crean con + Categoría raíz y colgando hijas de cualquier rama.",
+  "texto": "Botón Categorías , para quien tiene nivel total en Material. Es un árbol , no una lista: Cámara → Ópticas → Zooms. Se crea una rama con +…",
   "url": "material.html#categorias",
   "claves": [
    "árbol",
@@ -601,7 +748,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Material",
   "titulo": "Importar desde Excel",
-  "texto": "Importar Excel necesita la capacidad importar , que se valida en el servidor.",
+  "texto": "Importar Excel necesita nivel de edición en Material y la capacidad Importar Excel , y las dos se comprueban en el servidor.",
   "url": "material.html#importar",
   "claves": [
    "excel",
@@ -614,8 +761,29 @@ window.INDICE_MANUALES = [
  {
   "donde": "Material",
   "titulo": "Días alquilados",
-  "texto": "La columna Alquilado no se rellena a mano: sube cuando se contabiliza un presupuesto aceptado o una factura que incluya ese ítem.",
+  "texto": "Las cifras Días en rodaje y Veces alquilado de la ficha no se rellenan a mano: suben cuando se contabiliza un presupuesto aceptado que…",
   "url": "material.html#alquilado",
+  "claves": []
+ },
+ {
+  "donde": "Material",
+  "titulo": "Medidas y peso",
+  "texto": "Material → Medidas y peso. Lo que mide y lo que pesa cada cosa, para poder decírselo a un cliente o llenar un camión. No es una lista de…",
+  "url": "material.html#medidas",
+  "claves": []
+ },
+ {
+  "donde": "Material",
+  "titulo": "Cajas y grupos",
+  "texto": "Un conjunto es algo que lleva otras cosas dentro, y hay dos clases:",
+  "url": "material.html#conjuntos",
+  "claves": []
+ },
+ {
+  "donde": "Material",
+  "titulo": "Mantenimiento y avisos",
+  "texto": "Material → Mantenimiento es la pantalla de las órdenes de taller de todo: vehículos, material e IT. Se explica entera en Flota →…",
+  "url": "material.html#mantenimiento",
   "claves": []
  },
  {
@@ -641,23 +809,37 @@ window.INDICE_MANUALES = [
   "claves": []
  },
  {
+  "donde": "Material",
+  "titulo": "Desde el iPhone y el iPad",
+  "texto": "En la app, el material está en la pestaña Material —o Almacén , si además llevas IT—, con un selector arriba: Material , IT y Medidas .",
+  "url": "material.html#app",
+  "claves": []
+ },
+ {
   "donde": "Tecnología",
   "titulo": "General",
-  "texto": "Tecnología → General. Lo que IT tiene que hacer hoy, en una pantalla hecha de widgets : cifras, tareas de IT, salidas de personas, a revisar…",
+  "texto": "Tecnología → General. Lo que IT tiene que hacer hoy. Arriba, cuatro tarjetas que llevan a su sitio:",
   "url": "tecnologia.html#general",
   "claves": []
  },
  {
   "donde": "Tecnología",
+  "titulo": "Cuando alguien se va",
+  "texto": "Cuando a un empleado se le da de baja en Empleados —con su fecha de salida y una fecha límite para cerrarlo todo—, Bulx monta su lista de…",
+  "url": "tecnologia.html#salidas-personal",
+  "claves": []
+ },
+ {
+  "donde": "Tecnología",
   "titulo": "Tareas",
-  "texto": "Tecnología → Tareas. La lista de cosas por hacer del equipo de IT, compartida, al estilo Things: «cambiar el disco del portátil de X», «pedir…",
+  "texto": "Tecnología → Tareas. La lista de cosas por hacer del equipo de IT, compartida: «cambiar el disco de un portátil», «pedir dos MiFi», «renovar…",
   "url": "tecnologia.html#tareas",
   "claves": []
  },
  {
   "donde": "Tecnología",
   "titulo": "IT Stock",
-  "texto": "Tecnología → IT Stock. El parque de dispositivos: quién lo tiene, desde cuándo y hasta cuándo está en garantía. Arriba, las familias —Todo el…",
+  "texto": "Tecnología → IT Stock. El parque de dispositivos: quién lo tiene, desde cuándo y hasta cuándo está en garantía. Arriba, cuatro cifras —…",
   "url": "tecnologia.html#it-stock",
   "claves": [
    "portátil",
@@ -689,14 +871,14 @@ window.INDICE_MANUALES = [
  {
   "donde": "Tecnología",
   "titulo": "Sacar un equipo a rodaje",
-  "texto": "Es distinto de asignarlo a una persona: un equipo asignado a Marta puede además irse tres semanas a un rodaje.",
+  "texto": "Es distinto de asignarlo a una persona: un portátil asignado a alguien puede además irse tres semanas a un rodaje.",
   "url": "tecnologia.html#salidas-it",
   "claves": []
  },
  {
   "donde": "Tecnología",
   "titulo": "Garantía",
-  "texto": "Es lo primero que se mira cuando algo falla, así que está en la franja de cifras de la ficha: caducó hace N días , quedan N días —a partir de…",
+  "texto": "Es lo primero que se mira cuando algo falla, así que está en la franja de cifras de la ficha: Caducó hace N d , Quedan N días —a partir de…",
   "url": "tecnologia.html#garantia",
   "claves": []
  },
@@ -710,7 +892,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Tecnología",
   "titulo": "La página pública",
-  "texto": "El QR de un dispositivo no lleva a la aplicación : lleva a una página que se abre sin entrar en Bulx . Es a propósito — quien se encuentra…",
+  "texto": "El QR de un dispositivo no lleva a la aplicación : lleva a una página que se abre sin entrar en Bulx . Es a propósito: quien se encuentra un…",
   "url": "tecnologia.html#qr-publico",
   "claves": [
    "perdido",
@@ -731,7 +913,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Tecnología",
   "titulo": "Microsoft 365",
-  "texto": "Tecnología → Microsoft 365. El directorio real de la empresa, leído de Microsoft: qué licencias quedan libres, qué cuentas hay y cuáles…",
+  "texto": "Tecnología → Microsoft 365. El directorio real de la empresa, leído de Microsoft. Es de quien tiene nivel total en Sistema . Tiene cuatro…",
   "url": "tecnologia.html#m365",
   "claves": [
    "microsoft",
@@ -745,22 +927,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Tecnología",
-  "titulo": "Licencias: cuántas quedan",
-  "texto": "Lo primero de la pantalla responde a la pregunta de siempre: ¿puedo dar de alta a alguien mañana sin comprar nada? Arriba, las plazas libres,…",
-  "url": "tecnologia.html#licencias",
-  "claves": []
- },
- {
-  "donde": "Tecnología",
   "titulo": "Cambiar la contraseña de alguien",
-  "texto": "En la fila de cada cuenta, Contraseña . No hace falta entrar en ningún portal de Microsoft ni saber nada del directorio:",
+  "texto": "En la fila de cada cuenta, Contraseña . No hace falta entrar en ningún portal de Microsoft:",
   "url": "tecnologia.html#cambiar-contrasena",
   "claves": []
  },
  {
   "donde": "Tecnología",
   "titulo": "Borrar una cuenta",
-  "texto": "Borrar cuenta no la quita solo de Bulx: elimina la cuenta del directorio de la empresa, con su buzón. Por eso:",
+  "texto": "Borrar cuenta no la quita solo de Bulx: elimina la cuenta del directorio de la empresa, con su buzón. No es lo mismo que Descartar , que solo…",
   "url": "tecnologia.html#borrar-cuenta",
   "claves": [
    "eliminar",
@@ -774,7 +949,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Tecnología",
   "titulo": "Telefonía",
-  "texto": "Tecnología → Telefonía. Las líneas móviles y fijas: quién las usa, su extensión y sus códigos. Se ven como tarjetas (el número en grande, la…",
+  "texto": "Tecnología → Telefonía. Las líneas móviles y fijas: quién las usa, su extensión y sus códigos. Arriba, cuatro cifras: Líneas activas , Sin…",
   "url": "tecnologia.html#telefonia",
   "claves": [
    "línea",
@@ -790,7 +965,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Tecnología",
   "titulo": "MiFi",
-  "texto": "Tecnología → MIFIs. Los routers portátiles: quién los tiene, en qué rodaje y desde cuándo. Dos vistas, Tablero y Tabla , y filtros por estado…",
+  "texto": "Tecnología → MIFIs. Los routers portátiles: quién los tiene, en qué rodaje y desde cuándo. Arriba, cuatro cifras: Libres para sacar , En…",
   "url": "tecnologia.html#mifi",
   "claves": [
    "router",
@@ -801,9 +976,30 @@ window.INDICE_MANUALES = [
   ]
  },
  {
+  "donde": "Tecnología",
+  "titulo": "Licencias",
+  "texto": "Tecnología → Licencias. El software de la casa: cuántas plazas hay, quién las usa y cuándo toca renovar. Arriba, cuatro cifras: Plazas en uso…",
+  "url": "tecnologia.html#licencias",
+  "claves": []
+ },
+ {
+  "donde": "Tecnología",
+  "titulo": "Correos",
+  "texto": "Tecnología → Correos. Los correos que IT manda una y otra vez —cómo instalar una aplicación, cómo configurar la VPN—, guardados con su…",
+  "url": "tecnologia.html#correos",
+  "claves": []
+ },
+ {
+  "donde": "Tecnología",
+  "titulo": "Desde el iPhone y el iPad",
+  "texto": "Tecnología está en la pestaña IT —o Almacén , si además llevas Material—, y en el Menú están IT, MiFis y líneas , Tareas de IT y Licencias .",
+  "url": "tecnologia.html#app",
+  "claves": []
+ },
+ {
   "donde": "Personas",
   "titulo": "Empleados",
-  "texto": "Personal → Empleados. La plantilla: contacto, departamento, cargo y el material que tiene asignado. Aquí está todo el mundo, entre o no en la…",
+  "texto": "Personal → Empleados. La plantilla: contacto, departamento, cargo y lo que tiene asignado. Aquí está todo el mundo, entre o no en la…",
   "url": "personas.html#empleados",
   "claves": [
    "plantilla",
@@ -812,6 +1008,20 @@ window.INDICE_MANUALES = [
    "departamento",
    "cargo"
   ]
+ },
+ {
+  "donde": "Personas",
+  "titulo": "In-house en rodaje",
+  "texto": "Personal → In-house. La pantalla de quien sale a rodar con la casa. Cada uno ve lo suyo, en dos pestañas:",
+  "url": "personas.html#inhouse",
+  "claves": []
+ },
+ {
+  "donde": "Personas",
+  "titulo": "Dirección y ¿Compensa?",
+  "texto": "Personal → Dirección. Los números de todos los rodajes. Solo aparece con nivel total en In-house en rodaje; el servidor lo comprueba en cada…",
+  "url": "personas.html#direccion",
+  "claves": []
  },
  {
   "donde": "Personas",
@@ -832,8 +1042,22 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Personas",
+  "titulo": "Altas desde Microsoft 365",
+  "texto": "Si la casa tiene Microsoft 365 conectado, las cuentas nuevas se crean desde Microsoft y no con una contraseña aparte: así el acceso se corta…",
+  "url": "personas.html#alta-microsoft",
+  "claves": []
+ },
+ {
+  "donde": "Personas",
+  "titulo": "La cuenta de cada persona",
+  "texto": "Cuenta , en su tarjeta de Crew, abre un panel al lado con todo lo suyo:",
+  "url": "personas.html#cuenta",
+  "claves": []
+ },
+ {
+  "donde": "Personas",
   "titulo": "Los permisos",
-  "texto": "Nueve áreas, y en cada una uno de cuatro niveles. El nivel ninguno hace que esa parte no aparezca en la barra lateral de esa persona: no es…",
+  "texto": "Once áreas, y en cada una uno de cuatro niveles. El nivel ninguno hace que esa parte no aparezca en la barra lateral de esa persona: no es…",
   "url": "personas.html#permisos",
   "claves": [
    "qué",
@@ -848,8 +1072,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Personas",
+  "titulo": "Las plantillas",
+  "texto": "Atajos para dar de alta sin repasar once áreas: un clic y luego se afina. Son los puestos de una productora, más el administrador. Lo que…",
+  "url": "personas.html#plantillas",
+  "claves": []
+ },
+ {
+  "donde": "Personas",
   "titulo": "Las capacidades",
-  "texto": "Cinco permisos que van aparte del nivel, porque cruzan áreas:",
+  "texto": "Seis permisos que van aparte del nivel, porque cruzan áreas:",
   "url": "personas.html#capacidades",
   "claves": [
    "ver",
@@ -865,14 +1096,14 @@ window.INDICE_MANUALES = [
  {
   "donde": "Personas",
   "titulo": "Copiar permisos",
-  "texto": "Copiar permisos de otra persona , dentro de la ficha. Para dar de alta al segundo conductor con lo mismo que el primero, en vez de repasar…",
+  "texto": "Dos caminos. Duplicar , en la tarjeta de alguien, prepara una persona nueva con sus mismos permisos. Y dentro de los permisos de cualquiera,…",
   "url": "personas.html#copiar",
   "claves": []
  },
  {
   "donde": "Personas",
-  "titulo": "Contraseñas",
-  "texto": "Cambiar contraseña en la ficha de la persona. No hay recuperación automática por correo: si alguien la pierde, se le pone una nueva desde aquí.",
+  "titulo": "Contraseñas y código",
+  "texto": "",
   "url": "personas.html#contrasena",
   "claves": [
    "cambiar",
@@ -884,7 +1115,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Personas",
   "titulo": "Quitar el acceso",
-  "texto": "Se desactiva . No hay botón de borrar, y es a propósito: quien ha creado un presupuesto o firmado una revisión tiene que seguir apareciendo…",
+  "texto": "Se da de baja . No hay botón de borrar, y es a propósito: quien ha creado un presupuesto o firmado una revisión tiene que seguir apareciendo…",
   "url": "personas.html#quitar",
   "claves": [
    "desactivar",
@@ -898,7 +1129,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Personas",
   "titulo": "Mi Perfil",
-  "texto": "Pulsando tu nombre, abajo en la barra lateral. Es tu página: la foto, tu cargo, tus datos de contacto y una cuenta de lo que llevas encima.",
+  "texto": "Pulsando tu tarjeta, abajo en la barra lateral, y luego Mi perfil . Es tu página: la foto (se cambia con el botón de la cámara), tu @usuario,…",
   "url": "personas.html#mi-perfil",
   "claves": [
    "mi",
@@ -914,42 +1145,35 @@ window.INDICE_MANUALES = [
  {
   "donde": "Ajustes",
   "titulo": "El Dashboard",
-  "texto": "La primera pantalla al entrar. Bloques que contestan a «¿cómo va hoy?»: las cifras del día, el gantt de los rodajes, las alertas, la flota en…",
+  "texto": "La primera pantalla al entrar, y la única suelta en la barra lateral. Te saluda por tu nombre y contesta a «¿cómo va hoy?», de arriba abajo:",
   "url": "sistema.html#dashboard",
   "claves": []
  },
  {
   "donde": "Ajustes",
-  "titulo": "El enlace del calendario para producción",
-  "texto": "Sistema → Ajustes → Enlace del calendario para producción. Crea una dirección larga que abre solo el calendario . Quien la tenga entra sin…",
-  "url": "sistema.html#enlace-calendario",
-  "claves": []
- },
- {
-  "donde": "Ajustes",
-  "titulo": "Firma de correo",
-  "texto": "Ajustes → Correo y avisos → Firma de correo. Cada uno se hace la suya y se la pega en Outlook. Sale ya rellena con lo que hay en tu ficha…",
-  "url": "sistema.html#firma",
-  "claves": []
- },
- {
-  "donde": "Ajustes",
-  "titulo": "Avisos por correo",
-  "texto": "Ajustes → Correo y avisos → Avisos por correo. Cada vez que alguien apunta que se lleva o que devuelve un aparato, sale un correo a las…",
-  "url": "sistema.html#avisos-qr",
-  "claves": []
- },
- {
-  "donde": "Ajustes",
   "titulo": "Ajustes",
-  "texto": "Sistema → Ajustes. Requiere nivel total en Sistema: lo que se cambia aquí afecta a todo el mundo. Un menú a la izquierda y una cosa cada vez,…",
+  "texto": "Sistema → Ajustes , o el menú que sale al pulsar tu nombre, abajo en la barra lateral. Está pensado como los ajustes del iPhone: una lista…",
   "url": "sistema.html#ajustes",
   "claves": []
  },
  {
   "donde": "Ajustes",
-  "titulo": "Datos de la empresa",
-  "texto": "Nombre, NIF/CIF, domicilio fiscal, teléfono, correo y web. Salen en la cabecera de todos los documentos.",
+  "titulo": "Tu cuenta",
+  "texto": "Arriba del todo, tu tarjeta. Lo que hay dentro solo te afecta a ti:",
+  "url": "sistema.html#tu-cuenta",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "Firma de correo",
+  "texto": "Ajustes → Tu cuenta → Firma de correo. Cada uno se hace la suya y se la pega en Outlook. Sale ya rellena con lo que hay en tu ficha —nombre,…",
+  "url": "sistema.html#firma",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "Empresa y marca",
+  "texto": "Ajustes → La casa → Empresa. Dos bloques.",
   "url": "sistema.html#empresa",
   "claves": [
    "cif",
@@ -965,8 +1189,8 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Ajustes",
-  "titulo": "Numeración",
-  "texto": "Los números se forman como PREFIJO-AÑO-000 . Se elige el prefijo de los presupuestos y el de las facturas, y debajo se ve cómo quedaría el…",
+  "titulo": "Presupuestos y numeración",
+  "texto": "Ajustes → Presupuestos → Presupuestos. Con lo que nace cada presupuesto nuevo:",
   "url": "sistema.html#numeracion",
   "claves": [
    "prefijo",
@@ -980,8 +1204,43 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Ajustes",
-  "titulo": "Pantalla de oficina",
-  "texto": "Pantallas de pared, sin teclado y sin sesión: se pega la dirección una vez en el reproductor y se olvida. Se refrescan solas cada minuto y no…",
+  "titulo": "Plazos de aviso",
+  "texto": "Cuándo empieza Bulx a avisar de cada cosa. Antes cada pantalla tenía su propia cifra, y lo que en un sitio era «pronto» en otro no salía.…",
+  "url": "sistema.html#plazos",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "Fecha y hora",
+  "texto": "Ajustes → La casa → Fecha y hora. La zona horaria con la que Bulx apunta las cosas: la hora de los correos y, sobre todo, qué día es cuando…",
+  "url": "sistema.html#hora",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "Avisos por correo",
+  "texto": "Ajustes → Avisos y correo → Avisos. Cuando alguien coge o devuelve un vehículo o material, o dice que a un vehículo le pasa algo , sale un…",
+  "url": "sistema.html#avisos-qr",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "Correo saliente",
+  "texto": "Ajustes → Avisos y correo → Correo saliente. Desde qué buzón de Microsoft 365 salen los presupuestos, si se mandan de verdad o solo se…",
+  "url": "sistema.html#correo-saliente",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "El enlace del calendario para producción",
+  "texto": "Ajustes → Compartir → Enlaces compartidos. Crea una dirección larga que abre solo el calendario . Quien la tenga entra sin contraseña, puede…",
+  "url": "sistema.html#enlace-calendario",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "Pantallas de oficina",
+  "texto": "Ajustes → Compartir → Pantallas de oficina. Pantallas de pared, sin teclado y sin sesión: se pega la dirección una vez en el reproductor y se…",
   "url": "sistema.html#pantalla",
   "claves": [
    "tele",
@@ -996,14 +1255,28 @@ window.INDICE_MANUALES = [
  {
   "donde": "Ajustes",
   "titulo": "Etiquetas con QR",
-  "texto": "Aquí se decide a dónde apunta el QR de las etiquetas de dispositivo . En blanco la sirve Bulx, que es lo que funciona sin depender de…",
+  "texto": "Ajustes → Áreas → Material y etiquetas. A dónde apunta el QR de las etiquetas de dispositivo . En blanco lo sirve Bulx, que es lo que…",
   "url": "sistema.html#qr-ajuste",
   "claves": []
  },
  {
   "donde": "Ajustes",
+  "titulo": "Seguridad y acceso",
+  "texto": "Ajustes → Seguridad → Seguridad y acceso. Tres bloques.",
+  "url": "sistema.html#seguridad",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
+  "titulo": "Anuncios",
+  "texto": "Sistema → Anuncios. Lo que sale al entrar en Bulx, escrito por quien administra. Pide nivel total en Sistema. Lo ve todo el mundo: no se…",
+  "url": "sistema.html#anuncios",
+  "claves": []
+ },
+ {
+  "donde": "Ajustes",
   "titulo": "Registro de actividad",
-  "texto": "Sistema → Actividad. Quién ha hecho qué y cuándo, en toda la aplicación. Filtros por área, por persona, por acción y por fecha.",
+  "texto": "Sistema → Actividad. Quién ha hecho qué y cuándo, en toda la aplicación. Se filtra por área, por persona, por acción y por fechas, y se busca…",
   "url": "sistema.html#actividad",
   "claves": [
    "quién",
@@ -1017,7 +1290,7 @@ window.INDICE_MANUALES = [
  {
   "donde": "Ajustes",
   "titulo": "Cuando algo no se guarda",
-  "texto": "Bulx trabaja con los datos en memoria y escribe en la base justo detrás. Es lo que hace que todo vaya instantáneo. A cambio, hay dos cosas…",
+  "texto": "Bulx trabaja con los datos en memoria y escribe en la base justo detrás. Es lo que hace que todo vaya rápido. A cambio, conviene saber dos cosas.",
   "url": "sistema.html#guardado",
   "claves": [
    "no",

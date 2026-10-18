@@ -26,11 +26,16 @@
     <p class="indice-tit">07 · Personas</p>
     <ol>
       <li><a href="#empleados">Empleados</a></li>
+      <li><a href="#inhouse">In-house en rodaje</a></li>
+      <li><a href="#direccion">Dirección y ¿Compensa?</a></li>
       <li><a href="#crew">Crew</a></li>
+      <li><a href="#alta-microsoft">Altas desde Microsoft 365</a></li>
+      <li><a href="#cuenta">La cuenta de cada persona</a></li>
       <li><a href="#permisos">Los permisos</a></li>
+      <li><a href="#plantillas">Las plantillas</a></li>
       <li><a href="#capacidades">Las capacidades</a></li>
       <li><a href="#copiar">Copiar permisos</a></li>
-      <li><a href="#contrasena">Contraseñas</a></li>
+      <li><a href="#contrasena">Contraseñas y código</a></li>
       <li><a href="#quitar">Quitar el acceso</a></li>
       <li><a href="#mi-perfil">Mi Perfil</a></li>
     </ol>
@@ -43,15 +48,14 @@
     <p class="entradilla">
       <strong>Empleados</strong> y <strong>Crew</strong> no son lo mismo, y confundirlos
       es la duda más habitual de esta parte. Empleados es la plantilla de la
-      empresa. Crew es quién puede entrar en Bulx.
+      empresa. Crew es quién puede entrar en Bulx y qué puede hacer dentro.
     </p>
 
     <h2 id="empleados">Empleados</h2>
     <p>
       <strong>Personal → Empleados.</strong> La plantilla: contacto, departamento,
-      cargo y el material que tiene asignado. Aquí está todo el mundo, entre o no
-      en la aplicación — el conductor que solo lleva un camión también es un
-      empleado.
+      cargo y lo que tiene asignado. Aquí está todo el mundo, entre o no en la
+      aplicación: el conductor que solo lleva un camión también es un empleado.
     </p>
     <p>
       <strong>+ Nuevo empleado</strong> da de alta a uno a mano, pero lo normal es
@@ -60,70 +64,211 @@
     </p>
     <p>
       Arriba hay un <strong>buscador</strong>: encuentra por nombre, cargo,
-      departamento, correo o teléfono, y no distingue mayúsculas ni tildes
-      («jose» encuentra «José»). Se combina con los chips de departamento y con
-      las dos vistas, cuadrícula y lista, y los contadores de cada grupo dicen
-      siempre cuánta gente estás viendo.
+      departamento, correo o teléfono. Se combina con los chips de departamento y con
+      las dos vistas, cuadrícula y lista.
     </p>
     <p>
       Al abrir una ficha se ve <strong>todo lo que esa persona tiene</strong>: sus
       <a href="tecnologia.html#it-stock">dispositivos</a>, sus
       <a href="tecnologia.html#telefonia">líneas</a>, sus MiFi, su cuenta de
-      <a href="tecnologia.html#m365">Microsoft 365</a> (y si sigue existiendo), el
-      material y el equipo en rodaje. Cada cosa lleva su acción al lado: reasignar el
-      equipo, pasar la línea a otra persona, devolver el MiFi, borrar la cuenta.
+      <a href="tecnologia.html#m365">Microsoft 365</a>, el material y el equipo en
+      rodaje. Cada cosa lleva su acción al lado: reasignar el equipo, pasar la línea a
+      otra persona, devolver el MiFi.
     </p>
     <div class="ojo">
       <span class="ojo-tit">Se elige a la persona, no se escribe su nombre</span>
       <p>
-        Al asignar un dispositivo, una línea o un MiFi ya no se escribe un nombre:
-        se <strong>elige la ficha</strong> de una lista con cargo, departamento y
-        correo. Si hay dos personas con el mismo nombre, la lista lo avisa y eliges
-        cuál. Así lo asignado cuadra siempre con la persona correcta, aunque se
-        cambie el nombre después. Un departamento o alguien de fuera se puede
-        escribir a mano; queda marcado «sin ficha».
+        Al asignar un dispositivo, una línea o un MiFi se <strong>elige la
+        ficha</strong> de una lista con cargo, departamento y correo. Si hay dos personas
+        con el mismo nombre, eliges cuál. Así lo asignado cuadra siempre con la persona
+        correcta, aunque se cambie el nombre después. Un departamento o alguien de fuera
+        se puede escribir a mano, y queda marcado «sin ficha de empleado».
       </p>
     </div>
     <div class="ojo">
       <span class="ojo-tit">Cuando alguien se va: «Marcar como retirado»</span>
       <p>
-        En la ficha, <strong>Marcar como retirado</strong> pide la fecha de salida,
-        una <strong>fecha límite</strong> para cerrarlo todo (quince días por defecto)
-        y el motivo. Desde ese momento la persona deja de contar como activa y en su
-        ficha aparece el panel <strong>Salida de la empresa</strong>: la lista de
-        tareas con todo lo que tiene a su nombre —recuperar y formatear cada equipo,
-        pasar o dar de baja cada línea, recuperar cada MiFi, borrar o convertir la
-        cuenta de Microsoft 365, dar de baja su usuario de Bulx, quitar accesos,
-        recoger llaves— con una barra de progreso.
+        En la ficha, <strong>Marcar como retirado</strong> pide la fecha de salida, una
+        <strong>fecha límite</strong> para cerrarlo todo y el motivo. El plazo de partida
+        se cambia en <a href="sistema.html#plazos">Ajustes → Tecnología</a>. Desde ese
+        momento la persona deja de contar como activa y en su ficha aparece el panel
+        <strong>Salida de la empresa</strong>: la lista de tareas con todo lo que tiene a
+        su nombre —recuperar cada equipo, pasar o dar de baja cada línea, recuperar cada
+        MiFi, la cuenta de Microsoft 365, su usuario de Bulx, llaves y accesos— con una
+        barra de progreso.
       </p>
       <p>
-        Las tareas que dependen de un objeto se marcan solas al hacerlo (si reasignas
-        el portátil, «Recuperar el portátil» queda hecho); las demás se marcan a mano
-        y queda quién y cuándo. Pasada la fecha límite con tareas pendientes, la
-        ficha se pone en rojo y salta un aviso en las notificaciones. Todas las
-        salidas abiertas se ven juntas en
-        <a href="tecnologia.html#general">Tecnología → General</a>.
+        Las tareas que dependen de un objeto se marcan solas al hacerlo; las demás se
+        marcan a mano y queda quién y cuándo. Pasada la fecha límite con tareas
+        pendientes, la ficha se pone en rojo y salta un aviso. Todas las salidas abiertas
+        se ven juntas en <a href="tecnologia.html#general">Tecnología → General</a>.
         <strong>Reactivar</strong> deshace la salida.
       </p>
     </div>
+
+    <h2 id="inhouse">In-house en rodaje</h2>
+    <p>
+      <strong>Personal → In-house.</strong> La pantalla de quien sale a rodar con la
+      casa. Cada uno ve lo suyo, en dos pestañas:
+    </p>
+    <ul>
+      <li><strong>Mis horas.</strong> <em>Las horas de hoy</em>: rodaje, día, a qué hora
+        entraste y saliste, si hubo running lunch, si llevaste camión y una nota.
+        <strong>Apuntar el día</strong>. Debajo, cada rodaje con sus días, sus extras y
+        sus botones <strong>Parte para imprimir</strong> y <strong>Excel</strong>.</li>
+      <li><strong>Mis días.</strong> <em>Apuntar un rodaje</em>: qué rodaje, primer y
+        último día, con qué cargo y una nota. <strong>Apuntar</strong>. Cada día que
+        sales a rodar la empresa se lo factura al cliente; si no queda apuntado, no
+        cuenta para nadie.</li>
+    </ul>
+    <p>
+      La tiene todo el mundo para apuntar lo suyo, salvo los perfiles que la apagan,
+      como Producción y Driver. No enseña tarifas ni lo que factura la casa: eso es de
+      Dirección.
+    </p>
+
+    <h2 id="direccion">Dirección y ¿Compensa?</h2>
+    <p>
+      <strong>Personal → Dirección.</strong> Los números de todos los rodajes. Solo
+      aparece con nivel <strong>total</strong> en In-house en rodaje; el servidor lo
+      comprueba en cada petición, no solo en el menú. Tiene cuatro pestañas, y
+      <strong>← Lo mío</strong> vuelve a tu pantalla de In-house.
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Pestaña</th><th>Qué hay</th></tr></thead>
+        <tbody>
+          <tr><td>¿Compensa?</td><td>La primera, y la que se abre al entrar. Si sale más barato tener la plantilla in-house que pagar freelances por el mismo trabajo.</td></tr>
+          <tr><td>Rodajes y horas</td><td>Días, horas, extras y descansos de todos, por persona, por rodaje o por departamento.</td></tr>
+          <tr><td>Lo que gana la casa</td><td>Lo que factura la empresa por los días de su gente.</td></tr>
+          <tr><td>Tarifas</td><td>De donde salen todos los precios.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      <strong>¿Compensa?</strong> se filtra por periodo (Este año, Últimos 12 meses, Año
+      pasado, Este mes) y por departamento. Arriba, el veredicto en una frase: «Sí» o
+      «Todavía no», y cuánto menos o cuánto más que con freelances. Al lado, los días de
+      rodaje, lo facturado y qué parte del coste se recupera facturando. Debajo:
+    </p>
+    <ul>
+      <li><strong>El mismo trabajo, pagado de dos maneras.</strong> Con freelances: días
+        de rodaje, preparación y devolución, y horas extra. Con la plantilla: sueldos y
+        Seguridad Social prorrateados, y los pluses pagados.</li>
+      <li><strong>Mes a mes</strong>, las dos cosas en una gráfica.</li>
+      <li><strong>Persona a persona</strong>, con su <strong>umbral</strong>: los días de
+        rodaje al año a partir de los que sale más barato tenerla fija.</li>
+      <li><strong>Por departamento</strong>, cuando hay más de uno.</li>
+    </ul>
+    <div class="nota">
+      <span class="nota-tit">Sin tarifas no hay cuenta</span>
+      <p>
+        Para sacarla hacen falta dos números por cargo, en <strong>Tarifas → Precios por
+        cargo</strong>: lo que cobraría un freelance por día y lo que le cuesta al año a
+        la empresa un in-house de ese puesto. Es una media por puesto, no el sueldo de
+        nadie, y solo lo ve quien tiene Dirección. Si falta alguno, la pantalla lo dice y
+        lleva a completarlo.
+      </p>
+    </div>
+    <p>
+      En <strong>Tarifas</strong> están también la jornada, los pluses (hora extra, hora
+      de turnaround, running lunch y conducir el camión) y <strong>cómo se calcula el
+      freelance</strong>: qué porcentaje se suma por preparación y devolución y cuánto
+      vale su hora extra, con un ejemplo que cambia mientras escribes. En Mis días,
+      quien tiene Dirección puede además apuntarle días a otra persona.
+    </p>
 
     <h2 id="crew">Crew</h2>
     <p>
       <strong>Personal → Crew.</strong> Quién entra a la aplicación y qué puede hacer
       dentro. Es su propia área de permisos —<strong>Sistema</strong>— y hace falta
-      nivel total para tocar aquí.
+      nivel <strong>total</strong> para que aparezca.
+    </p>
+    <p>
+      Arriba, un buscador por nombre o usuario y un filtro: todos, solo activos o solo
+      dados de baja. Cada persona es una tarjeta con su perfil, las áreas que puede
+      tocar y un sello de <strong>Microsoft</strong> si entra con su cuenta de la casa.
+      Debajo de cada tarjeta:
+    </p>
+    <ul>
+      <li><strong>Cuenta</strong>: abre <a href="#cuenta">su cuenta</a>. Pulsar la
+        tarjeta hace lo mismo.</li>
+      <li><strong>Permisos</strong>: el reparto completo, área por área.</li>
+      <li><strong>Duplicar</strong>: una persona nueva con exactamente estos
+        permisos.</li>
+      <li><strong>Dar de baja</strong> o <strong>Reactivar</strong>.</li>
+    </ul>
+
+    <h2 id="alta-microsoft">Altas desde Microsoft 365</h2>
+    <p>
+      Si la casa tiene Microsoft 365 conectado, las cuentas nuevas se crean
+      <strong>desde Microsoft</strong> y no con una contraseña aparte: así el acceso se
+      corta desde el mismo sitio que el correo cuando alguien se va. En ese caso Bulx no
+      deja crear una cuenta con contraseña.
     </p>
     <ol class="pasos">
-      <li><strong>+ Añadir a alguien.</strong></li>
-      <li>Nombre, usuario y contraseña. El usuario es lo que escribirá al entrar.</li>
-      <li>Reparte los permisos por área (abajo).</li>
-      <li>Marca las capacidades que necesite.</li>
-      <li><strong>Guardar.</strong> Ya puede entrar.</li>
+      <li>En Crew, <strong>Añadir desde Microsoft 365</strong>. Sale la gente de la casa,
+        con buscador por nombre, correo o departamento. Los buzones compartidos y las
+        cuentas de servicio quedan ocultos; se ven marcando la casilla de abajo.</li>
+      <li>Marca a quién das acceso. Para cada uno, <strong>Usuario nuevo</strong> o
+        <strong>Vincular a</strong> un usuario de Bulx que ya exista. Si Bulx reconoce a
+        alguien por el correo, sale el botón <strong>Vincular a @usuario</strong>.</li>
+      <li>Elige los <strong>Permisos de los nuevos</strong>: una de las
+        <a href="#plantillas">plantillas</a>. Si eliges Administrador, pide
+        confirmación.</li>
+      <li><strong>Dar acceso.</strong></li>
     </ol>
+    <p>
+      Quien se da de alta así entra con <strong>Entrar con Microsoft</strong>: su
+      contraseña es la del correo y la cambia en Microsoft. Le llega un correo de
+      bienvenida en cuanto existe su cuenta.
+    </p>
+    <div class="nota">
+      <span class="nota-tit">Sin Microsoft 365</span>
+      <p>
+        En una casa sin Microsoft 365 conectado se sigue dando de alta con <strong>+
+        Añadir a alguien</strong>: nombre, usuario, contraseña, perfil y permisos, y
+        <strong>Guardar</strong>. También le llega la bienvenida.
+      </p>
+    </div>
+
+    <h2 id="cuenta">La cuenta de cada persona</h2>
+    <p>
+      <strong>Cuenta</strong>, en su tarjeta de Crew, abre un panel al lado con todo lo
+      suyo:
+    </p>
+    <ol class="pasos">
+      <li><strong>Datos</strong>: nombre, usuario, cargo y teléfono. El correo no se
+        escribe: lo pone Microsoft al vincular.</li>
+      <li><strong>Cómo entra</strong>. La <em>cuenta de Microsoft</em>:
+        <strong>Vincular</strong>, <strong>Cambiar</strong> o <strong>Quitar</strong>. La
+        <em>contraseña de Bulx</em>: <strong>Cambiar</strong> (o <strong>Poner
+        contraseña</strong> si no tiene) y, si ya está vinculada, <strong>Solo
+        Microsoft</strong>, que borra su contraseña de Bulx. Y la <em>verificación en dos
+        pasos</em>: si la tiene, <strong>Quitar</strong>, para cuando ha perdido el
+        móvil.</li>
+      <li><strong>Qué puede hacer</strong>: la plantilla de permisos, o <strong>Afinar
+        los permisos uno a uno…</strong></li>
+      <li><strong>Dar de baja</strong> o <strong>Reactivar</strong>.</li>
+    </ol>
+    <p>
+      Lo de Microsoft y la verificación se aplica al momento, cada botón con su
+      confirmación. Los datos, la plantilla y la contraseña nueva, al pulsar
+      <strong>Guardar</strong>; abajo se lee cuántos cambios llevas.
+    </p>
+    <div class="ojo">
+      <span class="ojo-tit">Quitar Microsoft a quien no tiene contraseña</span>
+      <p>
+        Si la persona entraba solo con Microsoft, al quitarle la cuenta se queda
+        <strong>sin poder entrar</strong> hasta que le pongas una contraseña. El panel lo
+        avisa y abre la casilla para ponerla. Y si la cuenta de Microsoft que eliges ya
+        es de otro usuario, normalmente un duplicado, Bulx ofrece pasársela.
+      </p>
+    </div>
 
     <h2 id="permisos">Los permisos</h2>
     <p>
-      Nueve áreas, y en cada una uno de cuatro niveles. El nivel
+      Once áreas, y en cada una uno de cuatro niveles. El nivel
       <strong>ninguno</strong> hace que esa parte <strong>no aparezca</strong> en la
       barra lateral de esa persona: no es que esté y dé error, es que no está.
     </p>
@@ -131,15 +276,17 @@
       <table>
         <thead><tr><th>Área</th><th>Qué abarca</th></tr></thead>
         <tbody>
-          <tr><td>Proyectos</td><td>Fichas de proyecto, subproyectos, contactos y flota asignada.</td></tr>
-          <tr><td>Presupuestos</td><td>Presupuestos, catálogo de tarifas y plantilla del PDF.</td></tr>
+          <tr><td>Proyectos</td><td>Fichas de proyecto, departamentos, contactos y flota asignada.</td></tr>
+          <tr><td>Presupuestos</td><td>Presupuestos, clientes, catálogo de tarifas y plantilla del PDF.</td></tr>
           <tr><td>Economía</td><td>Facturación, márgenes y cifras del negocio.</td></tr>
           <tr><td>Flota</td><td>Vehículos, calendario de flota y tareas.</td></tr>
-          <tr><td>Salidas y revisiones</td><td>Las revisiones con fotos.</td></tr>
-          <tr><td>Material</td><td>Inventario y fichas QR.</td></tr>
-          <tr><td>Tecnología</td><td>IT Stock, telefonía, MiFi y Microsoft 365.</td></tr>
-          <tr><td>Personal</td><td>Empleados.</td></tr>
-          <tr><td>Sistema</td><td>Crew y el registro de actividad.</td></tr>
+          <tr><td>Salidas y revisiones</td><td>Fotos de salida y entrada. Es el área de los drivers.</td></tr>
+          <tr><td>Calendario compartido</td><td>Reservar vehículos y espacios. No deja bloquear días por ITV ni taller, que es cosa de Flota.</td></tr>
+          <tr><td>Material</td><td>Inventario, medidas y fichas QR.</td></tr>
+          <tr><td>Tecnología</td><td>Dispositivos, telefonía, MiFi, licencias y tareas de IT.</td></tr>
+          <tr><td>In-house en rodaje</td><td>Apuntar los días de rodaje. Con total, además, Dirección: tarifas y lo que gana la casa.</td></tr>
+          <tr><td>Personal</td><td>Empleados. No incluye Crew.</td></tr>
+          <tr><td>Sistema</td><td>Crew, registro de actividad, ajustes de la casa y anuncios.</td></tr>
         </tbody>
       </table>
     </div>
@@ -154,99 +301,148 @@
         </tbody>
       </table>
     </div>
+    <div class="ojo">
+      <span class="ojo-tit">Tres pantallas piden total, no basta con verlas</span>
+      <p>
+        <strong>Crew</strong> y <strong>Anuncios</strong> piden total en Sistema, y
+        <strong>Dirección</strong> pide total en In-house en rodaje. Quien tiene total en
+        Sistema puede dar permisos a cualquiera. Y Personal no
+        reparte permisos: dárselo a alguien no le abre Crew.
+      </p>
+    </div>
+    <p>
+      Los mismos permisos deciden qué ve cada uno en la
+      <a href="empezar.html#app">app del iPhone y el iPad</a>.
+    </p>
+
+    <h2 id="plantillas">Las plantillas</h2>
+    <p>
+      Atajos para dar de alta sin repasar once áreas: un clic y luego se afina. Son los
+      puestos de una productora, más el administrador. Lo que manda siempre son las
+      áreas y sus niveles: si a alguien con «Producción» le añades Material en lectura,
+      se le abre Material.
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Plantilla</th><th>Qué le da</th></tr></thead>
+        <tbody>
+          <tr><td>Administrador</td><td>Control total, incluida la gestión del crew y sus permisos.</td></tr>
+          <tr><td>Producción</td><td>Rodajes y presupuestos completos, y el calendario compartido para reservar furgonetas y espacios. No lleva la flota ni el almacén, y no ve la facturación.</td></tr>
+          <tr><td>Responsable de flota</td><td>La flota entera: fichas, papeles, ITV, taller y partes. Reserva y bloquea días en el calendario. Consulta los rodajes.</td></tr>
+          <tr><td>Driver</td><td>Su vehículo: fotos de salida y entrada, papeles y partes. Nada más.</td></tr>
+          <tr><td>Técnico In-House</td><td>Apunta los días que sale a rodar y ve los suyos. Escanea material. No ve tarifas ni lo que factura la empresa.</td></tr>
+          <tr><td>IT</td><td>Dispositivos, telefonía y MiFi completos, con sus tareas. Consulta el inventario.</td></tr>
+        </tbody>
+      </table>
+    </div>
     <div class="truco">
       <span class="truco-tit">Un reparto que funciona</span>
       <p>
-        A quien lleva la flota: <strong>Flota</strong> y <strong>Salidas y
-        revisiones</strong> en total, <strong>Proyectos</strong> en lectura para saber a
-        qué rodaje va cada coche, y nada más. No necesita ver márgenes ni tocar
-        cuentas de Microsoft.
+        A quien lleva la flota, «Responsable de flota» tal cual: Flota, Calendario
+        compartido y Salidas y revisiones en total, Proyectos en lectura para saber a qué
+        rodaje va cada vehículo. No necesita ver márgenes ni tocar cuentas de
+        Microsoft.
       </p>
     </div>
 
     <h2 id="capacidades">Las capacidades</h2>
     <p>
-      Cinco permisos que van aparte del nivel, porque cruzan áreas:
+      Seis permisos que van aparte del nivel, porque cruzan áreas:
     </p>
     <div class="tabla-caja">
       <table>
         <thead><tr><th>Capacidad</th><th>Sin ella</th></tr></thead>
         <tbody>
-          <tr><td>Ver precios</td><td>Los importes salen ocultos en todas las pantallas.</td></tr>
-          <tr><td>Importar</td><td>No hay botón de importar Excel.</td></tr>
-          <tr><td>Exportar</td><td>No hay botón de exportar ni de PDF.</td></tr>
-          <tr><td>Enviar</td><td>No puede mandar presupuestos ni facturas.</td></tr>
-          <tr><td>Contabilizar</td><td>No puede sumar días de alquiler al inventario.</td></tr>
+          <tr><td>Ver precios e importes</td><td>El material y los proyectos se ven sin cifras. Para almacén y drivers.</td></tr>
+          <tr><td>Importar Excel</td><td>No puede cargar inventario ni líneas de telefonía desde un fichero.</td></tr>
+          <tr><td>Exportar PDF y Excel</td><td>No hay botón de PDF, de fichas QR ni de descargas.</td></tr>
+          <tr><td>Enviar presupuestos al cliente</td><td>No puede mandarlos por correo. Sale de la empresa, así que va aparte de editarlos.</td></tr>
+          <tr><td>Contabilizar presupuestos</td><td>No puede darlos por aceptados ni mover el material que implican.</td></tr>
+          <tr><td>Entregar y devolver MiFi</td><td>No puede escanear el QR de un MiFi para apuntar que se lo lleva o que lo devuelve. Con ella lo apunta sin abrir la ficha del MiFi.</td></tr>
         </tbody>
       </table>
     </div>
     <div class="nota">
-      <span class="nota-tit">Sobre «exportar», con honestidad</span>
+      <span class="nota-tit">Sobre «exportar» y «ver precios», con honestidad</span>
       <p>
         Los PDF se generan <strong>en el navegador</strong>, con datos que esa persona ya
-        ha podido leer en pantalla. Así que quitar <em>exportar</em> es una
-        restricción de interfaz —quita el botón—, no una barrera de seguridad. Si
-        alguien no debe ver unos datos, lo que hay que quitarle es el acceso al
-        área, no el botón de exportar.
+        ha podido leer en pantalla. Así que quitar <em>exportar</em> o <em>ver
+        precios</em> es una restricción de interfaz —quita el botón o la cifra—, no una
+        barrera de seguridad. Si alguien no debe ver unos datos, lo que hay que quitarle
+        es el acceso al área.
       </p>
       <p>
-        <em>Importar</em> sí se valida en el servidor, así que ahí la restricción es
-        real.
+        <em>Importar</em>, <em>enviar</em>, <em>contabilizar</em> y <em>entregar
+        MiFi</em> sí se comprueban en el servidor: ahí la restricción es real.
       </p>
     </div>
 
     <h2 id="copiar">Copiar permisos</h2>
     <p>
-      <strong>Copiar permisos de otra persona</strong>, dentro de la ficha. Para dar de
-      alta al segundo conductor con lo mismo que el primero, en vez de repasar
-      nueve áreas a mano y equivocarse en una.
+      Dos caminos. <strong>Duplicar</strong>, en la tarjeta de alguien, prepara una
+      persona nueva con sus mismos permisos. Y dentro de los permisos de cualquiera,
+      <strong>Copiar permisos de otra persona</strong> trae los de quien elijas. Se
+      copian solo los permisos: el nombre, el usuario y la contraseña no se tocan.
+    </p>
+    <p>
+      Es para dar de alta al segundo conductor con lo mismo que el primero, en vez de
+      repasar once áreas a mano y equivocarse en una. Copiar de un administrador da
+      control total, y Bulx lo pregunta antes.
     </p>
 
-    <h2 id="contrasena">Contraseñas</h2>
-    <p>
-      <strong>Cambiar contraseña</strong> en la ficha de la persona. No hay
-      recuperación automática por correo: si alguien la pierde, se le pone una nueva
-      desde aquí.
-    </p>
-    <p>
-      Cada uno puede cambiar la suya en <a href="#mi-perfil">Mi Perfil</a> sin pasar
-      por Crew.
-    </p>
+    <h2 id="contrasena">Contraseñas y código</h2>
+    <ul>
+      <li><strong>La pierde alguien.</strong> Lo normal es que la recupere él mismo con
+        <a href="empezar.html#olvido">¿Has olvidado la contraseña?</a>, en la pantalla de
+        entrada. Si no puede, en <a href="#cuenta">su cuenta</a>, <strong>Cambiar</strong>
+        y una nueva de 12 caracteres o más. Díselo en persona, no por correo.</li>
+      <li><strong>La tuya</strong> la cambias en <a href="#mi-perfil">Mi Perfil</a> →
+        Ajustes → Contraseña, sin pasar por nadie.</li>
+      <li><strong>Quien entra con Microsoft</strong> no tiene contraseña de Bulx que
+        cambiar: la suya es la del correo, y se cambia en Microsoft.</li>
+      <li><strong>El código de 6 cifras</strong> lo activa cada uno en
+        <a href="sistema.html#tu-cuenta">Ajustes → Tu cuenta</a>, o se exige a toda la
+        casa en <a href="sistema.html#seguridad">Seguridad y acceso</a>. Si alguien pierde
+        el móvil, se le quita en su cuenta y lo vuelve a activar.</li>
+    </ul>
 
     <h2 id="quitar">Quitar el acceso</h2>
     <p>
-      Se <strong>desactiva</strong>. No hay botón de borrar, y es a propósito: quien ha
-      creado un presupuesto o firmado una revisión tiene que seguir apareciendo como
-      su autor, y un usuario borrado dejaría documentos sin firma y apuntes del
-      registro sin nombre.
+      Se <strong>da de baja</strong>. No hay botón de borrar, y es a propósito: quien ha
+      creado un presupuesto o firmado una revisión tiene que seguir apareciendo como su
+      autor, y un usuario borrado dejaría documentos sin firma y apuntes del registro
+      sin nombre.
     </p>
     <p>
-      Una persona desactivada <strong>no puede entrar</strong>, deja de salir en las
-      listas de asignación, y su rastro se conserva entero en el
-      <a href="sistema.html#actividad">registro de actividad</a> y en los documentos
-      que creó.
+      Una persona de baja <strong>no puede entrar</strong>, ni con contraseña ni con
+      Microsoft, y su rastro se conserva entero en el
+      <a href="sistema.html#actividad">registro de actividad</a> y en los documentos que
+      creó. Al darla de baja sale un correo a quien recibe los
+      <a href="sistema.html#avisos-qr">avisos de material</a>, para que se mire qué tenía
+      a su nombre. El último administrador activo no se puede dar de baja.
     </p>
     <p>
-      Y desactivar en Crew <strong>no la quita de Empleados</strong>: deja de entrar en
-      la aplicación pero sigue en la plantilla con su material asignado, que es justo
-      lo que hace falta para recuperarlo.
+      Y dar de baja en Crew <strong>no la quita de Empleados</strong>: deja de entrar en
+      la aplicación pero sigue en la plantilla con lo que tiene asignado, que es justo lo
+      que hace falta para recuperarlo.
     </p>
 
     <h2 id="mi-perfil">Mi Perfil</h2>
     <p>
-      Pulsando tu nombre, abajo en la barra lateral. Es tu página: la foto, tu
-      cargo, tus datos de contacto y una cuenta de lo que llevas encima.
+      Pulsando tu tarjeta, abajo en la barra lateral, y luego <strong>Mi perfil</strong>.
+      Es tu página: la foto (se cambia con el botón de la cámara), tu @usuario, si eres
+      administrador, tu nombre, tu cargo y tres cifras: tus acciones en Bulx, tus rodajes
+      y las cosas a tu nombre. Debajo, cuatro pestañas:
     </p>
     <ul>
-      <li><strong>Tus dispositivos</strong> — lo que tienes asignado de IT Stock.</li>
-      <li><strong>Tu material</strong> — lo que tienes del inventario.</li>
-      <li><strong>Tus rodajes</strong> — en qué proyectos apareces.</li>
-      <li><strong>Tus permisos</strong> — qué puedes hacer, para no tener que preguntarlo.</li>
+      <li><strong>A tu nombre</strong>: tus dispositivos, material, líneas, MiFi y
+        vehículos. Cada uno abre su pantalla.</li>
+      <li><strong>Rodajes</strong>: en qué proyectos apareces.</li>
+      <li><strong>Actividad</strong>: tus últimos movimientos.</li>
+      <li><strong>Ajustes</strong>, o <strong>Editar perfil</strong>: tus datos (nombre,
+        cargo, teléfono y unas líneas sobre ti), la contraseña, qué puedes hacer, tus
+        presupuestos y lo que tienes a tu nombre.</li>
     </ul>
-    <p>
-      Desde aquí se cambia la foto, se corrigen el teléfono y la bio, y se cambia la
-      contraseña.
-    </p>
 
     <a class="siguiente" href="sistema.html">
       <span class="siguiente-et">Siguiente</span>

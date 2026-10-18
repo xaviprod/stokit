@@ -26,12 +26,15 @@
     <p class="indice-tit">01 · Empezar</p>
     <ol>
       <li><a href="#entrar">Entrar</a></li>
-      <li><a href="#moverse">Moverse</a></li>
+      <li><a href="#olvido">Contraseña olvidada</a></li>
+      <li><a href="#moverse">La barra lateral</a></li>
       <li><a href="#pestanas">Las pestañas</a></li>
+      <li><a href="#crear">Crear y editar</a></li>
       <li><a href="#buscar">El buscador</a></li>
+      <li><a href="#chat">El chat</a></li>
       <li><a href="#tema">Claro y oscuro</a></li>
       <li><a href="#movil">En el móvil</a></li>
-      <li><a href="#instalar">Ponerlo en el iPhone</a></li>
+      <li><a href="#app">La app de iPhone y iPad</a></li>
       <li><a href="#permisos">Por qué no ves lo mismo que otro</a></li>
       <li><a href="#guardado">Cuándo se guarda</a></li>
     </ol>
@@ -43,161 +46,339 @@
     <h1>Empezar</h1>
     <p class="entradilla">
       Lo que no se ve mirando la pantalla. Cinco minutos, y te ahorran preguntar
-      tres veces lo mismo.
+      tres veces lo mismo. Bulx se llamaba antes Stokit: si conoces aquel, aquí está
+      todo, con otra cara.
     </p>
 
     <h2 id="entrar">Entrar</h2>
     <p>
       Bulx no tiene una única dirección: <strong>cada empresa entra por la
-      suya</strong>. La tuya es
-      <code>tuproductora.bulx.es</code>. Si entras por <code>bulx.es</code> a
-      secas verás la web de presentación, no la aplicación.
+      suya</strong>, <code>&lt;tuproductora&gt;.bulx.es</code>. Si entras por
+      <code>bulx.es</code> a secas verás la web de presentación, no la aplicación. Si
+      tenías guardada la dirección antigua, te lleva sola a la nueva.
     </p>
     <ol class="pasos">
       <li>Abre la dirección de tu empresa.</li>
       <li>Comprueba que la pantalla de acceso dice el nombre de tu empresa. Si dice
-        otro, te has equivocado de dirección — <em>no escribas tu contraseña</em>.</li>
-      <li>Usuario y contraseña. Los da quien lleve el sistema; no hay registro
-        abierto ni «he olvidado mi contraseña» automático.</li>
+        otro, te has equivocado de dirección: <em>no escribas tu contraseña</em>.</li>
+      <li>Entra de una de dos maneras:
+        <ul>
+          <li><strong>Entrar con Microsoft</strong>, con tu correo de la casa. Sale si la
+            empresa tiene Microsoft 365 conectado. La contraseña la pones en la página
+            de Microsoft, y es la de tu correo: Bulx no la ve.</li>
+          <li><strong>Usuario y contraseña</strong> de Bulx, y <strong>Entrar</strong>.
+            No hay registro abierto: el acceso lo da quien lleve el sistema.</li>
+        </ul>
+      </li>
+      <li>Si tienes la verificación en dos pasos, o la empresa la pide, te sale un
+        segundo paso: el <strong>código de 6 cifras</strong> de Microsoft Authenticator
+        o Google Authenticator, y <strong>Comprobar y entrar</strong>. Si la empresa la
+        pide y aún no la tienes, ese mismo paso enseña un QR para darla de alta.</li>
     </ol>
+    <p>
+      Si la empresa ha elegido <strong>entrar solo con Microsoft</strong>, la pantalla
+      enseña solo ese botón. La contraseña queda para el administrador de emergencia,
+      detrás de <em>Entrar con contraseña (administración)</em>.
+    </p>
+    <p>
+      La sesión se queda abierta mientras uses Bulx. Se cierra sola tras unos días
+      sin usarlo; cuántos, lo decide la casa en
+      <a href="sistema.html#seguridad">Ajustes → Seguridad y acceso</a>.
+    </p>
     <div class="nota">
       <span class="nota-tit">Si no puedes entrar</span>
       <p>
-        Si la pantalla dice que no hay ningún cliente con esa dirección, el
-        problema es la dirección y no tu contraseña. Y si dice el nombre de tu
-        empresa pero no te deja pasar, pide que te revisen el usuario en
-        <a href="personas.html#crew">Crew</a>: puede estar desactivado.
+        Si la pantalla dice que no hay ningún cliente con esa dirección, el problema es
+        la dirección y no tu contraseña. Si Microsoft dice que tu cuenta «no tiene acceso
+        a Bulx», tener correo de la casa no basta: alguien tiene que darte de alta en
+        <a href="personas.html#alta-microsoft">Crew</a>. Y si te deja escribir pero no
+        pasar, pide que te revisen el usuario: puede estar dado de baja.
+      </p>
+      <p>
+        Tras diez intentos fallidos en un cuarto de hora, Bulx hace esperar unos
+        minutos. La pantalla dice cuántos.
       </p>
     </div>
 
-    <h2 id="moverse">Moverse</h2>
+    <h3 id="olvido">¿Has olvidado la contraseña?</h3>
+    <ol class="pasos">
+      <li>En la pantalla de entrada, <strong>¿Has olvidado la contraseña?</strong></li>
+      <li>Escribe tu usuario o tu correo de la casa y pulsa <strong>Mandarme el
+        enlace</strong>.</li>
+      <li>Abre el correo que te llega. El enlace vale <strong>30 minutos</strong> y
+        <strong>una sola vez</strong>.</li>
+      <li>Pon la contraseña nueva dos veces, de <strong>12 caracteres</strong> como
+        mínimo, y <strong>Guardar contraseña</strong>. Ya puedes entrar con ella.</li>
+    </ol>
     <p>
-      Todo está en la <strong>barra de la izquierda</strong>, agrupada por asunto:
-      Producción, Flota, Material, Tecnología, Personal y Sistema. Arriba, fuera de
-      los grupos, están las dos pantallas que se miran a diario: el
-      <strong>Dashboard</strong> y <strong>Mantenimiento</strong>.
+      La pantalla nunca dice si un usuario existe o no: siempre contesta lo mismo. Si no
+      llega nada, mira el correo no deseado. Y si en tu casa se entra solo con
+      Microsoft, el correo te recuerda que tu contraseña es la de Microsoft y cómo
+      cambiarla allí.
+    </p>
+
+    <h2 id="moverse">La barra lateral</h2>
+    <p>
+      Todo está en la <strong>barra de la izquierda</strong>. De arriba abajo:
+    </p>
+    <ul>
+      <li><strong>Buscar</strong> (<kbd>⌘</kbd> <kbd>K</kbd>), que abre
+        <a href="#buscar">el buscador</a>.</li>
+      <li><strong>Principal</strong>: el <strong>Dashboard</strong>, la única pantalla
+        suelta, y los grupos.</li>
+      <li><strong>Mensajes</strong>: tus conversaciones recientes del
+        <a href="#chat">chat</a>.</li>
+      <li>Abajo, <strong>tu tarjeta</strong>: tu nombre y tu foto. Al pulsarla sale
+        <strong>Mi perfil</strong>, <strong>Ajustes</strong> y <strong>Cerrar
+        sesión</strong>.</li>
+    </ul>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Grupo</th><th>Qué hay dentro</th></tr></thead>
+        <tbody>
+          <tr><td>Producción</td><td>Proyectos, Clientes, Presupuestos, Economía y Calendario.</td></tr>
+          <tr><td>Flota</td><td>General, Vehículos, Calendario de Flota, Salidas y revisiones, y Tareas / ITV.</td></tr>
+          <tr><td>Material</td><td>Inventario, Medidas y peso, Fichas QR y Mantenimiento.</td></tr>
+          <tr><td>Tecnología</td><td>General, Tareas, IT Stock, Microsoft 365, Telefonía, MIFIs, Licencias y Correos.</td></tr>
+          <tr><td>Personal</td><td>Empleados, In-house, Dirección y Crew.</td></tr>
+          <tr><td>Sistema</td><td>Ajustes, Actividad, Anuncios y Manuales, que se abren en otra pestaña.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Al entrar, los grupos están <strong>recogidos</strong>, salvo el de la página en
+      la que estás. Se abren y se cierran pulsando su nombre, y mientras navegas no se
+      mueven solos. <strong>Mantenimiento</strong>, que antes iba suelto arriba, ahora
+      está dentro de Material.
     </p>
     <p>
-      Los grupos se abren y se cierran pulsando su nombre, y se quedan como los
-      dejes. El botón de arriba a la izquierda de la barra la <strong>estrecha</strong>
-      para dejar sitio a una tabla ancha; los iconos siguen ahí.
+      El botón redondo del canto de la barra la <strong>pliega</strong> para dejar sitio
+      a una tabla ancha, y se queda como la dejes. Plegada quedan los iconos: al pasar
+      por encima de uno sale su nombre, y al pasar por encima de un grupo sale un panel
+      con sus páginas.
     </p>
 
     <h2 id="pestanas">Las pestañas</h2>
     <p>
       Esta es la parte que sorprende al principio: Bulx <strong>abre pestañas
-      propias</strong>, arriba, como un navegador dentro del navegador. Cada
-      proyecto, cada presupuesto y cada ficha que abres se queda en su pestaña.
+      propias</strong>, arriba, como un navegador dentro del navegador. Cada proyecto,
+      cada presupuesto y cada ficha que abres se queda en su pestaña.
     </p>
     <ul>
       <li>Puedes tener un proyecto abierto y saltar al inventario sin perderlo.</li>
-      <li>Se cierran con la <kbd>×</kbd> de cada una, y todas de golpe con
-        <strong>Cerrar todo</strong>.</li>
-      <li><strong>Sobreviven a recargar la página.</strong> Si se te va la conexión o
-        cierras el navegador sin querer, al volver a entrar están donde estaban.</li>
+      <li>Se cierran con la <kbd>×</kbd> de cada una o con el botón central del ratón.
+        Con más de una, <strong>Cerrar todo</strong> las cierra de golpe.</li>
+      <li><kbd>⌘</kbd> + <kbd>1</kbd> a <kbd>9</kbd> (<kbd>Ctrl</kbd> en Windows) salta
+        a la pestaña de ese número; el <kbd>9</kbd>, a la última.</li>
+      <li><strong>Sobreviven a recargar la página.</strong> Si se te va la conexión y
+        recargas, están donde estaban.</li>
     </ul>
+    <p>
+      A la derecha de las pestañas se ve <strong>quién más está conectado</strong>: sus
+      caras y cuántos son. Al pulsar, quién es cada uno y en qué página está. Y si
+      alguien tiene abierto el mismo documento que tú, dentro te lo dice.
+    </p>
     <div class="truco">
       <span class="truco-tit">Para qué sirve de verdad</span>
       <p>
-        Montar un presupuesto mirando el material de otro proyecto. Abre los dos y
-        salta entre pestañas: no pierdes lo que llevas escrito en ninguno de los
-        dos.
+        Montar un presupuesto mirando el material de otro proyecto. Abre los dos y salta
+        entre pestañas: no pierdes lo que llevas escrito en ninguno de los dos.
       </p>
     </div>
 
     <h2 id="crear">Crear y editar</h2>
     <p>
-      Crear o editar algo —un vehículo, material, un dispositivo, una línea, un
-      MiFi, un empleado, un proyecto— abre una <strong>página propia</strong>, no una
-      ventana flotante. Arriba, el rótulo y el título, que va tomando el nombre que
-      escribes. Debajo, los datos en <strong>bloques numerados</strong>, cada uno con una
-      frase que dice qué se pide ahí. A la derecha, <strong>«Así va a quedar»</strong>: la
-      tarjeta que verás en la lista, rellenándose mientras escribes, con cuántos
-      campos llevas. Y abajo, fijos, <strong>Cancelar</strong> y <strong>Guardar</strong>.
-      Al guardar o cancelar vuelves exactamente a donde estabas.
+      Crear o editar algo —un vehículo, material, un dispositivo, una línea, un MiFi, un
+      empleado, un proyecto— abre una <strong>página propia</strong>, no una ventana
+      flotante. Arriba, el rótulo y el título, que va tomando el nombre que escribes.
+      Debajo, los datos en <strong>bloques numerados</strong>, cada uno con una frase que
+      dice qué se pide ahí. A la derecha, <strong>«Así va a quedar»</strong>: la tarjeta
+      que verás en la lista, rellenándose mientras escribes. Y abajo, fijos,
+      <strong>Cancelar</strong> y <strong>Guardar</strong>. Al guardar o cancelar vuelves
+      exactamente a donde estabas.
     </p>
 
     <h2 id="buscar">El buscador</h2>
     <p>
-      Arriba a la derecha hay un buscador que <strong>mira en todo a la vez</strong>:
-      proyectos, material, flota y personas. Escribe la matrícula de un coche, el
-      nombre de un rodaje o el número de un presupuesto y te lleva.
+      Vive arriba del <strong>Dashboard</strong> y <strong>mira en todo a la vez</strong>:
+      proyectos, presupuestos, flota, material, dispositivos, líneas y empleados. Desde
+      cualquier otra pantalla, <strong>Buscar</strong> en la barra lateral o
+      <kbd>⌘</kbd> <kbd>K</kbd> (<kbd>Ctrl</kbd> <kbd>K</kbd> en Windows) te lleva y te
+      deja escribiendo.
+    </p>
+    <p>
+      Con dos letras ya sale un desplegable: se recorre con las flechas y
+      <kbd>Intro</kbd> abre lo elegido. Escribe la matrícula de una furgoneta, el nombre
+      de un rodaje o el número de un presupuesto y te lleva.
+    </p>
+    <p>
+      Al lado está la <strong>campana</strong>: lo que tiene fecha y se acerca, separado
+      por urgencia. El número cuenta solo lo que pide hacer algo. Los avisos no se marcan
+      como leídos: desaparecen cuando desaparece su causa.
     </p>
     <div class="nota">
       <span class="nota-tit">Solo encuentra lo que puedes ver</span>
       <p>
-        El buscador respeta tus permisos. Si no encuentras un presupuesto, puede que
-        no exista… o que tú no tengas acceso a los presupuestos. No es un fallo del
-        buscador.
+        El buscador respeta tus permisos, y lo decide el servidor. Si no encuentras un
+        presupuesto, puede que no exista… o que tú no tengas acceso a los presupuestos.
+        No es un fallo del buscador.
       </p>
     </div>
 
+    <h2 id="chat">El chat</h2>
+    <p>
+      Para hablar con la gente de la casa sin salir de Bulx, y sobre todo para pasarse
+      cosas de Bulx. Está en <strong>Mensajes</strong>, en la barra lateral: las cuatro
+      conversaciones más recientes, con un número si hay algo sin leer, y el
+      <strong>+</strong> para empezar una. Se abre en una tarjeta al lado de la barra, sin
+      tapar la página.
+    </p>
+    <p>Hay tres clases de conversación:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Clase</th><th>Para qué</th></tr></thead>
+        <tbody>
+          <tr><td>Con alguien</td><td>Un directo, a dos. Un punto verde dice si la otra persona está conectada.</td></tr>
+          <tr><td>De un rodaje</td><td>El chat de un proyecto. Hay uno por rodaje: si ya existe, entras en el que hay.</td></tr>
+          <tr><td>Un grupo</td><td>Con nombre y la gente que elijas.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Con el clip se adjunta <strong>un presupuesto</strong>, <strong>un rodaje</strong>,
+      <strong>una foto</strong> o <strong>un archivo</strong> (PDF, Word, Excel,
+      PowerPoint, texto o ZIP). Las fotos, hasta 6 MB; los archivos, hasta 15 MB. También
+      se pueden arrastrar o pegar en la conversación.
+    </p>
+    <p>
+      Con el chat abierto, una fila de presupuesto, de proyecto o de material de
+      cualquier lista se puede <strong>arrastrar</strong> hasta él. Llega como una
+      <strong>tarjeta viva</strong>: dice cómo está <em>ahora</em> —el estado y el total
+      del presupuesto, las fechas del rodaje, si el material está en casa o en qué
+      rodaje— y <strong>Abrir</strong> te lleva a su ficha.
+    </p>
+    <ul>
+      <li>Tus mensajes llevan una marca de <strong>visto</strong> cuando los han leído, y
+        los puedes borrar.</li>
+      <li>En un grupo o un rodaje, <strong>Quién está</strong> y <strong>Salir de la
+        conversación</strong>. De un directo no se sale.</li>
+      <li>Lo nuevo llega solo, sin recargar. Si no tienes la conversación delante, sale un
+        aviso, y el título de la pestaña del navegador lleva delante cuántos tienes sin
+        leer.</li>
+    </ul>
+    <p>
+      Desde la app del iPhone se pueden además mandar <strong>audios</strong>, que en la
+      web se escuchan, y el móvil avisa de cada mensaje nuevo.
+    </p>
+
     <h2 id="tema">Claro y oscuro</h2>
     <p>
-      El interruptor de arriba a la derecha. Tres estados: claro, oscuro y
-      <strong>lo que diga tu ordenador</strong>, que es el de partida — si tu portátil
-      cambia solo al atardecer, Bulx cambia con él. En cuanto pulsas, manda tu
-      elección y se queda guardada en ese navegador.
+      El botón del sol y la luna, arriba a la derecha, cambia entre claro y oscuro. Está
+      también en la pantalla de entrada, para quien entra de noche en un almacén. De
+      partida, Bulx sigue a tu ordenador: si tu portátil cambia solo al atardecer, Bulx
+      cambia con él.
+    </p>
+    <p>
+      Para volver a seguir al ordenador después de haber pulsado,
+      <a href="sistema.html#tu-cuenta">Ajustes → Tu cuenta → Apariencia</a>: Claro,
+      Oscuro o Como el ordenador. La elección vale para ti y en ese navegador.
     </p>
 
     <h2 id="movil">En el móvil</h2>
     <p>
-      Funciona en el teléfono, y está pensado para lo que de verdad se hace desde
-      el teléfono: consultar. La barra lateral se abre con el botón de las tres
-      rayas y se cierra al elegir algo.
-    </p>
-    <p>
-      Las tablas anchas <strong>se deslizan a lo ancho</strong> con el dedo, sin
-      encoger el texto hasta lo ilegible. Si una tabla parece cortada, arrástrala.
+      La web funciona en el teléfono. La barra lateral se abre con el botón de las tres
+      rayas y se cierra al elegir algo. Las tablas anchas <strong>se deslizan a lo
+      ancho</strong> con el dedo, sin encoger el texto hasta lo ilegible: si una tabla
+      parece cortada, arrástrala.
     </p>
 
-    <h3 id="instalar">Ponlo en la pantalla de inicio del iPhone</h3>
+    <h3 id="instalar">Ponlo en la pantalla de inicio</h3>
     <p>
-      Bulx se instala como una aplicación. No hay que bajar nada de la App Store:
+      Si prefieres la web a <a href="#app">la app</a>, se puede dejar como un icono más
+      del teléfono:
     </p>
     <ol class="pasos">
-      <li>Abre <strong>tuproductora.bulx.es</strong> en <strong>Safari</strong>
-        (en Chrome no sale la opción).</li>
-      <li>Toca el botón de <strong>Compartir</strong>, el cuadrado con la flecha
-        hacia arriba.</li>
+      <li>Abre <code>&lt;tuproductora&gt;.bulx.es</code> en <strong>Safari</strong> (en
+        Chrome del iPhone no sale la opción).</li>
+      <li>Toca el botón de <strong>Compartir</strong>, el cuadrado con la flecha hacia
+        arriba.</li>
       <li>Baja y elige <strong>Añadir a pantalla de inicio</strong>.</li>
     </ol>
     <p>
-      Queda el icono de Bulx junto a las demás aplicaciones y se abre
-      <strong>a pantalla completa</strong>, sin la barra del navegador. La sesión se
-      queda guardada, así que no hay que entrar cada mañana. En Android es igual,
-      desde el menú de los tres puntos de Chrome.
+      Queda el icono de Bulx junto a las demás aplicaciones y se abre <strong>a pantalla
+      completa</strong>, sin la barra del navegador. En Android es igual, desde el menú de
+      los tres puntos de Chrome.
     </p>
 
-    <div class="ojo">
-      <span class="ojo-tit">El inventario, pensado para el almacén</span>
-      <p>
-        En el teléfono cada artículo es una <strong>tarjeta de dos líneas</strong>:
-        el nombre arriba y debajo el código, la categoría, las unidades y el estado.
-        Caben unos ocho por pantalla, así que se busca de verdad. El precio por día
-        y las veces alquilado no salen: en un almacén no se miran, y están en la
-        ficha.
-      </p>
-      <p>
-        <strong>Un toque</strong> en la tarjeta abre la ficha. Y el botón
-        <strong>Foto</strong> de cada tarjeta dispara la cámara y sube la foto a ese
-        artículo directamente, sin pasar por la ficha — el iPhone te deja elegir
-        entre hacerla en ese momento o cogerla de la fototeca.
-      </p>
+    <h2 id="app">La app de iPhone y iPad</h2>
+    <p>
+      Bulx tiene app propia, para iPhone y para iPad. No es la web metida en un marco:
+      está hecha para el almacén, la calle y el rodaje. Lee los mismos datos que la web,
+      al momento, y te enseña lo mismo que tus <a href="#permisos">permisos</a>.
+    </p>
+    <h3 id="app-entrar">Entrar en la app</h3>
+    <ul>
+      <li><strong>Iniciar sesión</strong> con tu usuario y tu contraseña, o
+        <strong>Entrar con Microsoft</strong>. Si la casa pide el código de 6 cifras, la
+        app también lo pide.</li>
+      <li>Abajo del formulario se ve a qué dirección se conecta. Si no es la de tu
+        productora, se toca y se escribe la tuya.</li>
+      <li>Tras entrar, ofrece <strong>Face ID</strong> o Touch ID para la próxima vez. Se
+        enciende y se apaga en <strong>Tu cuenta</strong>.</li>
+      <li>También tiene <strong>¿Has olvidado la contraseña?</strong>, que manda el mismo
+        enlace que la web.</li>
+    </ul>
+    <h3 id="app-barra">La barra de abajo</h3>
+    <p>
+      Se arma con tus permisos. Casi todos tienen <strong>Inicio</strong>,
+      <strong>Escanear</strong> en el centro, <strong>Chat</strong> y
+      <strong>Menú</strong>. Según lo que lleves, además <strong>Reservas</strong>,
+      <strong>Flota</strong> y <strong>Almacén</strong> (o Material, o IT). Quien solo es
+      driver ve <strong>Mi vehículo</strong>, Escanear, <strong>Documentos</strong> y
+      Menú.
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Sección</th><th>Qué se hace</th></tr></thead>
+        <tbody>
+          <tr><td>Inicio</td><td>El saludo, las cifras del día, los próximos siete días y bloques que se ordenan o se esconden con «Ordenar el inicio». La lupa busca en rodajes, presupuestos, vehículos, material, aparatos y líneas; la campana abre los avisos.</td></tr>
+          <tr><td>Escanear</td><td>Lee la pegatina QR. De un vehículo o un MiFi: «Me lo llevo» o «Lo devuelvo», para la casa o para un rodaje. De cualquier cosa: «Apuntar un problema». Si la cámara no puede, se escribe el código.</td></tr>
+          <tr><td>Mi vehículo</td><td>Para el driver: elegir su vehículo, llevárselo y devolverlo, las fotos de salida y de entrada, los kilómetros, el combustible, los daños y los papeles.</td></tr>
+          <tr><td>Reservas</td><td>Reservar vehículos y espacios paso a paso: qué, qué mes, cuáles y de cuándo a cuándo. Y el calendario del mes.</td></tr>
+          <tr><td>Flota</td><td>General, Vehículos con su mapa, ITV y Calendario. En cada vehículo: problemas, fotos, kilómetros, estado, citas y resultado de la ITV, taller e historial.</td></tr>
+          <tr><td>Almacén</td><td>El material, IT (aparatos, líneas, MiFi, tareas, licencias y correos) y Medidas y peso. Sacar a un rodaje y devolver, dar parte de avería, poner o ver su pegatina QR.</td></tr>
+          <tr><td>Fichar horas (In-shoot)</td><td>Apuntar un día de rodaje: entrada, salida, comida, plus de conducción y nota. Desde el menú o desde el inicio.</td></tr>
+          <tr><td>Menú</td><td>Todo lo demás según tus permisos: taller, presupuestos y clientes, economía, la gente, horas de todo el equipo, usuarios y permisos, actividad, ajustes de la casa y tu cuenta.</td></tr>
+        </tbody>
+      </table>
     </div>
+    <ul>
+      <li><strong>Los presupuestos se miran, no se hacen.</strong> En la app se ven
+        enteros, con sus líneas, sus versiones y lo que ha pasado con ellos, se exportan
+        en PDF y se comparten en el chat. Crearlos y enviarlos es cosa de la web.</li>
+      <li><strong>Sin cobertura</strong> se puede seguir apuntando: llevarse y devolver,
+        partes, horas, kilómetros y cambios en una ficha que ya existe. Se guarda en el
+        teléfono y se sube solo cuando vuelve la red. Lo nuevo, las fotos, el chat y las
+        reservas necesitan conexión.</li>
+      <li><strong>Avisos en el móvil</strong>: se encienden desde la campana o desde Tu
+        cuenta. Suenan con los mensajes de tus conversaciones y, de tus áreas, con lo
+        urgente y cuando un cliente acepta un presupuesto o pide cambios.</li>
+      <li><strong>En el iPad</strong> se usa en cualquier orientación y aprovecha el
+        ancho de la pantalla.</li>
+    </ul>
 
     <h2 id="permisos">Por qué no ves lo mismo que otro</h2>
     <p>
-      Porque no es lo mismo llevar la flota que llevar las cuentas. En Bulx el
-      acceso se reparte por <strong>áreas</strong> —Proyectos, Presupuestos,
-      Economía, Flota, Salidas y revisiones, Material, Tecnología, Personal y
-      Sistema— y en cada una tienes uno de cuatro niveles:
+      Porque no es lo mismo llevar la flota que llevar las cuentas. En Bulx el acceso se
+      reparte por <strong>áreas</strong> —Proyectos, Presupuestos, Economía, Flota,
+      Salidas y revisiones, Calendario compartido, Material, Tecnología, In-house en
+      rodaje, Personal y Sistema— y en cada una tienes uno de cuatro niveles:
     </p>
     <div class="tabla-caja">
       <table>
         <thead><tr><th>Nivel</th><th>Qué puedes</th></tr></thead>
         <tbody>
-          <tr><td>Ninguno</td><td>Esa parte no te aparece en la barra lateral.</td></tr>
+          <tr><td>Ninguno</td><td>Esa parte no te aparece en la barra lateral ni en la app.</td></tr>
           <tr><td>Lectura</td><td>Mirar. No hay botones de guardar.</td></tr>
           <tr><td>Edición</td><td>Crear y cambiar.</td></tr>
           <tr><td>Total</td><td>Además, borrar.</td></tr>
@@ -205,29 +386,38 @@
       </table>
     </div>
     <p>
-      Y aparte hay cinco <strong>capacidades</strong> que se dan o no se dan:
-      <em>ver precios</em>, <em>importar</em>, <em>exportar</em>, <em>enviar</em> y
-      <em>contabilizar</em>. Por eso puede pasar que dos personas vean el mismo
-      presupuesto y solo una vea los importes.
+      Y aparte hay seis <strong>capacidades</strong> que se dan o no se dan: <em>ver
+      precios</em>, <em>importar</em>, <em>exportar</em>, <em>enviar</em>,
+      <em>contabilizar</em> y <em>entregar y devolver MiFi</em>. Por eso puede pasar que
+      dos personas vean el mismo presupuesto y solo una vea los importes.
     </p>
     <p>
-      Quién tiene qué se cambia en <a href="personas.html#permisos">Crew</a>.
+      Quién tiene qué se cambia en <a href="personas.html#permisos">Crew</a>, y cada uno
+      ve lo suyo en <a href="personas.html#mi-perfil">Mi Perfil</a>.
     </p>
 
     <h2 id="guardado">Cuándo se guarda</h2>
     <p>
-      Casi todo se guarda <strong>al momento</strong>, sin botón: asignar un coche a
-      un día, marcar una tarea, cambiar un dato de una ficha. Lo que sí tiene botón
-      de <strong>Guardar</strong> es lo que no se puede dejar a medias: un
-      presupuesto, un formulario de alta, los ajustes de la casa.
+      Casi todo se guarda <strong>al momento</strong>, sin botón: asignar un vehículo a un
+      día, marcar una tarea, cambiar un dato de una ficha.
     </p>
+    <ul>
+      <li><strong>El presupuesto se guarda solo</strong> mientras lo montas. Al lado de
+        Guardar se lee cómo va: «Guardando…», «Guardado» con la hora, o «No se está
+        guardando» si choca con lo que ha cambiado otra persona. En ese caso pulsa
+        Guardar y decide.</li>
+      <li><strong>Las páginas de crear y editar</strong> tienen <strong>Guardar</strong> y
+        <strong>Cancelar</strong>: hasta que no guardas, no queda nada.</li>
+      <li><strong>Los ajustes de la casa</strong> se acumulan y se aplican con
+        <strong>Guardar cambios</strong>.</li>
+    </ul>
     <div class="ojo">
       <span class="ojo-tit">Si aparece una banda roja arriba</span>
       <p>
-        Dice <strong>«No se está guardando en la base de datos»</strong>. Es un aviso
-        de verdad: lo que escribas a partir de ese momento se puede perder. Avisa a
-        quien lleve el sistema y, mientras, no metas nada importante. Cuando se
-        arregla, sale una banda verde diciéndolo.
+        Dice <strong>«No se está guardando en la base de datos»</strong>. Es un aviso de
+        verdad: lo que escribas a partir de ese momento se puede perder. Avisa a quien
+        lleve el sistema y, mientras, no metas nada importante. Cuando se arregla, sale
+        una banda verde diciéndolo.
       </p>
     </div>
 

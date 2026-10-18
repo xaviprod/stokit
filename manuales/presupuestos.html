@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Presupuestos y facturas en Bulx: montarlos, enviarlos, convertirlos en factura, contabilizarlos, y qué enseña Economía.">
+<meta name="description" content="Los presupuestos en Bulx: crearlos desde el material del rodaje, versiones, enviarlos al cliente, su aceptación, los recordatorios y la economía. La factura se hace fuera de Bulx.">
 <link rel="icon" type="image/svg+xml" href="../img/bulx-favicon.svg">
 <title>Presupuestos y dinero · Manuales de Bulx</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,412 +26,545 @@
     <p class="indice-tit">03 · Presupuestos y dinero</p>
     <ol>
       <li><a href="#lista">La lista</a></li>
+      <li><a href="#clientes">Clientes</a></li>
       <li><a href="#crear">Montar un presupuesto</a></li>
       <li><a href="#catalogo">El catálogo de tarifas</a></li>
       <li><a href="#documento">Ver el documento</a></li>
+      <li><a href="#versiones">Versiones y aceptación</a></li>
       <li><a href="#enviar">Enviar</a></li>
+      <li><a href="#recordar">Recordar al cliente</a></li>
       <li><a href="#estados">Los estados</a></li>
-      <li><a href="#factura">Pasar a factura</a></li>
       <li><a href="#contabilizar">Contabilizar</a></li>
       <li><a href="#anular">Anular</a></li>
+      <li><a href="#factura">Y la factura</a></li>
       <li><a href="#plantillas">Plantillas y PDF</a></li>
+      <li><a href="#app">En el iPhone y el iPad</a></li>
       <li><a href="#economia">Economía</a></li>
     </ol>
     <p class="indice-tit">Siguiente</p>
     <ol><li><a href="flota.html">04 · Flota</a></li></ol>
-  </nav>
+</nav>
 
   <main class="texto">
     <h1>Presupuestos y dinero</h1>
     <p class="entradilla">
-      Un presupuesto y una factura son <strong>el mismo documento en dos
-      momentos</strong> de su vida. Entender eso ahorra la mitad de las dudas de
-      esta pantalla.
-    </p>
-
-    <h2 id="clientes">Clientes</h2>
-    <p>
-      <strong>Producción → Clientes.</strong> A quién se presupuesta y se factura. Cada
-      cliente es una ficha: nombre comercial, razón social, <strong>NIF y domicilio
-      fiscal</strong> (lo que va en la factura), correo de facturación, contacto,
-      <strong>forma y plazo de pago</strong>, idioma y notas. Debajo, sus documentos,
-      con lo pendiente de cobro y lo facturado del año arriba.
-    </p>
-    <p>
-      En el constructor el cliente se <strong>elige de la lista</strong> y sus datos
-      fiscales y su forma de pago vienen solos. Si escribes uno que no existe, la app
-      avisa de que se creará su ficha al guardar y deja <strong>completar datos</strong>
-      sin salir. Los presupuestos que ya existían se enlazaron a su cliente por el
-      nombre que tenían escrito.
+      Un presupuesto sale del material del rodaje, se le manda al cliente con un
+      enlace y el cliente lo acepta o pide cambios desde ahí. <strong>Nada cambia
+      de estado sin que alguien de la casa lo confirme.</strong> La factura se hace
+      fuera de Bulx.
     </p>
 
     <h2 id="lista">La lista</h2>
     <p>
       <strong>Producción → Presupuestos.</strong> Arriba, tres botones:
-      <strong>+ Nuevo</strong>, <strong>Catálogo</strong> y
-      <strong>Ajustes PDF</strong>. Y una tira de filtros por estado: Todos,
-      Borrador, Enviado, Aceptado, Rechazado y <strong>Anulados</strong>.
+      <strong>Catálogo</strong>, <strong>Ajustes PDF</strong> y
+      <strong>+ Nuevo presupuesto</strong>.
+    </p>
+    <p>Debajo, cuatro cifras que dicen qué hay que hacer hoy:</p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Cifra</th><th>Qué cuenta</th></tr></thead>
+        <tbody>
+          <tr><td>En el aire</td><td>Enviados que esperan respuesta, con lo que suman.</td></tr>
+          <tr><td>Aceptado este año</td><td>Los aceptados con fecha de este año, y su importe.</td></tr>
+          <tr><td>Borradores</td><td>A medias, sin enviar.</td></tr>
+          <tr><td>Caducados</td><td>Enviados a los que ya les pasó la fecha de validez.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Y <strong>Lo que pide atención</strong>, en dos columnas.
+      <strong>Ha contestado el cliente</strong> recoge las respuestas que llegan
+      desde el enlace, cada una con su botón <strong>Revisar</strong>.
+      <strong>Se está enfriando</strong> recoge los caducados y los enviados que
+      llevan más días sin respuesta de los que marca Ajustes; en estos últimos hay
+      un botón <strong>Recordar</strong> que le reenvía el enlace al cliente.
     </p>
     <p>
-      La columna que manda es el <strong>proyecto</strong>, con el color del
-      proyecto y su punto delante: con veinte documentos en pantalla se busca el
-      rodaje, y el color lo encuentra antes que la letra. El cliente va en la
-      columna de al lado. Si el color del proyecto es muy claro, el nombre se
-      oscurece lo justo para que se lea; el punto mantiene el color tal cual.
+      Después vienen el buscador (cliente, número o proyecto) y los filtros por
+      estado: Todos, Borrador, Enviado, Aceptado, Rechazado y
+      <strong>Anulados</strong>. La columna que manda es el
+      <strong>proyecto</strong>, con su color y su subproyecto debajo; el cliente
+      va al lado. La fila se tiñe de verde si está contabilizada.
+    </p>
+    <p>
+      Cada fila tiene <strong>Abrir</strong> y un botón de tres puntos con el resto:
+      enviar, marcar como aceptado o rechazado, contabilizar, exportar el PDF y
+      anular. Lo mismo sale con el botón derecho sobre la fila.
     </p>
     <div class="nota">
       <span class="nota-tit">Los anulados no salen por defecto</span>
       <p>
-        A propósito: así ninguna pantalla que sume importes tiene que acordarse de
-        descontarlos. Están en su propio filtro, y allí se ven marcados.
+        A propósito: así ninguna cifra tiene que acordarse de descontarlos. Están
+        en su propio filtro, que hace de papelera.
       </p>
     </div>
 
-    <h2 id="crear">Montar un presupuesto</h2>
+    <h2 id="clientes">Clientes</h2>
     <p>
-      Se puede empezar de dos sitios, y no da lo mismo:
+      <strong>Producción → Clientes.</strong> A quién se presupuesta. Arriba, cuántos
+      clientes hay, cuántos tienen presupuestos abiertos y cuánto se ha aceptado
+      este año. Debajo, la tabla con el NIF, el contacto, cuántos documentos tiene
+      cada uno, lo aceptado del año y el plazo de pago.
     </p>
+    <p>
+      La ficha de un cliente lleva sus <strong>datos fiscales</strong> (razón
+      social, NIF, domicilio, país e idioma), sus <strong>condiciones y
+      contacto</strong> (forma y plazo de pago, correo) y la lista de sus
+      documentos. Arriba, <strong>Editar</strong> y <strong>+ Presupuesto</strong>,
+      que crea uno ya a su nombre.
+    </p>
+    <p>
+      No hace falta darlos de alta antes. En el constructor el cliente se elige de
+      la lista y su NIF, su domicilio y su forma de pago vienen solos. Si escribes
+      uno que no existe, Bulx avisa de que creará su ficha al guardar y deja
+      <strong>completar datos</strong> sin salir.
+    </p>
+
+    <h2 id="crear">Montar un presupuesto</h2>
+    <p>Se puede empezar desde tres sitios:</p>
     <ul>
-      <li><strong>Desde la ficha del proyecto</strong> (botón <strong>+
-        Presupuesto</strong>): nace ya colgado de ese proyecto y de su
-        subproyecto. Es lo recomendable.</li>
-      <li><strong>Desde Presupuestos → + Nuevo</strong>: nace suelto y hay que
-        elegirle el proyecto en el selector.</li>
+      <li><strong>Desde el proyecto</strong>, en la pestaña
+        <a href="proyectos.html#finanzas">Finanzas</a>: eliges qué parte del
+        material cobras y pulsas <strong>Crear presupuesto</strong>. Nace con las
+        líneas, colgado del proyecto y, si toca, del subproyecto. Es el camino
+        normal.</li>
+      <li><strong>Desde Presupuestos → + Nuevo presupuesto</strong>: nace vacío y
+        hay que elegirle el proyecto.</li>
+      <li><strong>Desde la ficha de un cliente → + Presupuesto</strong>: nace con
+        ese cliente puesto.</li>
     </ul>
-    <div class="ojo">
-      <span class="ojo-tit">La fecha del documento es la que tú pongas</span>
+    <p>
+      El constructor tiene dos mitades. A la izquierda, el
+      <strong>material</strong>: el árbol de categorías del inventario y, al final,
+      <strong>Servicios y personal</strong>, que es el catálogo de tarifas. Marcas
+      varias cosas, pulsas <strong>Añadir</strong> y pasan todas de una vez. Si
+      añades algo que ya estaba, suma un día. A la derecha, lo que lleva el
+      presupuesto.
+    </p>
+    <ol class="pasos">
+      <li><strong>El proyecto</strong> es lo único obligatorio para guardar. Si el
+        proyecto tiene subproyectos, al lado se elige a cuál pertenece; el
+        <strong>+</strong> crea uno nuevo ahí mismo.</li>
+      <li>Al lado, la <strong>fecha del documento</strong> y el
+        <strong>número</strong>. La fecha sale tal cual en el PDF. El número se pone
+        solo al guardar, pero puedes escribir uno propio.</li>
+      <li>Añade el material. Cada línea lleva <strong>una sola casilla, y son
+        días</strong>, con su precio por día. Con − y + se cambian; bajar de uno
+        quita la línea. El lápiz cambia el nombre de la línea solo en este
+        presupuesto.</li>
+      <li><strong>Más datos del documento</strong> despliega el resto: cliente, a la
+        atención de quién, la referencia del cliente (pedido, PO), válido hasta,
+        forma de pago, NIF y domicilio del cliente, un texto de presentación que
+        sale antes de las líneas, notas y las condiciones de este documento (si se
+        dejan vacías salen las generales de Ajustes).</li>
+      <li><strong>Guardar y enviar</strong>, el botón principal, guarda y abre el
+        envío de una vez. <strong>Exportar PDF</strong> es solo para cuando quieras
+        el archivo.</li>
+    </ol>
+    <div class="truco">
+      <span class="truco-tit">Lo que el rodaje ya está usando</span>
       <p>
-        Arriba, junto al proyecto, están la <strong>fecha del documento</strong> y el
-        <strong>número</strong>. La fecha sale tal cual en el PDF: un presupuesto que se
-        firma el lunes puede llevar fecha del viernes. El número se asigna solo al
-        guardar, pero puedes escribir uno propio (la app no deja repetirlo). En
-        <strong>Más datos del documento</strong>: cliente, a la atención de quién, la
-        referencia del cliente (nº de pedido, PO), validez, forma de pago, NIF y
-        domicilio, un texto de presentación que sale antes de las líneas, notas y las
-        condiciones de este documento (si se dejan vacías salen las generales de
-        Ajustes). En los totales, además del descuento y el IVA, la
-        <strong>retención IRPF</strong>, que se resta del total.
+        Si el proyecto tiene material que todavía no está en el presupuesto
+        —también lo que entró escaneando QR—, encima de las líneas sale el aviso
+        con cuántas líneas son y lo que suman, y un botón para
+        <strong>traerlas</strong>. No entra solo: un presupuesto que ya tiene el
+        cliente no puede cambiar por debajo.
       </p>
     </div>
+    <div class="ojo">
+      <span class="ojo-tit">Nacen sin IVA</span>
+      <p>
+        Un presupuesto nuevo nace con el IVA, la validez, la retención y la forma de
+        pago de <a href="sistema.html#numeracion">Ajustes → Presupuestos</a>, y de
+        fábrica el IVA es 0. Con IVA 0 la fila del IVA no sale en el documento. Si un
+        trabajo lo lleva, se cambia en ese presupuesto desde
+        <strong>Personalizar presupuesto</strong>.
+      </p>
+    </div>
+
+    <h3 id="personalizar">Personalizar presupuesto</h3>
+    <p>
+      Mientras metes material no hay nada a mano que reordene el documento. Todo
+      eso está detrás del botón <strong>Personalizar presupuesto</strong>:
+      <strong>+ Sección</strong> para agrupar líneas bajo un título,
+      <strong>+ Línea libre</strong> para lo que no está en ninguna lista, subir y
+      bajar, la unidad, el descuento de cada línea, el IVA y la plantilla del PDF.
+      <strong>Volver al material</strong> deja el modo normal.
+    </p>
+
     <h3 id="descuentos">Descuentos</h3>
     <p>
       Hay dos, y se pueden combinar. El <strong>descuento global</strong> está en los
-      totales (la casilla «Descuento global %») y se aplica sobre la suma de todas las
-      líneas. El <strong>descuento por líneas</strong> se pone a las que tú elijas:
-      marca las casillas de la izquierda de cada línea (o la de la cabecera para
-      todas), y en la barra que aparece encima pulsa <strong>Aplicar descuento…</strong>
-      y escribe el porcentaje. Las líneas con descuento llevan un chip rojo con el
-      porcentaje, y desde la misma barra se quita. En el documento que ve el cliente
-      sale una columna <strong>Dto.</strong> solo cuando alguna línea lo lleva, para que
-      precio × cantidad cuadre con el subtotal. En «Personalizar presupuesto» el
-      descuento de cada línea también se edita a mano, en su columna.
+      totales («Descuento global %») y se aplica sobre la suma de todas las líneas.
+      El <strong>descuento por líneas</strong> se pone a las que elijas: marca sus
+      casillas (o la de la cabecera para todas) y, en la barra que aparece, pulsa
+      <strong>Aplicar descuento…</strong>. Las líneas con descuento llevan una
+      etiqueta con el porcentaje, y desde la misma barra se quita. En el documento
+      sale una columna <strong>Dto.</strong> solo si alguna línea lo lleva.
     </p>
-    <ol class="pasos">
-      <li><strong>El cliente</strong> es lo único obligatorio para poder guardar.</li>
-      <li>Comprueba el <strong>proyecto</strong> y, si lo hay, el
-        <strong>subproyecto</strong>. El vínculo va por proyecto y no por el nombre
-        escrito: así no se rompe si algún día se renombra el rodaje.</li>
-      <li>Añade líneas. <strong>Añadir</strong> abre el catálogo y el inventario;
-        <strong>+ Línea libre</strong> es para lo que no está en ninguna lista.</li>
-      <li><strong>+ Sección</strong> agrupa líneas bajo un título. En el documento
-        salen agrupadas por sección y por subproyecto, con subtotales — el cliente
-        tiene que poder distinguir qué es cada cosa.</li>
-      <li><strong>Fechas y notas</strong>: fecha del documento, validez y el texto
-        que quieras que salga al pie.</li>
-      <li><strong>Guardar</strong>. Le pone número y la pestaña pasa a llamarse como
-        el documento.</li>
-    </ol>
-    <div class="truco">
-      <span class="truco-tit">El IVA y la validez vienen de Ajustes</span>
-      <p>
-        Un presupuesto nuevo nace con el IVA y los días de validez que haya en
-        <a href="sistema.html#ajustes">Ajustes → Valores por defecto</a>. Cámbialos
-        ahí una vez en lugar de en cada documento.
-      </p>
-    </div>
+    <p>
+      En los totales también está la <strong>retención IRPF</strong>, que se resta
+      del total.
+    </p>
+
+    <h3 id="guardado">Se guarda solo</h3>
+    <p>
+      El constructor guarda mientras trabajas: al lado de Guardar pone
+      <strong>Guardando…</strong>, <strong>Guardado</strong> con la hora o
+      <strong>Sin guardar</strong>. Un presupuesto nuevo no se crea hasta que tiene
+      proyecto y al menos una línea.
+    </p>
+    <p>
+      Si otra persona tiene el mismo presupuesto abierto, arriba sale quién es. Si
+      los dos tocáis las líneas, el guardado automático se para y pone
+      <strong>No se está guardando</strong>: pulsa Guardar y decide qué hacer, para
+      que nadie borre el trabajo del otro sin darse cuenta.
+    </p>
 
     <h2 id="catalogo">El catálogo de tarifas</h2>
     <p>
-      Botón <strong>Catálogo</strong>. Es tu lista de precios: concepto, unidad
-      (día, hora, unidad, sesión, proyecto, minuto) y precio. Lo que metas aquí
-      aparece al añadir líneas a cualquier presupuesto.
+      Botón <strong>Catálogo</strong>. Son los conceptos que cobras y que no son
+      material físico: personal, servicios, dietas. Cada uno con categoría, nombre,
+      descripción, unidad (día, hora, unidad, sesión, proyecto o minuto) y precio
+      por defecto. <strong>+ Añadir ítem</strong> crea uno.
     </p>
     <p>
-      Es distinto del <a href="material.html#inventario">inventario</a>: el
-      inventario es material físico que tienes y se puede alquilar; el catálogo son
-      conceptos que facturas, tengan o no un objeto detrás.
+      En el constructor aparecen al final del árbol, en <strong>Servicios y
+      personal</strong>. El material del <a href="material.html#inventario">inventario</a>
+      no hace falta meterlo aquí: entra con el precio por día de su ficha.
     </p>
 
     <h2 id="documento">Ver el documento</h2>
     <p>
-      Abrir un presupuesto de la lista enseña <strong>el documento tal como lo va a
-      recibir el cliente</strong>, con la hoja a escala y el fondo de marca puesto.
-      Desde ahí: <strong>Editar</strong> para volver al montador,
-      <strong>PDF</strong> para imprimir o guardar, <strong>Fechas…</strong> para
-      cambiar la fecha, la validez, el vencimiento o la referencia sin abrir el
-      montador, <strong>Convertir en factura</strong> (pide la fecha de la factura, el
-      vencimiento y la forma de pago) y <strong>Duplicar</strong>, que crea una copia
-      en borrador con número nuevo para una segunda versión de la oferta o para
-      repetirla a otro cliente.
+      Abrir un presupuesto enseña <strong>el documento tal como lo recibe el
+      cliente</strong>, con su plantilla y su fondo. Arriba, el número, el cliente y
+      el proyecto, el estado y el total. Los botones cambian con el estado:
+    </p>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Estado</th><th>Botones</th></tr></thead>
+        <tbody>
+          <tr><td>Borrador</td><td>Editar, PDF, Enviar.</td></tr>
+          <tr><td>Enviado</td><td>Aceptar…, Recordar, Nueva versión, PDF, Rechazado…, Reenviar.</td></tr>
+          <tr><td>Aceptado</td><td>PDF, Nueva versión, Enviar copia, Contabilizar.</td></tr>
+          <tr><td>Rechazado</td><td>Nueva versión, PDF, Enviar copia.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Además: <strong>Fechas…</strong>, que cambia la fecha, la validez y la
+      referencia sin abrir el constructor (mientras no esté aceptado);
+      <strong>Duplicar</strong>,
+      que crea una copia en borrador con número nuevo, para repetir la oferta a otro
+      cliente; y <strong>Anular</strong>, para quien tiene nivel total.
     </p>
     <p>
-      Si el documento ya se ha enviado, debajo sale <strong>a quién y cuándo</strong>.
+      Debajo del documento, la <strong>línea de tiempo</strong>: creado, cada envío
+      (a quién, quién lo mandó y un enlace a lo que recibió el cliente), cada vez que
+      el cliente lo abre, los recordatorios, las versiones, la respuesta del
+      cliente, la aceptación, la contabilización y lo que falta por hacer. Se ven los
+      cuatro últimos pasos; el resto, con <strong>Ver anteriores</strong>.
     </p>
     <div class="truco">
       <span class="truco-tit">Desde el proyecto, sin salir del proyecto</span>
       <p>
-        En la pestaña <strong>Finanzas</strong> de un proyecto, abrir un documento o
-        crear uno nuevo lo enseña <strong>ahí mismo</strong>, en la misma pestaña del
-        proyecto, con una miga arriba (<em>Proyecto › Finanzas › Documento</em>).
-        Editar, guardar, convertir en factura… todo se hace desde ahí, y
-        <strong>Volver</strong> deja el proyecto tal como lo tenías. La sección
-        Presupuestos sigue siendo el sitio para verlos todos juntos.
+        Un presupuesto abierto desde la pestaña Finanzas de un proyecto se enseña en
+        la misma pestaña, con una miga arriba (<em>Proyecto › Finanzas ›
+        PRE-2026-104</em>). Editar, enviar o aceptar se hace desde ahí, y pulsar el
+        nombre del proyecto en la miga te devuelve al proyecto.
       </p>
     </div>
-
-    <h2 id="versiones">Versiones, aceptación y caducidad</h2>
+    <h3 id="chat">Pasarlo por el chat</h3>
     <p>
-      Un presupuesto <strong>enviado no se edita</strong>: si el cliente pide cambios,
-      <strong>Nueva versión</strong> crea la v2 con todo copiado, deja la v1 guardada tal
-      como se mandó y <strong>te abre la v2 para editarla</strong>. No hay que pulsar
-      «Editar» después: hacer una versión es siempre para cambiar algo.
+      En el chat, el clip tiene <strong>Un presupuesto</strong>: sale como una
+      tarjeta con el número, el cliente, el proyecto y el estado de hoy, y quien la
+      pulsa lo abre. Con el chat abierto, también puedes arrastrar una fila de la
+      lista hasta una conversación.
+    </p>
+
+    <h2 id="versiones">Versiones y aceptación</h2>
+    <p>
+      Un presupuesto enviado ya no tiene Editar: si el cliente pide cambios,
+      <strong>Nueva versión</strong> pide la fecha y la validez nuevas, crea la v2
+      con todo copiado y <strong>te la abre para editarla</strong>. La v1 se queda
+      tal como se mandó.
     </p>
     <p>
-      La nueva <strong>cambia de número sola</strong>: la v2 de PRESUP-2026-042 es
-      <strong>PRESUP-2026-042-v2</strong>, y así sale en la pestaña, en el PDF, en el
-      correo y en el enlace.
+      La nueva <strong>lleva la versión en el número</strong>: la v2 de PRE-2026-104
+      es <strong>PRE-2026-104-v2</strong>, en la pestaña, en el PDF, en el correo y en
+      el enlace.
     </p>
     <p>En ningún momento hay que adivinar dónde estás:</p>
     <ul>
-      <li><strong>Editando</strong>, bajo la cabecera: «Estás editando la versión 2», qué
-        versión tiene el cliente y de qué fecha, <strong>lo que pidió</strong> si la versión
-        nace de una petición de cambios, y que al guardar podrás enviársela.</li>
-      <li><strong>En el documento</strong>: si es un borrador, «el cliente todavía no la ha
-        visto: lo último que tiene es la v1»; si ya se mandó, «es la que tiene el
-        cliente». Con enlaces para <strong>verla</strong> y <strong>comparar</strong>.</li>
-      <li><strong>Al enviar</strong>, arriba del todo: «Envías la versión 3. Es la que
-        sustituye a la v2». Si es el mismo documento otra vez, dice que es un reenvío.</li>
+      <li><strong>Editando</strong>: «Estás editando la versión 2», qué versión tiene
+        el cliente y de qué fecha, y lo que pidió si la versión nace de una petición
+        de cambios.</li>
+      <li><strong>En el documento</strong>: si es un borrador, que el cliente todavía
+        no la ha visto; si ya se mandó, que es la que tiene el cliente. Con enlaces
+        para <strong>verla</strong> y <strong>comparar</strong>.</li>
+      <li><strong>Al enviar</strong>, arriba: «Envías la versión 3. Es la que sustituye
+        a la v2». Si es el mismo documento otra vez, dice que es un reenvío.</li>
     </ul>
     <p>
-      <strong>Comparar</strong> enseña qué líneas cambian y la diferencia de total. Las
-      versiones sustituidas no salen en la lista ni suman en Economía, y su enlace deja
-      de admitir respuestas en cuanto creas la siguiente: quien lo abra verá que hay una
-      versión más nueva.
+      <strong>Comparar</strong> enseña qué líneas son nuevas, cuáles cambian y cuáles
+      se han quitado, y la diferencia de total. Las versiones sustituidas no salen en
+      la lista ni suman en Economía, y su enlace avisa al cliente de que hay una más
+      nueva.
     </p>
     <p>
-      <strong>Aceptar…</strong> pide quién lo acepta, cuándo, cómo (correo, PDF firmado,
-      teléfono…) y notas. Es la huella que se enseña si alguien dice «yo no acepté
-      eso». Aceptado, el presupuesto queda <strong>bloqueado</strong>; los cambios van en
-      una versión nueva. <strong>Rechazado…</strong> pide el motivo y queda en el historial.
+      <strong>Aceptar…</strong> pide quién lo acepta, cuándo, cómo (por correo, desde
+      el enlace, PDF firmado, por teléfono, en persona, orden de compra) y notas. Es la
+      huella que se enseña si alguien dice «yo no acepté eso». Aceptado, el
+      presupuesto queda <strong>bloqueado</strong>: los cambios van en una versión
+      nueva. <strong>Rechazado…</strong> pide el motivo y queda en el historial.
     </p>
     <p>
-      Pasada la fecha de validez, un enviado sale como <strong>Caducado</strong> en la lista
-      y en el documento. Se reactiva haciendo una versión nueva con fecha nueva.
-    </p>
-    <div class="ojo">
-      <span class="ojo-tit">Días por línea</span>
-      <p>
-        Cada línea tiene <strong>cantidad × días × precio</strong>. Dos cámaras tres
-        días son 2 × 3 × 450 €, no una cantidad de seis. La columna Días sale en el
-        constructor y, en el PDF, solo si alguna línea tiene más de un día. El
-        material que llega desde Equipment trae sus días.
-      </p>
-    </div>
-    <p>
-      Debajo del documento, la <strong>línea de tiempo</strong>: creado, cada envío (a
-      quién, cuándo), versiones, aceptación, factura, contabilización y lo que
-      viene. Los botones cambian con el estado: en borrador Editar y Enviar; enviado
-      Aceptar, Nueva versión, Reenviar y Rechazado; aceptado Convertir en factura.
+      Pasada la fecha de validez, un enviado sale como <strong>Caducado</strong> en la
+      lista y en el documento. Se reactiva con una versión nueva con fecha nueva.
     </p>
 
     <h2 id="enviar">Enviar</h2>
     <p>
-      Desde el editor, el botón rojo es <strong>Guardar y enviar</strong>: guarda y abre
-      el envío de una vez. No hay que exportar el PDF antes ni hacer nada más: el
-      cliente recibe su propio enlace, y <strong>Exportar PDF</strong> está ahí solo
-      para cuando quieras el archivo para ti.
+      <strong>Enviar</strong> (o <strong>Guardar y enviar</strong> desde el
+      constructor) abre el envío. Delante salen los tres de producción del proyecto
+      —Line Producer, Production Manager y Production Coordinator— y en
+      <strong>Alguien más…</strong> los contactos del proyecto y la plantilla. También
+      se puede escribir cualquier correo a mano. El asunto y el texto vienen
+      rellenos.
     </p>
     <p>
-      <strong>Enviar</strong> abre la lista de destinatarios (los contactos del
-      proyecto primero, y cualquier correo que escribas) con el asunto y el texto por
-      defecto. El correo <strong>sale de verdad</strong> desde el buzón de la casa
-      configurado en <a href="sistema.html#ajustes">Ajustes → Correo saliente</a>
-      (por defecto <strong>quotes@stokit.es</strong>), por Microsoft 365, con un
-      mensaje que lleva el número, el cliente, el proyecto, las fechas, el total y el
-      botón <strong>«Ver el presupuesto»</strong>.
+      <strong>Registrar envío</strong> manda el correo desde el buzón de
+      <a href="sistema.html#correo-saliente">Ajustes → Correo saliente</a>, por Microsoft
+      365, y lo apunta. Al lado, <strong>Descargar PDF</strong> y <strong>Abrir en
+      mi correo</strong>, por si prefieres mandarlo tú. Hace falta la capacidad
+      <a href="personas.html#capacidades">Enviar presupuestos al cliente</a>.
     </p>
     <p>
-      Ese botón abre un enlace propio con la <strong>copia exacta</strong> del
-      documento tal como se mandó. Ahí tiene dos botones separados:
-      <strong>Descargar PDF</strong>, que le baja el archivo directamente, e
-      <strong>Imprimir</strong>, que abre el cuadro de imprimir de siempre.
-      El cliente no necesita cuenta. Arriba ve una
-      <strong>portada</strong> con lo esencial (proyecto, cliente, total, fecha y
-      validez, y el estado: pendiente, aceptado, con versión más nueva…), debajo el
-      documento entero, y al final la caja para responder. Una barra fija abajo con el
-      total lleva a esa caja de un toque; se aparta sola cuando ya está a la vista.
-      «Guardar como PDF» está en la barra de arriba y en la portada. Cada vez que abre
-      el enlace queda apuntado, y en la línea de tiempo del documento sale
-      <strong>«El cliente abrió el documento»</strong> con la fecha y la hora.
+      El correo va <strong>con la marca de tu productora</strong>: su logo, su nombre
+      y su color, de <a href="sistema.html#empresa">Ajustes → Empresa</a>. Bulx solo aparece en letra pequeña al pie.
+      Lleva el proyecto, el total, la validez y dos botones: <strong>Ver el
+      presupuesto</strong> y <strong>Aceptar o pedir cambios</strong>. No adjunta
+      el PDF: lleva el enlace.
     </p>
     <p>
-      En la caja <strong>«¿Te encaja el presupuesto?»</strong> el cliente escribe su
-      nombre y puede <strong>aceptarlo</strong> ahí mismo (se le pide confirmar en la
-      misma página, sin ventanas del navegador, y queda aceptado con su huella: quién,
-      cuándo, «desde el enlace del correo» y sus notas) o <strong>pedir cambios</strong>,
-      que llegan como comentario. Las dos cosas salen en la línea de tiempo y en el
-      registro de actividad. Si el presupuesto ya está aceptado, caducado o sustituido
-      por otra versión, la página lo dice y no deja volver a aceptar.
+      Solo un borrador pasa a «enviado». Mandar uno aceptado no lo devuelve atrás:
+      por eso el botón se llama <strong>Reenviar</strong> mientras se espera
+      respuesta y <strong>Enviar copia</strong> cuando ya está decidido.
     </p>
+
+    <h3 id="enlace">Lo que ve el cliente</h3>
+    <p>
+      El enlace abre la <strong>copia exacta</strong> del documento tal como se
+      mandó. El cliente no necesita cuenta. Arriba ve una portada con lo esencial
+      (proyecto, cliente, total, fecha, validez y si está pendiente, aceptado o hay
+      una versión más nueva), debajo el documento entero, y al final la caja
+      <strong>«¿Te encaja el presupuesto?»</strong>. Tiene <strong>Descargar
+      PDF</strong> e <strong>Imprimir</strong>, y una barra fija abajo con el total
+      que lleva a la caja.
+    </p>
+    <p>
+      En esa caja escribe su nombre y, si quiere, un comentario. Puede
+      <strong>aceptarlo</strong> (se le pide confirmar en la misma página) o
+      <strong>pedir cambios</strong>. Cada vez que abre el enlace queda apuntado:
+      en la línea de tiempo sale <strong>«El cliente abrió el documento»</strong>.
+      Si ya está aceptado, caducado o sustituido, la página lo dice y no deja
+      responder.
+    </p>
+
     <h3 id="respuestas">Cuando el cliente responde, mandáis vosotros</h3>
     <p>
-      La respuesta del cliente <strong>no cambia nada sola</strong>: queda como
-      <strong>pendiente de revisar</strong> y el presupuesto sigue en «enviado» hasta que
-      alguien de la casa decide. Mientras, el enlace le dice al cliente que la hemos
-      recibido y no le deja responder otra vez.
+      La respuesta <strong>no cambia nada sola</strong>: queda pendiente de revisar y
+      el presupuesto sigue en «enviado» hasta que alguien de la casa decide.
     </p>
-    <p>Para que no se te pase, la respuesta se ve en cinco sitios a la vez:</p>
+    <p>Para que no se pase, se ve en varios sitios a la vez:</p>
     <ul>
-      <li><strong>Franja roja</strong> encima de las pestañas, en cualquier página, con
+      <li>Una <strong>franja</strong> encima de las pestañas, en cualquier página, con
         quién ha respondido y qué dice. Un clic abre el presupuesto.</li>
-      <li>La <strong>campana</strong> del dashboard la cuenta como urgente.</li>
-      <li>En la <strong>lista</strong> de presupuestos, la fila sale marcada con el chip
-        «El cliente acepta» o «Pide cambios».</li>
-      <li>En el <strong>documento</strong>, una cinta con lo que dijo y los botones para
-        resolverlo: <strong>Confirmar aceptación</strong> (sale relleno con su nombre, la
-        fecha y sus notas), <strong>Nueva versión</strong> o <strong>Dar por vista</strong>,
+      <li>La <strong>campana</strong> la cuenta como urgente.</li>
+      <li>En la <strong>lista</strong>, la fila lleva «El cliente acepta» o «Pide
+        cambios», y sale en <strong>Ha contestado el cliente</strong>.</li>
+      <li>En el <strong>documento</strong>, una cinta con lo que dijo y tres botones:
+        <strong>Confirmar aceptación</strong> (sale relleno con su nombre, la fecha y
+        sus notas), <strong>Nueva versión</strong> o <strong>Dar por vista</strong>,
         que quita el aviso sin cambiar nada.</li>
-      <li>Un <strong>correo</strong> a quien envió el presupuesto (si su usuario no tiene
-        correo, al buzón de la casa), con un botón que abre el presupuesto en Bulx.</li>
+      <li>Un <strong>correo interno</strong>, con la marca de Bulx, a quien lo envió
+        (si no tiene correo, al buzón remitente), con el botón <strong>Abrir en
+        Bulx</strong>.</li>
+      <li>Un <strong>aviso en el móvil</strong>, en la app de Bulx, a quien lleva
+        presupuestos.</li>
     </ul>
     <p>
-      La app pregunta cada minuto si hay respuestas nuevas, así que avisa aunque la tengas
-      abierta en segundo plano. Si pulsas «Avisarme también en el escritorio» en la
-      franja, además saldrá un aviso del navegador.
+      Con Bulx abierto en pantalla, se pregunta cada minuto si hay respuestas nuevas.
+      En la franja, <strong>Avisarme también en el escritorio</strong> añade el
+      aviso del navegador.
     </p>
     <div class="ojo">
       <span class="ojo-tit">Si el correo no sale</span>
       <p>
-        El intento queda registrado con su motivo, el estado no cambia y la app dice
-        qué hay que hacer. Lo más común: la aplicación no tiene el permiso
-        <strong>Mail.Send</strong> en Microsoft 365, o el buzón remitente no existe.
-        En Ajustes → Correo saliente, <strong>«Enviar prueba a mi correo»</strong> lo
-        comprueba en un minuto.
+        El intento queda en la línea de tiempo como <strong>Envío fallido</strong>, con
+        su motivo, y el estado no cambia. Lo más común: la aplicación no tiene el
+        permiso <strong>Mail.Send</strong> en Microsoft 365, o el buzón remitente no
+        existe. Si en Ajustes → Correo saliente el estado es «Solo se registra el
+        envío», se apunta pero no se manda nada.
       </p>
     </div>
 
-<h2 id="estados">Los estados</h2>
+    <h2 id="recordar">Recordar al cliente</h2>
+    <p>
+      Para el presupuesto que nadie contesta. <strong>Recordar</strong> le reenvía al
+      cliente el mismo enlace, a los destinatarios del último envío, para que lo
+      acepte o pida cambios. Antes de mandarlo dice a quién va y cuántas veces se le
+      ha recordado ya. Está en el documento y en <strong>Se está enfriando</strong>,
+      y solo sale en un enviado que se mandó por correo, sin respuesta y sin
+      caducar. El recordatorio lleva también la marca de tu productora.
+    </p>
+    <p>
+      También puede hacerlo solo. En <a href="sistema.html#numeracion">Ajustes →
+      Presupuestos → Recordatorios de aceptación</a>:
+    </p>
+    <ul>
+      <li><strong>Recordar solo, por correo</strong>: apagado de fábrica. Encendido,
+        manda un recordatorio cuando un enviado lleva sin respuesta los días de
+        <strong>Recordar si no contestan en</strong> (en Seguimiento, 7 de fábrica).
+        Solo en horario de oficina, de lunes a viernes.</li>
+      <li><strong>Cuántos recordatorios como mucho</strong>: 2 de fábrica, uno cada
+        esos días.</li>
+      <li><strong>Si no contestan tras el último, cerrar la petición</strong>: pasados
+        otros tantos días, el presupuesto queda como rechazado («Cerrado sin
+        respuesta» en la línea de tiempo) y el enlace se lo dice al cliente. El último
+        recordatorio le avisa de la fecha.</li>
+    </ul>
+    <p>
+      La cuenta empieza en el último envío o recordatorio; si reenvías el
+      presupuesto, empieza de cero. No se recuerda lo caducado, lo que ya ha
+      contestado ni las versiones sustituidas.
+    </p>
+
+    <h2 id="estados">Los estados</h2>
     <div class="tabla-caja">
       <table>
         <thead><tr><th>Estado</th><th>Qué significa</th></tr></thead>
         <tbody>
           <tr><td>Borrador</td><td>Se está montando. No ha salido de casa.</td></tr>
-          <tr><td>Enviado</td><td>Está en manos del cliente.</td></tr>
-          <tr><td>Aceptado</td><td>Dijo sí. Ya se puede contabilizar y pasar a factura.</td></tr>
-          <tr><td>Rechazado</td><td>Dijo no. Se queda como histórico.</td></tr>
+          <tr><td>Enviado</td><td>Está en manos del cliente, esperando respuesta.</td></tr>
+          <tr><td>Caducado</td><td>Enviado y con la validez vencida. Se reactiva con una versión nueva.</td></tr>
+          <tr><td>Aceptado</td><td>Dijo sí y alguien de la casa lo confirmó. Queda bloqueado.</td></tr>
+          <tr><td>Rechazado</td><td>Dijo no, o se cerró solo sin respuesta. Se queda como histórico.</td></tr>
           <tr><td>Anulado</td><td>Retirado. No suma en ninguna cifra.</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h2 id="factura">Pasar a factura</h2>
-    <p>
-      No se crea un documento nuevo ni se copia nada: <strong>el mismo documento
-      cambia de naturaleza</strong>. Lo que ya se acordó con el cliente —líneas,
-      importes, descuentos— es exactamente lo que se factura, y duplicarlo abriría
-      la puerta a que las dos copias dejaran de coincidir.
-    </p>
-    <p>
-      Se conserva el número de presupuesto del que salió, porque es la primera
-      pregunta que hace cualquiera al mirar una factura. La numeración cambia al
-      prefijo de facturas que tengas en
-      <a href="sistema.html#numeracion">Ajustes → Numeración</a>. Al convertir se
-      piden la <strong>fecha de la factura</strong>, el <strong>vencimiento</strong> (por
-      defecto los días de Ajustes) y la forma de pago; también al crear una factura
-      directamente desde el material de un proyecto.
-    </p>
-    <div class="ojo">
-      <span class="ojo-tit">Una factura necesita CIF y domicilio</span>
-      <p>
-        Sin el NIF y el domicilio fiscal de tu empresa, una factura <strong>no es
-        válida</strong>, y el documento los marca en rojo. Se rellenan una vez en
-        <a href="sistema.html#ajustes">Presupuestos → Ajustes PDF → Datos de la
-        empresa</a>. Lo mismo con el IBAN y la forma de pago: sin ellos la factura
-        no dice cómo cobrarla.
-      </p>
-    </div>
-
     <h2 id="contabilizar">Contabilizar</h2>
     <p>
-      Contabilizar un documento <strong>suma los días de alquiler a cada ítem del
-      inventario</strong> que aparezca en él. Es lo que hace que un foco sepa
-      cuántos días ha trabajado y cuántas veces ha salido.
+      Contabilizar un presupuesto <strong>suma los días de alquiler a cada artículo
+      del inventario</strong> que lleva. Es lo que hace que un foco sepa cuántos días
+      ha trabajado y cuántas veces ha salido. En Economía, lo contabilizado cuenta
+      como «Facturado».
     </p>
     <ul>
-      <li>Necesita nivel <strong>total</strong> en Presupuestos y la capacidad
-        <em>contabilizar</em>.</li>
-      <li>Un <strong>presupuesto</strong> tiene que estar <strong>aceptado</strong>.
-        Una <strong>factura</strong> se puede contabilizar siempre: emitirla ya es el
-        compromiso.</li>
-      <li><strong>Solo una vez.</strong> Un documento ya contabilizado se rechaza, para
-        que los días no se cuenten dos veces.</li>
+      <li>Lo puede hacer quien tiene nivel <strong>total</strong> en Presupuestos o la
+        capacidad <a href="personas.html#capacidades">Contabilizar presupuestos</a>.</li>
+      <li>El presupuesto tiene que estar <strong>aceptado</strong>.</li>
+      <li><strong>Solo una vez.</strong> Uno ya contabilizado no se vuelve a
+        contabilizar, para que los días no se cuenten dos veces.
+        <strong>Descontabilizar</strong> lo deshace.</li>
     </ul>
 
     <h2 id="anular">Anular</h2>
     <p>
-      Los presupuestos y las facturas <strong>no se borran: se anulan</strong>. El
-      documento se queda en la base y desaparece de las listas y de las sumas, pero
-      su número no se reutiliza. Un documento emitido que se esfuma sin rastro es
-      un agujero en la contabilidad.
+      Los presupuestos <strong>no se borran: se anulan</strong>. Anular pide un motivo
+      (opcional), lo saca de las listas y de las cifras y lo lleva al filtro
+      Anulados, donde se puede <strong>Restaurar</strong>. Su número no se vuelve a
+      usar. Hace falta nivel total en Presupuestos.
+    </p>
+    <p>
+      Desde Anulados, <strong>Borrar del todo</strong> lo destruye de verdad. Pide
+      escribir <code>BORRAR</code> y no tiene vuelta atrás.
+    </p>
+    <div class="nota">
+      <span class="nota-tit">Anular no devuelve el material</span>
+      <p>
+        Si el presupuesto estaba contabilizado, anularlo no le quita los días al
+        inventario. Bulx lo avisa al anular.
+      </p>
+    </div>
+
+    <h2 id="factura">Y la factura</h2>
+    <p>
+      <strong>Bulx no hace facturas.</strong> Presupuesta, manda, recoge la
+      aceptación y contabiliza el material; la factura se hace fuera, con el
+      programa de siempre. El PDF y el número del presupuesto aceptado son lo que se
+      le pasa a quien factura.
     </p>
 
     <h2 id="plantillas">Plantillas y PDF</h2>
     <p>
-      Botón <strong>Ajustes PDF</strong>, o
-      <a href="sistema.html#ajustes">Ajustes → Documentos</a>. Cuatro plantillas
-      —<strong>Sobria, Clásico, Moderno, Cine</strong>— y el diseño de cada una se
-      puede editar por bloques con <strong>Editar diseño</strong>.
+      Dos plantillas, <strong>Sobria</strong> y <strong>Clásico</strong>. La que usa
+      cada presupuesto nuevo se elige en <a href="sistema.html#numeracion">Ajustes →
+      Diseño del documento</a>, y ahí mismo <strong>Editar diseño</strong> abre el
+      montador de bloques de esa plantilla.
     </p>
     <ul>
-      <li>El diseño del <strong>presupuesto</strong> y el de la <strong>factura</strong>
-        se editan aparte: una factura lleva datos fiscales y vencimiento que un
-        presupuesto no necesita.</li>
+      <li><strong>Formato de la hoja</strong>: A4 es lo normal. A3 solo si necesitas
+        el doble de superficie para un fondo a página completa.</li>
       <li><strong>Fondo del documento</strong>: la imagen a página completa detrás de
         todo. Acepta PDF —se convierte aquí mismo tomando la primera página— o
         PNG/JPG.</li>
-      <li><strong>Formato de la hoja</strong>: A4 es lo normal. A3 solo si necesitas el
-        doble de superficie para un fondo a página completa.</li>
-      <li><strong>Aspecto de cada bloque</strong>: al pulsar un bloque en el editor,
-        debajo de alineación y tamaño está <em>Aspecto del bloque</em>: el
-        <strong>fondo</strong> (el de siempre, sin fondo o un color), el
-        <strong>color del texto</strong> y el <strong>borde</strong> (ninguno, fino o
-        una línea abajo). Sirve, por ejemplo, para quitar el fondo gris de «Datos
-        del cliente». Sale igual en el editor y en el PDF.</li>
+      <li><strong>Aspecto del bloque</strong>: al pulsar un bloque en el editor se
+        cambian su fondo, el color del texto y el borde. Sale igual en el editor y en
+        el PDF.</li>
     </ul>
+    <p>
+      El botón <strong>Ajustes PDF</strong> de la lista abre los datos de la empresa
+      que salen en la cabecera, los colores, el pie, las condiciones y el fondo. Un
+      presupuesto suelto puede cambiar de plantilla desde
+      <strong>Personalizar presupuesto</strong>.
+    </p>
+
+    <h2 id="app">En el iPhone y el iPad</h2>
+    <p>
+      La app de Bulx tiene <strong>Presupuestos</strong> en el menú y en la ficha de
+      cada rodaje. Sirve para <strong>mirar</strong>: la lista con sus filtros
+      (Enviados, Aceptados, Borradores, Rechazados), y en cada uno el documento, los
+      totales, las líneas, las versiones y <strong>Qué ha pasado</strong>, que es la
+      misma línea de tiempo de la web. Se puede exportar el PDF y compartirlo en el
+      chat.
+    </p>
+    <p>
+      <strong>Crear, editar, enviar y aceptar presupuestos se hace en la web.</strong>
+      La app también tiene Clientes y Economía.
+    </p>
 
     <h2 id="economia">Economía</h2>
     <p>
-      <strong>Producción → Economía.</strong> Los números del negocio, con dos
-      filtros arriba: <strong>año</strong> y <strong>proyecto</strong>. Cinco bloques:
+      <strong>Producción → Economía.</strong> Los números del negocio, con dos filtros
+      arriba: <strong>año</strong> y <strong>proyecto</strong>, y un botón para
+      sacarlo en Excel.
     </p>
     <div class="tabla-caja">
       <table>
         <thead><tr><th>Bloque</th><th>Qué contesta</th></tr></thead>
         <tbody>
-          <tr><td>Embudo comercial</td><td>Cuánto hay en borrador, cuánto enviado, cuánto aceptado y cuánto rechazado.</td></tr>
-          <tr><td>El gráfico</td><td>Cómo ha ido mes a mes.</td></tr>
-          <tr><td>Por proyecto</td><td>Qué ha dejado cada rodaje.</td></tr>
-          <tr><td>Gasto de taller</td><td>Lo que se ha ido en reparaciones de flota.</td></tr>
-          <tr><td>Por categoría</td><td>De qué tipo de material sale el dinero. Sin IVA y con el descuento global ya aplicado.</td></tr>
+          <tr><td>Ingreso firme</td><td>Lo contabilizado más lo aceptado, comparado con el año anterior, y cómo va mes a mes.</td></tr>
+          <tr><td>Embudo comercial</td><td>Cuánto hay facturado (contabilizado), aceptado, enviado y en borrador.</td></tr>
+          <tr><td>Facturado, Pendiente de cobro, En el aire</td><td>Cómo se mueve cada etapa en los últimos meses.</td></tr>
+          <tr><td>Margen tras el taller</td><td>El ingreso firme menos lo gastado en reparaciones de flota.</td></tr>
+          <tr><td>Movimiento mensual</td><td>Cada mes, por etapa, con el gasto de taller al lado.</td></tr>
+          <tr><td>Por cobrar</td><td>Aceptados sin contabilizar y enviados que llevan días sin respuesta.</td></tr>
+          <tr><td>Por proyecto y por cliente</td><td>Qué ha dejado cada rodaje y quién se lleva el ingreso.</td></tr>
+          <tr><td>Presupuestos</td><td>La tabla de lo que se está viendo, con filtros por estado.</td></tr>
         </tbody>
       </table>
     </div>
     <div class="nota">
       <span class="nota-tit">Quién puede entrar aquí</span>
       <p>
-        Economía es su propia área de permisos, separada de Presupuestos. Se puede
-        dar acceso a los presupuestos sin dar acceso a los márgenes del negocio, y
-        es lo normal.
+        Economía es su propia área de permisos, separada de Presupuestos. Se puede dar
+        acceso a los presupuestos sin dar acceso a los números del negocio, y es lo
+        normal. Quien no tiene acceso a Mantenimiento ve Economía sin el gasto de
+        taller.
       </p>
     </div>
 

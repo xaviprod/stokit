@@ -92,7 +92,9 @@ p { margin: 0; }
 
 /* ── Hero ────────────────────────────────────────────────────────────── */
 .hero { width: min(var(--ancho), calc(100% - 32px)); margin: 18px auto 0; }
-.hero-tarjeta { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .55fr); align-items: center; gap: 24px; min-height: 640px; padding: 72px 72px 200px; }
+/* Abajo sobra sitio a propósito: la ventana del producto se monta sobre el borde y
+   la nota necesita aire por encima (18/10/2026, Xavi: «queda atropellado»). */
+.hero-tarjeta { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .55fr); align-items: center; gap: 24px; min-height: 640px; padding: 72px 72px 236px; }
 .hero-panal { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero-texto { position: relative; display: flex; flex-direction: column; gap: 26px; }
 .hero h1 { font-size: clamp(50px, 6.2vw, 92px); color: var(--blanco); }
@@ -119,7 +121,7 @@ p { margin: 0; }
 @keyframes flota { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
 
 /* La ventana del producto */
-.ventana { position: relative; z-index: 2; width: min(1080px, 100%); margin: -120px auto 0; background: var(--blanco); border-radius: var(--r-l); box-shadow: 0 40px 80px -40px rgba(29, 31, 28, .55), 0 0 0 1px rgba(29, 31, 28, .06); overflow: hidden; }
+.ventana { position: relative; z-index: 2; width: min(960px, calc(100% - 64px)); margin: -116px auto 0; background: var(--blanco); border-radius: var(--r-l); box-shadow: 0 40px 80px -40px rgba(29, 31, 28, .55), 0 0 0 1px rgba(29, 31, 28, .06); overflow: hidden; }
 .ventana-barra { display: flex; align-items: center; gap: 7px; height: 42px; padding: 0 18px; background: #F2F2EF; border-bottom: 1px solid var(--raya); font-size: 12.5px; color: var(--suave); }
 .ventana-barra i { width: 11px; height: 11px; border-radius: 999px; background: #D6D6D1; }
 .ventana-barra i:first-child { background: var(--amarillo); }
@@ -290,7 +292,7 @@ p { margin: 0; }
   .nav { justify-content: space-between; }
   .hero-tarjeta { grid-template-columns: 1fr; padding: 48px 32px 160px; min-height: 0; }
   .hero-celdas { position: absolute; right: -40px; bottom: 30px; width: 200px; opacity: .9; }
-  .ventana { margin-top: -110px; }
+  .ventana { width: calc(100% - 24px); margin-top: -100px; }
   .ventana-cuerpo { grid-template-columns: 1fr; }
   .v-lateral { display: none; }
   .bento { grid-template-columns: 1fr 1fr; }

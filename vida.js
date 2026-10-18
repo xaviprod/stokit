@@ -125,7 +125,7 @@
            pantalla, en pantallas (negativo: aún por debajo). */
         const p = (centro - vent.y0) / innerHeight;
         const suave = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-        const grande = Math.max(1, Math.min(1.12, (innerWidth - 56) / vent.ancho));
+        const grande = Math.max(1, Math.min(1.08, (innerWidth - 56) / vent.ancho));   // 1.08: que no se coma los bordes de la tarjeta negra
         let rot, esc, y;
         if (p < 0) {
           const k = suave(entre((p + 0.95) / 0.85, 0, 1));          // de -0.95 a -0.10 pantallas

@@ -1,6 +1,6 @@
-# bulx · lanzadera
+# Bulx · lanzadera
 
-La página de presentación de bulx (el rebranding de Stokit), hecha a partir del
+La página de presentación de Bulx (el rebranding de Stokit), hecha a partir del
 portfolio del logotipo de Xavi Murillo: negro #1D1F1C, amarillo #FEC833,
 blanco #FBFBFB y las tres celdas del panal.
 

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /entrar.html
+Disallow: /generar/
+
+Sitemap: https://bulx.es/sitemap.xml

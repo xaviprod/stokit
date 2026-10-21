@@ -55,6 +55,8 @@
   function montar() {
     panal(document.getElementById('hero-panal'));
     panal(document.getElementById('final-panal'), { r: 40, hueco: 8 });
+    /* Las subpáginas (21/10/2026) marcan sus panales con data-panal. */
+    document.querySelectorAll('svg[data-panal]').forEach(svg => panal(svg, svg.dataset.r ? { r: Number(svg.dataset.r), hueco: 8 } : {}));
   }
   montar();
   let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(montar, 200); });

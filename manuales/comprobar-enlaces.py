@@ -16,7 +16,7 @@
 import io, os, re, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-APP = sys.argv[1] if len(sys.argv) > 1 else '/Users/xavi/Documents/stock-it-palmapictures'
+APP = sys.argv[1] if len(sys.argv) > 1 else '/Users/xavi/Documents/Bulx'
 
 anclas = {}
 for f in sorted(os.listdir(AQUI)):

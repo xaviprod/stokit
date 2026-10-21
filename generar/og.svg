@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="h" width="76" height="66" patternUnits="userSpaceOnUse"><polygon points="19,0 57,0 76,33 57,66 19,66 0,33" fill="rgba(251,251,251,0.025)" stroke="rgba(251,251,251,0.07)"/></pattern>
+    <clipPath id="hex"><polygon points="37,0 113,0 150,65 113,130 37,130 0,65"/></clipPath>
+  </defs>
+  <rect width="1200" height="630" fill="#1D1F1C"/>
+  <rect width="1200" height="630" fill="url(#h)"/>
+  <g font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <polygon points="80,112 92,105 104,112 104,126 92,133 80,126" fill="#FEC833"/>
+    <text x="118" y="128" font-size="22" font-weight="700" fill="rgba(251,251,251,0.72)" letter-spacing="0.5">Inventario y producción para productoras</text>
+    <text x="80" y="246" font-size="92" font-weight="900" fill="#FBFBFB" letter-spacing="-4">Todo el rodaje,</text>
+    <text x="80" y="340" font-size="92" font-weight="900" fill="#FBFBFB" letter-spacing="-4">en un solo <tspan fill="#FEC833">panal.</tspan></text>
+    <text x="80" y="408" font-size="26" fill="rgba(251,251,251,0.72)">Material, flota, presupuestos y equipo, cada cosa en su celda.</text>
+    <text x="80" y="444" font-size="26" fill="rgba(251,251,251,0.72)">En la web y en el iPhone.</text>
+    <text x="80" y="562" font-size="46" font-weight="900" fill="#FBFBFB" letter-spacing="-2">bulx</text>
+    <polygon points="196,540 204,535 212,540 212,550 204,555 196,550" fill="#FEC833"/>
+    <polygon points="214,529 222,524 230,529 230,539 222,544 214,539" fill="#FEC833"/>
+    <polygon points="214,551 222,546 230,551 230,561 222,566 214,561" fill="#FEC833"/>
+    <text x="250" y="562" font-size="24" font-weight="700" fill="rgba(251,251,251,0.75)">bulx.es</text>
+  </g>
+  <g transform="translate(830,120)">
+    <polygon points="37,70 113,70 150,135 113,200 37,200 0,135" fill="#FEC833"/>
+    <polygon points="157,0 233,0 270,65 233,130 157,130 120,65" fill="#FBFBFB"/>
+    <polygon points="157,140 233,140 270,205 233,270 157,270 120,205" fill="#FEC833"/>
+    <polygon points="277,70 353,70 390,135 353,200 277,200 240,135" fill="#FFD24F"/>
+    <g font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="21" font-weight="900" fill="#1D1F1C" text-anchor="middle">
+      <text x="75" y="143">Material</text><text x="195" y="73">Flota</text><text x="195" y="213">Rodaje</text><text x="315" y="143">Equipo</text>
+    </g>
+  </g>
+</svg>

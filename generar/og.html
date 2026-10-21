@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- La imagen para compartir (Open Graph / Twitter), 1200×630. Se renderiza con
+     Chrome sin ventana: ver generar/imagen-og.sh. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { position: relative; background: #1D1F1C; color: #FBFBFB; font-family: Inter, -apple-system, sans-serif; }
+  .panal { position: absolute; inset: 0; opacity: .9; }
+  .texto { position: absolute; left: 80px; top: 92px; width: 720px; display: flex; flex-direction: column; gap: 26px; }
+  .eti { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700; color: rgba(251,251,251,.7); letter-spacing: .02em; }
+  .eti i { width: 18px; height: 16px; background: #FEC833; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+  h1 { margin: 0; font-size: 92px; line-height: .98; letter-spacing: -0.045em; font-weight: 900; }
+  h1 em { font-style: normal; color: #FEC833; }
+  p { margin: 0; font-size: 26px; line-height: 1.4; color: rgba(251,251,251,.72); max-width: 640px; }
+  .marca { position: absolute; left: 80px; bottom: 64px; display: flex; align-items: center; gap: 18px; font-size: 24px; font-weight: 700; color: rgba(251,251,251,.75); }
+  .marca img { height: 54px; }
+  .celdas { position: absolute; right: 70px; top: 120px; width: 380px; height: 400px; }
+  .celda { position: absolute; width: 150px; height: 130px; background: #FEC833; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); display: grid; place-items: center; font-weight: 900; font-size: 22px; color: #1D1F1C; }
+  .c1 { left: 0; top: 70px; } .c2 { left: 120px; top: 0; background: #FBFBFB; } .c3 { left: 120px; top: 140px; } .c4 { left: 240px; top: 70px; background: #FFD24F; }
+</style></head>
+<body>
+  <svg class="panal" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+    <defs><pattern id="h" width="76" height="66" patternUnits="userSpaceOnUse"><polygon points="19,0 57,0 76,33 57,66 19,66 0,33" fill="rgba(251,251,251,.025)" stroke="rgba(251,251,251,.06)"/></pattern></defs>
+    <rect width="1200" height="630" fill="url(#h)"/>
+  </svg>
+  <div class="texto">
+    <div class="eti"><i></i>Inventario y producción para productoras</div>
+    <h1>Todo el rodaje,<br>en un solo <em>panal.</em></h1>
+    <p>Material, flota, presupuestos y equipo, cada cosa en su celda. En la web y en el iPhone.</p>
+  </div>
+  <div class="celdas"><div class="celda c1">Material</div><div class="celda c2">Flota</div><div class="celda c3">Rodaje</div><div class="celda c4">Equipo</div></div>
+  <div class="marca"><img src="../img/bulx-blanco.png" alt="Bulx"> bulx.es</div>
+</body></html>

@@ -1,0 +1,154 @@
+/* bulx.es · las subpáginas y el menú desplegable (21/10/2026)
+   Va después de estilo.css y usa sus tarjetas, su bento, sus pasos y sus
+   cifras: aquí solo está lo que las subpáginas añaden. */
+
+/* ── El menú desplegable de Producto ──────────────────────────────────── */
+.nav-desplegable { position: relative; }
+.nav-desplegable summary {
+  display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; font-size: 15px; font-weight: 600; color: var(--tinta-2);
+  border-radius: 999px; cursor: pointer; list-style: none; transition: background .2s, color .2s;
+}
+.nav-desplegable summary::-webkit-details-marker { display: none; }
+.nav-desplegable summary svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }
+.nav-desplegable[open] summary svg { transform: rotate(180deg); }
+.nav-desplegable summary:hover, .nav-desplegable[open] summary, .nav-desplegable summary.actual, .nav-enlaces a[aria-current="page"] { color: var(--tinta); background: rgba(29, 31, 28, .06); }
+.nav-menu {
+  position: absolute; left: 0; top: calc(100% + 10px); z-index: 50; width: 640px; padding: 12px;
+  background: var(--blanco); border-radius: var(--r-m); box-shadow: 0 30px 70px -30px rgba(29, 31, 28, .45), 0 0 0 1px rgba(29, 31, 28, .06);
+  animation: menuEntra .25s var(--muelle) both;
+}
+@keyframes menuEntra { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.nav-menu-rejilla { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.nav-menu-rejilla a { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 14px; text-decoration: none; transition: background .2s; }
+.nav-menu-rejilla a:hover, .nav-menu-rejilla a[aria-current="page"] { background: #F2F2EF; }
+.nav-menu-rejilla svg { flex: none; width: 40px; height: 36px; padding: 9px; fill: none; stroke: var(--negro); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; background: var(--amarillo); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+.nav-menu-rejilla b { display: block; font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
+.nav-menu-rejilla small { display: block; font-size: 12.5px; color: var(--suave); }
+.nav-menu-pie { display: block; margin: 8px 4px 2px; padding: 10px 14px; font-size: 13.5px; font-weight: 700; color: var(--tinta-2); text-decoration: none; border-top: 1px solid var(--raya); }
+.nav-menu-pie:hover { color: var(--tinta); }
+
+/* ── La miga ──────────────────────────────────────────────────────────── */
+.miga { width: min(var(--ancho), calc(100% - 32px)); margin: 18px auto 0; display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 600; color: var(--suave); }
+.miga a { color: var(--tinta-2); text-decoration: none; }
+.miga a:hover { color: var(--tinta); text-decoration: underline; }
+.miga b { color: var(--tinta); font-weight: 700; }
+
+/* ── El hero de cada página: tarjeta negra, texto y una ventanita ─────── */
+.pagina-hero { margin-top: 14px; }
+.pagina-hero .hero-tarjeta { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); min-height: 560px; padding: 72px; gap: 48px; }
+.pagina-hero .hero-tarjeta.sin-mock { grid-template-columns: 1fr; min-height: 420px; }
+.pagina-hero h1 { font-size: clamp(42px, 5.6vw, 80px); }
+.pagina-hero h1 em { font-style: normal; color: var(--amarillo); }
+.hero-mock { position: relative; justify-self: end; width: 100%; max-width: 480px; transform: rotate(-1.5deg); transition: transform .5s var(--muelle); }
+.pagina-hero .hero-tarjeta:hover .hero-mock { transform: rotate(0) translateY(-6px); }
+
+/* La ventanita (mock): como la captura de la portada, en pequeño */
+.mk { background: var(--blanco); color: var(--tinta); border-radius: 22px; overflow: hidden; box-shadow: 0 40px 80px -36px rgba(0, 0, 0, .7), 0 0 0 1px rgba(251, 251, 251, .08); }
+.mk-barra { display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; background: #F2F2EF; border-bottom: 1px solid var(--raya); font-size: 12px; color: var(--suave); }
+.mk-barra i { width: 10px; height: 10px; border-radius: 999px; background: #D6D6D1; }
+.mk-barra i:first-child { background: var(--amarillo); }
+.mk-barra span { margin-left: 8px; font-weight: 600; }
+.mk-cuerpo { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.mk-fila { display: flex; align-items: center; gap: 12px; padding: 11px 12px; background: #F6F6F3; border-radius: 14px; }
+.mk-fila .hx { flex: none; width: 18px; height: 16px; }
+.mk-fila > span { flex: 1; min-width: 0; font-size: 13.5px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mk-fila small { display: block; font-size: 11.5px; font-weight: 500; color: var(--suave); }
+.mk-fila em { flex: none; font-style: normal; font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 999px; background: #E6E6E2; color: var(--tinta-2); }
+.mk-fila em.ok { background: #DDF3E4; color: #1C7F3E; }
+.mk-fila em.uso { background: var(--negro); color: var(--amarillo); }
+.mk-fila em.mal { background: #FDE2DF; color: #B42318; }
+.mk-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 4px; }
+.mk-kpis div { padding: 12px; background: #F6F6F3; border-radius: 14px; }
+.mk-kpis b { display: block; font-size: 24px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+.mk-kpis small { display: block; margin-top: 4px; font-size: 11px; font-weight: 600; color: var(--suave); }
+.mk-cal { gap: 6px; }
+.mk-dias, .mk-cfila { display: grid; grid-template-columns: 104px repeat(7, minmax(0, 1fr)); align-items: center; }
+.mk-dias span { font-size: 11px; font-weight: 600; color: var(--suave); text-align: center; }
+.mk-dias .finde { color: #B3B3AD; }
+.mk-cfila { position: relative; height: 32px; background: repeating-linear-gradient(90deg, transparent 0 calc((100% - 104px) / 7 - 1px), #EEEEEA calc((100% - 104px) / 7 - 1px) calc((100% - 104px) / 7)); background-position: 104px 0; border-radius: 8px; }
+.mk-cfila > span { font-size: 12px; font-weight: 600; color: var(--tinta-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 8px; }
+.mk-cfila .b { position: absolute; top: 5px; bottom: 5px; left: calc(104px + (100% - 104px) / 7 * var(--d) + 2px); width: calc((100% - 104px) / 7 * var(--l) - 4px); display: flex; align-items: center; padding: 0 9px; font: 700 11px/1 Inter, sans-serif; font-style: normal; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-radius: 999px; }
+.mk-cfila .b.amarillo { background: var(--amarillo); color: var(--negro); }
+.mk-cfila .b.negro { background: var(--negro); color: var(--blanco); }
+.mk-cfila .b.gris { background: #DCDCD7; color: var(--tinta-2); }
+.mk-chat { gap: 10px; }
+.mk-msg { max-width: 86%; padding: 10px 12px; background: #F6F6F3; border-radius: 16px 16px 16px 4px; font-size: 13px; }
+.mk-msg.yo { align-self: flex-end; background: var(--negro); color: var(--blanco); border-radius: 16px 16px 4px 16px; }
+.mk-msg small { display: block; margin-bottom: 2px; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .6; }
+.mk-msg p { margin: 0; }
+.mk-tarjeta { display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 9px 10px; background: rgba(251, 251, 251, .1); border-radius: 12px; font-size: 12.5px; font-weight: 700; }
+.mk-msg:not(.yo) .mk-tarjeta { background: var(--blanco); }
+.mk-tarjeta .hx { flex: none; width: 16px; height: 14px; }
+.mk-tarjeta small { display: block; font-size: 11px; font-weight: 500; opacity: .7; letter-spacing: 0; text-transform: none; }
+
+/* ── Cifras de tres ───────────────────────────────────────────────────── */
+.cifras-fila.tres { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cifras-fila.tres .cifra b { font-size: clamp(34px, 3.6vw, 52px); }
+
+/* ── Los bloques de «qué hace» ────────────────────────────────────────── */
+.rejilla-bloques { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.rejilla-bloques .bloque { grid-column: span 1; }
+.rejilla-bloques .bloque:first-child { grid-column: span 2; }
+.rejilla-bloques .bloque:nth-child(4) { grid-column: span 2; }
+
+/* ── Las otras celdas ─────────────────────────────────────────────────── */
+.celdas-hermanas { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.hermana { display: flex; flex-direction: column; gap: 4px; padding: 26px 24px; border-radius: var(--r-l); text-decoration: none; transition: transform .4s var(--muelle), box-shadow .4s; }
+.hermana:hover { transform: translateY(-6px); box-shadow: var(--sombra); }
+.hermana .hex-ico { width: 48px; height: 43px; margin-bottom: 10px; }
+.hermana b { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+.hermana small { font-size: 13px; color: var(--suave); }
+.hermana span { margin-top: 10px; font-size: 18px; font-weight: 800; color: var(--amarillo-2); }
+
+/* ── En el móvil ──────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .nav-menu { width: min(560px, calc(100vw - 32px)); }
+  .pagina-hero .hero-tarjeta { grid-template-columns: 1fr; padding: 48px 32px; min-height: 0; }
+  .hero-mock { justify-self: stretch; max-width: none; transform: none; }
+  .rejilla-bloques { grid-template-columns: 1fr 1fr; }
+  .rejilla-bloques .bloque, .rejilla-bloques .bloque:first-child, .rejilla-bloques .bloque:nth-child(4) { grid-column: span 1; }
+  .celdas-hermanas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cifras-fila.tres { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-menu { position: fixed; left: 16px; right: 16px; top: 76px; width: auto; }
+  .nav-menu-rejilla { grid-template-columns: 1fr; }
+  .pagina-hero .hero-tarjeta { padding: 36px 22px; }
+  .rejilla-bloques, .celdas-hermanas { grid-template-columns: 1fr; }
+  .miga { font-size: 12.5px; }
+}
+
+/* ── «Más sobre esto» en cada celda de la portada ─────────────────────── */
+.celda-mas { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 6px; font-size: 15px; font-weight: 800; letter-spacing: -0.01em; color: var(--tinta); text-decoration: none; }
+.celda-mas span { transition: transform .25s var(--muelle); }
+.celda-mas:hover span { transform: translateX(4px); }
+.tarjeta-negra .celda-mas { color: var(--amarillo); }
+.tarjeta-amarilla .celda-mas { color: var(--negro); }
+.b-ancha .celda-mas { margin-top: 4px; }
+
+/* El menú va por encima de todo: la tarjeta negra del inicio crea su propia
+   capa y el desplegable se quedaba detrás. */
+.nav { z-index: 80 !important; }
+.nav-desplegable[open] { z-index: 90; }
+
+/* ── El menú del móvil: tres rayas que abren la lista entera ──────────── */
+.nav-movil { display: none; position: relative; }
+.nav-movil summary { display: grid; place-items: center; gap: 4px; width: 40px; height: 40px; border-radius: 999px; background: var(--negro); cursor: pointer; list-style: none; }
+.nav-movil summary::-webkit-details-marker { display: none; }
+.nav-movil summary i { width: 16px; height: 2px; background: var(--amarillo); border-radius: 2px; transition: transform .25s, opacity .25s; }
+.nav-movil[open] summary i:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-movil[open] summary i:nth-child(2) { opacity: 0; }
+.nav-movil[open] summary i:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.nav-movil-menu {
+  position: fixed; left: 16px; right: 16px; top: 76px; z-index: 90; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; padding: 18px 20px 20px;
+  background: var(--blanco); border-radius: var(--r-m); box-shadow: 0 30px 70px -30px rgba(29, 31, 28, .45), 0 0 0 1px rgba(29, 31, 28, .06);
+  animation: menuEntra .25s var(--muelle) both;
+}
+.nav-movil-menu b { grid-column: 1 / -1; margin: 10px 0 4px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
+.nav-movil-menu b:first-child { margin-top: 0; }
+.nav-movil-menu a { padding: 9px 0; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--tinta); text-decoration: none; border-bottom: 1px solid var(--raya); }
+@media (max-width: 1000px) {
+  .nav-enlaces { display: none; }
+  .nav-movil { display: block; }
+  .nav-acciones { margin-left: auto; align-items: center; }
+}

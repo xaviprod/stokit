@@ -26,7 +26,7 @@ function nav(actual) {
   <nav class="nav-enlaces" aria-label="Secciones">
     <details class="nav-desplegable">
       <summary ${actual && PRODUCTO.some(p => p.slug === actual) ? 'class="actual"' : ''}>Producto <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6.5l4 4 4-4"/></svg></summary>
-      <div class="nav-menu"><div class="nav-menu-rejilla">${enlaces}</div><a class="nav-menu-pie" href="/#producto">Ver las seis celdas en la portada →</a></div>
+      <div class="nav-menu"><div class="nav-menu-rejilla">${enlaces}</div><a class="nav-menu-pie" href="/#producto">Las seis áreas, en la portada →</a></div>
     </details>
     <a href="/app/" ${actual === 'app' ? 'aria-current="page"' : ''}>App</a>
     <a href="/seguridad/" ${actual === 'seguridad' ? 'aria-current="page"' : ''}>Seguridad</a>
@@ -35,11 +35,11 @@ function nav(actual) {
   </nav>
   <div class="nav-acciones">
     <a class="btn btn-texto" href="/entrar.html">Entrar</a>
-    <a class="btn btn-amarillo" href="/demo/">Pide una demo</a>
+    <a class="btn btn-amarillo" href="/demo/">Solicitar una demo</a>
     <details class="nav-movil"><summary aria-label="Menú"><i></i><i></i><i></i></summary>
       <div class="nav-movil-menu">
         <b>Producto</b>${PRODUCTO.map(p => `<a href="/${p.slug}/">${esc(p.nombre)}</a>`).join('')}
-        <b>Bulx</b><a href="/seguridad/">Seguridad</a><a href="/preguntas/">Preguntas</a><a href="/sobre/">Sobre Bulx</a><a href="/manuales/">Manuales</a><a href="/demo/">Pide una demo</a><a href="/entrar.html">Entrar</a>
+        <b>Bulx</b><a href="/seguridad/">Seguridad</a><a href="/preguntas/">Preguntas</a><a href="/sobre/">Sobre Bulx</a><a href="/manuales/">Manuales</a><a href="/demo/">Solicitar una demo</a><a href="/entrar.html">Entrar</a>
       </div>
     </details>
   </div>
@@ -51,7 +51,7 @@ function pie() {
   return `<footer class="pie">
   <div class="pie-marca">
     <img src="/img/bulx-negro.png" alt="Bulx" width="88" height="26">
-    <p>Inventario y producción para productoras. Hecho en Mallorca.</p>
+    <p>Inventario y producción para productoras. Desarrollado en Mallorca.</p>
   </div>
   <div class="pie-cols">
     <div><b>Producto</b>${PRODUCTO.map(p => `<a href="/${p.slug}/">${esc(p.nombre)}</a>`).join('')}</div>
@@ -96,7 +96,7 @@ function pagina(p) {
   const hermanas = PRODUCTO.filter(x => x.slug !== p.slug);
   const colores = { blanca: 'tarjeta-blanca', negra: 'tarjeta-negra', amarilla: 'tarjeta-amarilla', gris: 'tarjeta-gris' };
   const icoCls = { blanca: '', negra: 'oscuro', amarilla: 'negro', gris: '' };
-  const cta = p.cta || { texto: 'Pide una demo', href: '/demo/' };
+  const cta = p.cta || { texto: 'Solicitar una demo', href: '/demo/' };
   return `<!doctype html>
 <html lang="es">
 <head>
@@ -157,7 +157,7 @@ ${nav(p.slug)}
   ${p.bloques.length ? `<section class="seccion" id="que-hace">
     <div class="seccion-cab">
       <p class="etiqueta"><span class="hexito"></span>Qué hace</p>
-      <h2>${esc(p.nombre)}, <span class="gris">celda a celda.</span></h2>
+      <h2>${esc(p.nombre)}, <span class="gris">en detalle.</span></h2>
     </div>
     <div class="bento rejilla-bloques">${p.bloques.map(([c, i, t, d]) => `<article class="tarjeta ${colores[c]} bloque"><div class="hex-ico ${icoCls[c]}">${ico(i)}</div><h3>${esc(t)}</h3><p>${esc(d)}</p></article>`).join('')}</div>
   </section>` : ''}
@@ -165,7 +165,7 @@ ${nav(p.slug)}
   ${p.pasos ? `<section class="seccion" id="como">
     <div class="seccion-cab">
       <p class="etiqueta"><span class="hexito"></span>Cómo se empieza</p>
-      <h2>Tres pasos, <span class="gris">y a rodar.</span></h2>
+      <h2>Tres pasos <span class="gris">para empezar.</span></h2>
     </div>
     <ol class="pasos">${p.pasos.map(([t, d], i) => `<li class="tarjeta tarjeta-blanca"><span class="paso-num"><svg viewBox="-1 -1 2 2"><polygon points="-1,0 -.5,-.866 .5,-.866 1,0 .5,.866 -.5,.866"/></svg><b>${i + 1}</b></span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join('')}</ol>
   </section>` : ''}
@@ -174,8 +174,8 @@ ${nav(p.slug)}
     <div class="preguntas">
       <div class="seccion-cab izq">
         <p class="etiqueta"><span class="hexito"></span>Preguntas</p>
-        <h2>${p.slug === 'preguntas' ? 'Todas las preguntas, <span class="gris">con su respuesta.</span>' : 'Lo que nos preguntan <span class="gris">de esto.</span>'}</h2>
-        <p class="seccion-sub">¿Falta la tuya? Escríbenos a <a href="mailto:info@stokit.es">info@stokit.es</a>.</p>
+        <h2>${p.slug === 'preguntas' ? 'Todas las preguntas, <span class="gris">por áreas.</span>' : 'Preguntas <span class="gris">frecuentes.</span>'}</h2>
+        <p class="seccion-sub">Si su pregunta no está aquí, escriba a <a href="mailto:info@stokit.es">info@stokit.es</a>.</p>
       </div>
       <div class="faq">${p.faq.map(([q, a], i) => `<details ${i === 0 ? 'open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
     </div>
@@ -183,8 +183,8 @@ ${nav(p.slug)}
 
   ${hermanas.length && p.area === 'Producto' ? `<section class="seccion" id="otras">
     <div class="seccion-cab">
-      <p class="etiqueta"><span class="hexito"></span>Las otras celdas</p>
-      <h2>Todo habla <span class="gris">con todo.</span></h2>
+      <p class="etiqueta"><span class="hexito"></span>Las otras áreas</p>
+      <h2>Conectadas <span class="gris">entre sí.</span></h2>
     </div>
     <div class="celdas-hermanas">${hermanas.map(h => `<a class="tarjeta tarjeta-blanca hermana" href="/${h.slug}/"><div class="hex-ico">${ico(h.ico)}</div><b>${esc(h.nombre)}</b><small>${esc(h.eyebrow)}</small><span aria-hidden="true">→</span></a>`).join('')}</div>
   </section>` : ''}
@@ -194,10 +194,10 @@ ${nav(p.slug)}
       <svg class="final-panal" data-panal data-r="40" aria-hidden="true"></svg>
       <div class="final-texto">
         <img src="/img/bulx-blanco.png" alt="Bulx" width="210" height="63">
-        <h2>¿Lo vemos con tu material?</h2>
-        <p>Te enseñamos Bulx con tu propio inventario y tu flota en media hora. Sin compromiso y sin instalar nada.</p>
+        <h2>Una demostración con su propio material.</h2>
+        <p>Treinta minutos por videollamada, con su hoja de material o de vehículos. Sin compromiso y sin instalar nada.</p>
         <div class="hero-ctas">
-          <a class="btn btn-amarillo btn-grande" href="mailto:info@stokit.es?subject=Quiero%20ver%20Bulx">Pide una demo <span aria-hidden="true">→</span></a>
+          <a class="btn btn-amarillo btn-grande" href="mailto:info@stokit.es?subject=Demostraci%C3%B3n%20de%20Bulx">Solicitar una demo <span aria-hidden="true">→</span></a>
           <a class="btn btn-claro btn-grande" href="/entrar.html">Ya soy cliente · Entrar</a>
         </div>
       </div>

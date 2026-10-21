@@ -56,7 +56,7 @@ function pie() {
   <div class="pie-cols">
     <div><b>Producto</b>${PRODUCTO.map(p => `<a href="/${p.slug}/">${esc(p.nombre)}</a>`).join('')}</div>
     <div><b>Bulx</b><a href="/#como">Cómo funciona</a><a href="/#dia">Un día de rodaje</a>${BULX.map(p => `<a href="/${p.slug}/">${esc(p.nombre)}</a>`).join('')}<a href="/manuales/">Manuales</a></div>
-    <div><b>Legal</b><a href="/privacidad.html">Privacidad</a><a href="mailto:info@stokit.es">info@stokit.es</a><a href="/entrar.html">Entrar</a></div>
+    <div><b>Legal</b><a href="/privacidad.html">Privacidad</a><a href="mailto:info@bulx.es">info@bulx.es</a><a href="/entrar.html">Entrar</a></div>
   </div>
   <p class="pie-credito">© 2026 bulx.es · Logotipo diseñado por <b>Xavi Murillo</b></p>
 </footer>`;
@@ -65,7 +65,7 @@ function pie() {
 /* ── Datos estructurados ──────────────────────────────────────────────── */
 const ORG = {
   '@type': 'Organization', '@id': `${DOMINIO}/#org`, name: 'Bulx', url: DOMINIO,
-  logo: `${DOMINIO}/img/bulx-negro.png`, email: 'info@stokit.es',
+  logo: `${DOMINIO}/img/bulx-negro.png`, email: 'info@bulx.es',
   address: { '@type': 'PostalAddress', addressLocality: 'Palma', addressRegion: 'Illes Balears', addressCountry: 'ES' },
   founder: { '@type': 'Person', name: 'Xavi Murillo' },
 };
@@ -175,7 +175,7 @@ ${nav(p.slug)}
       <div class="seccion-cab izq">
         <p class="etiqueta"><span class="hexito"></span>Preguntas</p>
         <h2>${p.slug === 'preguntas' ? 'Todas las preguntas, <span class="gris">por áreas.</span>' : 'Preguntas <span class="gris">frecuentes.</span>'}</h2>
-        <p class="seccion-sub">Si su pregunta no está aquí, escriba a <a href="mailto:info@stokit.es">info@stokit.es</a>.</p>
+        <p class="seccion-sub">Si su pregunta no está aquí, escriba a <a href="mailto:info@bulx.es">info@bulx.es</a>.</p>
       </div>
       <div class="faq">${p.faq.map(([q, a], i) => `<details ${i === 0 ? 'open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
     </div>
@@ -197,7 +197,7 @@ ${nav(p.slug)}
         <h2>Una demostración con su propio material.</h2>
         <p>Treinta minutos por videollamada, con su hoja de material o de vehículos. Sin compromiso y sin instalar nada.</p>
         <div class="hero-ctas">
-          <a class="btn btn-amarillo btn-grande" href="mailto:info@stokit.es?subject=Demostraci%C3%B3n%20de%20Bulx">Solicitar una demo <span aria-hidden="true">→</span></a>
+          <a class="btn btn-amarillo btn-grande" href="mailto:info@bulx.es?subject=Demostraci%C3%B3n%20de%20Bulx">Solicitar una demo <span aria-hidden="true">→</span></a>
           <a class="btn btn-claro btn-grande" href="/entrar.html">Ya soy cliente · Entrar</a>
         </div>
       </div>

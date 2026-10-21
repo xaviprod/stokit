@@ -226,7 +226,7 @@ const PAGINAS = [
     ],
     pasos: [['Escribir', 'Un correo con su nombre y el de la productora.'], ['Fijar una fecha', 'Videollamada de treinta minutos.'], ['Decidir', 'Con su material dentro de Bulx y el precio por escrito.']],
     faq: [['¿Hay que instalar algo para la demostración?', 'No. Es una videollamada y una página web. Si lo desea, después se le da acceso a un entorno de prueba.'], ['¿Cuánto cuesta Bulx?', 'Depende del volumen de material y del número de personas. Se concreta en la demostración, por escrito.'], ['¿Cuánto se tarda en empezar?', 'Con la hoja de Excel, una tarde para importar y etiquetar. Con Microsoft 365 conectado, el equipo puede entrar al día siguiente.']],
-    cta: { texto: 'Solicitar la demostración', href: 'mailto:info@stokit.es?subject=Demostraci%C3%B3n%20de%20Bulx' },
+    cta: { texto: 'Solicitar la demostración', href: 'mailto:info@bulx.es?subject=Demostraci%C3%B3n%20de%20Bulx' },
   },
   {
     slug: 'sobre', nombre: 'Sobre Bulx', area: 'Bulx', ico: 'corazon',
@@ -243,7 +243,7 @@ const PAGINAS = [
       ['amarilla', 'corazon', 'El nombre y el logotipo', 'Las seis áreas (material, flota, presupuestos, tecnología, equipo y economía) funcionan como celdas conectadas: un presupuesto reserva material, una reserva ocupa un vehículo. El logotipo es de Xavi Murillo.'],
     ],
     pasos: [['Agosto de 2026', 'Nace como Stock IT: el inventario del departamento técnico, en una web.'], ['Septiembre de 2026', 'Se amplía a flota, presupuestos, equipo y economía, y a la app de iPhone.'], ['Octubre de 2026', 'Pasa a llamarse Bulx y se ofrece a otras productoras.']],
-    faq: [['¿Quién está detrás de Bulx?', 'Palma Pictures, productora de Mallorca, y Xavi Murillo, responsable del producto y autor del logotipo. Contacto: info@stokit.es.'], ['¿Por qué se llama Bulx?', 'Por el panal: celdas separadas y conectadas, como las áreas de una productora.'], ['¿Lo usan otras productoras?', 'Se está empezando a ofrecer fuera de Palma Pictures. Las primeras productoras interesadas pueden solicitar una demostración.']],
+    faq: [['¿Quién está detrás de Bulx?', 'Palma Pictures, productora de Mallorca, y Xavi Murillo, responsable del producto y autor del logotipo. Contacto: info@bulx.es.'], ['¿Por qué se llama Bulx?', 'Por el panal: celdas separadas y conectadas, como las áreas de una productora.'], ['¿Lo usan otras productoras?', 'Se está empezando a ofrecer fuera de Palma Pictures. Las primeras productoras interesadas pueden solicitar una demostración.']],
   },
 ];
 
@@ -265,7 +265,7 @@ PAGINAS.push({
   desc: 'Respuestas sobre Bulx: instalación, importación del inventario, permisos, ubicación de los datos, precio y periodo de prueba.',
   eyebrow: 'Preguntas',
   h1: 'Preguntas <em>frecuentes.</em>',
-  sub: 'Si su pregunta no está aquí, escriba a info@stokit.es. Respondemos en el día.',
+  sub: 'Si su pregunta no está aquí, escriba a info@bulx.es. Respondemos en el día.',
   mock: null,
   cifras: null,
   bloques: [],

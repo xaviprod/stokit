@@ -510,3 +510,11 @@ main, .pie { position: relative; z-index: 1; }
   .idioma { margin-left: auto; margin-right: 0; }
 }
 @media (max-width: 380px) { .nav-acciones .btn-amarillo { display: none; } }
+
+/* En el teléfono las tres celdas caían encima de «Desarrollado en Palma
+   Pictures…» (23/10/2026): más sitio debajo del texto y celdas más pequeñas,
+   por encima de donde se monta la ventana del producto. */
+@media (max-width: 600px) {
+  .hero-tarjeta { padding-bottom: 280px; }
+  .hero-celdas { width: 150px; right: -24px; bottom: 112px; }
+}

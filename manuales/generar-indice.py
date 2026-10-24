@@ -46,8 +46,6 @@ CLAVES = {
  'tecnologia.html#it-stock': 'portátil ordenador móvil quién tiene dispositivo mac pc',
  'tecnologia.html#asignar': 'dar un portátil a alguien reasignar devolver almacén',
  'tecnologia.html#qr-publico': 'perdido encontrado etiqueta pública sin entrar',
- 'tecnologia.html#m365': 'microsoft azure cuentas directorio traer empleados buzón',
- 'tecnologia.html#borrar-cuenta': 'eliminar cuenta microsoft baja empleado limpieza',
  'tecnologia.html#telefonia': 'línea móvil fijo extensión pin puk sim número',
  'tecnologia.html#mifi': 'router portátil datos internet rodaje',
  'personas.html#empleados': 'plantilla trabajadores contacto departamento cargo',

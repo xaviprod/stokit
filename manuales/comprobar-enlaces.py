@@ -41,7 +41,7 @@ for f in anclas:
             roto += 1; print('  ⚠ %s → #%s' % (f, an))
 print('  · %d enlaces revisados' % n)
 
-ruta_app = os.path.join(APP, 'public', 'app.js')
+ruta_app = os.path.join(APP, 'web', 'stokit-antiguo', 'app.js')
 if os.path.exists(ruta_app):
     print('\n  Botones de Ayuda de la aplicación')
     app = io.open(ruta_app, encoding='utf-8').read()

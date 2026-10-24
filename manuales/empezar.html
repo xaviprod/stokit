@@ -33,6 +33,7 @@
     <p class="indice-tit">01 · Empezar</p>
     <ol>
       <li><a href="#entrar">Entrar</a></li>
+      <li><a href="#apple-google">Con Google o Apple</a></li>
       <li><a href="#olvido">Contraseña olvidada</a></li>
       <li><a href="#moverse">La barra lateral</a></li>
       <li><a href="#pestanas">Las pestañas</a></li>
@@ -70,23 +71,20 @@
         otro, te has equivocado de dirección: <em>no escribas tu contraseña</em>.</li>
       <li>Entra de una de dos maneras:
         <ul>
-          <li><strong>Entrar con Microsoft</strong>, con tu correo de la casa. Sale si la
-            empresa tiene Microsoft 365 conectado. La contraseña la pones en la página
-            de Microsoft, y es la de tu correo: Bulx no la ve.</li>
-          <li><strong>Usuario y contraseña</strong> de Bulx, y <strong>Entrar</strong>.
-            No hay registro abierto: el acceso lo da quien lleve el sistema.</li>
+          <li><strong>Usuario y contraseña</strong> de Bulx, y <strong>Entrar</strong>. En
+            vez del usuario vale tu correo de la casa. No hay registro abierto: el acceso
+            lo da quien lleve el sistema.</li>
+          <li><strong>Continuar con Apple</strong> o <strong>Continuar con Google</strong>,
+            si antes has vinculado esa cuenta (lo cuenta
+            <a href="#apple-google">Entrar con Google o Apple</a>, aquí abajo).</li>
         </ul>
       </li>
       <li>Si tienes la verificación en dos pasos, o la empresa la pide, te sale un
-        segundo paso: el <strong>código de 6 cifras</strong> de Microsoft Authenticator
-        o Google Authenticator, y <strong>Comprobar y entrar</strong>. Si la empresa la
-        pide y aún no la tienes, ese mismo paso enseña un QR para darla de alta.</li>
+        segundo paso: el <strong>código de 6 cifras</strong> de tu aplicación de
+        autenticación, como Google Authenticator, y <strong>Comprobar y
+        entrar</strong>. Si la empresa la pide y aún no la tienes, ese mismo paso enseña
+        un QR para darla de alta.</li>
     </ol>
-    <p>
-      Si la empresa ha elegido <strong>entrar solo con Microsoft</strong>, la pantalla
-      enseña solo ese botón. La contraseña queda para el administrador de emergencia,
-      detrás de <em>Entrar con contraseña (administración)</em>.
-    </p>
     <p>
       La sesión se queda abierta mientras uses Bulx. Se cierra sola tras unos días
       sin usarlo; cuántos, lo decide la casa en
@@ -96,9 +94,9 @@
       <span class="nota-tit">Si no puedes entrar</span>
       <p>
         Si la pantalla dice que no hay ningún cliente con esa dirección, el problema es
-        la dirección y no tu contraseña. Si Microsoft dice que tu cuenta «no tiene acceso
-        a Bulx», tener correo de la casa no basta: alguien tiene que darte de alta en
-        <a href="personas.html#alta-microsoft">Crew</a>. Y si te deja escribir pero no
+        la dirección y no tu contraseña. Si aún no tienes usuario, tener correo de la
+        casa no basta: alguien tiene que darte de alta en
+        <a href="personas.html#alta">Crew</a>. Y si te deja escribir pero no
         pasar, pide que te revisen el usuario: puede estar dado de baja.
       </p>
       <p>
@@ -106,6 +104,24 @@
         minutos. La pantalla dice cuántos.
       </p>
     </div>
+
+    <h3 id="apple-google">Entrar con Google o Apple</h3>
+    <p>
+      Si prefieres no escribir la contraseña cada vez, puedes entrar con tu cuenta de
+      Apple o de Google. Antes hay que vincularla, una sola vez:
+    </p>
+    <ol class="pasos">
+      <li>Entra con tu usuario y tu contraseña.</li>
+      <li>Abre <a href="sistema.html#tu-cuenta">Ajustes → Tu cuenta</a> y, en
+        <strong>Entrar con Google o Apple</strong>, pulsa <strong>Vincular</strong>.</li>
+      <li>Elige la cuenta de Apple o de Google. Su correo no tiene por qué ser el de
+        Bulx.</li>
+    </ol>
+    <p>
+      Desde entonces, en la pantalla de entrada te basta con <strong>Continuar con
+      Apple</strong> o <strong>Continuar con Google</strong>. Tu usuario y tu contraseña
+      siguen valiendo.
+    </p>
 
     <h3 id="olvido">¿Has olvidado la contraseña?</h3>
     <ol class="pasos">
@@ -119,9 +135,7 @@
     </ol>
     <p>
       La pantalla nunca dice si un usuario existe o no: siempre contesta lo mismo. Si no
-      llega nada, mira el correo no deseado. Y si en tu casa se entra solo con
-      Microsoft, el correo te recuerda que tu contraseña es la de Microsoft y cómo
-      cambiarla allí.
+      llega nada, mira el correo no deseado.
     </p>
 
     <h2 id="moverse">La barra lateral</h2>
@@ -146,7 +160,7 @@
           <tr><td>Producción</td><td>Proyectos, Clientes, Presupuestos, Economía y Calendario.</td></tr>
           <tr><td>Flota</td><td>General, Vehículos, Calendario de Flota, Salidas y revisiones, y Tareas / ITV.</td></tr>
           <tr><td>Material</td><td>Inventario, Medidas y peso, Fichas QR y Mantenimiento.</td></tr>
-          <tr><td>Tecnología</td><td>General, Tareas, IT Stock, Microsoft 365, Telefonía, MIFIs, Licencias y Correos.</td></tr>
+          <tr><td>Tecnología</td><td>General, IT Stock, Telefonía, MiFi, Licencias y Correos.</td></tr>
           <tr><td>Personal</td><td>Empleados, In-house, Dirección y Crew.</td></tr>
           <tr><td>Sistema</td><td>Ajustes, Actividad, Anuncios y Manuales, que se abren en otra pestaña.</td></tr>
         </tbody>
@@ -325,8 +339,7 @@
     </p>
     <h3 id="app-entrar">Entrar en la app</h3>
     <ul>
-      <li><strong>Iniciar sesión</strong> con tu usuario y tu contraseña, o
-        <strong>Entrar con Microsoft</strong>. Si la casa pide el código de 6 cifras, la
+      <li><strong>Iniciar sesión</strong> con tu usuario y tu contraseña. Si la casa pide el código de 6 cifras, la
         app también lo pide.</li>
       <li>Abajo del formulario se ve a qué dirección se conecta. Si no es la de tu
         productora, se toca y se escribe la tuya.</li>

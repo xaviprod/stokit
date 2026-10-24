@@ -22,8 +22,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Empezar",
+  "titulo": "Entrar con Google o Apple",
+  "texto": "Si prefieres no escribir la contraseña cada vez, puedes entrar con tu cuenta de Apple o de Google. Antes hay que vincularla, una sola vez:",
+  "url": "empezar.html#apple-google",
+  "claves": []
+ },
+ {
+  "donde": "Empezar",
   "titulo": "¿Has olvidado la contraseña?",
-  "texto": "La pantalla nunca dice si un usuario existe o no: siempre contesta lo mismo. Si no llega nada, mira el correo no deseado. Y si en tu casa se…",
+  "texto": "La pantalla nunca dice si un usuario existe o no: siempre contesta lo mismo. Si no llega nada, mira el correo no deseado.",
   "url": "empezar.html#olvido",
   "claves": []
  },
@@ -912,42 +919,6 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Tecnología",
-  "titulo": "Microsoft 365",
-  "texto": "Tecnología → Microsoft 365. El directorio real de la empresa, leído de Microsoft. Es de quien tiene nivel total en Sistema . Tiene cuatro…",
-  "url": "tecnologia.html#m365",
-  "claves": [
-   "microsoft",
-   "azure",
-   "cuentas",
-   "directorio",
-   "traer",
-   "empleados",
-   "buzón"
-  ]
- },
- {
-  "donde": "Tecnología",
-  "titulo": "Cambiar la contraseña de alguien",
-  "texto": "En la fila de cada cuenta, Contraseña . No hace falta entrar en ningún portal de Microsoft:",
-  "url": "tecnologia.html#cambiar-contrasena",
-  "claves": []
- },
- {
-  "donde": "Tecnología",
-  "titulo": "Borrar una cuenta",
-  "texto": "Borrar cuenta no la quita solo de Bulx: elimina la cuenta del directorio de la empresa, con su buzón. No es lo mismo que Descartar , que solo…",
-  "url": "tecnologia.html#borrar-cuenta",
-  "claves": [
-   "eliminar",
-   "cuenta",
-   "microsoft",
-   "baja",
-   "empleado",
-   "limpieza"
-  ]
- },
- {
-  "donde": "Tecnología",
   "titulo": "Telefonía",
   "texto": "Tecnología → Telefonía. Las líneas móviles y fijas: quién las usa, su extensión y sus códigos. Arriba, cuatro cifras: Líneas activas , Sin…",
   "url": "tecnologia.html#telefonia",
@@ -1042,15 +1013,15 @@ window.INDICE_MANUALES = [
  },
  {
   "donde": "Personas",
-  "titulo": "Altas desde Microsoft 365",
-  "texto": "Si la casa tiene Microsoft 365 conectado, las cuentas nuevas se crean desde Microsoft y no con una contraseña aparte: así el acceso se corta…",
-  "url": "personas.html#alta-microsoft",
+  "titulo": "Dar de alta a alguien",
+  "texto": "Nadie se registra solo: el acceso a Bulx lo da quien lleva Crew.",
+  "url": "personas.html#alta",
   "claves": []
  },
  {
   "donde": "Personas",
-  "titulo": "La cuenta de cada persona",
-  "texto": "Cuenta , en su tarjeta de Crew, abre un panel al lado con todo lo suyo:",
+  "titulo": "Ajustes Perfil",
+  "texto": "Ajustes Perfil , en su tarjeta de Crew, abre la página de esa persona, con la cuenta y los permisos juntos:",
   "url": "personas.html#cuenta",
   "claves": []
  },

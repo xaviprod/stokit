@@ -3,64 +3,129 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bulx · entrando</title>
+<title>Entrar · Bulx</title>
 <meta name="robots" content="noindex">
+<meta name="description" content="Entre en el Bulx de su productora con su correo de trabajo.">
 <link rel="icon" type="image/svg+xml" href="img/bulx-favicon.svg">
 <!-- ══════════════════════════════════════════════════════════════════════════
-     LA PUERTA DE ENTRADA
+     LA PUERTA DE ENTRADA (rehecha el 24/10/2026)
 
-     El botón «Entrar» de la lanzadera apuntaba a `#entrar`, que es un enlace
-     del pie que apunta a sí mismo: quien quería entrar a trabajar no tenía por
-     dónde. Esto lo arregla.
+     Antes mandaba a todo el mundo a la dirección de UNA productora, escrita
+     aquí dentro: con el alta pública ya hay más de una casa, así que otra
+     productora que pulsaba «Entrar» acababa en la puerta de la primera, y la
+     lanzadera —que es pública— llevaba el nombre de un cliente en el código.
 
-     Y es una página puente y no un enlace directo a propósito: la dirección
-     del cliente lleva su nombre dentro, y la lanzadera es pública. Lo que se
-     publica dice `/entrar.html`; el nombre solo aparece cuando ya estás
-     saliendo hacia allí. El día que haya más de una productora, aquí se
-     pregunta cuál y se deja de adivinar.
-
-     Tres capas para que funcione siempre: la cabecera del navegador, el guion
-     y, si no hay ninguna de las dos, un enlace a mano.
+     Ahora pregunta el correo de trabajo y le pregunta a cuenta.bulx.es de qué
+     casa es (/api/casa, el mismo que usa la app). La casa se recuerda en este
+     navegador: la próxima vez entra directo, con un «¿Otra productora?» por si
+     acaso. Nada del nombre de nadie en este fichero.
      ══════════════════════════════════════════════════════════════════════ -->
-<meta http-equiv="refresh" content="0; url=https://palmapictures.bulx.es/">
-<link rel="canonical" href="https://palmapictures.bulx.es/">
 <style>
   :root { color-scheme: light dark;
-    --papel:#F1F1EE; --tinta:#1D1F1C; --tinta-2:rgba(29,31,28,.7); --am:#FEC833; }
+    --papel:#F1F1EE; --hoja:#FFFFFF; --tinta:#1D1F1C; --tinta-2:rgba(29,31,28,.68); --borde:#E2E2DD; --am:#FEC833; --rojo:#C9372C; }
   @media (prefers-color-scheme: dark) {
-    :root { --papel:#121311; --tinta:#F3F3F0; --tinta-2:rgba(243,243,240,.7); }
+    :root { --papel:#121311; --hoja:#1B1C1A; --tinta:#F3F3F0; --tinta-2:rgba(243,243,240,.68); --borde:rgba(255,255,255,.12); --rojo:#FF8A80; }
   }
-  html, body { height: 100%; }
-  body {
-    margin: 0; display: grid; place-items: center;
-    background: var(--papel); color: var(--tinta);
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
-  }
-  .caja { text-align: center; padding: 28px; }
-  /* Las tres celdas del logotipo, girando despacio: dice «estoy haciendo
-     algo» sin escribir «cargando». */
-  .celdas { display: inline-flex; gap: 6px; margin-bottom: 22px; }
-  .celdas i {
-    width: 18px; height: 16px; display: block; background: var(--am);
-    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-    animation: late 1.25s ease-in-out infinite;
-  }
-  .celdas i:nth-child(2) { animation-delay: .18s; }
-  .celdas i:nth-child(3) { animation-delay: .36s; }
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body { margin: 0; display: grid; place-items: center; min-height: 100vh; padding: 24px 16px;
+    background: var(--papel); color: var(--tinta); font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  .caja { width: 100%; max-width: 400px; padding: 34px 30px 28px; background: var(--hoja); border: 1px solid var(--borde); border-radius: 22px; box-shadow: 0 30px 60px -40px rgba(29,31,28,.5); }
+  .marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--tinta); }
+  .marca b { font-size: 26px; font-weight: 900; letter-spacing: -.05em; }
+  /* Las tres celdas del logotipo. */
+  .celdas { display: inline-flex; gap: 4px; }
+  .celdas i { width: 13px; height: 12px; display: block; background: var(--am); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+  .espera .celdas i { animation: late 1.25s ease-in-out infinite; }
+  .espera .celdas i:nth-child(2) { animation-delay: .18s; } .espera .celdas i:nth-child(3) { animation-delay: .36s; }
   @keyframes late { 0%, 100% { opacity: .28; } 45% { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { .celdas i { animation: none; opacity: 1; } }
-  b { font-size: 21px; font-weight: 800; letter-spacing: -.03em; display: block; }
-  p { margin: 12px 0 0; color: var(--tinta-2); font-size: 15px; }
-  a { color: var(--tinta); font-weight: 600; }
+  @media (prefers-reduced-motion: reduce) { .celdas i { animation: none !important; } }
+  h1 { margin: 26px 0 0; font-size: 26px; line-height: 1.15; font-weight: 800; letter-spacing: -.03em; }
+  p { margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--tinta-2); }
+  form { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+  label { font-size: 13px; font-weight: 650; }
+  input { width: 100%; height: 46px; padding: 0 14px; font: inherit; font-size: 16px; color: var(--tinta); background: var(--papel); border: 1px solid var(--borde); border-radius: 12px; outline: none; }
+  input:focus { border-color: var(--am); box-shadow: 0 0 0 3px rgba(254,200,51,.3); }
+  button { height: 46px; margin-top: 4px; font: inherit; font-size: 15px; font-weight: 750; color: #1D1F1C; background: var(--am); border: 0; border-radius: 12px; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: default; }
+  .error { min-height: 20px; margin: 2px 0 0; font-size: 13.5px; color: var(--rojo); }
+  .error a, .pie a { color: var(--tinta); font-weight: 650; }
+  .pie { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--borde); font-size: 13.5px; color: var(--tinta-2); }
+  .recordada { margin-top: 22px; }
+  .recordada a.ir { display: flex; align-items: center; justify-content: center; height: 46px; font-weight: 750; color: #1D1F1C; background: var(--am); border-radius: 12px; text-decoration: none; }
+  .recordada button.otra { width: 100%; margin-top: 8px; color: var(--tinta); background: transparent; border: 1px solid var(--borde); }
+  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
-  <div class="caja">
-    <span class="celdas" aria-hidden="true"><i></i><i></i><i></i></span>
-    <b>Bulx</b>
-    <p>Llevándote a tu Bulx…</p>
-    <p><a href="https://palmapictures.bulx.es/">Entrar ahora</a></p>
-  </div>
-  <script>location.replace('https://palmapictures.bulx.es/');</script>
+  <main class="caja" id="caja">
+    <a class="marca" href="/" aria-label="Bulx, inicio"><span class="celdas" aria-hidden="true"><i></i><i></i><i></i></span><b>bulx</b></a>
+
+    <!-- Si este navegador ya sabe su casa: directo, con salida por si no es. -->
+    <section id="vuelta" hidden>
+      <h1>Entrando en <span id="vuelta-nombre"></span>…</h1>
+      <p>Es la productora con la que entró la última vez desde este navegador.</p>
+      <div class="recordada">
+        <a class="ir" id="vuelta-ir" href="#">Entrar ahora</a>
+        <button type="button" class="otra" id="otra">¿Otra productora?</button>
+      </div>
+    </section>
+
+    <section id="pregunta">
+      <h1>Entre en su Bulx</h1>
+      <p>Escriba su correo de trabajo y le llevamos a la de su productora.</p>
+      <form id="form" novalidate>
+        <label for="correo">Correo de trabajo</label>
+        <input id="correo" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="nombre@suproductora.com" required>
+        <p class="error" id="error" role="alert"></p>
+        <button type="submit" id="boton">Continuar</button>
+      </form>
+      <div class="pie">¿Su productora aún no tiene Bulx? <a href="https://cuenta.bulx.es/">Créelo</a> o <a href="/demo/">solicite una demostración</a>.</div>
+    </section>
+  </main>
+  <script>
+  (function () {
+    /* En local (node servir.js) pregunta al servicio de cuentas local. */
+    var CUENTA = location.hostname === 'localhost' ? 'http://localhost:3081' : 'https://cuenta.bulx.es';
+    var LLAVE = 'bulx_casa';
+    var $ = function (id) { return document.getElementById(id); };
+    var leer = function () { try { return JSON.parse(localStorage.getItem(LLAVE) || 'null'); } catch (e) { return null; } };
+    var guardar = function (c) { try { localStorage.setItem(LLAVE, JSON.stringify(c)); } catch (e) {} };
+    var olvidar = function () { try { localStorage.removeItem(LLAVE); } catch (e) {} };
+    /* Solo se va a direcciones de Bulx: lo guardado o lo devuelto no puede
+       mandar a nadie a otro sitio. */
+    var valida = function (u) { try { var x = new URL(u); return x.protocol === 'https:' && /(^|\.)bulx\.es$/.test(x.hostname); } catch (e) { return false; } };
+
+    var casa = leer();
+    if (casa && valida(casa.url)) {
+      $('pregunta').hidden = true; $('vuelta').hidden = false; $('caja').classList.add('espera');
+      $('vuelta-nombre').textContent = casa.nombre || 'su Bulx';
+      $('vuelta-ir').href = casa.url;
+      var salto = setTimeout(function () { location.replace(casa.url); }, 1200);
+      $('otra').onclick = function () { clearTimeout(salto); olvidar(); $('vuelta').hidden = true; $('pregunta').hidden = false; $('caja').classList.remove('espera'); $('correo').focus(); };
+    } else {
+      setTimeout(function () { $('correo').focus(); }, 50);
+    }
+
+    $('form').onsubmit = function (e) {
+      e.preventDefault();
+      var correo = $('correo').value.trim().toLowerCase(), err = $('error'), b = $('boton');
+      err.textContent = '';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) { err.textContent = 'Escriba un correo válido.'; return; }
+      b.disabled = true; b.textContent = 'Buscando…'; $('caja').classList.add('espera');
+      fetch(CUENTA + '/api/casa?correo=' + encodeURIComponent(correo))
+        .then(function (r) { return r.json().then(function (d) { return { s: r.status, d: d }; }); })
+        .then(function (x) {
+          if (x.s === 200 && x.d.url && valida(x.d.url)) { guardar({ url: x.d.url, nombre: x.d.nombre || '' }); location.href = x.d.url; return; }
+          b.disabled = false; b.textContent = 'Continuar'; $('caja').classList.remove('espera');
+          if (x.s === 202) err.textContent = 'Su Bulx todavía se está preparando. Le avisaremos por correo.';
+          else if (x.s === 404) err.innerHTML = 'Ese correo no está en ninguna productora. ¿Quiere <a href="' + CUENTA + '/">crear la suya</a>?';
+          else if (x.s === 429) err.textContent = 'Demasiados intentos. Pruebe de nuevo en unos minutos.';
+          else err.textContent = (x.d && x.d.error) || 'No se ha podido comprobar. Pruebe de nuevo.';
+        })
+        .catch(function () { b.disabled = false; b.textContent = 'Continuar'; $('caja').classList.remove('espera'); err.textContent = 'No se ha podido comprobar. Revise su conexión.'; });
+    };
+  })();
+  </script>
 </body>
 </html>

@@ -26,6 +26,40 @@ No confundir con BULX (un fondo cotizado de bolsa) ni con BullX (una herramienta
 - [Preguntas frecuentes sobre Bulx](https://bulx.es/preguntas/): Respuestas sobre Bulx: instalación, importación del inventario, permisos, ubicación de los datos, precio y periodo de prueba.
 - [Manuales](https://bulx.es/manuales/): manuales de uso de cada área, paso a paso.
 
+## English
+- [Film equipment inventory software](https://bulx.es/en/gear-inventory/): Gear records with serial number, photo and QR label; kits with their contents; dimensions and weight per case; check-outs and returns logged per shoot.
+- [Vehicle fleet booking for production companies](https://bulx.es/en/fleet/): Vehicle booking calendar by project, MOT (roadworthiness test), insurance and service reminders, breakdown reports and check-out and return records.
+- [Rental quotes for equipment and vehicles](https://bulx.es/en/rental-quotes/): Rental quotes built from the catalogue: versions, sending by link, online acceptance by the client, reminders and automatic reservation of the gear.
+- [IT asset tracking: devices, lines and licences](https://bulx.es/en/it-inventory/): Computers and devices, phone lines, MiFi routers and software licences assigned to each person. Joiners and leavers, with a return list.
+- [Film crew management: hours, permissions and chat](https://bulx.es/en/crew/): Staff and crew records, hours per project from the phone or the Apple Watch, cost of in-house days, permissions by area and internal chat.
+- [Production finance reports: Excel and Power BI](https://bulx.es/en/finance/): Quoted, accepted and invoiced amounts by project, client and month. An Excel report with charts and a live data connection for Power BI.
+- [The Bulx app for iPhone, iPad and Apple Watch](https://bulx.es/en/app/): The Bulx app for iPhone, iPad and Apple Watch: QR label scanner, vehicle bookings, time logging, internal chat and notifications.
+- [Management software for production companies](https://bulx.es/en/production-company-software/): Software for audiovisual production companies: gear inventory with QR labels, production fleet, rental quotes, crew and finance in one application.
+- [Film equipment rental software](https://bulx.es/en/equipment-rental-software/): AV rental software: catalogue with day rates, reservation by date, quotes accepted online and check-outs and returns tracked with QR labels.
+- [QR code inventory for film equipment](https://bulx.es/en/qr-code-inventory/): QR labels for cameras, lights, cases and vehicles: printed from Bulx and scanned with a phone to record check-outs, returns and issues.
+- [Film equipment inventory template (Excel)](https://bulx.es/en/equipment-inventory-template/): Free Excel template for an audiovisual equipment inventory: code, category, quantity, day rate, serial number and location.
+- [Security and data protection in Bulx](https://bulx.es/en/security/): Two-step verification, permissions by area and level, an activity log that cannot be edited, servers in Frankfurt and external links that expire.
+- [Request a demo of Bulx](https://bulx.es/en/demo/): A 30-minute demo by video call using your production company’s own inventory and fleet. No commitment and nothing to install.
+- [About Bulx: software built inside a production company](https://bulx.es/en/about/): Bulx was developed in 2026 inside Palma Pictures, a production company in Mallorca, to manage its gear, its fleet and its quotes.
+- [Frequently asked questions about Bulx](https://bulx.es/en/faq/): Answers about Bulx: installation, importing the inventory, permissions, where the data is stored, pricing and the trial period.
+
+## Deutsch
+- [Equipment-Verwaltung für Filmproduktionen](https://bulx.es/de/equipment-inventar/): Equipment-Datenblätter mit Seriennummer, Foto und QR-Etikett; Kits mit Inhalt; Maße und Gewicht pro Kiste; Ausgaben und Rückgaben pro Dreh erfasst.
+- [Fuhrparkverwaltung für Drehs: Buchung, TÜV, Schäden](https://bulx.es/de/fuhrpark/): Reservierungskalender für Drehfahrzeuge nach Projekt, Erinnerungen an TÜV, Versicherung und Inspektion, Schadensmeldungen, Ausgabe- und Rückgabeprotokoll.
+- [Mietangebote für Filmequipment und Fahrzeuge](https://bulx.es/de/mietangebote/): Mietangebote aus dem Katalog: Versionen, Versand per Link, Online-Annahme durch den Kunden, Erinnerungen und automatische Reservierung des Equipments.
+- [IT-Inventar: Geräte, Leitungen und Lizenzen](https://bulx.es/de/it-inventar/): IT-Geräte, Telefonleitungen, MiFi-Router und Softwarelizenzen, jeder Person zugeordnet. Eintritte und Austritte mit Rückgabeliste.
+- [Team und Crew beim Dreh: Stunden, Rechte, Chat](https://bulx.es/de/team/): Datenblätter für Mitarbeitende und Crew, Stunden pro Projekt vom Handy oder der Apple Watch, Kosten der In-house-Tage, Berechtigungen und interner Chat.
+- [Finanzberichte für Filmproduktionen: Excel, Power BI](https://bulx.es/de/finanzen/): Angebotene, angenommene und verbuchte Beträge nach Projekt, Kunde und Monat. Excel-Bericht mit Diagrammen und Live-Datenanbindung für Power BI.
+- [Die Bulx-App für iPhone, iPad und Apple Watch](https://bulx.es/de/app/): Bulx-App für iPhone, iPad und Apple Watch: Scanner für QR-Etiketten, Fahrzeugreservierungen, Zeiterfassung, interner Chat und Mitteilungen.
+- [Verwaltungssoftware für Filmproduktionen](https://bulx.es/de/software-filmproduktion/): Software für Filmproduktionen: Equipment-Inventar mit QR-Codes, Fuhrpark für den Dreh, Mietangebote, Team und Finanzen in einer Anwendung.
+- [Verleihsoftware für Filmequipment](https://bulx.es/de/verleihsoftware-filmequipment/): Verleihsoftware für Filmequipment: Katalog mit Tagespreis, Reservierung nach Terminen, online angenommene Angebote und Ausgabekontrolle per QR-Code.
+- [Inventar mit QR-Codes für Filmequipment](https://bulx.es/de/inventar-qr-codes/): QR-Etiketten für Kameras, Scheinwerfer, Kisten und Fahrzeuge: aus Bulx gedruckt und mit dem Handy gescannt, um Ausgaben, Rückgaben und Mängel zu erfassen.
+- [Inventarliste: Excel-Vorlage für Filmequipment](https://bulx.es/de/inventar-vorlage-filmequipment/): Kostenlose Excel-Vorlage für die Inventarliste von Filmequipment: Code, Kategorie, Menge, Preis pro Tag, Seriennummer und Lagerort.
+- [Sicherheit und Datenschutz bei Bulx](https://bulx.es/de/sicherheit/): Zwei-Faktor-Prüfung, Berechtigungen nach Bereich und Stufe, unveränderliches Aktivitätsprotokoll, Server in Frankfurt und externe Links mit Ablaufdatum.
+- [Demo von Bulx anfragen](https://bulx.es/de/demo/): Eine 30-minütige Demo per Videoanruf mit dem Inventar und dem Fuhrpark Ihrer Produktionsfirma. Unverbindlich und ohne Installation.
+- [Über Bulx: Software aus einer Produktionsfirma](https://bulx.es/de/ueber-bulx/): Bulx wurde 2026 bei Palma Pictures, einer Produktionsfirma auf Mallorca, entwickelt, um deren Equipment, Fuhrpark und Angebote zu verwalten.
+- [Häufige Fragen zu Bulx](https://bulx.es/de/fragen/): Antworten zu Bulx: Installation, Import des Inventars, Berechtigungen, Speicherort der Daten, Preis und Testzeitraum.
+
 ## Datos prácticos
 - Prueba gratuita de 14 días: https://cuenta.bulx.es/
 - Precio: según el volumen de material y el número de personas; se concreta en la demostración.

@@ -34,13 +34,15 @@ const ES = {
 
 /* El selector: tres enlaces de verdad (antes eran botones que cambiaban el
    texto con JavaScript). La marca negra se coloca sola con data-lang. */
-const selector = (lang) => `<!-- idioma:inicio --><div class="idioma" role="group" aria-label="Idioma · Language · Sprache" data-lang="${lang}"><i class="idioma-marca" aria-hidden="true"></i>${
-  Object.keys(RUTAS).map(l => `<a href="${RUTAS[l]}" hreflang="${l}" lang="${l}" title="${NOMBRE[l]}"${l === lang ? ' aria-current="true"' : ''}><span class="idioma-bandera" aria-hidden="true">${BANDERA[l]}</span><span class="idioma-sigla">${l.toUpperCase()}</span></a>`).join('')
+const selector = (lang, rutas = RUTAS) => `<!-- idioma:inicio --><div class="idioma" role="group" aria-label="Idioma · Language · Sprache" data-lang="${lang}"><i class="idioma-marca" aria-hidden="true"></i>${
+  Object.keys(rutas).map(l => `<a href="${rutas[l]}" hreflang="${l}" lang="${l}" title="${NOMBRE[l]}"${l === lang ? ' aria-current="true"' : ''}><span class="idioma-bandera" aria-hidden="true">${BANDERA[l]}</span><span class="idioma-sigla">${l.toUpperCase()}</span></a>`).join('')
 }</div><!-- idioma:fin -->`;
 
 const absolutas = (html) => html.replace(/(\s(?:href|src))="(?!https?:|\/|#|mailto:|tel:|data:)([^"]+)"/g, '$1="/$2"');
 
-function generarPortadas() {
+/* ctx: { en: {...}, de: {...} } con lo que cada idioma sabe de sus subpáginas
+   (ruta(slug), el menú del móvil y la columna de Soluciones del pie). */
+function generarPortadas(ctx = {}) {
   const fichero = path.join(RAIZ, 'index.html');
   let es = fs.readFileSync(fichero, 'utf8');
 
@@ -73,8 +75,16 @@ function generarPortadas() {
       if (!hueco) { console.warn(`  ! ${lang}: no hay data-t="${clave}" en la portada`); continue; }
       h = h.slice(0, hueco.ini) + d[clave] + h.slice(hueco.fin);
     }
-    /* Lo que solo tiene sentido en español (enlaces a páginas que no están traducidas). */
-    for (let hueco; (hueco = interior(h, 'es', 'data-solo'));) h = h.slice(0, hueco.desde) + h.slice(hueco.hasta);
+    const c = ctx[lang];
+    if (c) {
+      /* Las subpáginas están traducidas: los enlaces van a las de este idioma,
+         y el menú del móvil y la columna de Soluciones, en este idioma. */
+      for (const [slugEs, ruta] of Object.entries(c.rutas)) h = h.split(`href="/${slugEs}/"`).join(`href="${ruta}"`);
+      const sol = interior(h, 'es', 'data-solo'); if (sol) h = h.slice(0, sol.ini) + c.soluciones + h.slice(sol.fin);
+      const mov = interior(h, 'nav-movil-menu', 'class'); if (mov) h = h.slice(0, mov.ini) + c.menuMovil + h.slice(mov.fin);
+      /* Para lo que enlaza subpáginas desde un guion (el adviento de Navidad). */
+      h = h.replace('<script src="/idiomas.js" defer></script>', `<script>window.bulxRutas=${JSON.stringify(c.rutas)}</script>\n<script src="/idiomas.js" defer></script>`);
+    } else for (let hueco; (hueco = interior(h, 'es', 'data-solo'));) h = h.slice(0, hueco.desde) + h.slice(hueco.hasta);
     h = h.replace(/<html lang="es">/, `<html lang="${lang}">`)
       .replace(/<head>[\s\S]*?<\/head>/, cabecera(lang, d))
       .replace(`aria-label="${ES._secciones}"`, `aria-label="${d._secciones}"`)
@@ -91,4 +101,4 @@ function generarPortadas() {
   return { RUTAS, resumen: sinEtiquetas(ES._desc) };
 }
 
-module.exports = { generarPortadas, RUTAS };
+module.exports = { generarPortadas, RUTAS, selector };

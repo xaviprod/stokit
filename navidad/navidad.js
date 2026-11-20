@@ -324,7 +324,7 @@
       } else {
         const c = CELDAS[elegida - 1], [titulo, txt] = c[col];
         ficha.className = 'nv-ficha';
-        ficha.innerHTML = `${num(elegida)}<span class="nv-ficha-fecha">${L.fecha(elegida)}</span><h3>${titulo}</h3><p>${txt}</p>` + (c[0] ? `<a href="/${c[0]}/">${L.ver} <span aria-hidden="true">→</span></a>` : '');
+        ficha.innerHTML = `${num(elegida)}<span class="nv-ficha-fecha">${L.fecha(elegida)}</span><h3>${titulo}</h3><p>${txt}</p>` + (c[0] ? `<a href="${(window.bulxRutas && window.bulxRutas[c[0]]) || `/${c[0]}/`}">${L.ver} <span aria-hidden="true">→</span></a>` : '');
       }
       if (cambio) { ficha.classList.remove('cambia'); void ficha.offsetWidth; ficha.classList.add('cambia'); }
     }

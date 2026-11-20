@@ -373,7 +373,7 @@ PAGINAS.push(
     h1: 'Plantilla de inventario <em>de material de rodaje, en Excel.</em>',
     sub: 'Una hoja de Excel gratuita, sin registro, con las columnas que necesita el inventario de material de una productora o de una casa de alquiler. Sirve por sí sola y, si más adelante se quiere pasar a Bulx, se importa sin cambiar nada.',
     cta: { texto: 'Descargar la plantilla (.xlsx)', href: '/descargas/plantilla-inventario-material-rodaje.xlsx' },
-    mock: mk.lista('plantilla-inventario-material-rodaje.xlsx', [['amarillo', 'CAM-0001 · ARRI Alexa Mini', 'Cámara > Cuerpos · 1 ud.', '950 €/día', ''], ['negro', 'LUZ-0001 · SkyPanel S60-C', 'Iluminación > LED · 4 uds.', '120 €/día', ''], ['gris', 'GRP-0001 · Trípode Sachtler', 'Grip > Soportes · 2 uds.', '45 €/día', ''], ['amarillo', 'SON-0001 · Pértiga 3 m', 'Sonido > Accesorios · 3 uds.', '15 €/día', '']]),
+    mock: mk.lista('plantilla-inventario-material-rodaje.xlsx', [['amarillo', 'CAM-0001 · ARRI Alexa Mini', 'Cámara &gt; Cuerpos · 1 ud.', '950 €/día', ''], ['negro', 'LUZ-0001 · SkyPanel S60-C', 'Iluminación &gt; LED · 4 uds.', '120 €/día', ''], ['gris', 'GRP-0001 · Trípode Sachtler', 'Grip &gt; Soportes · 2 uds.', '45 €/día', ''], ['amarillo', 'SON-0001 · Pértiga 3 m', 'Sonido &gt; Accesorios · 3 uds.', '15 €/día', '']]),
     cifras: [['9', 'columnas: de código a notas'], ['.xlsx', 'para Excel, Numbers o Google Sheets'], ['Gratis', 'y sin registro']],
     bloques: [
       ['amarilla', 'etiqueta', 'Código y nombre', 'Un código por artículo (por ejemplo, CAM-0001) y su nombre. El nombre es la única columna obligatoria; el código sirve para la etiqueta y para no duplicar.'],

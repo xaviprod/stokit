@@ -38,17 +38,24 @@ Todo lo que una página le dice a un buscador sale de `generar/seo.js` (título,
 descripción, canonical, hreflang, Open Graph, iconos, datos estructurados). Tras
 tocar CUALQUIER texto: `node generar/generar.js`.
 
-- **Tres idiomas, tres direcciones.** `index.html` es la portada en español y lo que
-  se edita. El generador le rehace la cabecera y escribe `/en/` y `/de/` con los textos
-  de `generar/traducciones.js` (cada bloque `data-t="tN"`). El selector de arriba son
-  tres enlaces. `idiomas.js` ya no traduce: solo redirige los `?lang=en` antiguos y
-  avisa de que hay versión en el idioma del navegador. NO volver a cambiar el idioma
-  con JavaScript sobre la misma dirección: Google leía la portada en inglés.
+- **Tres idiomas, tres direcciones**, en TODAS las páginas. `index.html` es la portada
+  en español y lo que se edita; sus traducciones están en `generar/traducciones.js`
+  (cada bloque `data-t="tN"`). Las subpáginas en español salen de `paginas.js`; en
+  inglés y alemán, de `generar/paginas-en.json` y `paginas-de.json`, que tienen la
+  forma que saca `node generar/exportar-textos.js` y comprueba
+  `node generar/validar-traduccion.js en|de`. Las direcciones de cada idioma
+  (`/material/` → `/en/gear-inventory/` → `/de/equipment-inventar/`) y los textos fijos
+  de la plantilla están en `generar/idiomas-paginas.js`. El selector de arriba son tres
+  enlaces. `idiomas.js` ya no traduce: redirige los `?lang=en` antiguos y avisa de que
+  hay versión en el idioma del navegador. NO volver a cambiar el idioma con JavaScript
+  sobre la misma dirección: Google leía la portada en inglés.
+  Tras cambiar un texto en `paginas.js`: cambiarlo también en los dos JSON y generar.
 - **Soluciones.** Además de las páginas por área, `paginas.js` tiene páginas por
   búsqueda (`area: 'Soluciones'`): software para productoras, alquiler de material,
   inventario con QR y la plantilla de Excel. Salen en el pie.
-- **La plantilla** (`descargas/plantilla-inventario-material-rodaje.xlsx`) la escribe
-  `node generar/plantilla-excel.js`, con las cabeceras que lee «Importar Excel» de Bulx.
+- **Las plantillas** (`descargas/*.xlsx`, una por idioma) las escribe
+  `node generar/plantilla-excel.js`. «Importar Excel» de Bulx entiende las cabeceras de
+  las tres (está en `web/stokit-antiguo/app.js`, `colMap`).
 - **También se generan** `404.html`, `sitio.webmanifest`, `llms.txt` (resumen para los
   asistentes de IA), `sitemap.xml` (con hreflang y la fecha del último cambio real) y
   `robots.txt`.

@@ -1,0 +1,1420 @@
+{
+ "paginas": {
+  "material": {
+   "nombre": "Gear",
+   "titulo": "Film equipment inventory software",
+   "desc": "Gear records with serial number, photo and QR label; kits with their contents; dimensions and weight per case; check-outs and returns logged per shoot.",
+   "eyebrow": "Gear and inventory",
+   "h1": "The gear inventory, <em>with a record of every movement.</em>",
+   "sub": "Each item has a record with its serial number, photo, category and status: in the warehouse, on a shoot or in repair. Check-outs and returns are recorded by scanning the QR label with a phone.",
+   "cifras": [
+    [
+     "711",
+     "items with a record at the production company where it was developed"
+    ],
+    [
+     "12",
+     "categories, from camera to sound, with their subcategories"
+    ],
+    [
+     "3",
+     "warehouses per production company, at most"
+    ]
+   ],
+   "bloques": [
+    [
+     "QR labels",
+     "Labels are generated in Bulx and printed on any printer. Scanning one with a phone opens the item record and logs who takes the item, when and for which project. Nothing needs to be installed on the phone."
+    ],
+    [
+     "Kits and contents",
+     "A kit is a record that contains others: the cases and the parts inside them. It goes out and comes back as one unit, and on return it is checked for anything missing."
+    ],
+    [
+     "Dimensions and weight",
+     "Length, width, height and weight of each case. Transport volume and weight are calculated per department and per project before loading."
+    ],
+    [
+     "Full record",
+     "Serial number, date added, price per day, photos, location and current project. Items in repair or retired are marked as such in the list."
+    ],
+    [
+     "Check-outs and returns",
+     "Each check-out and each return leaves a record of which gear went out, what came back and in what condition, with photos. Any issue creates a repair order."
+    ],
+    [
+     "Import and export",
+     "The inventory is imported from an existing Excel sheet and exported to Excel or to a Word list by department, for clients or insurers."
+    ]
+   ],
+   "pasos": [
+    [
+     "Import the inventory",
+     "From the current Excel sheet: items, categories and quantities. Bulx assigns a code to each item."
+    ],
+    [
+     "Print and attach the labels",
+     "One label per item or per case. They are printed from Bulx in whichever format is preferred."
+    ],
+    [
+     "Record check-outs and returns",
+     "By scanning the label at each movement. Any differences on return are flagged."
+    ]
+   ],
+   "faq": [
+    [
+     "Can it be used to rent gear out to third parties?",
+     "Yes. Each item has a price per day, quotes are built from the catalogue and the gear is reserved for the accepted dates."
+    ],
+    [
+     "Is a barcode scanner needed?",
+     "No. A phone camera is enough. The label opens a public page that shows neither serial numbers nor prices."
+    ],
+    [
+     "How many items can it hold?",
+     "There is no practical limit. The production company where it was developed manages more than 700, with filters by category, warehouse, project and status."
+    ]
+   ]
+  },
+  "flota": {
+   "nombre": "Fleet",
+   "titulo": "Vehicle fleet booking for production companies",
+   "desc": "Vehicle booking calendar by project, MOT (roadworthiness test), insurance and service reminders, breakdown reports and check-out and return records.",
+   "eyebrow": "Fleet",
+   "h1": "The production fleet, <em>in a booking calendar.</em>",
+   "sub": "Each vehicle has its record, its documents with their expiry dates and its history. Bookings are made by project and by day; check-outs and returns are recorded by scanning the vehicle label.",
+   "cifras": [
+    [
+     "29",
+     "vehicles managed at the production company where it was developed"
+    ],
+    [
+     "45 days",
+     "advance notice of MOT (roadworthiness test) and insurance expiry"
+    ],
+    [
+     "1 label",
+     "per vehicle to record check-outs and returns"
+    ]
+   ],
+   "bloques": [
+    [
+     "Booking calendar",
+     "Week or month view, one vehicle per row. Bookings are linked to a project and cannot overlap. Workshop and MOT periods take up their slot in the same calendar."
+    ],
+    [
+     "MOT, insurance and servicing",
+     "Each vehicle stores its MOT, insurance and service dates. Upcoming expiries appear on the home page and under Tasks / MOT; appointments are noted and the result is recorded."
+    ],
+    [
+     "Label on the vehicle",
+     "Scanning the label records who takes the vehicle, at what mileage and for which project. On return, the mileage and the condition of the vehicle are recorded."
+    ],
+    [
+     "Inspections with photos",
+     "Check-out and return photos at every use. New damage can be attributed to the project and the date on which it appeared."
+    ],
+    [
+     "Breakdown reports",
+     "Breakdowns are reported from the phone with photos and a description. They create a workshop order and stay in the vehicle history with their cost."
+    ],
+    [
+     "Checklists",
+     "What has to be checked before each check-out and the pending tasks for each vehicle, with a person responsible and a date."
+    ]
+   ],
+   "pasos": [
+    [
+     "Add the vehicles",
+     "Registration number, type, mileage, MOT and insurance. They can also be imported from Excel."
+    ],
+    [
+     "Attach the label",
+     "One per vehicle, printed from Bulx."
+    ],
+    [
+     "Book by project",
+     "From the web or from the app. Check-outs and returns are recorded with the label."
+    ]
+   ],
+   "faq": [
+    [
+     "Does it handle vehicles hired for a project?",
+     "Yes. A vehicle can be owned or hired for specific dates, and it appears in the same calendar for that period."
+    ],
+    [
+     "Who can make bookings?",
+     "People with edit permission in Fleet. Everyone else can view the calendar without changing it. Permissions are assigned per person."
+    ],
+    [
+     "What happens with two bookings on the same dates?",
+     "The calendar does not allow bookings for the same vehicle to overlap: the second person sees that the vehicle is taken, and by whom."
+    ]
+   ]
+  },
+  "presupuestos": {
+   "nombre": "Quotes",
+   "titulo": "Rental quotes for equipment and vehicles",
+   "desc": "Rental quotes built from the catalogue: versions, sending by link, online acceptance by the client, reminders and automatic reservation of the gear.",
+   "eyebrow": "Quotes",
+   "h1": "Quotes built from the catalogue, <em>accepted online.</em>",
+   "sub": "The quote is built from the gear and vehicles in the catalogue, by day and by department. It is sent to the client as a link; on acceptance, the gear is reserved for those dates. Every change creates a version.",
+   "cifras": [
+    [
+     "Versions",
+     "every change is saved with its date"
+    ],
+    [
+     "1 link",
+     "per quote, with no account needed for the client"
+    ],
+    [
+     "Reminders",
+     "scheduled after the number of days you set"
+    ]
+   ],
+   "bloques": [
+    [
+     "Built from the catalogue",
+     "Items and days are selected; the price per day and the totals are calculated. By department or sub-project, with discounts, and with or without VAT depending on the company’s settings."
+    ],
+    [
+     "Sent as a link",
+     "The client opens the quote in the browser, in the house style, and can accept it, request changes or comment. The time it was opened is recorded."
+    ],
+    [
+     "Scheduled reminders",
+     "If there is no reply, a reminder is sent by email after the configured number of days. The reminder is logged in the quote history."
+    ],
+    [
+     "Versions and acceptance",
+     "Every change creates a new version. The accepted version is locked, with its date, and the gear and vehicles are reserved for the project period."
+    ],
+    [
+     "Client record",
+     "Tax details, terms, contacts and all the client’s quotes: accepted, pending and expired, with the amounts for the year."
+    ],
+    [
+     "Documents in the house style",
+     "The quote is exported to PDF and to Word with the logo, the tax details and the terms, which are configured once in Settings."
+    ]
+   ],
+   "pasos": [
+    [
+     "Choose the client, dates and gear",
+     "From the catalogue, with the prices per day already set."
+    ],
+    [
+     "Send the link",
+     "By email, from Bulx, with the company signature."
+    ],
+    [
+     "Acceptance",
+     "The client accepts online and the gear is reserved. If there is no reply, a reminder is sent."
+    ]
+   ],
+   "faq": [
+    [
+     "Does Bulx issue invoices?",
+     "No. Bulx handles the quote up to acceptance; the invoice is issued with your usual accounting software. The quote is then marked as invoiced so that the finance figures reconcile."
+    ],
+    [
+     "Does the client need an account?",
+     "No. The link opens without registration. It has an expiry date and can be revoked."
+    ],
+    [
+     "Can quotes be broken down by department?",
+     "Yes. Camera, lighting, grip or any sub-project, each with its subtotal, plus the project total."
+    ]
+   ]
+  },
+  "tecnologia": {
+   "nombre": "IT",
+   "titulo": "IT asset tracking: devices, lines and licences",
+   "desc": "Computers and devices, phone lines, MiFi routers and software licences assigned to each person. Joiners and leavers, with a return list.",
+   "eyebrow": "Technology",
+   "h1": "Devices, lines and licences, <em>assigned to each person.</em>",
+   "sub": "The production company’s IT equipment and its assignment: who has each device and since when, which lines are active and which licences are due for renewal.",
+   "cifras": [
+    [
+     "75",
+     "devices with a record at the production company where it was developed"
+    ],
+    [
+     "63",
+     "mobile and fixed lines, each with its provider"
+    ],
+    [
+     "244",
+     "software licences with a renewal date"
+    ]
+   ],
+   "bloques": [
+    [
+     "Devices",
+     "Laptops, phones, tablets and monitors with serial number, warranty, assigned person and assignment date. Each has its own QR label."
+    ],
+    [
+     "Staff leavers",
+     "When a person leaves, Bulx produces the list of what has to be returned and closed: devices, lines, MiFi routers, keys and access rights, with a deadline and follow-up."
+    ],
+    [
+     "Lines and MiFi routers",
+     "Each line with its provider, account holder, PIN and PUK. MiFi routers are assigned to a project when they go out and are then returned, like the gear."
+    ],
+    [
+     "Licences",
+     "By vendor: seats purchased, the people using them and the renewal date. Upcoming renewals appear on the Technology home page."
+    ],
+    [
+     "Company emails",
+     "The production company’s email library and each person’s signature, ready to use from their email client."
+    ],
+    [
+     "Renewals in view",
+     "Warranties and licences that are about to expire appear on the Technology home page before they lapse."
+    ]
+   ],
+   "pasos": [
+    [
+     "Import the devices",
+     "From the current Excel sheet, with serial number and assigned person."
+    ],
+    [
+     "Label them",
+     "Each device gets its QR label, so that it can be looked up from the iPhone."
+    ],
+    [
+     "Record handovers and returns",
+     "Every change of assignment is recorded, including from the phone."
+    ]
+   ],
+   "faq": [
+    [
+     "Is any other software needed?",
+     "No. Bulx runs in the browser and in the iPhone and iPad app; it does not depend on Microsoft 365 or Google Workspace."
+    ],
+    [
+     "Does it manage licences from any vendor?",
+     "Yes. Each vendor has its record with the seats purchased, the people assigned and the renewal date."
+    ],
+    [
+     "Does it include landlines?",
+     "Yes. Mobile and fixed lines, with extension, provider and account holder."
+    ]
+   ]
+  },
+  "equipo": {
+   "nombre": "Crew and shoots",
+   "titulo": "Film crew management: hours, permissions and chat",
+   "desc": "Staff and crew records, hours per project from the phone or the Apple Watch, cost of in-house days, permissions by area and internal chat.",
+   "eyebrow": "Crew and shoots",
+   "h1": "People, their hours <em>and their projects.</em>",
+   "sub": "Staff and crew, each with a record, a department and the gear assigned to them. Hours are logged from the app or the Apple Watch and allocated to the project. In the internal chat, a message can reference a quote, a vehicle or an item with its current status.",
+   "cifras": [
+    [
+     "180",
+     "people, staff and crew, at the production company where it was developed"
+    ],
+    [
+     "Apple Watch",
+     "to clock in and out"
+    ],
+    [
+     "By area",
+     "read, edit or full permissions"
+    ]
+   ],
+   "bloques": [
+    [
+     "Staff and crew",
+     "Job title, department, contact details and the gear, devices and lines assigned. The crew of each project, with their roles and contact details."
+    ],
+    [
+     "Hours and in-house days",
+     "Each person logs their working day and their shooting days. Management sees the cost of each project in staff hours and compares it with the amount invoiced."
+    ],
+    [
+     "Internal chat",
+     "Conversations by project or by person. A message can include the card of a quote, a vehicle or an item, which shows its up-to-date status."
+    ],
+    [
+     "Permissions by area",
+     "Production, fleet, gear, IT, finance: per person and per level (read, edit, full). Amounts are visible only to those with Finance permission."
+    ],
+    [
+     "Projects and calendar",
+     "Each project with its dates, team, gear and quotes, and a production calendar showing each week’s shoots."
+    ],
+    [
+     "Announcements",
+     "Notices shown at sign-in: maintenance, a new feature, a presentation. Scheduled or immediate; only administrators can publish them."
+    ]
+   ],
+   "pasos": [
+    [
+     "Add the people",
+     "From an Excel sheet or one by one, each with a username and password."
+    ],
+    [
+     "Assign permissions",
+     "With templates by role (production, fleet, technician, management) and individual adjustments."
+    ],
+    [
+     "Log hours",
+     "From the app or the Apple Watch. They are allocated to the current project."
+    ]
+   ],
+   "faq": [
+    [
+     "Can people clock in from a phone?",
+     "Yes. From the iPhone and from the Apple Watch. The hours are stored on the person’s record and on the project record."
+    ],
+    [
+     "Does external crew need access?",
+     "It is not necessary. They are listed on the project record with their role and contact details. Limited access can be granted if required."
+    ],
+    [
+     "Does it replace the team’s messaging app?",
+     "For anything related to projects, yes: the chat includes references to the quote, the vehicle or the gear with their status, which avoids forwarding screenshots."
+    ]
+   ]
+  },
+  "economia": {
+   "nombre": "Finance",
+   "titulo": "Production finance reports: Excel and Power BI",
+   "desc": "Quoted, accepted and invoiced amounts by project, client and month. An Excel report with charts and a live data connection for Power BI.",
+   "eyebrow": "Finance",
+   "h1": "Quoted, accepted <em>and invoiced.</em>",
+   "sub": "The status of every quote (sent, accepted, invoiced) with its amounts, by project, by client and by month. The same data can be exported to Excel or queried live from Power BI.",
+   "cifras": [
+    [
+     "By month",
+     "confirmed and pending income, month by month"
+    ],
+    [
+     "Excel",
+     "with tabs and charts generated by Bulx"
+    ],
+    [
+     "Power BI",
+     "live OData connection"
+    ]
+   ],
+   "bloques": [
+    [
+     "Quote status",
+     "Drafts, sent, accepted and invoiced, with their amounts and their age. What has moved this month and what has gone a long time without a reply."
+    ],
+    [
+     "By project and by client",
+     "Amount for each project and each client over the year, average amount per quote and time to acceptance."
+    ],
+    [
+     "Excel report",
+     "An Excel workbook with the tabs and charts already built, for a management meeting or for the accountant."
+    ],
+    [
+     "Power BI",
+     "Bulx publishes its tables as an OData data source. Existing Power BI dashboards read the data directly, with no export step."
+    ],
+    [
+     "In-house cost",
+     "What a project costs in staff hours against the amount invoiced, by job title, department and project, with configurable rates."
+    ],
+    [
+     "Restricted access",
+     "Amounts are visible only to people with Finance permission. The rest of the team works without access to prices or totals."
+    ]
+   ],
+   "pasos": [
+    [
+     "Quote in Bulx",
+     "The financial data is derived from the quotes; it is not entered separately."
+    ],
+    [
+     "Mark what has been invoiced",
+     "When the invoice is issued in the accounting software, the quote is marked as invoiced."
+    ],
+    [
+     "Review",
+     "In Bulx, in the Excel report or in Power BI."
+    ]
+   ],
+   "faq": [
+    [
+     "Does it integrate with accounting software?",
+     "Not directly. Bulx does not issue invoices; quotes are marked as invoiced and the data is exported to Excel or read from Power BI."
+    ],
+    [
+     "What data is available to Power BI?",
+     "The same tables Bulx uses: quotes, projects, clients, gear and fleet, through a read-only user."
+    ],
+    [
+     "Are previous years kept?",
+     "Yes. Data is kept by year and by month from the first quote recorded."
+    ]
+   ]
+  },
+  "app": {
+   "nombre": "App",
+   "titulo": "The Bulx app for iPhone, iPad and Apple Watch",
+   "desc": "The Bulx app for iPhone, iPad and Apple Watch: QR label scanner, vehicle bookings, time logging, internal chat and notifications.",
+   "eyebrow": "On iPhone, iPad and Apple Watch",
+   "h1": "The essentials of Bulx, <em>from your phone.</em>",
+   "sub": "The app covers the work done on your feet: scanning labels, recording check-outs and returns, booking vehicles, clocking in and checking gear, fleet and projects. Quotes can be viewed in the app and are prepared on the web.",
+   "cifras": [
+    [
+     "Face ID",
+     "and two-step verification"
+    ],
+    [
+     "iPhone and iPad",
+     "with the same app"
+    ],
+    [
+     "Apple Watch",
+     "to clock in and check your hours"
+    ]
+   ],
+   "bloques": [
+    [
+     "Label scanner",
+     "Gear, vehicles and devices. The camera reads the label and opens the record; the check-out or return is recorded on the spot."
+    ],
+    [
+     "Vehicle bookings",
+     "Choose the vehicle type and the days. The app shows availability and who has booked the other vehicles."
+    ],
+    [
+     "Chat and notifications",
+     "Team conversations, with quote, vehicle and gear cards, and notifications when there are messages or changes that affect the person."
+    ],
+    [
+     "Apple Watch",
+     "Clocking in and out and checking the day’s hours. The watch syncs with the iPhone."
+    ],
+    [
+     "Widgets",
+     "Free vehicles, gear out and the day’s hours on the home screen, without opening the app."
+    ],
+    [
+     "iPad",
+     "The same app, adapted to the iPad screen for fleet, gear and project records."
+    ]
+   ],
+   "pasos": [
+    [
+     "Install the app",
+     "From the App Store, for iPhone, iPad and Apple Watch."
+    ],
+    [
+     "Sign in",
+     "With Apple, with Google or with the Bulx username; after that, with Face ID."
+    ],
+    [
+     "Scan",
+     "Anything recorded in the app appears on the web for the whole team."
+    ]
+   ],
+   "faq": [
+    [
+     "Is there an Android version?",
+     "Not at present. The app is for iPhone, iPad and Apple Watch. On Android, the web version is used from the browser; it is adapted to mobile screens."
+    ],
+    [
+     "Can quotes be prepared in the app?",
+     "No. They can be viewed and their status followed. Preparing and sending them is done on the web."
+    ],
+    [
+     "Does it work without signal?",
+     "Viewing data that is already loaded and scanning both work. Changes are sent when the connection returns."
+    ]
+   ]
+  },
+  "seguridad": {
+   "nombre": "Security",
+   "titulo": "Security and data protection in Bulx",
+   "desc": "Two-step verification, permissions by area and level, an activity log that cannot be edited, servers in Frankfurt and external links that expire.",
+   "eyebrow": "Security",
+   "h1": "Who signs in, what they see <em>and where the data is.</em>",
+   "sub": "Production data belongs to the production company. Bulx documents how it is accessed, who can see each part, what has been changed and where it is stored.",
+   "cifras": [
+    [
+     "Frankfurt",
+     "servers and database, with backups"
+    ],
+    [
+     "Two steps",
+     "mandatory six-digit code, every seven days"
+    ],
+    [
+     "Log",
+     "of every change: person, action and date"
+    ]
+   ],
+   "bloques": [
+    [
+     "Sign in with Apple or Google",
+     "Each person can link their Apple or Google account and sign in with one click, without typing a password. Once someone has been removed, they can no longer sign in by any method."
+    ],
+    [
+     "Two-step verification",
+     "Required for everyone, at sign-in and every seven days: a six-digit code generated by an authenticator app (Microsoft Authenticator, Google Authenticator or others). SMS is not used."
+    ],
+    [
+     "Permissions by area and level",
+     "Production, fleet, gear, IT, finance and system, with three levels: read, edit and full. What a person is not allowed to see does not appear on their screen."
+    ],
+    [
+     "Activity log",
+     "Every change is recorded with the person, the action and the date. The log cannot be edited or deleted, and it can be filtered by person, area and action."
+    ],
+    [
+     "Hosting in Europe",
+     "The servers and the database are in Frankfurt (Germany), with backups. Documents and photos are stored on an encrypted disk in the same region."
+    ],
+    [
+     "External links that expire",
+     "Anything shared outside the company (a quote, a calendar) has an expiry date and can be revoked. The public label pages show neither prices nor serial numbers."
+    ]
+   ],
+   "pasos": [
+    [
+     "Set up access",
+     "With a password, Apple or Google, and always with the two-step verification code."
+    ],
+    [
+     "Assign permissions",
+     "By area and by level, with templates by role."
+    ],
+    [
+     "Check the log",
+     "To see who did what, and when."
+    ]
+   ],
+   "faq": [
+    [
+     "Where is the data stored?",
+     "On servers in Frankfurt (Germany), in the European Union, with backups. Documents and photos are stored in the same region."
+    ],
+    [
+     "Can all the data be exported?",
+     "Yes. Gear, fleet, people, quotes and finance are exported to Excel; documents are exported as they are."
+    ],
+    [
+     "Who at Bulx has access to the data?",
+     "Only the staff who maintain the service, when the production company requests support, and that access is logged like any other."
+    ]
+   ]
+  },
+  "demo": {
+   "nombre": "Request a demo",
+   "titulo": "Request a demo of Bulx",
+   "desc": "A 30-minute demo by video call using your production company’s own inventory and fleet. No commitment and nothing to install.",
+   "eyebrow": "Demo",
+   "h1": "A demo <em>with your own gear.</em>",
+   "sub": "Thirty minutes by video call. Your gear or vehicle spreadsheet is imported live and the demo goes through a working day: booking, gear check-out, quote and acceptance. At the end, you are given the price for your case.",
+   "cifras": [
+    [
+     "30 min",
+     "by video call, on a date that suits you"
+    ],
+    [
+     "No cost",
+     "and nothing to install"
+    ],
+    [
+     "Your Excel sheet",
+     "is all that is needed"
+    ]
+   ],
+   "bloques": [
+    [
+     "With your gear",
+     "Your gear or vehicle spreadsheet is imported live. Within a few minutes you see your own warehouse inside Bulx."
+    ],
+    [
+     "A full working day",
+     "Booking a vehicle, checking out gear with the label, sending a quote and accepting it from the client’s side."
+    ],
+    [
+     "Price",
+     "It depends on the volume of gear and the number of people. It is set out at the demo, in writing and with no hidden conditions."
+    ]
+   ],
+   "pasos": [
+    [
+     "Write to us",
+     "An email with your name and the name of your production company."
+    ],
+    [
+     "Set a date",
+     "A thirty-minute video call."
+    ],
+    [
+     "Decide",
+     "With your gear inside Bulx and the price in writing."
+    ]
+   ],
+   "faq": [
+    [
+     "Does anything need to be installed for the demo?",
+     "No. It is a video call and a web page. Afterwards, access to a trial environment can be provided on request."
+    ],
+    [
+     "How much does Bulx cost?",
+     "It depends on the volume of gear and the number of people. It is set out in writing at the demo."
+    ],
+    [
+     "How long does it take to get started?",
+     "With the Excel sheet, one afternoon to import and label. Once the accounts have been created, the team can sign in the next day."
+    ]
+   ],
+   "cta_texto": "Request the demo"
+  },
+  "sobre": {
+   "nombre": "About Bulx",
+   "titulo": "About Bulx: software built inside a production company",
+   "desc": "Bulx was developed in 2026 inside Palma Pictures, a production company in Mallorca, to manage its gear, its fleet and its quotes.",
+   "eyebrow": "About Bulx",
+   "h1": "Developed inside <em>a production company.</em>",
+   "sub": "Bulx was built between August and October 2026 at Palma Pictures, based on what its production team and its technical department needed every day. It has been used at that production company from day one and is now offered to others.",
+   "cifras": [
+    [
+     "2026",
+     "year of development, in Mallorca"
+    ],
+    [
+     "Palma Pictures",
+     "the production company where it is used every day"
+    ],
+    [
+     "3 languages",
+     "Spanish, English and German on this website"
+    ]
+   ],
+   "bloques": [
+    [
+     "The origin",
+     "A production company with a gear warehouse, a vehicle fleet and a team that goes out on shoots needed to know where everything was and who had it. The inventory came out of that, and the rest followed."
+    ],
+    [
+     "How it was built",
+     "Each part was requested by the warehouse, production or the technical department, tested on a real shoot and corrected with what was learned."
+    ],
+    [
+     "The name and the logo",
+     "The six areas (gear, fleet, quotes, IT, crew and finance) work like connected cells: a quote reserves gear, a booking takes up a vehicle. The logo is by Xavi Murillo."
+    ]
+   ],
+   "pasos": [
+    [
+     "August 2026",
+     "Started as Stock IT: the technical department’s inventory, on the web."
+    ],
+    [
+     "September 2026",
+     "Extended to fleet, quotes, crew and finance, and to the iPhone app."
+    ],
+    [
+     "October 2026",
+     "Renamed Bulx and offered to other production companies."
+    ]
+   ],
+   "faq": [
+    [
+     "Who is behind Bulx?",
+     "Palma Pictures, a production company in Mallorca, and Xavi Murillo, who is responsible for the product and designed the logo. Contact: info@bulx.es."
+    ],
+    [
+     "Why is it called Bulx?",
+     "After the honeycomb: separate, connected cells, like the areas of a production company."
+    ],
+    [
+     "Do other production companies use it?",
+     "It is beginning to be offered outside Palma Pictures. The first production companies interested can request a demo."
+    ]
+   ]
+  },
+  "preguntas": {
+   "nombre": "FAQ",
+   "titulo": "Frequently asked questions about Bulx",
+   "desc": "Answers about Bulx: installation, importing the inventory, permissions, where the data is stored, pricing and the trial period.",
+   "eyebrow": "FAQ",
+   "h1": "Frequently asked <em>questions.</em>",
+   "sub": "If your question is not here, write to info@bulx.es. We reply the same day."
+  },
+  "software-productoras-audiovisuales": {
+   "nombre": "Production company software",
+   "titulo": "Management software for production companies",
+   "desc": "Software for audiovisual production companies: gear inventory with QR labels, production fleet, rental quotes, crew and finance in one application.",
+   "eyebrow": "Software for audiovisual production companies",
+   "h1": "Management software <em>for audiovisual production companies.</em>",
+   "sub": "Bulx brings together in one application what a production company usually spreads across Excel sheets, messages and folders: the gear inventory, the vehicle fleet, rental quotes, crew and finance. It was developed inside a production company in Mallorca and is used there on real shoots.",
+   "cifras": [
+    [
+     "6",
+     "areas of the production company in a single application"
+    ],
+    [
+     "711",
+     "items managed at the production company where it was developed"
+    ],
+    [
+     "14 days",
+     "free trial"
+    ]
+   ],
+   "bloques": [
+    [
+     "Gear inventory",
+     "One record per item, with serial number, photos, category and status. Kits with their contents, dimensions and weight per case, and a record of every check-out and every return."
+    ],
+    [
+     "Production fleet",
+     "Vehicle booking calendar by project, MOT (roadworthiness test) and insurance reminders, breakdown reports from the phone and check-out and return photos."
+    ],
+    [
+     "Rental quotes",
+     "Built from the catalogue, with a price per day. The client accepts them online from a link and the gear is reserved for those dates."
+    ],
+    [
+     "Staff and crew",
+     "Staff and crew records, hours allocated to the project from the phone or the Apple Watch, permissions by area and internal chat."
+    ],
+    [
+     "Finance",
+     "Quoted, accepted and invoiced amounts by project, client and month, with an Excel report and a connection for Power BI."
+    ],
+    [
+     "IT inventory",
+     "Laptops, phones, lines, MiFi routers and licences assigned to each person, with the return list when someone leaves."
+    ]
+   ],
+   "pasos": [
+    [
+     "Import what already exists",
+     "The inventory, the vehicles and the people are imported from Excel sheets."
+    ],
+    [
+     "Label gear and vehicles",
+     "QR labels are printed from Bulx and scanned with any phone."
+    ],
+    [
+     "Work from one place",
+     "Bookings, check-outs, quotes and hours are recorded and linked to the project."
+    ]
+   ],
+   "faq": [
+    [
+     "What is management software for audiovisual production companies?",
+     "It is software that runs the operational side of a production company: what gear there is and where it is, which vehicles are booked, what has been quoted and accepted, and who is working on each project. It is not video editing software or shoot scheduling software."
+    ],
+    [
+     "How does it differ from a project management tool or a generic ERP?",
+     "It starts from the way a production company works: items that go out on a shoot and come back, kits, vehicles with MOT dates, quotes by day and by department, crew by project. Generic software requires that work to be adapted to its screens."
+    ],
+    [
+     "What kind of production company is it for?",
+     "For advertising, film, television and production service companies that have their own gear, vehicles or a team that goes out on shoots, and for equipment rental houses."
+    ],
+    [
+     "Does it replace accounting software?",
+     "No. Bulx handles the quote up to acceptance; the invoice is issued with the usual accounting software and the quote is marked as invoiced."
+    ],
+    [
+     "Is there a trial?",
+     "Yes. There is a 14-day free trial, and a demo by video call using the production company’s own gear."
+    ]
+   ]
+  },
+  "alquiler-material-audiovisual": {
+   "nombre": "Equipment rental",
+   "titulo": "Film equipment rental software",
+   "desc": "AV rental software: catalogue with day rates, reservation by date, quotes accepted online and check-outs and returns tracked with QR labels.",
+   "eyebrow": "Audiovisual equipment rental software",
+   "h1": "Audiovisual equipment rental, <em>from quote to return.</em>",
+   "sub": "For rental houses and for production companies that rent out their own gear. The catalogue has a day rate; the quote is built from it and sent as a link; when the client accepts, the gear is reserved; check-out and return are recorded by scanning the label on each item.",
+   "cifras": [
+    [
+     "Per day",
+     "rate for each item in the catalogue"
+    ],
+    [
+     "1 link",
+     "per quote, with no account needed for the client"
+    ],
+    [
+     "With QR",
+     "every check-out and every return"
+    ]
+   ],
+   "bloques": [
+    [
+     "Catalogue with day rates",
+     "Each item and each kit has its price per day. The quote calculates the amounts by day and by department, with discounts, and with or without VAT depending on the settings."
+    ],
+    [
+     "Reservation by date",
+     "When a quote is accepted, the gear and vehicles are reserved for the project period and cannot be assigned to another project on the same dates."
+    ],
+    [
+     "Online acceptance",
+     "The client opens the quote in the browser, in the house style, and accepts it or requests changes. The time it was opened and the time it was accepted are both recorded."
+    ],
+    [
+     "Check-outs and returns with QR",
+     "Gear is scanned on the way out and on the way back. Anything missing or returned damaged is flagged on the return, with photos, and creates a repair order."
+    ],
+    [
+     "Client record",
+     "Tax details, contacts, terms and all the client’s quotes: accepted, pending and expired, with the amounts for the year."
+    ],
+    [
+     "Documents in the house style",
+     "The quote is exported to PDF and to Word with the logo, the tax details and the terms, from the default templates or from one of your own."
+    ]
+   ],
+   "pasos": [
+    [
+     "Load the catalogue",
+     "It is imported from Excel, with the categories and the day rate of each item."
+    ],
+    [
+     "Quote from the catalogue",
+     "Client, dates and gear. The quote is sent by email as a link, and every change creates a version."
+    ],
+    [
+     "Hand over and collect with the label",
+     "Check-out and return are recorded by scanning each item or each kit."
+    ]
+   ],
+   "faq": [
+    [
+     "Is it suitable for a camera, lighting or grip rental house?",
+     "Yes. The catalogue accepts any category of gear, kits with their contents and vehicles, each with its day rate."
+    ],
+    [
+     "Does the client need to register to accept a quote?",
+     "No. They receive a link that opens in the browser. The link has an expiry date and can be revoked."
+    ],
+    [
+     "What happens if the client does not reply?",
+     "A reminder is sent by email after the configured number of days, and it is logged in the quote history."
+    ],
+    [
+     "Can vehicles be rented out as well?",
+     "Yes. Quotes include gear and vehicles, and both are reserved on acceptance."
+    ],
+    [
+     "Does Bulx issue the rental invoices?",
+     "No. The invoice is issued with the usual accounting software; in Bulx the quote is marked as invoiced so that the reports reconcile."
+    ]
+   ]
+  },
+  "inventario-codigos-qr": {
+   "nombre": "QR inventory",
+   "titulo": "QR code inventory for film equipment",
+   "desc": "QR labels for cameras, lights, cases and vehicles: printed from Bulx and scanned with a phone to record check-outs, returns and issues.",
+   "eyebrow": "QR code inventory",
+   "h1": "A QR code inventory <em>for film equipment.</em>",
+   "sub": "Each item, each case and each vehicle carries a label with a QR code. Scanning it with a phone camera opens its record and logs the movement: who takes it, when and for which project. Labels are generated and printed from Bulx.",
+   "cifras": [
+    [
+     "711",
+     "items labelled at the production company where it was developed"
+    ],
+    [
+     "No scanner",
+     "a phone camera is enough"
+    ],
+    [
+     "1 label",
+     "per item, case or vehicle"
+    ]
+   ],
+   "bloques": [
+    [
+     "Labels generated in Bulx",
+     "Bulx assigns a code to each item and generates its label. Labels are printed on any printer, in whichever format is preferred, and can be reprinted."
+    ],
+    [
+     "Scanned with a phone",
+     "No barcode scanner is needed and nothing has to be installed: the phone camera opens the record. The iPhone and iPad app has its own scanner."
+    ],
+    [
+     "Check-out and return on the spot",
+     "Scanning records who takes the item, when and for which project. On return, what has come back and its condition are checked."
+    ],
+    [
+     "Cases and kits",
+     "A case or a kit has its own label and its contents. It goes out and comes back as one unit, and on return it is clear which part is missing."
+    ],
+    [
+     "Vehicles and devices too",
+     "Vehicles and IT devices carry labels as well. On a vehicle, the scan records who is taking it and at what mileage."
+    ],
+    [
+     "Public page without sensitive data",
+     "Anyone who scans a label without having an account sees a public page for the item that shows neither serial numbers nor prices."
+    ]
+   ],
+   "pasos": [
+    [
+     "Add or import the gear",
+     "Item by item or from an Excel sheet. Each one is given its code."
+    ],
+    [
+     "Print and stick on the labels",
+     "One per item or per case, and one per vehicle."
+    ],
+    [
+     "Scan at every movement",
+     "On the way out and on the way back. Each item’s history is kept on its record."
+    ]
+   ],
+   "faq": [
+    [
+     "Why QR codes and not barcodes?",
+     "Because a QR code can be read with any phone camera, without a scanner, and opens the item record directly in the browser."
+    ],
+    [
+     "What printer is needed?",
+     "Any printer. Labels are generated in Bulx and printed on adhesive paper or on a label printer."
+    ],
+    [
+     "What does an outsider see on scanning the label?",
+     "A public page for the item, which shows neither serial numbers nor prices."
+    ],
+    [
+     "What happens if a label is damaged?",
+     "It is reprinted from Bulx. The item code does not change."
+    ],
+    [
+     "Does it work without signal?",
+     "With the app, viewing data that is already loaded and scanning both work offline; changes are sent when the connection returns."
+    ]
+   ]
+  },
+  "plantilla-inventario-material": {
+   "nombre": "Inventory template",
+   "titulo": "Film equipment inventory template (Excel)",
+   "desc": "Free Excel template for an audiovisual equipment inventory: code, category, quantity, day rate, serial number and location.",
+   "eyebrow": "Free Excel template",
+   "h1": "Inventory template <em>for film equipment, in Excel.</em>",
+   "sub": "A free Excel sheet, with no registration, containing the columns that a production company or a rental house needs for its equipment inventory. It works on its own and, if you later want to move to Bulx, it can be imported without changing anything.",
+   "cifras": [
+    [
+     "9",
+     "columns: from code to notes"
+    ],
+    [
+     ".xlsx",
+     "for Excel, Numbers or Google Sheets"
+    ],
+    [
+     "Free",
+     "and no registration"
+    ]
+   ],
+   "bloques": [
+    [
+     "Code and name",
+     "One code per item (for example, CAM-0001) and its name. The name is the only required column; the code is used for the label and to avoid duplicates."
+    ],
+    [
+     "Category and subcategory",
+     "In a single column, with the full path separated by ‘ > ’: ‘Lighting > Stands’. This allows the inventory to be filtered and sorted by department."
+    ],
+    [
+     "Quantity",
+     "The number of units of that item. For gear with a serial number, one row per unit is advisable; for consumables or identical parts, one row with the quantity."
+    ],
+    [
+     "Price per day",
+     "The rental rate for each item, which is the basis of any quote priced by the day."
+    ],
+    [
+     "Serial number and location",
+     "The serial number identifies each unit for insurance or repair purposes; the location says which warehouse, shelf or case it is in."
+    ],
+    [
+     "Department and notes",
+     "The department it belongs to (camera, lighting, grip, sound) and any remarks: accessories included, condition, purchase date."
+    ]
+   ],
+   "pasos": [
+    [
+     "Download and fill in",
+     "One row per item, without changing the headers. The second sheet explains each column."
+    ],
+    [
+     "Keep it up to date",
+     "Every addition, removal or change of location is noted in the same sheet."
+    ],
+    [
+     "Import it into Bulx, if you wish",
+     "Bulx reads the template as it is, creates the categories and assigns a QR label to each item."
+    ]
+   ],
+   "faq": [
+    [
+     "Is the template free?",
+     "Yes. It can be downloaded without registration and used and modified freely."
+    ],
+    [
+     "Which programs open it?",
+     "Microsoft Excel, Numbers and Google Sheets. It is an .xlsx file without macros."
+    ],
+    [
+     "Which columns are required?",
+     "Only the name. The rest can be filled in gradually."
+    ],
+    [
+     "When does an Excel sheet stop being enough?",
+     "When you need to know who has each item and since when, to prevent something being reserved twice for the same dates, or to record the condition in which gear comes back. A sheet holds the list, not the movements."
+    ],
+    [
+     "Can it be imported into Bulx?",
+     "Yes. The template headers are the ones Bulx reads. Before importing, Bulx shows which items will be added and which categories will be created."
+    ]
+   ],
+   "cta_texto": "Download the template (.xlsx)"
+  }
+ },
+ "faq_general": [
+  [
+   "Do I need to install anything?",
+   "No. Bulx is a web application used from the browser. The iPhone, iPad and Apple Watch app is optional and is meant for work done on your feet: scanning, booking and clocking in."
+  ],
+  [
+   "Can the current inventory be imported?",
+   "Yes. It is imported from an Excel sheet; Bulx organises it by department and assigns a code to each item. Anything that does not fit is flagged for review."
+  ],
+  [
+   "Who sees what?",
+   "Each person sees the areas they have permission for: production, fleet, gear, IT. Prices and finance are only visible with Finance permission."
+  ],
+  [
+   "Where is the data stored?",
+   "On servers in Frankfurt (Germany), with backups. Every change is recorded with the person, the action and the date."
+  ],
+  [
+   "What size of production company is it meant for?",
+   "It was developed at a production company with over 700 items, 29 vehicles and 180 people between staff and crew. It also works for much smaller volumes; there is no minimum."
+  ],
+  [
+   "How much does it cost?",
+   "It depends on the volume of gear and the number of people. It is set out in writing at the demo."
+  ],
+  [
+   "Does it work on a phone?",
+   "Yes. The web version is adapted to mobile screens and there is also an app for iPhone, iPad and Apple Watch with a label scanner, bookings and chat."
+  ],
+  [
+   "Can it be tried before signing up?",
+   "Yes. There is a 14-day free trial that can be started from this website, and the demo uses the production company’s own gear."
+  ]
+ ],
+ "mock": {
+  "bulx.es · Inventario": "bulx.es · Inventory",
+  "ARRI Alexa Mini": "ARRI Alexa Mini",
+  "Camera · 1 ud. · 950": "Camera · 1 unit · 950",
+  "En casa": "At base",
+  "Kit SkyPanel S60": "SkyPanel S60 kit",
+  "Lights · 4 cajas · 38 kg": "Lights · 4 cases · 38 kg",
+  "En uso · Serie Levante": "In use · Levante series",
+  "Dolly Fisher 10": "Dolly Fisher 10",
+  "Grip · 1 ud.": "Grip · 1 unit",
+  "Taller": "Repair",
+  "Easyrig 3": "Easyrig 3",
+  "Grip · 1 ud. · 4040": "Grip · 1 unit · 4040",
+  "bulx.es · Calendario de flota": "bulx.es · Fleet calendar",
+  "V-01 · Furgoneta": "V-01 · Furgoneta",
+  "Spot Meridiano": "Meridiano commercial",
+  "V-02 · Furgoneta": "V-02 · Furgoneta",
+  "Serie Levante": "Levante series",
+  "W1 · Sprinter": "W1 · Sprinter",
+  "Vestuario": "Wardrobe",
+  "GC3 · PickUp": "GC3 · PickUp",
+  "Localizaciones": "Location scout",
+  "V-04 · Furgón": "V-04 · Furgón",
+  "Fin de semana": "Weekend shoot",
+  "bulx.es · Presupuestos": "bulx.es · Quotes",
+  "aceptados en 2026": "accepted in 2026",
+  "en el aire": "pending",
+  "borradores": "drafts",
+  "PRE-2026-014 · Meridiano Films": "PRE-2026-014 · Meridiano Films",
+  "Enviado hace 2 días": "Sent 2 days ago",
+  "Enviado": "Sent",
+  "PRE-2026-013 · Levante Series": "PRE-2026-013 · Levante Series",
+  "Aceptado por el cliente": "Accepted by the client",
+  "Aceptado": "Accepted",
+  "PRE-2026-012 · Estudio Faro": "PRE-2026-012 · Estudio Faro",
+  "Pidió cambios": "Changes requested",
+  "Revisión": "Review",
+  "bulx.es · IT Stock": "bulx.es · IT Stock",
+  "libres para entregar": "free to hand out",
+  "en uso": "in use",
+  "en el taller": "in repair",
+  "MacBook Air 13\"": "MacBook Air 13\"",
+  "Laura Vidal · desde 2024": "Laura Vidal · since 2024",
+  "En uso": "In use",
+  "iPhone 16": "iPhone 16",
+  "Libre · en el armario": "Free · in the cabinet",
+  "Disponible": "Available",
+  "MiFi 3 · Nighthawk": "MiFi 3 · Nighthawk",
+  "Fuera · Meridiano Films": "Out · Meridiano Films",
+  "En rodaje": "On a shoot",
+  "bulx.es · Chat del equipo": "bulx.es · Team chat",
+  "Marta": "Marta",
+  "¿Qué furgoneta me llevo mañana a Sóller?": "Which van do I take to Sóller tomorrow?",
+  "Tú": "You",
+  "La V-02, ya está reservada.": "V-02. It is already booked.",
+  "14 – 16 oct · Rodaje en Sóller": "14 – 16 Oct · Shoot in Sóller",
+  "Perfecto. ¿Y el presupuesto de luces?": "Great. And the lighting quote?",
+  "Aceptado ayer.": "Accepted yesterday.",
+  "PRE-2026-013": "PRE-2026-013",
+  "Aceptado · 3.400 €": "Accepted · 3.400 €",
+  "bulx.es · Economía": "bulx.es · Finance",
+  "embudo comercial": "sales funnel",
+  "ingreso firme": "confirmed income",
+  "enviado": "sent",
+  "Meridiano Films": "Meridiano Films",
+  "3 presupuestos · 9.300 €": "3 quotes · 9.300 €",
+  "Firme": "Confirmed",
+  "Levante Series": "Levante Series",
+  "2 presupuestos · 6.100 €": "2 quotes · 6.100 €",
+  "En el aire": "Pending",
+  "Estudio Faro": "Estudio Faro",
+  "2 presupuestos · 3.000 €": "2 quotes · 3.000 €",
+  "Facturado": "Invoiced",
+  "Bulx · iPhone": "Bulx · iPhone",
+  "Contigo hasta el jueves": "With you until Thursday",
+  "Reservada": "Booked",
+  "4 cajas · 38 kg": "4 cases · 38 kg",
+  "Escaneado": "Scanned",
+  "Tus horas de hoy": "Your hours today",
+  "9 h · Rodaje en Sóller": "9 h · Shoot in Sóller",
+  "Fichado": "Clocked in",
+  "PRESUP-2026-106": "PRESUP-2026-106",
+  "Aceptado hace 2 min": "Accepted 2 min ago",
+  "Aviso": "Alert",
+  "bulx.es · Registro de actividad": "bulx.es · Activity log",
+  "Laura Vidal": "Laura Vidal",
+  "Entró con Apple · 08:02": "Signed in with Apple · 08:02",
+  "Acceso": "Access",
+  "Marta Pons": "Marta Pons",
+  "Reservó la V-02 · 08:14": "Booked V-02 · 08:14",
+  "Flota": "Fleet",
+  "Administrador": "Administrator",
+  "Cambió permisos de Lucas · 09:30": "Changed Lucas’s permissions · 09:30",
+  "Sistema": "System",
+  "Cliente": "Client",
+  "Aceptó PRE-2026-013 · 10:41": "Accepted PRE-2026-013 · 10:41",
+  "Presupuestos": "Quotes",
+  "Media hora, tres cosas": "Half an hour, three things",
+  "Tu material, dentro": "Your gear, in Bulx",
+  "Subimos tu Excel en directo": "Your Excel sheet, imported live",
+  "10 min": "10 min",
+  "Un día de rodaje": "A shooting day",
+  "Reserva, escaneo, presupuesto": "Booking, scan, quote",
+  "15 min": "15 min",
+  "Números claros": "Clear figures",
+  "Qué cuesta y qué incluye": "What it costs and what it includes",
+  "5 min": "5 min",
+  "Palma Pictures · 2026": "Palma Pictures · 2026",
+  "artículos": "items",
+  "vehículos": "vehicles",
+  "personas": "people",
+  "Agosto de 2026": "August 2026",
+  "Nace como Stock IT: el almacén en una web": "Started as Stock IT: the warehouse on the web",
+  "Inicio": "Start",
+  "Octubre de 2026": "October 2026",
+  "Se llama Bulx y sale al mundo": "Renamed Bulx and offered to others",
+  "Hoy": "Today",
+  "bulx.es · Inicio": "bulx.es · Home",
+  "vehículos libres": "vehicles free",
+  "material en casa": "gear at base",
+  "presupuestos": "quotes",
+  "Rodaje · 14 – 16 oct": "Shoot · 14 – 16 Oct",
+  "En curso": "In progress",
+  "Preparación · 3 semanas": "Prep · 3 weeks",
+  "Confirmado": "Confirmed",
+  "Kit de iluminación · 5 días": "Lighting kit · 5 days",
+  "bulx.es · Presupuesto": "bulx.es · Quote",
+  "Cámara · 5 días": "Camera · 5 days",
+  "Reservado": "Reserved",
+  "Iluminación · 4 cajas · 5 días": "Lighting · 4 cases · 5 days",
+  "Grip · 3 días": "Grip · 3 days",
+  "En taller": "In repair",
+  "Furgoneta V-02": "Van V-02",
+  "Vehículo · 5 días": "Vehicle · 5 days",
+  "bulx.es · Fichas QR": "bulx.es · QR records",
+  "Etiqueta CAM-0012": "Label CAM-0012",
+  "Escaneado · sale": "Scanned · out",
+  "Caja 3 · Kit SkyPanel": "Case 3 · SkyPanel kit",
+  "Etiqueta LUZ-0147": "Label LUZ-0147",
+  "Etiqueta de vehículo": "Vehicle label",
+  "Monitor 17\"": "17\" monitor",
+  "Etiqueta CAM-0088": "Label CAM-0088",
+  "plantilla-inventario-material-rodaje.xlsx": "equipment-inventory-template.xlsx",
+  "CAM-0001 · ARRI Alexa Mini": "CAM-0001 · ARRI Alexa Mini",
+  "950 €/día": "950 €/day",
+  "LUZ-0001 · SkyPanel S60-C": "LUZ-0001 · SkyPanel S60-C",
+  "120 €/día": "120 €/day",
+  "GRP-0001 · Trípode Sachtler": "GRP-0001 · Sachtler tripod",
+  "45 €/día": "45 €/day",
+  "SON-0001 · Pértiga 3 m": "SON-0001 · 3 m boom pole",
+  "15 €/día": "15 €/day",
+  "Cámara &gt; Cuerpos · 1 ud.": "Camera > Bodies · 1 unit",
+  "Iluminación &gt; LED · 4 uds.": "Lighting > LED · 4 units",
+  "Grip &gt; Soportes · 2 uds.": "Grip > Supports · 2 units",
+  "Sonido &gt; Accesorios · 3 uds.": "Sound > Accessories · 3 units"
+ },
+ "excel": {
+  "hojas": [
+   "Inventory",
+   "How to fill it in"
+  ],
+  "titulo": "Film equipment inventory template",
+  "intro": "One row per item in the ‘Inventory’ sheet. Do not change the headers. Only the name is required. The example rows can be deleted.",
+  "cabecera": [
+   "Column",
+   "What goes in it"
+  ],
+  "importar": [
+   "Import into Bulx",
+   "This template can be imported into Bulx as it is (Material › Importar Excel): Bulx creates the categories, assigns a QR label to each item and, before importing, shows what will be added. More information at https://bulx.es/en/equipment-inventory-template/"
+  ],
+  "columnas": [
+   [
+    "Code",
+    "A short, unique code per item. For example, three letters for the department and a number: CAM-0001. This is the code that goes on the label."
+   ],
+   [
+    "Name",
+    "REQUIRED. The name by which the item is known in the warehouse: make, model and whatever distinguishes it."
+   ],
+   [
+    "Category",
+    "The full path, separated by ‘ > ’: ‘Lighting > LED’. Any depth can be used."
+   ],
+   [
+    "Quantity",
+    "Units of that item. For gear with a serial number, one row per unit and quantity 1."
+   ],
+   [
+    "Price per day",
+    "Rental rate per day, excluding VAT. Leave it empty if the item is not rented out."
+   ],
+   [
+    "Serial number",
+    "The manufacturer’s serial number. It identifies the unit in the event of an insurance claim, a repair or a theft."
+   ],
+   [
+    "Location",
+    "Where it is kept: warehouse, shelf, flight case or box."
+   ],
+   [
+    "Department",
+    "Camera, Lighting, Grip, Sound, Production… Whichever is responsible for the item."
+   ],
+   [
+    "Notes",
+    "Accessories included, condition, purchase date or any other remark."
+   ]
+  ],
+  "ejemplos": [
+   [
+    "CAM-0001",
+    "ARRI Alexa Mini (body)",
+    "Camera > Bodies",
+    1,
+    950,
+    "K1.0003873-EXAMPLE",
+    "Warehouse 1 · Shelf A",
+    "Camera",
+    "With cage and baseplate. Example row: it can be deleted."
+   ],
+   [
+    "CAM-0002",
+    "Zeiss CP.3 lens set (5 lenses)",
+    "Camera > Lenses",
+    1,
+    300,
+    "",
+    "Warehouse 1 · Flight case 4",
+    "Camera",
+    "21, 28, 35, 50 and 85 mm. Example row."
+   ],
+   [
+    "CAM-0003",
+    "17\" field monitor",
+    "Camera > Monitors",
+    2,
+    90,
+    "",
+    "Warehouse 1 · Shelf B",
+    "Camera",
+    "Example row."
+   ],
+   [
+    "LUZ-0001",
+    "ARRI SkyPanel S60-C",
+    "Lighting > LED",
+    4,
+    120,
+    "",
+    "Warehouse 1 · Flight case 7",
+    "Lighting",
+    "Each with its power supply and cable. Example row."
+   ],
+   [
+    "LUZ-0002",
+    "Combo stand",
+    "Lighting > Stands",
+    8,
+    12,
+    "",
+    "Warehouse 1 · Trolley 2",
+    "Lighting",
+    "Example row."
+   ],
+   [
+    "GRP-0001",
+    "Sachtler tripod with fluid head",
+    "Grip > Supports",
+    2,
+    45,
+    "",
+    "Warehouse 1 · Shelf C",
+    "Grip",
+    "Example row."
+   ],
+   [
+    "SON-0001",
+    "3 m boom pole",
+    "Sound > Accessories",
+    3,
+    15,
+    "",
+    "Warehouse 2 · Box 1",
+    "Sound",
+    "Example row."
+   ],
+   [
+    "PRO-0001",
+    "Walkie-talkie",
+    "Production > Communication",
+    12,
+    8,
+    "",
+    "Warehouse 2 · Carry case 3",
+    "Production",
+    "With charger and earpiece. Example row."
+   ]
+  ]
+ }
+}

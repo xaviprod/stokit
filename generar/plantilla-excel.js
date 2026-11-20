@@ -1,7 +1,7 @@
 /* bulx.es · la plantilla de inventario que se descarga en
    /plantilla-inventario-material/ (20/11/2026).
 
-     node generar/plantilla-excel.js     → descargas/plantilla-inventario-material-rodaje.xlsx
+     node generar/plantilla-excel.js     → descargas/*.xlsx, una por idioma
 
    Las cabeceras son las que lee «Importar Excel» de Bulx (nombre, código,
    categoría con la ruta «A > B», cantidad, precio por día, número de serie,
@@ -10,6 +10,7 @@
    material corriente, con tarifas de muestra.
 
    Usa exceljs, que ya está en el proyecto de la aplicación (carpeta de arriba). */
+const fs = require('fs');
 const path = require('path');
 const ExcelJS = require(path.join(__dirname, '..', '..', 'node_modules', 'exceljs'));
 
@@ -36,42 +37,63 @@ const EJEMPLOS = [
   ['PRO-0001', 'Walkie-talkie', 'Producción > Comunicación', 12, 8, '', 'Almacén 2 · Maleta 3', 'Producción', 'Con cargador y auricular. Fila de ejemplo.'],
 ];
 
-(async () => {
+const TEXTOS = {
+  hojas: ['Inventario', 'Cómo se rellena'],
+  titulo: 'Plantilla de inventario de material de rodaje',
+  intro: 'Una fila por artículo en la hoja «Inventario». No hay que cambiar las cabeceras. Solo el nombre es obligatorio. Las filas de ejemplo se pueden borrar.',
+  cabecera: ['Columna', 'Qué se pone'],
+  importar: ['Importar en Bulx', 'Esta plantilla se importa tal cual en Bulx (Material › Importar Excel): crea las categorías, asigna una etiqueta QR a cada artículo y, antes de importar, enseña qué va a entrar. Más información en https://bulx.es/plantilla-inventario-material/'],
+};
+/* Cada idioma: el fichero que se descarga y sus textos. El inglés y el alemán
+   salen de generar/paginas-en.json y paginas-de.json (clave «excel»); sus
+   cabeceras también las entiende «Importar Excel». */
+const { FICHEROS } = require('./idiomas-paginas');
+const ANCHOS = COLUMNAS.map(([, w]) => w);
+
+async function escribir(lang, d) {
   const libro = new ExcelJS.Workbook();
   libro.creator = 'Bulx · bulx.es'; libro.created = new Date(2026, 10, 20);
   const fino = { style: 'thin', color: { argb: RAYA } };
 
   /* ── Hoja 1: el inventario ── */
-  const h = libro.addWorksheet('Inventario', { views: [{ state: 'frozen', ySplit: 1 }] });
-  h.columns = COLUMNAS.map(([c, w]) => ({ header: c, width: w }));
+  const h = libro.addWorksheet(d.hojas[0], { views: [{ state: 'frozen', ySplit: 1 }] });
+  h.columns = d.columnas.map(([c], i) => ({ header: c, width: ANCHOS[i] }));
   h.getRow(1).height = 26;
   h.getRow(1).eachCell(c => { c.font = { bold: true, color: { argb: AMARILLO }, size: 11 }; c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: TINTA } }; c.alignment = { vertical: 'middle' }; });
-  EJEMPLOS.forEach(f => h.addRow(f));
+  d.ejemplos.forEach(f => h.addRow(f));
   for (let r = 2; r <= 400; r++) {
     const fila = h.getRow(r);
-    for (let c = 1; c <= COLUMNAS.length; c++) fila.getCell(c).border = { bottom: fino };
+    for (let c = 1; c <= d.columnas.length; c++) fila.getCell(c).border = { bottom: fino };
     fila.getCell(4).alignment = { horizontal: 'center' };
     fila.getCell(5).numFmt = '#,##0.00 "€"';
   }
-  h.autoFilter = { from: 'A1', to: { row: 1, column: COLUMNAS.length } };
+  h.autoFilter = { from: 'A1', to: { row: 1, column: d.columnas.length } };
 
   /* ── Hoja 2: cómo se rellena ── */
-  const c = libro.addWorksheet('Cómo se rellena');
+  const c = libro.addWorksheet(d.hojas[1]);
   c.columns = [{ width: 20 }, { width: 100 }];
-  c.addRow(['Plantilla de inventario de material de rodaje']).font = { bold: true, size: 16 };
-  c.addRow(['Una fila por artículo en la hoja «Inventario». No hay que cambiar las cabeceras. Solo el nombre es obligatorio. Las filas de ejemplo se pueden borrar.']);
+  c.addRow([d.titulo]).font = { bold: true, size: 16 };
+  c.addRow([d.intro]);
   c.addRow([]);
-  const cab = c.addRow(['Columna', 'Qué se pone']);
+  const cab = c.addRow(d.cabecera);
   cab.eachCell(x => { x.font = { bold: true, color: { argb: AMARILLO } }; x.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: TINTA } }; });
-  COLUMNAS.forEach(([n, , d]) => { const f = c.addRow([n, d]); f.getCell(1).font = { bold: true }; f.getCell(2).alignment = { wrapText: true, vertical: 'top' }; f.getCell(1).alignment = { vertical: 'top' }; });
+  d.columnas.forEach(([n, desc]) => { const f = c.addRow([n, desc]); f.getCell(1).font = { bold: true }; f.getCell(2).alignment = { wrapText: true, vertical: 'top' }; f.getCell(1).alignment = { vertical: 'top' }; });
   c.addRow([]);
-  const pie = c.addRow(['Importar en Bulx', 'Esta plantilla se importa tal cual en Bulx (Material › Importar Excel): crea las categorías, asigna una etiqueta QR a cada artículo y, antes de importar, enseña qué va a entrar. Más información en https://bulx.es/plantilla-inventario-material/']);
+  const pie = c.addRow(d.importar);
   pie.getCell(1).font = { bold: true }; pie.getCell(2).alignment = { wrapText: true, vertical: 'top' };
   pie.eachCell(x => { x.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: SUAVE } }; });
-  c.getRow(2).getCell(1).alignment = { wrapText: false };
 
-  const destino = path.join(__dirname, '..', 'descargas', 'plantilla-inventario-material-rodaje.xlsx');
-  require('fs').mkdirSync(path.dirname(destino), { recursive: true });
+  const destino = path.join(__dirname, '..', 'descargas', FICHEROS[lang]);
+  fs.mkdirSync(path.dirname(destino), { recursive: true });
   await libro.xlsx.writeFile(destino);
-  console.log('  ✓ ' + path.relative(path.join(__dirname, '..'), destino));
+  console.log('  ✓ descargas/' + FICHEROS[lang]);
+}
+
+module.exports = { COLUMNAS, EJEMPLOS, TEXTOS, FICHEROS };
+if (require.main === module) (async () => {
+  await escribir('es', { ...TEXTOS, columnas: COLUMNAS.map(([n, , d]) => [n, d]), ejemplos: EJEMPLOS });
+  for (const lang of ['en', 'de']) {
+    const f = path.join(__dirname, `paginas-${lang}.json`);
+    if (fs.existsSync(f)) await escribir(lang, JSON.parse(fs.readFileSync(f, 'utf8')).excel);
+  }
 })();

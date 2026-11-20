@@ -72,8 +72,8 @@ const PAGINAS = [
   },
   {
     slug: 'flota', nombre: 'Flota', area: 'Producto', ico: 'flota',
-    titulo: 'Gestión de flota para productoras: reservas, ITV y partes',
-    desc: 'Calendario de reservas de vehículos por proyecto, control de ITV, seguro y revisiones con avisos, partes de avería y registro de salidas y devoluciones.',
+    titulo: 'Gestión de flota de rodaje: reservas, ITV y partes',
+    desc: 'Calendario de reservas de vehículos de rodaje por proyecto, avisos de ITV, seguro y revisiones, partes de avería y registro de salidas y devoluciones.',
     eyebrow: 'Flota',
     h1: 'La flota de producción, <em>en un calendario de reservas.</em>',
     sub: 'Cada vehículo tiene su ficha, su documentación con fechas de vencimiento y su historial. Las reservas se hacen por proyecto y por días; las salidas y devoluciones se registran escaneando la etiqueta del vehículo.',
@@ -93,7 +93,7 @@ const PAGINAS = [
   {
     slug: 'presupuestos', nombre: 'Presupuestos', area: 'Producto', ico: 'presupuestos',
     titulo: 'Presupuestos de alquiler de material y vehículos',
-    desc: 'Presupuestos compuestos desde el catálogo, con versiones, envío por enlace, aceptación del cliente en línea, recordatorios programados y reserva automática del material.',
+    desc: 'Presupuestos de alquiler desde el catálogo: versiones, envío por enlace, aceptación del cliente en línea, recordatorios y reserva automática del material.',
     eyebrow: 'Presupuestos',
     h1: 'Presupuestos desde el catálogo, <em>aceptados en línea.</em>',
     sub: 'El presupuesto se compone con el material y los vehículos del catálogo, por días y por departamento. Se envía al cliente como un enlace; al aceptarlo, el material queda reservado para esas fechas. Cada cambio genera una versión.',
@@ -112,7 +112,7 @@ const PAGINAS = [
   },
   {
     slug: 'tecnologia', nombre: 'Tecnología', area: 'Producto', ico: 'tecnologia',
-    titulo: 'Inventario IT de una productora: equipos, líneas y licencias',
+    titulo: 'Inventario informático: equipos, líneas y licencias',
     desc: 'Equipos informáticos, líneas de teléfono, routers MiFi y licencias de software asignados a cada persona. Altas y bajas con lista de devolución.',
     eyebrow: 'Tecnología',
     h1: 'Equipos, líneas y licencias, <em>asignados a cada persona.</em>',
@@ -132,8 +132,8 @@ const PAGINAS = [
   },
   {
     slug: 'equipo', nombre: 'Equipo y rodajes', area: 'Producto', ico: 'equipo',
-    titulo: 'Equipo y crew de una productora: horas, proyectos y chat',
-    desc: 'Fichas de empleados y crew, registro de horas por proyecto desde el móvil y el Apple Watch, coste de los días in-house, permisos por área y chat interno con referencias a presupuestos y material.',
+    titulo: 'Equipo y crew de rodaje: horas, permisos y chat',
+    desc: 'Fichas de empleados y crew, horas por proyecto desde el móvil o el Apple Watch, coste de los días in-house, permisos por área y chat interno.',
     eyebrow: 'Equipo y rodajes',
     h1: 'Las personas, sus horas <em>y sus proyectos.</em>',
     sub: 'Empleados y crew con su ficha, su departamento y el material que tienen asignado. Las horas se registran desde la app o el Apple Watch y se imputan al proyecto. El chat interno permite citar un presupuesto, un vehículo o un artículo con su estado actual.',
@@ -152,7 +152,7 @@ const PAGINAS = [
   },
   {
     slug: 'economia', nombre: 'Economía', area: 'Producto', ico: 'economia',
-    titulo: 'Economía de la productora: presupuestos, Excel y Power BI',
+    titulo: 'Economía de la productora: informes, Excel y Power BI',
     desc: 'Importes presupuestados, aceptados y contabilizados por proyecto, cliente y mes. Informe en Excel con gráficos y conexión de datos en directo para Power BI.',
     eyebrow: 'Economía',
     h1: 'Lo presupuestado, lo aceptado <em>y lo facturado.</em>',
@@ -173,7 +173,7 @@ const PAGINAS = [
   {
     slug: 'app', nombre: 'App', area: 'Producto', ico: 'app',
     titulo: 'La app de Bulx para iPhone, iPad y Apple Watch',
-    desc: 'Escáner de etiquetas QR, reservas de vehículos, registro de horas desde el Apple Watch, chat interno y notificaciones. Acceso con Face ID y verificación en dos pasos.',
+    desc: 'App de Bulx para iPhone, iPad y Apple Watch: escáner de etiquetas QR, reservas de vehículos, registro de horas, chat interno y notificaciones.',
     eyebrow: 'En el iPhone, el iPad y el Apple Watch',
     h1: 'Lo esencial de Bulx, <em>desde el móvil.</em>',
     sub: 'La app cubre el trabajo que se hace de pie: escanear etiquetas, registrar salidas y devoluciones, reservar vehículos, fichar y consultar el material, la flota y los proyectos. Los presupuestos se consultan en la app y se elaboran en la web.',
@@ -193,7 +193,7 @@ const PAGINAS = [
   {
     slug: 'seguridad', nombre: 'Seguridad', area: 'Bulx', ico: 'seguridad',
     titulo: 'Seguridad y protección de datos en Bulx',
-    desc: 'Acceso con Apple, Google o contraseña con verificación en dos pasos, permisos por área y nivel, registro de actividad inalterable, servidores en Frankfurt y enlaces externos con caducidad.',
+    desc: 'Verificación en dos pasos, permisos por área y nivel, registro de actividad inalterable, servidores en Frankfurt y enlaces externos con caducidad.',
     eyebrow: 'Seguridad',
     h1: 'Quién entra, qué ve <em>y dónde están los datos.</em>',
     sub: 'Los datos de producción pertenecen a la productora. Bulx documenta cómo se accede a ellos, quién puede ver cada parte, qué se ha modificado y dónde se almacenan.',
@@ -231,7 +231,7 @@ const PAGINAS = [
   {
     slug: 'sobre', nombre: 'Sobre Bulx', area: 'Bulx', ico: 'corazon',
     titulo: 'Sobre Bulx: software desarrollado en una productora',
-    desc: 'Bulx se desarrolló en 2026 dentro de Palma Pictures, productora de Mallorca, para gestionar su material, su flota, sus presupuestos y su equipo. Desde octubre de 2026 se ofrece a otras productoras.',
+    desc: 'Bulx se desarrolló en 2026 dentro de Palma Pictures, productora de Mallorca, para gestionar su material, su flota y sus presupuestos.',
     eyebrow: 'Sobre Bulx',
     h1: 'Desarrollado dentro <em>de una productora.</em>',
     sub: 'Bulx se construyó entre agosto y octubre de 2026 en Palma Pictures, a partir de lo que su equipo de producción y su departamento técnico necesitaban cada día. Se usa en esa productora desde el primer día y ahora se ofrece a otras.',
@@ -256,7 +256,7 @@ const FAQ_GENERAL = [
   ['¿Para qué tamaño de productora está pensado?', 'Se desarrolló en una productora con más de 700 artículos, 29 vehículos y 180 personas entre plantilla y crew. Sirve desde volúmenes mucho menores; no hay un mínimo.'],
   ['¿Cuánto cuesta?', 'Depende del volumen de material y del número de personas. Se concreta en la demostración, por escrito.'],
   ['¿Funciona en el móvil?', 'Sí. La web está adaptada al móvil y, además, hay una app para iPhone, iPad y Apple Watch con escáner de etiquetas, reservas y chat.'],
-  ['¿Se puede probar antes de contratar?', 'Sí. En la demostración se trabaja con el material de la propia productora y, si se desea, se facilita acceso a un entorno de prueba.'],
+  ['¿Se puede probar antes de contratar?', 'Sí. Hay una prueba gratuita de 14 días que se abre desde esta web, y en la demostración se trabaja con el material de la propia productora.'],
 ];
 
 PAGINAS.push({
@@ -272,5 +272,126 @@ PAGINAS.push({
   pasos: null,
   faq: FAQ_GENERAL.concat(PAGINAS.flatMap(p => p.faq.map(f => f))),
 });
+
+/* ── Soluciones: una página por lo que la gente busca (20/11/2026) ─────────
+   Xavi: «que cualquiera que busque algo parecido a Bulx llegue a nuestra
+   web». Las páginas de arriba describen Bulx área por área, con las palabras
+   de Bulx. Estas responden a búsquedas concretas, con las palabras de quien
+   busca, y enlazan a las de arriba. Se eligieron mirando qué sale hoy en los
+   buscadores: para «software para productoras audiovisuales» aparecen
+   editores de vídeo y gestores de proyectos; para «inventario con códigos QR»
+   de material audiovisual, guías de informática; para la plantilla de Excel,
+   plantillas genéricas. Van después de la página de preguntas a propósito,
+   para que sus preguntas no se repitan allí.
+
+   Mismo tono que el resto: lo que hace el programa, sin promesas y sin
+   cifras que no sean las de la productora donde se desarrolló. */
+PAGINAS.push(
+  {
+    slug: 'software-productoras-audiovisuales', nombre: 'Software para productoras', area: 'Soluciones', ico: 'casa',
+    titulo: 'Software de gestión para productoras audiovisuales',
+    desc: 'Programa para productoras audiovisuales: inventario de material con QR, flota de rodaje, presupuestos de alquiler, equipo y economía en una aplicación.',
+    eyebrow: 'Software para productoras audiovisuales',
+    h1: 'Un programa de gestión <em>para productoras audiovisuales.</em>',
+    sub: 'Bulx reúne en una aplicación lo que una productora suele repartir entre hojas de Excel, mensajes y carpetas: el inventario de material, la flota de vehículos, los presupuestos de alquiler, el equipo y la economía. Se desarrolló dentro de una productora de Mallorca y se usa allí en rodajes reales.',
+    mock: mk.kpis('bulx.es · Inicio', [['21', 'vehículos libres'], ['92 %', 'material en casa'], ['6', 'presupuestos']], [['amarillo', 'Spot Meridiano', 'Rodaje · 14 – 16 oct', 'En curso', 'uso'], ['negro', 'Serie Levante', 'Preparación · 3 semanas', 'Confirmado', 'ok'], ['gris', 'PRESUP-2026-106', 'Kit de iluminación · 5 días', 'Enviado', '']]),
+    cifras: [['6', 'áreas de la productora en una sola aplicación'], ['711', 'artículos gestionados en la productora donde se desarrolló'], ['14 días', 'de prueba gratuita']],
+    bloques: [
+      ['blanca', 'material', 'Inventario de material', 'Una ficha por artículo, con número de serie, fotos, categoría y estado. Kits con su contenido, medidas y peso por caja, y registro de cada salida y cada devolución.'],
+      ['negra', 'flota', 'Flota de rodaje', 'Calendario de reservas de vehículos por proyecto, avisos de ITV y seguro, partes de avería desde el móvil y fotos de salida y devolución.'],
+      ['amarilla', 'presupuestos', 'Presupuestos de alquiler', 'Se componen desde el catálogo, con precio por día. El cliente los acepta en línea desde un enlace y el material queda reservado para esas fechas.'],
+      ['blanca', 'equipo', 'Equipo y crew', 'Fichas de empleados y crew, horas imputadas al proyecto desde el móvil o el Apple Watch, permisos por área y chat interno.'],
+      ['gris', 'economia', 'Economía', 'Importes presupuestados, aceptados y contabilizados por proyecto, cliente y mes, con informe en Excel y conexión para Power BI.'],
+      ['blanca', 'tecnologia', 'Inventario informático', 'Portátiles, móviles, líneas, routers MiFi y licencias asignados a cada persona, con la lista de devolución cuando alguien causa baja.'],
+    ],
+    pasos: [['Importar lo que ya existe', 'El inventario, los vehículos y las personas se importan desde hojas de Excel.'], ['Etiquetar material y vehículos', 'Las etiquetas QR se imprimen desde Bulx y se escanean con cualquier móvil.'], ['Trabajar desde un solo sitio', 'Reservas, salidas, presupuestos y horas quedan registrados y enlazados al proyecto.']],
+    faq: [
+      ['¿Qué es un software de gestión para productoras audiovisuales?', 'Es un programa que lleva la parte operativa de una productora: qué material hay y dónde está, qué vehículos están reservados, qué se ha presupuestado y aceptado, y quién trabaja en cada proyecto. No es un programa de edición de vídeo ni de planificación del rodaje.'],
+      ['¿En qué se diferencia de un gestor de proyectos o de un ERP genérico?', 'En que parte del trabajo de una productora: artículos que salen a rodar y vuelven, kits, vehículos con ITV, presupuestos por días y por departamento, crew por proyecto. Un programa genérico obliga a adaptar ese trabajo a sus pantallas.'],
+      ['¿Para qué tipo de productora sirve?', 'Para productoras de publicidad, cine, televisión y servicios de producción que tienen material propio, vehículos o un equipo que sale a rodar, y para casas de alquiler de material.'],
+      ['¿Sustituye al programa de contabilidad?', 'No. Bulx gestiona el presupuesto hasta su aceptación; la factura se emite con el programa de contabilidad habitual y el presupuesto se marca como contabilizado.'],
+      ['¿Se puede probar?', 'Sí. Hay una prueba gratuita de 14 días, y una demostración por videollamada con el material de la propia productora.'],
+    ],
+  },
+  {
+    slug: 'alquiler-material-audiovisual', nombre: 'Alquiler de material', area: 'Soluciones', ico: 'etiqueta',
+    titulo: 'Software de alquiler de material audiovisual',
+    desc: 'Programa de alquiler de material audiovisual: catálogo con tarifa por día, reserva por fechas, presupuestos aceptados en línea y control de salidas con QR.',
+    eyebrow: 'Software de alquiler de material audiovisual',
+    h1: 'El alquiler de material audiovisual, <em>del presupuesto a la devolución.</em>',
+    sub: 'Para casas de alquiler y para productoras que alquilan su propio material. El catálogo tiene una tarifa por día; el presupuesto se compone desde él y se envía como un enlace; cuando el cliente acepta, el material queda reservado; la salida y la devolución se registran escaneando la etiqueta de cada artículo.',
+    mock: mk.lista('bulx.es · Presupuesto', [['amarillo', 'ARRI Alexa Mini', 'Cámara · 5 días', 'Reservado', 'ok'], ['negro', 'Kit SkyPanel S60', 'Iluminación · 4 cajas · 5 días', 'Reservado', 'ok'], ['gris', 'Dolly Fisher 10', 'Grip · 3 días', 'En taller', 'mal'], ['amarillo', 'Furgoneta V-02', 'Vehículo · 5 días', 'Reservado', 'ok']]),
+    cifras: [['Por día', 'tarifa de cada artículo del catálogo'], ['1 enlace', 'por presupuesto, sin cuenta para el cliente'], ['Con QR', 'cada salida y cada devolución']],
+    bloques: [
+      ['amarilla', 'etiqueta', 'Catálogo con tarifa por día', 'Cada artículo y cada kit tiene su precio por día. El presupuesto calcula los importes por días y por departamento, con descuentos, y con o sin IVA según se configure.'],
+      ['blanca', 'calendario', 'Reserva por fechas', 'Al aceptarse un presupuesto, el material y los vehículos quedan reservados para el periodo del proyecto y no pueden asignarse a otro en las mismas fechas.'],
+      ['negra', 'enlace', 'Aceptación en línea', 'El cliente abre el presupuesto en el navegador, con el diseño de la casa, y lo acepta o pide cambios. Queda registrado cuándo lo abrió y cuándo lo aceptó.'],
+      ['blanca', 'qr', 'Salidas y devoluciones con QR', 'El material se escanea al salir y al volver. Lo que falta o vuelve dañado queda señalado en la devolución, con fotos, y genera una orden de reparación.'],
+      ['gris', 'equipo', 'Ficha de cliente', 'Datos fiscales, contactos, condiciones y todos sus presupuestos: aceptados, pendientes y caducados, con los importes del año.'],
+      ['blanca', 'presupuestos', 'Documentos con el diseño de la casa', 'El presupuesto se exporta a PDF y a Word con el logotipo, los datos fiscales y las condiciones, a partir de plantillas predeterminadas o de una propia.'],
+    ],
+    pasos: [['Cargar el catálogo', 'Se importa desde Excel, con las categorías y la tarifa por día de cada artículo.'], ['Presupuestar desde el catálogo', 'Cliente, fechas y material. Se envía por correo como un enlace, y cada cambio crea una versión.'], ['Entregar y recoger con la etiqueta', 'La salida y la devolución se registran escaneando cada artículo o cada kit.']],
+    faq: [
+      ['¿Sirve para una casa de alquiler de cámara, iluminación o grip?', 'Sí. El catálogo admite cualquier categoría de material, kits con su contenido y vehículos, cada uno con su tarifa por día.'],
+      ['¿El cliente necesita registrarse para aceptar un presupuesto?', 'No. Recibe un enlace que se abre en el navegador. El enlace tiene fecha de caducidad y se puede revocar.'],
+      ['¿Qué ocurre si el cliente no responde?', 'Se le envía un recordatorio por correo a los días que se hayan configurado, y el envío queda en el historial del presupuesto.'],
+      ['¿Se pueden alquilar también vehículos?', 'Sí. Los presupuestos incluyen material y vehículos, y ambos quedan reservados al aceptarse.'],
+      ['¿Bulx emite las facturas del alquiler?', 'No. La factura se emite con el programa de contabilidad habitual; en Bulx el presupuesto se marca como contabilizado para que los informes cuadren.'],
+    ],
+  },
+  {
+    slug: 'inventario-codigos-qr', nombre: 'Inventario con QR', area: 'Soluciones', ico: 'qr',
+    titulo: 'Inventario de material audiovisual con códigos QR',
+    desc: 'Etiquetas QR para cámaras, focos, cajas y vehículos: se imprimen desde Bulx y se escanean con el móvil para registrar salidas, devoluciones e incidencias.',
+    eyebrow: 'Inventario con códigos QR',
+    h1: 'Un inventario con códigos QR <em>para material de rodaje.</em>',
+    sub: 'Cada artículo, cada caja y cada vehículo lleva una etiqueta con un código QR. Al escanearla con la cámara de un móvil se abre su ficha y se registra el movimiento: quién lo retira, cuándo y para qué proyecto. Las etiquetas se generan y se imprimen desde Bulx.',
+    mock: mk.lista('bulx.es · Fichas QR', [['amarillo', 'ARRI Alexa Mini', 'Etiqueta CAM-0012', 'Escaneado · sale', 'uso'], ['negro', 'Caja 3 · Kit SkyPanel', 'Etiqueta LUZ-0147', 'En casa', 'ok'], ['amarillo', 'Furgoneta V-02', 'Etiqueta de vehículo', 'Reservada', 'ok'], ['gris', 'Monitor 17"', 'Etiqueta CAM-0088', 'Taller', 'mal']]),
+    cifras: [['711', 'artículos etiquetados en la productora donde se desarrolló'], ['Sin lector', 'basta la cámara de un móvil'], ['1 etiqueta', 'por artículo, caja o vehículo']],
+    bloques: [
+      ['blanca', 'qr', 'Etiquetas generadas en Bulx', 'Bulx asigna un código a cada artículo y genera su etiqueta. Se imprimen en cualquier impresora, en el formato que se prefiera, y se pueden volver a imprimir.'],
+      ['negra', 'app', 'Se escanea con el móvil', 'No hace falta un lector de códigos ni instalar nada: la cámara del móvil abre la ficha. La app de iPhone y iPad tiene su propio escáner.'],
+      ['amarilla', 'check', 'Salida y devolución en el momento', 'Al escanear se registra quién retira el artículo, cuándo y para qué proyecto. En la devolución se comprueba qué ha vuelto y en qué estado.'],
+      ['blanca', 'material', 'Cajas y kits', 'Una caja o un kit llevan su propia etiqueta y su contenido. Salen y vuelven como una unidad, y en la devolución se ve qué pieza falta.'],
+      ['gris', 'flota', 'También vehículos y equipos', 'Los vehículos y los dispositivos informáticos llevan etiqueta. En un vehículo, el escaneo registra quién lo lleva y con qué kilometraje.'],
+      ['blanca', 'escudo', 'Página pública sin datos sensibles', 'Quien escanea una etiqueta sin tener cuenta ve una página pública del artículo que no muestra números de serie ni precios.'],
+    ],
+    pasos: [['Dar de alta o importar el material', 'Artículo a artículo o desde una hoja de Excel. Cada uno recibe su código.'], ['Imprimir y pegar las etiquetas', 'Una por artículo o por caja, y una por vehículo.'], ['Escanear en cada movimiento', 'Al salir y al volver. El historial de cada artículo queda en su ficha.']],
+    faq: [
+      ['¿Por qué códigos QR y no códigos de barras?', 'Porque un código QR se lee con la cámara de cualquier móvil, sin lector, y abre directamente la ficha del artículo en el navegador.'],
+      ['¿Qué impresora hace falta?', 'Cualquiera. Las etiquetas se generan en Bulx y se imprimen en papel adhesivo o en una impresora de etiquetas.'],
+      ['¿Qué ve una persona ajena que escanea la etiqueta?', 'Una página pública del artículo, que no muestra números de serie ni precios.'],
+      ['¿Qué pasa si una etiqueta se estropea?', 'Se vuelve a imprimir desde Bulx. El código del artículo no cambia.'],
+      ['¿Funciona sin cobertura?', 'Con la app, la consulta de lo ya cargado y el escaneo funcionan sin conexión; los cambios se envían cuando vuelve.'],
+    ],
+  },
+  {
+    slug: 'plantilla-inventario-material', nombre: 'Plantilla de inventario', area: 'Soluciones', ico: 'excel',
+    titulo: 'Plantilla Excel de inventario de material de rodaje',
+    desc: 'Plantilla gratuita en Excel para el inventario de material audiovisual: código, categoría, cantidad, tarifa por día, número de serie y ubicación.',
+    eyebrow: 'Plantilla gratuita en Excel',
+    h1: 'Plantilla de inventario <em>de material de rodaje, en Excel.</em>',
+    sub: 'Una hoja de Excel gratuita, sin registro, con las columnas que necesita el inventario de material de una productora o de una casa de alquiler. Sirve por sí sola y, si más adelante se quiere pasar a Bulx, se importa sin cambiar nada.',
+    cta: { texto: 'Descargar la plantilla (.xlsx)', href: '/descargas/plantilla-inventario-material-rodaje.xlsx' },
+    mock: mk.lista('plantilla-inventario-material-rodaje.xlsx', [['amarillo', 'CAM-0001 · ARRI Alexa Mini', 'Cámara > Cuerpos · 1 ud.', '950 €/día', ''], ['negro', 'LUZ-0001 · SkyPanel S60-C', 'Iluminación > LED · 4 uds.', '120 €/día', ''], ['gris', 'GRP-0001 · Trípode Sachtler', 'Grip > Soportes · 2 uds.', '45 €/día', ''], ['amarillo', 'SON-0001 · Pértiga 3 m', 'Sonido > Accesorios · 3 uds.', '15 €/día', '']]),
+    cifras: [['9', 'columnas: de código a notas'], ['.xlsx', 'para Excel, Numbers o Google Sheets'], ['Gratis', 'y sin registro']],
+    bloques: [
+      ['amarilla', 'etiqueta', 'Código y nombre', 'Un código por artículo (por ejemplo, CAM-0001) y su nombre. El nombre es la única columna obligatoria; el código sirve para la etiqueta y para no duplicar.'],
+      ['blanca', 'material', 'Categoría y subcategoría', 'En una sola columna, con la ruta completa separada por « > »: «Iluminación > Soportes». Así el inventario se puede filtrar y ordenar por departamento.'],
+      ['negra', 'peso', 'Cantidad', 'Las unidades de ese artículo. Para material con número de serie conviene una fila por unidad; para consumibles o piezas iguales, una fila con la cantidad.'],
+      ['blanca', 'presupuestos', 'Precio por día', 'La tarifa de alquiler de cada artículo, que es la base de cualquier presupuesto por días.'],
+      ['gris', 'llave', 'Número de serie y ubicación', 'El número de serie identifica cada unidad ante un seguro o una reparación; la ubicación dice en qué almacén, estantería o caja está.'],
+      ['blanca', 'chat', 'Departamento y notas', 'El departamento al que pertenece (cámara, iluminación, grip, sonido) y cualquier observación: accesorios incluidos, estado, fecha de compra.'],
+    ],
+    pasos: [['Descargar y rellenar', 'Una fila por artículo, sin cambiar las cabeceras. La segunda hoja explica cada columna.'], ['Mantenerla al día', 'Cada alta, baja o cambio de ubicación se anota en la misma hoja.'], ['Importarla en Bulx, si se quiere', 'Bulx lee la plantilla tal cual, crea las categorías y asigna una etiqueta QR a cada artículo.']],
+    faq: [
+      ['¿La plantilla es gratuita?', 'Sí. Se descarga sin registro y se puede usar y modificar libremente.'],
+      ['¿Con qué programas se abre?', 'Con Microsoft Excel, Numbers y Google Sheets. Es un archivo .xlsx sin macros.'],
+      ['¿Qué columnas son obligatorias?', 'Solo el nombre. El resto se puede rellenar poco a poco.'],
+      ['¿Cuándo se queda corta una hoja de Excel?', 'Cuando hay que saber quién tiene cada artículo y desde cuándo, evitar que algo se reserve dos veces en las mismas fechas o registrar el estado en que vuelve el material. Una hoja guarda la lista, no los movimientos.'],
+      ['¿Se puede importar en Bulx?', 'Sí. Las cabeceras de la plantilla son las que lee Bulx. Antes de importar se muestra qué artículos van a entrar y qué categorías se van a crear.'],
+    ],
+  },
+);
 
 module.exports = { PAGINAS, ICO, FAQ_GENERAL };

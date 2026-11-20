@@ -29,9 +29,32 @@ Hay una página por celda del producto (`/material/`, `/flota/`, `/presupuestos/
 - `img/og.png` · la imagen de 1200×630 para compartir. Sale de `generar/og.svg`
   (QuickLook la rasteriza: ver el guion en la memoria de Claude, «web-lanzadera»).
 
-La portada (`index.html`) lleva el mismo menú y el mismo pie escritos a mano,
-porque sus textos van por `idiomas.js` (español, inglés y alemán). Las subpáginas
-van solo en castellano.
+La portada (`index.html`) lleva el mismo menú y el mismo pie escritos a mano. Las
+subpáginas van solo en castellano.
+
+## SEO e idiomas (20/11/2026)
+
+Todo lo que una página le dice a un buscador sale de `generar/seo.js` (título,
+descripción, canonical, hreflang, Open Graph, iconos, datos estructurados). Tras
+tocar CUALQUIER texto: `node generar/generar.js`.
+
+- **Tres idiomas, tres direcciones.** `index.html` es la portada en español y lo que
+  se edita. El generador le rehace la cabecera y escribe `/en/` y `/de/` con los textos
+  de `generar/traducciones.js` (cada bloque `data-t="tN"`). El selector de arriba son
+  tres enlaces. `idiomas.js` ya no traduce: solo redirige los `?lang=en` antiguos y
+  avisa de que hay versión en el idioma del navegador. NO volver a cambiar el idioma
+  con JavaScript sobre la misma dirección: Google leía la portada en inglés.
+- **Soluciones.** Además de las páginas por área, `paginas.js` tiene páginas por
+  búsqueda (`area: 'Soluciones'`): software para productoras, alquiler de material,
+  inventario con QR y la plantilla de Excel. Salen en el pie.
+- **La plantilla** (`descargas/plantilla-inventario-material-rodaje.xlsx`) la escribe
+  `node generar/plantilla-excel.js`, con las cabeceras que lee «Importar Excel» de Bulx.
+- **También se generan** `404.html`, `sitio.webmanifest`, `llms.txt` (resumen para los
+  asistentes de IA), `sitemap.xml` (con hreflang y la fecha del último cambio real) y
+  `robots.txt`.
+- El fichero `<clave>.txt` de la raíz es la llave de IndexNow (Bing y otros): no borrar.
+- Los logotipos de la web son `img/bulx-*-400.png` (20 KB); los de 1360 px se quedan
+  para quien los enlace de fuera.
 
 Para rehacer `img/og.png` (QuickLook no respeta el alto del SVG, así que se
 rasteriza en un lienzo cuadrado con el diseño centrado y se recorta el centro):

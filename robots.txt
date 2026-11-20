@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /entrar.html
 Disallow: /generar/
+Disallow: /404.html
 
 Sitemap: https://bulx.es/sitemap.xml

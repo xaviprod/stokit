@@ -1,0 +1,33 @@
+# Bulx
+
+> Bulx es un software de gestión para productoras audiovisuales y casas de alquiler de material: inventario de material con etiquetas QR, flota de vehículos de rodaje, presupuestos de alquiler aceptados en línea, inventario informático, equipo y economía. Funciona en el navegador y tiene app para iPhone, iPad y Apple Watch. Se desarrolló en 2026 dentro de Palma Pictures, productora de Mallorca (España), y se ofrece a otras productoras. Web en español, inglés (https://bulx.es/en/) y alemán (https://bulx.es/de/).
+
+No confundir con BULX (un fondo cotizado de bolsa) ni con BullX (una herramienta de criptomonedas): Bulx, en bulx.es, es un programa para productoras audiovisuales.
+
+## Producto
+- [Inventario de material para productoras audiovisuales](https://bulx.es/material/): Fichas de material con número de serie, foto y etiqueta QR; kits con su contenido; medidas y peso por caja; salidas y devoluciones registradas por rodaje.
+- [Gestión de flota de rodaje: reservas, ITV y partes](https://bulx.es/flota/): Calendario de reservas de vehículos de rodaje por proyecto, avisos de ITV, seguro y revisiones, partes de avería y registro de salidas y devoluciones.
+- [Presupuestos de alquiler de material y vehículos](https://bulx.es/presupuestos/): Presupuestos de alquiler desde el catálogo: versiones, envío por enlace, aceptación del cliente en línea, recordatorios y reserva automática del material.
+- [Inventario informático: equipos, líneas y licencias](https://bulx.es/tecnologia/): Equipos informáticos, líneas de teléfono, routers MiFi y licencias de software asignados a cada persona. Altas y bajas con lista de devolución.
+- [Equipo y crew de rodaje: horas, permisos y chat](https://bulx.es/equipo/): Fichas de empleados y crew, horas por proyecto desde el móvil o el Apple Watch, coste de los días in-house, permisos por área y chat interno.
+- [Economía de la productora: informes, Excel y Power BI](https://bulx.es/economia/): Importes presupuestados, aceptados y contabilizados por proyecto, cliente y mes. Informe en Excel con gráficos y conexión de datos en directo para Power BI.
+- [La app de Bulx para iPhone, iPad y Apple Watch](https://bulx.es/app/): App de Bulx para iPhone, iPad y Apple Watch: escáner de etiquetas QR, reservas de vehículos, registro de horas, chat interno y notificaciones.
+
+## Para qué se usa
+- [Software de gestión para productoras audiovisuales](https://bulx.es/software-productoras-audiovisuales/): Programa para productoras audiovisuales: inventario de material con QR, flota de rodaje, presupuestos de alquiler, equipo y economía en una aplicación.
+- [Software de alquiler de material audiovisual](https://bulx.es/alquiler-material-audiovisual/): Programa de alquiler de material audiovisual: catálogo con tarifa por día, reserva por fechas, presupuestos aceptados en línea y control de salidas con QR.
+- [Inventario de material audiovisual con códigos QR](https://bulx.es/inventario-codigos-qr/): Etiquetas QR para cámaras, focos, cajas y vehículos: se imprimen desde Bulx y se escanean con el móvil para registrar salidas, devoluciones e incidencias.
+- [Plantilla Excel de inventario de material de rodaje](https://bulx.es/plantilla-inventario-material/): Plantilla gratuita en Excel para el inventario de material audiovisual: código, categoría, cantidad, tarifa por día, número de serie y ubicación.
+
+## Sobre Bulx
+- [Seguridad y protección de datos en Bulx](https://bulx.es/seguridad/): Verificación en dos pasos, permisos por área y nivel, registro de actividad inalterable, servidores en Frankfurt y enlaces externos con caducidad.
+- [Solicitar una demostración de Bulx](https://bulx.es/demo/): Una demostración de 30 minutos por videollamada con el inventario y la flota de su productora. Sin compromiso y sin instalar nada.
+- [Sobre Bulx: software desarrollado en una productora](https://bulx.es/sobre/): Bulx se desarrolló en 2026 dentro de Palma Pictures, productora de Mallorca, para gestionar su material, su flota y sus presupuestos.
+- [Preguntas frecuentes sobre Bulx](https://bulx.es/preguntas/): Respuestas sobre Bulx: instalación, importación del inventario, permisos, ubicación de los datos, precio y periodo de prueba.
+- [Manuales](https://bulx.es/manuales/): manuales de uso de cada área, paso a paso.
+
+## Datos prácticos
+- Prueba gratuita de 14 días: https://cuenta.bulx.es/
+- Precio: según el volumen de material y el número de personas; se concreta en la demostración.
+- Datos alojados en Frankfurt (Alemania).
+- Contacto: info@bulx.es

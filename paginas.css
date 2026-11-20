@@ -152,3 +152,6 @@
   .nav-movil { display: block; }
   .nav-acciones { margin-left: auto; align-items: center; }
 }
+
+/* Seis tarjetas (páginas de Soluciones y la 404): tres y tres, no cinco y una. */
+@media (min-width: 1001px) { .celdas-hermanas.seis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

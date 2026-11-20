@@ -8,7 +8,8 @@
    · ENCENDIDA = false  → solo con `?navidad` en la dirección (para probar).
      Se recuerda mientras dure la pestaña, así que las subpáginas la heredan.
      `?navidad=no` la quita. `&dia=12` finge que hoy es 12 de diciembre.
-   · ENCENDIDA = true   → sola, del 1 de diciembre al 6 de enero.
+   · ENCENDIDA = true   → sola, del 20 de noviembre al 6 de enero (Xavi, 20/11/2026:
+     «visible desde hoy»). El adviento sigue abriendo su primera celda el 1 de diciembre.
    El botón del copo (abajo a la izquierda) la apaga para quien no la quiera,
    y se acuerda en ese navegador. */
 (function () {
@@ -23,12 +24,13 @@
     prueba = sessionStorage.getItem('bulxNavidadPrueba');
   } catch (e) { if (q.has('navidad') && q.get('navidad') !== 'no') prueba = q.get('dia') || '12'; }
   const ahora = new Date(), mes = ahora.getMonth(), diaMes = ahora.getDate();
-  const enFechas = mes === 11 || (mes === 0 && diaMes <= 6);
+  const enFechas = (mes === 10 && diaMes >= 20) || mes === 11 || (mes === 0 && diaMes <= 6);
   if (!(prueba || (ENCENDIDA && enFechas))) return;
 
   /* El día del adviento: 1…24 en diciembre; 25 = ya están todas abiertas. */
-  let DIA = prueba ? Number(prueba) || 12 : (mes === 11 ? diaMes : 25);
-  DIA = Math.max(1, Math.min(25, DIA));
+  /* En noviembre vale 0: el panal está entero por abrir. */
+  let DIA = prueba ? Number(prueba) || 12 : (mes === 11 ? diaMes : mes === 10 ? 0 : 25);
+  DIA = Math.max(0, Math.min(25, DIA));
 
   const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NS = 'http://www.w3.org/2000/svg';
@@ -286,7 +288,7 @@
 
   /* ── La felicitación, en la tarjeta del final ───────────────────────── */
   function fiestas() {
-    const texto = document.querySelector('.final .final-texto'); if (!texto) return;
+    const texto = document.querySelector('.final .final-texto'); if (!texto || DIA < 1) return;   // en noviembre aún es pronto
     const p = document.createElement('p'); p.className = 'nv-fiestas';
     const pon = () => { p.innerHTML = COPO + `<span>${t().fiestas}</span>`; };
     pon(); const h2 = texto.querySelector('h2'); if (h2) h2.before(p); else texto.prepend(p);
@@ -301,7 +303,7 @@
       '<div class="nv-adv"><div class="nv-panal" role="group"></div><div class="nv-ficha" aria-live="polite"></div></div>';
     cifras.after(sec);
     const panal = sec.querySelector('.nv-panal'), ficha = sec.querySelector('.nv-ficha');
-    let elegida = Math.min(DIA, 24), final = DIA > 24;
+    let elegida = Math.max(1, Math.min(DIA, 24)), final = DIA > 24;
     const botones = CELDAS.map((_, i) => {
       const d = i + 1, b = document.createElement('button'); b.type = 'button'; b.textContent = d;
       b.className = 'nv-celda ' + (d < DIA ? 'pasada' : d === DIA ? 'hoy' : 'futura');

@@ -1,0 +1,140 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   BULX.ES · EL PANAL EN INVIERNO                                (prefijo `nv`)
+
+   Xavi (20/11/2026): «cómo decorarías la página de manera super creativa y
+   original para Navidad». La idea sale de la marca, no de un catálogo de
+   adornos: un copo de nieve es un cristal HEXAGONAL, igual que una celda.
+
+   · Nieva dentro de las tarjetas negras (la «noche»), con copos de seis
+     brazos dibujados uno a uno; el ratón hace de viento.
+   · Una guirnalda de bombillas de rodaje cuelga del borde de arriba.
+   · Las tres celdas del logo cuelgan de un hilo, como un adorno.
+   · La nieve se posa sobre la ventana del producto.
+   · Un panal de adviento: 24 celdas, una función de Bulx cada día.
+   · Un guiño en la maqueta del calendario: el trineo, reservado.
+
+   Todo es una CAPA: sin `navidad.js` no existe nada de esto. Con «reducir
+   movimiento» la nieve se queda quieta y nada parpadea ni se balancea.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── La nieve ─────────────────────────────────────────────────────────── */
+.nv-nieve { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.navidad .hero-texto, .navidad .final-texto { position: relative; z-index: 1; }
+.navidad .hero-celdas { z-index: 1; }
+
+/* ── La guirnalda ─────────────────────────────────────────────────────── */
+.nv-guirnalda { position: absolute; left: 0; top: 0; width: 100%; height: 110px; overflow: visible; pointer-events: none; z-index: 1; }
+.nv-guirnalda .nv-cable { fill: none; stroke: rgba(251, 251, 251, .26); stroke-width: 1.4; stroke-linecap: round; }
+.nv-guirnalda .nv-casquillo { fill: #5B5D56; }
+.nv-guirnalda .nv-halo { filter: blur(7px); opacity: .62; }
+.nv-guirnalda .nv-luz { animation: nv-parpadeo var(--t, 3.4s) ease-in-out var(--r, 0s) infinite; }
+@keyframes nv-parpadeo { 0%, 100% { opacity: 1; } 50% { opacity: .38; } }
+
+/* ── Las tres celdas, colgadas ────────────────────────────────────────── */
+.nv-hilo {
+  position: absolute; left: var(--nv-x); top: calc(var(--nv-y) - var(--nv-largo)); width: 2px; height: var(--nv-largo); margin-left: -1px;
+  background: linear-gradient(rgba(251, 251, 251, .12), rgba(251, 251, 251, .5)); pointer-events: none;
+}
+.nv-hilo::before {            /* la anilla */
+  content: ''; position: absolute; left: 50%; bottom: 7px; width: 12px; height: 12px; margin-left: -6px;
+  border: 2px solid rgba(251, 251, 251, .8); border-radius: 999px;
+}
+.nv-hilo::after {             /* el casquillo del adorno */
+  content: ''; position: absolute; left: 50%; bottom: -2px; width: 26px; height: 10px; margin-left: -13px;
+  border-radius: 4px 4px 1px 1px; background: #FBFBFB; box-shadow: inset 0 -3px 0 rgba(29, 31, 28, .14);
+}
+@media (min-width: 1001px) {
+  .navidad .hero-celdas.nv-colgadas { transform-origin: var(--nv-px) var(--nv-py); animation: nv-pendulo 6.5s ease-in-out infinite alternate; }
+  .navidad .hero-celdas.nv-colgadas .celda { animation: none; }
+}
+@media (max-width: 1000px) { .nv-hilo { display: none; } }
+@keyframes nv-pendulo { from { rotate: -1.3deg; } to { rotate: 1.3deg; } }
+
+/* ── La nieve posada sobre la ventana del producto ────────────────────── */
+.navidad .ventana { overflow: visible; }
+.navidad .ventana-barra { border-top-left-radius: inherit; border-top-right-radius: inherit; }
+.navidad .ventana-cuerpo { border-bottom-left-radius: inherit; border-bottom-right-radius: inherit; overflow: hidden; }
+.nv-cornisa {
+  position: absolute; left: 0; bottom: calc(100% - 4px); width: 100%; height: 30px; overflow: visible; pointer-events: none;
+  transform-origin: 50% 100%; animation: nv-posar 7s cubic-bezier(.2, .7, .2, 1) both;
+  filter: drop-shadow(0 1px 0 rgba(29, 31, 28, .12));
+}
+.nv-cornisa path { fill: #FFFFFF; }
+@keyframes nv-posar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* ── El guiño del calendario ──────────────────────────────────────────── */
+.v-fila.nv-trineo > span { color: var(--tinta); }
+.v-fila.nv-trineo .b { animation-delay: .6s; }
+
+/* ── La felicitación de la tarjeta final ──────────────────────────────── */
+.nv-fiestas {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; height: 34px; padding: 0 14px 0 12px; border-radius: 999px;
+  background: rgba(254, 200, 51, .14); color: var(--amarillo) !important; font-size: 14px !important; font-weight: 700; letter-spacing: .01em;
+}
+.nv-fiestas svg { width: 16px; height: 16px; flex: 0 0 auto; }
+
+/* ── El panal de adviento ─────────────────────────────────────────────── */
+.nv-adv { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 40px; align-items: center; }
+.nv-panal {
+  --w: 96px; --g: 8px;
+  display: grid; grid-template-columns: repeat(8, calc(var(--w) * .75 + var(--g))); justify-content: center;
+  padding: 0 calc(var(--w) * .25) calc(var(--w) * .433 + var(--g)) 0;
+}
+.nv-celda {
+  width: var(--w); aspect-ratio: 2 / 1.732; margin: 0 0 var(--g); padding: 0; border: 0; cursor: pointer;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  display: grid; place-items: center; font: 900 24px/1 Inter, system-ui, sans-serif; letter-spacing: -.04em;
+  background: #F6F6F3; color: #B9B9B3;
+  transition: scale .3s var(--muelle), background .2s ease, color .2s ease;
+}
+.nv-celda:nth-child(2n) { translate: 0 calc(50% + var(--g) / 2); }
+.nv-celda:hover, .nv-celda:focus-visible { scale: 1.07; outline: none; }
+.nv-celda.pasada { background: #FFE7A0; color: var(--tinta); }
+.nv-celda.hoy { background: var(--amarillo); color: var(--tinta); animation: nv-latido 2.4s ease-in-out infinite; }
+.nv-celda.elegida, .nv-celda.elegida.hoy { background: var(--negro); color: var(--amarillo); animation: none; }
+.nv-celda.futura:hover { background: #FFFFFF; color: var(--suave); }
+.nv-celda:focus-visible { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; }
+@keyframes nv-latido { 0%, 100% { scale: 1; } 50% { scale: 1.07; } }
+
+.nv-ficha {
+  position: relative; display: flex; flex-direction: column; gap: 12px; min-height: 280px; padding: 36px;
+  background: var(--blanco); border-radius: var(--r-l); box-shadow: var(--sombra); overflow: hidden;
+}
+.nv-ficha-num { font: 900 88px/.9 Inter, system-ui, sans-serif; letter-spacing: -.06em; color: var(--amarillo); }
+.nv-ficha-fecha { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); }
+.nv-ficha h3 { font-size: 26px; }
+.nv-ficha p { color: var(--tinta-2); font-size: 16.5px; }
+.nv-ficha a { margin-top: auto; align-self: flex-start; font-weight: 700; color: var(--tinta); text-decoration: none; border-bottom: 2px solid var(--amarillo); padding-bottom: 2px; }
+.nv-ficha a:hover { border-bottom-color: var(--tinta); }
+.nv-ficha.cerrada .nv-ficha-num { color: var(--gris); }
+.nv-ficha.cambia > * { animation: nv-entra .35s ease both; }
+@keyframes nv-entra { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+@media (max-width: 1100px) {
+  .nv-adv { grid-template-columns: 1fr; gap: 28px; }
+  .nv-ficha { min-height: 0; max-width: 640px; width: 100%; margin: 0 auto; }
+}
+@media (max-width: 760px) {
+  .nv-panal { --w: clamp(62px, calc((100vw - 56px) / 3.25), 104px); --g: 6px; grid-template-columns: repeat(4, calc(var(--w) * .75 + var(--g))); }
+  .nv-celda { font-size: 20px; }
+  .nv-ficha { padding: 28px 24px; }
+  .nv-ficha-num { font-size: 64px; }
+}
+
+/* ── El interruptor ───────────────────────────────────────────────────── */
+.nv-interruptor {
+  position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 60;
+  width: 42px; height: 42px; display: grid; place-items: center; padding: 0; cursor: pointer;
+  border: 1px solid rgba(251, 251, 251, .14); border-radius: 999px; background: var(--negro); color: var(--amarillo);
+  box-shadow: 0 10px 24px -12px rgba(29, 31, 28, .7); transition: scale .25s var(--muelle), background .2s, color .2s;
+}
+.nv-interruptor:hover { scale: 1.08; }
+.nv-interruptor svg { width: 20px; height: 20px; }
+.nv-interruptor.apagado { background: var(--blanco); color: var(--suave); border-color: var(--raya); }
+
+/* ── Quien pide menos movimiento ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .nv-guirnalda .nv-luz, .nv-celda.hoy, .nv-cornisa, .nv-ficha.cambia > *, .navidad .hero-celdas.nv-colgadas { animation: none !important; }
+  .nv-celda, .nv-interruptor { transition: none; }
+}
+@media print { .nv-nieve, .nv-guirnalda, .nv-interruptor, .nv-cornisa, .nv-hilo { display: none !important; } }

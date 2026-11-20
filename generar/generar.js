@@ -207,6 +207,7 @@ ${nav(p.slug)}
 </main>
 ${pie()}
 <script src="/vida.js"></script>
+<script src="/navidad/navidad.js"></script>
 </body>
 </html>
 `;
